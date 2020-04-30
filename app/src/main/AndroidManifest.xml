@@ -16,100 +16,85 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name="edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp"
+        android:name=".core.MainApp"
         android:allowBackup="true"
         android:icon="@drawable/uenlogo"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme1">
-
+        <activity android:name=".ui.sections.SectionAActivity"></activity>
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCHAActivity"
+            android:name=".ui.sections.SectionCHAActivity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCHBActivity"
+            android:name=".ui.sections.SectionCHBActivity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCHCActivity"
+            android:name=".ui.sections.SectionCHCActivity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCHDActivity"
+            android:name=".ui.sections.SectionCHDActivity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCHEActivity"
+            android:name=".ui.sections.SectionCHEActivity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionSS2Activity"
+            android:name=".ui.sections.SectionSS2Activity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionSS1Activity"
+            android:name=".ui.sections.SectionSS1Activity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SplashscreenActivity"
+            android:name=".ui.other.SplashscreenActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.other.LoginActivity"
+            android:name=".ui.other.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionHHActivity"
+            android:name=".ui.sections.SectionHHActivity"
             android:label="@string/hhsec"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.list_activity.FamilyMembersListActivity"
+            android:name=".ui.list_activity.FamilyMembersListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionBActivity"
+            android:name=".ui.sections.SectionBActivity"
             android:label="@string/tdheading"
-            android:parentActivityName="edu.aku.hassannaqvi.uen_hfa_ml.ui.list_activity.FamilyMembersListActivity"
+            android:parentActivityName=".ui.list_activity.FamilyMembersListActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.aku.hassannaqvi.uen_hfa_ml.ui.list_activity.FamilyMembersListActivity" />
         </activity>
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity"
+            android:name=".ui.other.EndingActivity"
             android:screenOrientation="portrait" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.other.MainActivity"
+            android:name=".ui.other.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
-
         <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.core.AndroidDatabaseManager"
-            android:parentActivityName="edu.aku.hassannaqvi.uen_hfa_ml.ui.other.MainActivity"
+            android:name=".core.AndroidDatabaseManager"
+            android:parentActivityName=".ui.other.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.sync.SyncActivity"
+            android:parentActivityName=".ui.other.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
-        <activity
-            android:name="edu.aku.hassannaqvi.uen_hfa_ml.ui.sync.SyncActivity"
-            android:parentActivityName="edu.aku.hassannaqvi.uen_hfa_ml.ui.other.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-
-        <service android:name="edu.aku.hassannaqvi.uen_hfa_ml.DownloadFileService" />
+        <service android:name=".DownloadFileService" />
     </application>
 
 </manifest>
