@@ -32,7 +32,7 @@ public class SectionIActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_i);
         bi.setCallback(this);
-        setTitle(R.string.sssec);
+        //setTitle(R.string.sssec);
         setupSkips();
 
 
