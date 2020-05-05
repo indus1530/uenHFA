@@ -117,20 +117,16 @@
 
                 </LinearLayout>
 
-
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:orientation="horizontal">
+                    style="@style/hlinearlayout"
+                    android:layout_marginTop="12dp">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/formA"
                         android:layout_width="0dp"
-                        android:layout_height="100dp"
+                        android:layout_height="50dp"
                         android:layout_margin="@dimen/cardview_compat_inset_shadow"
                         android:layout_weight="1"
-                        android:clickable="true"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:onClick='openForm'
                         app:cardCornerRadius="20dp">
@@ -144,23 +140,14 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_horizontal"
-                                android:text="Open Form"
+                                android:text="A"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="30sp" />
+
                         </RelativeLayout>
 
-
                     </androidx.cardview.widget.CardView>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/formB"
@@ -191,7 +178,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/formC1"
+                        android:id="@+id/formC"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_margin="@dimen/cardview_compat_inset_shadow"
@@ -209,7 +196,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_horizontal"
-                                android:text="C1"
+                                android:text="C"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="30sp" />
@@ -219,7 +206,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/formC2"
+                        android:id="@+id/formD"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_margin="@dimen/cardview_compat_inset_shadow"
@@ -237,7 +224,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_horizontal"
-                                android:text="C2"
+                                android:text="D"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="30sp" />
@@ -247,7 +234,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/formCHA"
+                        android:id="@+id/formE"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_margin="@dimen/cardview_compat_inset_shadow"
@@ -265,7 +252,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_horizontal"
-                                android:text="CHA"
+                                android:text="E"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="30sp" />
@@ -275,7 +262,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/formCHB"
+                        android:id="@+id/formF"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_margin="@dimen/cardview_compat_inset_shadow"
@@ -293,7 +280,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_horizontal"
-                                android:text="CHB"
+                                android:text="F"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="30sp" />
@@ -303,7 +290,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/formCHC"
+                        android:id="@+id/formG"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_margin="@dimen/cardview_compat_inset_shadow"
@@ -321,7 +308,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_horizontal"
-                                android:text="CHC"
+                                android:text="G"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="30sp" />
@@ -330,8 +317,9 @@
 
                     </androidx.cardview.widget.CardView>
 
+
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/formCHD"
+                        android:id="@+id/formH"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_margin="@dimen/cardview_compat_inset_shadow"
@@ -349,7 +337,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_horizontal"
-                                android:text="CHD"
+                                android:text="H"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="30sp" />
@@ -358,8 +346,9 @@
 
                     </androidx.cardview.widget.CardView>
 
+
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/formCHE"
+                        android:id="@+id/formI"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_margin="@dimen/cardview_compat_inset_shadow"
@@ -377,7 +366,36 @@
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
                                 android:layout_gravity="center_horizontal"
-                                android:text="CHE"
+                                android:text="I"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="30sp" />
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/formJ"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="@dimen/cardview_compat_inset_shadow"
+                        android:layout_weight="1"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:onClick='openForm'
+                        app:cardCornerRadius="20dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center_horizontal"
+                                android:text="J"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="30sp" />

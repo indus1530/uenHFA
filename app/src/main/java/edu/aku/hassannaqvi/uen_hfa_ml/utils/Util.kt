@@ -11,7 +11,6 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import edu.aku.hassannaqvi.uen_hfa_ml.R
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.ChildEndingActivity
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity
 import java.util.*
 

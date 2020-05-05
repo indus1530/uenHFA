@@ -982,13 +982,15 @@ public class SectionEActivity extends AppCompatActivity {
                         bi.e73cb.isChecked() ? "2" :
                                 bi.e73cc.isChecked() ? "3" :
                                         "0");
-        json.put("e73d",
-                bi.e73da.isChecked() ? "1" :
-                        bi.e73db.isChecked() ? "2" :
-                                bi.e73dc.isChecked() ? "3" :
-                                        "0");
+
+        json.put("e73d", bi.e73da.isChecked() ? "1"
+                : bi.e73db.isChecked() ? "2"
+                : bi.e73dc.isChecked() ? "3"
+                : "0");
+
         json.put("e74",
                 "0");
+
         json.put("e74a",
                 bi.e74aa.isChecked() ? "1" :
                         bi.e74ab.isChecked() ? "2" :
@@ -1146,7 +1148,6 @@ public class SectionEActivity extends AppCompatActivity {
                 bi.e814a.isChecked() ? "1" :
                         bi.e814b.isChecked() ? "2" :
                                 "0");
-
 
         child.setsCC(String.valueOf(json));
     }

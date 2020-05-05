@@ -17,7 +17,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionGBinding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.ChildEndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openChildEndActivity;

@@ -50,13 +50,14 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivityMainBinding;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionAActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionBActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionDActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionEActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionFActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionGActivity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionHHActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionHActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionIActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sync.SyncActivity;
@@ -181,31 +182,34 @@ public class MainActivity extends AppCompatActivity {
         Intent oF = null;
         switch (id) {
             case R.id.formA:
-                oF = new Intent(this, SectionHHActivity.class);
+                oF = new Intent(this, SectionAActivity.class);
                 break;
             case R.id.formB:
                 oF = new Intent(this, SectionBActivity.class);
                 break;
-            case R.id.formC1:
-                oF = new Intent(this, SectionIActivity.class);
-                break;
-            case R.id.formC2:
-                oF = new Intent(this, SectionJActivity.class);
-                break;
-            case R.id.formCHA:
+            case R.id.formC:
                 oF = new Intent(this, SectionCActivity.class);
                 break;
-            case R.id.formCHB:
+            case R.id.formD:
                 oF = new Intent(this, SectionDActivity.class);
                 break;
-            case R.id.formCHC:
+            case R.id.formE:
                 oF = new Intent(this, SectionEActivity.class);
                 break;
-            case R.id.formCHD:
+            case R.id.formF:
                 oF = new Intent(this, SectionFActivity.class);
                 break;
-            case R.id.formCHE:
+            case R.id.formG:
                 oF = new Intent(this, SectionGActivity.class);
+                break;
+            case R.id.formH:
+                oF = new Intent(this, SectionHActivity.class);
+                break;
+            case R.id.formI:
+                oF = new Intent(this, SectionIActivity.class);
+                break;
+            case R.id.formJ:
+                oF = new Intent(this, SectionJActivity.class);
                 break;
         }
         startActivity(oF);
