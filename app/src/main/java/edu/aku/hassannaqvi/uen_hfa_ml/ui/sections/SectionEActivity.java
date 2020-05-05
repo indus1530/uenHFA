@@ -214,6 +214,7 @@ public class SectionEActivity extends AppCompatActivity {
                                 bi.e24cc.isChecked() ? "3" :
                                         bi.e24cd.isChecked() ? "4" :
                                                 "0");
+
         json.put("e24d", bi.e24d.getText().toString());
         json.put("e31",
                 bi.e31a.isChecked() ? "1" :
@@ -1163,7 +1164,7 @@ public class SectionEActivity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionCHDActivity.class).putExtra(IM02FLAG, !im02Flag));
+                startActivity(new Intent(this, SectionFActivity.class).putExtra(IM02FLAG, !im02Flag));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
