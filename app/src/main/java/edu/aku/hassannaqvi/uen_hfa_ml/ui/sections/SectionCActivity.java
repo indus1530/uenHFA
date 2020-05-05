@@ -205,13 +205,14 @@ public class SectionCActivity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionCHBActivity.class));
+                startActivity(new Intent(this, SectionDActivity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
         }
 
     }
+
 
     public void BtnEnd() {
         openChildEndActivity(this);
