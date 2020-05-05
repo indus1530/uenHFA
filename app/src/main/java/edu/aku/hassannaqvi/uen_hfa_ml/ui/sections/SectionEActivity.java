@@ -131,6 +131,7 @@ public class SectionEActivity extends AppCompatActivity {
                                 "0");
         json.put("e13",
                 "0");
+
         json.put("e13a",
                 bi.e13aa.isChecked() ? "1" :
                         bi.e13ab.isChecked() ? "2" :
@@ -158,7 +159,7 @@ public class SectionEActivity extends AppCompatActivity {
                                 bi.e14dc.isChecked() ? "3" :
                                         bi.e14dd.isChecked() ? "4" :
                                                 "0");
-        json.put("e13e", bi.e13e.getText().toString());
+//        json.put("e13e", bi.e13e.getText().toString());
         json.put("e21",
                 bi.e21a.isChecked() ? "1" :
                         bi.e21b.isChecked() ? "2" :
@@ -215,7 +216,7 @@ public class SectionEActivity extends AppCompatActivity {
                                         bi.e24cd.isChecked() ? "4" :
                                                 "0");
 
-        json.put("e24d", bi.e24d.getText().toString());
+//        json.put("e24d", bi.e24d.getText().toString());
         json.put("e31",
                 bi.e31a.isChecked() ? "1" :
                         bi.e31b.isChecked() ? "2" :
@@ -345,7 +346,7 @@ public class SectionEActivity extends AppCompatActivity {
                                 bi.e35dc.isChecked() ? "3" :
                                         bi.e35dd.isChecked() ? "4" :
                                                 "0");
-        json.put("e35e", bi.e35e.getText().toString());
+//        json.put("e35e", bi.e35e.getText().toString());
         json.put("e36",
                 "0");
         json.put("e36a0a",
@@ -699,7 +700,7 @@ public class SectionEActivity extends AppCompatActivity {
                                 bi.e48c.isChecked() ? "3" :
                                         bi.e48d.isChecked() ? "4" :
                                                 "0");
-        json.put("e49", bi.e49.getText().toString());
+//        json.put("e49", bi.e49.getText().toString());
 
         json.put("e410",
                 "0");
@@ -1011,7 +1012,7 @@ public class SectionEActivity extends AppCompatActivity {
                                 bi.e74fc.isChecked() ? "3" :
                                         bi.e74fd.isChecked() ? "4" :
                                                 "0");
-        json.put("e74g", bi.e74g.getText().toString());
+//        json.put("e74g", bi.e74g.getText().toString());
         json.put("e75",
                 "0");
         json.put("e75a0a",
