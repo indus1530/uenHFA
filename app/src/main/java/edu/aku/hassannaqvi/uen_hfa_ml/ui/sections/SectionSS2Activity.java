@@ -75,7 +75,7 @@ public class SectionSS2Activity extends AppCompatActivity {
 
                 selectedChildren = FamilyMembersListActivity.mainVModel.getAllUnder12();
                 Class<?> T = EndingActivity.class;
-                if (selectedChildren.getFirst().size() > 0) T = SectionCHAActivity.class;
+                if (selectedChildren.getFirst().size() > 0) T = SectionCActivity.class;
                 startActivity(new Intent(this, T).putExtra("complete", true));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

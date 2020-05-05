@@ -51,7 +51,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionBActivity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCHAActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCHBActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCHCActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCHDActivity;
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 oF = new Intent(this, SectionSS2Activity.class);
                 break;
             case R.id.formCHA:
-                oF = new Intent(this, SectionCHAActivity.class);
+                oF = new Intent(this, SectionCActivity.class);
                 break;
             case R.id.formCHB:
                 oF = new Intent(this, SectionCHBActivity.class);

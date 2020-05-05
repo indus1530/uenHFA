@@ -2,9 +2,6 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,9 +17,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionBBinding;
-import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.AgeModel;
-import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.DateRepository;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.list_activity.FamilyMembersListActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.viewmodel.MainVModel;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.SERIAL_EXTRA;
@@ -45,10 +39,6 @@ public class SectionBActivity extends AppCompatActivity {
     }
 
     private void setUIComponent() {
-        mainVModel = FamilyMembersListActivity.Companion.getMainVModel();
-        serial = getIntent().getIntExtra(SERIAL_EXTRA, 0);
-        bi.ch01.setText(String.valueOf(serial));
-
     }
 
     public void BtnContinue() {
@@ -88,59 +78,29 @@ public class SectionBActivity extends AppCompatActivity {
         fmc.setFormdate(MainApp.fc.getFormDate());
         fmc.setClusterno(MainApp.fc.getClusterCode());
         fmc.setHhno(MainApp.fc.getHhno());
-        fmc.setSerialno(bi.ch01.getText().toString());
-        fmc.setName(bi.ch02.getText().toString());
-        fmc.setFather_name(bi.ch03.getText().toString());
-        fmc.setMother_name(bi.ch03b.getText().toString());
+//        fmc.setSerialno(bi.ch01.getText().toString());
+//        fmc.setName(bi.ch02.getText().toString());
+//        fmc.setFather_name(bi.ch03.getText().toString());
+//        fmc.setMother_name(bi.ch03b.getText().toString());
 
-        JSONObject sd = new JSONObject();
-        sd.put("username", MainApp.fc.getUser());
-        sd.put("deviceid", MainApp.appInfo.getDeviceID());
-        sd.put("tagid", MainApp.fc.getDevicetagID());
-        sd.put("appversion", MainApp.appInfo.getAppVersion());
-        sd.put("_luid", MainApp.fc.getLuid());
+        JSONObject json = new JSONObject();
+        json.put("b1",
+                bi.b1a.isChecked() ? "1" :
+                        bi.b1b.isChecked() ? "2" :
+                                "0");
+        json.put("b2",
+                bi.b2a.isChecked() ? "1" :
+                        bi.b2b.isChecked() ? "2" :
+                                "0");
+        json.put("b3", bi.b3.getText().toString());
+        json.put("b4", bi.b4.getText().toString());
+        json.put("b5", bi.b5.getText().toString());
 
-        fmc.setGender(bi.ch04a.isChecked() ? "1"
-                : bi.ch04b.isChecked() ? "2"
-                : "0");
-
-        sd.put("ch05a", bi.ch05a.getText().toString());
-        sd.put("ch05b", bi.ch05b.getText().toString());
-        sd.put("ch05c", bi.ch05c.getText().toString());
-        sd.put("ch06", bi.ch06.getText().toString());
-        fmc.setAge(bi.ch06.getText().toString());
-        fmc.setMonthfm(bi.ch06a.getText().toString().trim().isEmpty() ? "0" : bi.ch06a.getText().toString());
-
-        sd.put("ch07", bi.ch07a.isChecked() ? "1"
-                : bi.ch07b.isChecked() ? "2"
-                : bi.ch07c.isChecked() ? "3"
-                : bi.ch0796.isChecked() ? "96"
-                : "0");
-
-        sd.put("ch08", bi.ch08a.isChecked() ? "1"
-                : bi.ch08b.isChecked() ? "2"
-                : "0");
-
-        fmc.setsD(String.valueOf(sd));
-
-        // Update in ViewModel
-        mainVModel.updateFamilyMembers(fmc);
-
-        if (Integer.parseInt(fmc.getAge()) < 5) {
-            mainVModel.setChildU5(fmc);
-            int cumMonths = Integer.parseInt(fmc.getAge()) * 12 + Integer.parseInt(fmc.getMonthfm());
-            if (cumMonths >= 12 && cumMonths < 24)
-                mainVModel.setChildU12(fmc);
-        }
-
-        // Update in ViewModel
-        mainVModel.setFamilyMembers(fmc);
-        serial++;
 
     }
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.fldGrpSectionD);
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
     public void BtnEnd() {
@@ -149,7 +109,7 @@ public class SectionBActivity extends AppCompatActivity {
 
     private void setListeners() {
 
-        EditText[] txtListener = new EditText[]{bi.ch05a, bi.ch05b};
+        /*EditText[] txtListener = new EditText[]{bi.ch05a, bi.ch05b};
         for (EditText txtItem : txtListener) {
 
             txtItem.addTextChangedListener(new TextWatcher() {
@@ -170,12 +130,12 @@ public class SectionBActivity extends AppCompatActivity {
                 }
             });
 
-        }
+        }*/
 
     }
 
     public void ch05cOnTextChanged(CharSequence s, int start, int before, int count) {
-        bi.ch06.setEnabled(false);
+        /*bi.ch06.setEnabled(false);
         bi.ch06.setText(null);
         bi.ch06a.setEnabled(false);
         bi.ch06a.setText(null);
@@ -193,7 +153,7 @@ public class SectionBActivity extends AppCompatActivity {
         AgeModel age = DateRepository.Companion.getCalculatedAge(year, month, day);
         if (age == null) return;
         bi.ch06.setText(String.valueOf(age.getYear()));
-        bi.ch06a.setText(String.valueOf(age.getMonth()));
+        bi.ch06a.setText(String.valueOf(age.getMonth()));*/
     }
 
     @Override

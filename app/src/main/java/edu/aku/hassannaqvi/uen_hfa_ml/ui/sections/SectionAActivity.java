@@ -32,7 +32,7 @@ public class SectionAActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_a);
         bi.setCallback(this);
-        setTitle(R.string.sssec);
+        setTitle(R.string.sectionatitle);
         setupSkips();
 
 
@@ -95,86 +95,95 @@ public class SectionAActivity extends AppCompatActivity {
 
     private void SaveDraft() throws JSONException {
 
-        JSONObject f1 = new JSONObject();
-        f1.put("101", bi .101.getText().toString())
-        f1.put("102", bi .102.getText().toString())
-        f1.put("103", bi .103.getText().toString())
-        f1.put("104",
-                bi .104 a.isChecked() ? "1" :
-                bi .104 b.isChecked() ? "2" :
-                bi .104 c.isChecked() ? "3" :
-                "0")
-        f1.put("105", bi .105 a.isChecked() ? "1"
-                : bi .105 b.isChecked() ? "2"
-                : bi .105 c.isChecked() ? "3"
-                : bi .105d.isChecked() ? "4" : bi .105e.isChecked() ? "5" : bi
-        .105f.isChecked() ? "6" : bi .105 g.isChecked() ? "7" : bi .105 h.isChecked() ? "8" : "0")
-        f1.put("106",
+        JSONObject json = new JSONObject();
+
+        json.put("a2", bi.a2.getText().toString());
+        json.put("a3", bi.a3.getText().toString());
+        json.put("a4", bi.a4.getText().toString());
+        json.put("a5", bi.a5.getText().toString());
+
+        json.put("a6", bi.a6a.isChecked() ? "1"
+                : bi.a6b.isChecked() ? "2"
+                : bi.a6c.isChecked() ? "3"
+                : "0");
+
+        json.put("a7",
+                bi.a7a.isChecked() ? "1" :
+                        bi.a7b.isChecked() ? "2" :
+                                bi.a7c.isChecked() ? "3" :
+                                        bi.a7d.isChecked() ? "4" :
+                                                bi.a7e.isChecked() ? "5" :
+                                                        bi.a7f.isChecked() ? "6" :
+                                                                bi.a7g.isChecked() ? "7" :
+                                                                        bi.a7h.isChecked() ? "8" :
+                                                                                "0");
+        json.put("a8",
                 "0");
-        f1.put("107",
+        json.put("a9",
                 "0");
-        f1.put("108",
-                bi .108 a.isChecked() ? "1" :
-                bi .108 b.isChecked() ? "2" :
-                "0")
-        f1.put("109",
-                bi .109 a.isChecked() ? "1" :
-                bi .109 b.isChecked() ? "2" :
-                "0")
-        f1.put("110", bi .110.getText().toString())
-        f1.put("111", bi .111.getText().toString())
-        f1.put("112",
-                bi .112 a.isChecked() ? "1" :
-                bi .112 b.isChecked() ? "2" :
-                "0")
-        f1.put("113",
-                bi .113 a.isChecked() ? "1" :
-                bi .113 b.isChecked() ? "2" :
-                "0")
-        f1.put("114", bi .114.getText().toString())
-        f1.put("115",
-                bi .115 a.isChecked() ? "1" :
-                bi .115 b.isChecked() ? "2" :
-                bi .115 c.isChecked() ? "3" :
-                bi .115d.isChecked() ? "4" :
-                bi .115e.isChecked() ? "5" :
-                bi .115f.isChecked() ? "6" :
-                bi .115 g.isChecked() ? "7" :
-                bi .115 h.isChecked() ? "8" :
-                bi .115 i.isChecked() ? "9" :
-                bi .115 j.isChecked() ? "10" :
-                "0")
-        f1.put("116",
-                bi .116 a.isChecked() ? "1" :
-                bi .116 b.isChecked() ? "2" :
-                bi .116 c.isChecked() ? "3" :
-                bi .116d.isChecked() ? "4" :
-                bi .116 x.isChecked() ? "96" :
-                "0")
-        f1.put("116xx", bi .116 xx.getText().toString())
-        f1.put("11601",
-                bi .11601 a.isChecked() ? "1" :
-                bi .11601 b.isChecked() ? "2" :
-                bi .11601 c.isChecked() ? "3" :
-                bi .11601d.isChecked() ? "4" :
-                bi .11601e.isChecked() ? "5" :
-                bi .11601f.isChecked() ? "6" :
-                bi .11601 g.isChecked() ? "7" :
-                bi .11601 h.isChecked() ? "96" :
-                "0")
-        f1.put("11601hx", bi .11601 hx.getText().toString())
-        f1.put("117",
-                bi .117 a.isChecked() ? "1" :
-                bi .117 b.isChecked() ? "2" :
-                "0")
-        f1.put("118", bi .118.getText().toString())
-        f1.put("119",
-                bi .119 a.isChecked() ? "1" :
-                bi .119 b.isChecked() ? "2" :
-                bi .119 c.isChecked() ? "3" :
-                bi .119d.isChecked() ? "4" :
-                bi .119e.isChecked() ? "5" :
-                "0")
+        json.put("a10",
+                bi.a10a.isChecked() ? "1" :
+                        bi.a10b.isChecked() ? "2" :
+                                "0");
+        json.put("a11",
+                bi.a11a.isChecked() ? "1" :
+                        bi.a11b.isChecked() ? "2" :
+                                "0");
+        json.put("a12", bi.a12.getText().toString());
+        json.put("a13", bi.a13.getText().toString());
+        json.put("a14",
+                bi.a14a.isChecked() ? "1" :
+                        bi.a14b.isChecked() ? "2" :
+                                "0");
+        json.put("a15",
+                bi.a15a.isChecked() ? "1" :
+                        bi.a15b.isChecked() ? "2" :
+                                "0");
+        json.put("a16", bi.a16.getText().toString());
+        json.put("a17",
+                bi.a17a.isChecked() ? "1" :
+                        bi.a17b.isChecked() ? "2" :
+                                bi.a17c.isChecked() ? "3" :
+                                        bi.a17d.isChecked() ? "4" :
+                                                bi.a17e.isChecked() ? "5" :
+                                                        bi.a17f.isChecked() ? "6" :
+                                                                bi.a17g.isChecked() ? "7" :
+                                                                        bi.a17h.isChecked() ? "8" :
+                                                                                bi.a17i.isChecked() ? "9" :
+                                                                                        bi.a17j.isChecked() ? "10" :
+                                                                                                "0");
+        json.put("a18",
+                bi.a18a.isChecked() ? "1" :
+                        bi.a18b.isChecked() ? "2" :
+                                bi.a18c.isChecked() ? "3" :
+                                        bi.a18d.isChecked() ? "4" :
+                                                bi.a18x.isChecked() ? "96" :
+                                                        "0");
+        json.put("a18xx", bi.a18xx.getText().toString());
+        json.put("a19",
+                bi.a19a.isChecked() ? "1" :
+                        bi.a19b.isChecked() ? "2" :
+                                bi.a19c.isChecked() ? "3" :
+                                        bi.a19d.isChecked() ? "4" :
+                                                bi.a19e.isChecked() ? "5" :
+                                                        bi.a19f.isChecked() ? "6" :
+                                                                bi.a19g.isChecked() ? "7" :
+                                                                        bi.a19x.isChecked() ? "96" :
+                                                                                "0");
+        json.put("a19xx", bi.a19xx.getText().toString());
+        json.put("a20",
+                bi.a20a.isChecked() ? "1" :
+                        bi.a20b.isChecked() ? "2" :
+                                "0");
+        json.put("a21", bi.a21.getText().toString());
+        json.put("a22",
+                bi.a22a.isChecked() ? "1" :
+                        bi.a22b.isChecked() ? "2" :
+                                bi.a22c.isChecked() ? "3" :
+                                        bi.a22d.isChecked() ? "4" :
+                                                bi.a22e.isChecked() ? "5" :
+                                                        "0");
+
 
         MainApp.fc.setsE(String.valueOf(json));
 

@@ -12,7 +12,7 @@ import com.validatorcrawler.aliazaz.Validator;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivityChildEndingBinding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCHAActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCActivity;
 
 public class ChildEndingActivity extends AppCompatActivity {
 
@@ -55,7 +55,7 @@ public class ChildEndingActivity extends AppCompatActivity {
             if (UpdateDB()) {
                 finish();
                 Class<?> T = EndingActivity.class;
-                if (MainApp.selectedChildren.getFirst().size() > 0) T = SectionCHAActivity.class;
+                if (MainApp.selectedChildren.getFirst().size() > 0) T = SectionCActivity.class;
                 startActivity(new Intent(this, T).putExtra("complete", true));
             } else {
                 Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
