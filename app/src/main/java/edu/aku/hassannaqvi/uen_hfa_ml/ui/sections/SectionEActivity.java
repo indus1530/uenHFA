@@ -20,7 +20,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionEBinding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.IM02FLAG;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openChildEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionEActivity extends AppCompatActivity {
 
@@ -1176,8 +1176,7 @@ public class SectionEActivity extends AppCompatActivity {
     }
 
     public void BtnEnd() {
-
-        openChildEndActivity(this);
+        openEndActivity(this);
     }
 
     @Override
