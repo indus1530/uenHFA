@@ -2009,7 +2009,7 @@
                             android:layout_marginBottom="12dp"
                             android:hint="@string/h41x"
                             android:tag="h41x"
-                            android:text='@{h41x.checked? h41xx.getText().toString() : ""}'
+                            android:text='@{h41x.checked? h41xx.getText().toString() : "-1"}'
                             android:visibility='@{h41x.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>
@@ -2087,7 +2087,7 @@
                             android:layout_marginBottom="12dp"
                             android:hint="@string/h51x"
                             android:tag="h51x"
-                            android:text='@{h51x.checked? h51xx.getText().toString() : ""}'
+                            android:text='@{h51x.checked? h51xx.getText().toString() : "-1"}'
                             android:visibility='@{h51x.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>
@@ -2184,7 +2184,7 @@
                             android:layout_marginBottom="12dp"
                             android:hint="@string/h61aaa"
                             android:tag="h61aaa"
-                            android:text='@{h61aaa.checked? h61aaax.getText().toString() : ""}'
+                            android:text='@{h61aaa.checked? h61aaax.getText().toString() : "-1"}'
                             android:visibility='@{h61aaa.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>
@@ -3363,9 +3363,7 @@
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
                         android:hint="@string/h116a" />
-
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
 
             <!-- h117  Radio   -->
@@ -8664,7 +8662,7 @@
                             android:layout_marginBottom="12dp"
                             android:hint="@string/h162x"
                             android:tag="h162x"
-                            android:text='@{h162x.checked? h162xx.getText().toString() : ""}'
+                            android:text='@{h162x.checked? h162xx.getText().toString() : "-1"}'
                             android:visibility='@{h162x.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>
@@ -8723,7 +8721,7 @@
                             android:layout_marginBottom="12dp"
                             android:hint="@string/h163x"
                             android:tag="h163x"
-                            android:text='@{h163x.checked? h163xx.getText().toString() : ""}'
+                            android:text='@{h163x.checked? h163xx.getText().toString() : "-1"}'
                             android:visibility='@{h163x.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>
@@ -8831,7 +8829,7 @@
                             android:layout_marginBottom="12dp"
                             android:hint="@string/h165x"
                             android:tag="h165x"
-                            android:text='@{h165x.checked? h165xx.getText().toString() : ""}'
+                            android:text='@{h165x.checked? h165xx.getText().toString() : "-1"}'
                             android:visibility='@{h165x.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>
@@ -8861,9 +8859,7 @@
                     android:text="Save" />
                 <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
             </LinearLayout>
-
         </LinearLayout>
 
     </ScrollView>
-
 </layout>
