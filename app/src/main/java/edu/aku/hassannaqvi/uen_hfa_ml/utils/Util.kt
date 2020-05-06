@@ -71,7 +71,7 @@ fun openChildEndActivity(activity: Activity) {
     dialog.window!!.attributes = params
     dialog.findViewById<View>(R.id.btnOk).setOnClickListener { view: View? ->
         activity.finish()
-        activity.startActivity(Intent(activity, ChildEndingActivity::class.java).putExtra("complete", false))
+        //activity.startActivity(Intent(activity, ChildEndingActivity::class.java).putExtra("complete", false))
     }
     dialog.findViewById<View>(R.id.btnNo).setOnClickListener { view: View? -> dialog.dismiss() }
 }
