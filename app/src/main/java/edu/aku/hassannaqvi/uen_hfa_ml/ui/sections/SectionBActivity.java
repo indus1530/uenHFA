@@ -84,18 +84,20 @@ public class SectionBActivity extends AppCompatActivity {
 //        fmc.setMother_name(bi.ch03b.getText().toString());
 
         JSONObject json = new JSONObject();
-        json.put("b1",
-                bi.b1a.isChecked() ? "1" :
-                        bi.b1b.isChecked() ? "2" :
-                                "0");
-        json.put("b2",
-                bi.b2a.isChecked() ? "1" :
-                        bi.b2b.isChecked() ? "2" :
-                                "0");
-        json.put("b3", bi.b3.getText().toString());
-        json.put("b4", bi.b4.getText().toString());
-        json.put("b5", bi.b5.getText().toString());
 
+        json.put("b1", bi.b1a.isChecked() ? "1"
+                : bi.b1b.isChecked() ? "2"
+                : "-1");
+
+        json.put("b2", bi.b2a.isChecked() ? "1"
+                : bi.b2b.isChecked() ? "2"
+                : "-1");
+
+        json.put("b3", bi.b3.getText().length() > 0 ? bi.b3.getText().toString() : "-1");
+
+        json.put("b4", bi.b4.getText().length() > 0 ? bi.b4.getText().toString() : "-1");
+
+        json.put("b5", bi.b5.getText().length() > 0 ? bi.b5.getText().toString() : "-1");
 
     }
 
