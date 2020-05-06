@@ -711,7 +711,7 @@
                             android:layout_marginBottom="12dp"
                             android:hint="@string/a18x"
                             android:tag="a18x"
-                            android:text='@{a18x.checked? a18xx.getText().toString() : ""}'
+                            android:text='@{a18x.checked? a18xx.getText().toString() : "-1"}'
                             android:visibility='@{a18x.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>
@@ -794,7 +794,7 @@
                             android:layout_marginBottom="12dp"
                             android:hint="@string/a19x"
                             android:tag="a19x"
-                            android:text='@{a19x.checked? a19xx.getText().toString() : ""}'
+                            android:text='@{a19x.checked? a19xx.getText().toString() : "-1"}'
                             android:visibility='@{a19x.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
                 </LinearLayout>
