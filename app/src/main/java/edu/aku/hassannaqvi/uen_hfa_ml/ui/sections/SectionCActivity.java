@@ -18,9 +18,10 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionCBinding;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openChildEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionCActivity extends AppCompatActivity {
 
@@ -205,7 +206,7 @@ public class SectionCActivity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionDActivity.class));
+                startActivity(new Intent(this, EndingActivity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -215,7 +216,7 @@ public class SectionCActivity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-        openChildEndActivity(this);
+        openEndActivity(this);
     }
 
     @Override

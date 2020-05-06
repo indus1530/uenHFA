@@ -26,7 +26,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.DateRepository;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openChildEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionFActivity extends AppCompatActivity {
 
@@ -673,7 +673,7 @@ public class SectionFActivity extends AppCompatActivity {
     }
 
     public void BtnEnd() {
-        openChildEndActivity(this);
+        openEndActivity(this);
     }
 
     @Override

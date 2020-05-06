@@ -34,18 +34,10 @@ public class EndingActivity extends AppCompatActivity {
         if (check) {
             bi.istatusa.setEnabled(true);
             bi.istatusb.setEnabled(false);
-            bi.istatusc.setEnabled(false);
-            bi.istatusd.setEnabled(false);
-            bi.istatuse.setEnabled(false);
-            bi.istatusf.setEnabled(false);
             bi.istatus96.setEnabled(false);
         } else {
             bi.istatusa.setEnabled(false);
             bi.istatusb.setEnabled(true);
-            bi.istatusc.setEnabled(true);
-            bi.istatusd.setEnabled(true);
-            bi.istatuse.setEnabled(true);
-            bi.istatusf.setEnabled(true);
             bi.istatus96.setEnabled(true);
         }
 
@@ -68,10 +60,6 @@ public class EndingActivity extends AppCompatActivity {
 
         MainApp.fc.setIstatus(bi.istatusa.isChecked() ? "1"
                 : bi.istatusb.isChecked() ? "2"
-                : bi.istatusc.isChecked() ? "3"
-                : bi.istatusd.isChecked() ? "4"
-                : bi.istatuse.isChecked() ? "5"
-                : bi.istatusf.isChecked() ? "6"
                 : bi.istatus96.isChecked() ? "96"
                 : "0");
 

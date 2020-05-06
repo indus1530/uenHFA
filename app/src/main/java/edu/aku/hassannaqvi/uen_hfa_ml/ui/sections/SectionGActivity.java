@@ -17,9 +17,10 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionGBinding;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openChildEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionGActivity extends AppCompatActivity {
 
@@ -52,19 +53,20 @@ public class SectionGActivity extends AppCompatActivity {
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
-        json.put("g11",
-                bi.g11b.isChecked() ? "2" :
-                        bi.g11c.isChecked() ? "3" :
-                                bi.g11d.isChecked() ? "4" :
-                                        bi.g11e.isChecked() ? "5" :
-                                                bi.g11f.isChecked() ? "6" :
-                                                        bi.g11x.isChecked() ? "96" :
-                                                                "0");
+
+        json.put("g11", bi.g11b.isChecked() ? "2"
+                : bi.g11c.isChecked() ? "3"
+                : bi.g11d.isChecked() ? "4"
+                : bi.g11e.isChecked() ? "5"
+                : bi.g11f.isChecked() ? "6"
+                : bi.g11x.isChecked() ? "96"
+                : "0");
         json.put("g11xx", bi.g11xx.getText().toString());
-        json.put("g11a",
-                "0");
-        json.put("g12",
-                "0");
+
+        json.put("g11a", "0");
+
+        json.put("g12", "0");
+
         json.put("g12a",
                 bi.g12aa.isChecked() ? "1" :
                         bi.g12ab.isChecked() ? "2" :
@@ -1907,7 +1909,7 @@ public class SectionGActivity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionHActivity.class));
+                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -1917,7 +1919,7 @@ public class SectionGActivity extends AppCompatActivity {
     }
 
     public void BtnEnd() {
-        openChildEndActivity(this);
+        openEndActivity(this);
     }
 
     @Override

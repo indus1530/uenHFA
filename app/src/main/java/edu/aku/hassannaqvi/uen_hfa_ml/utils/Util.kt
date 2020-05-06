@@ -58,7 +58,7 @@ fun openEndActivity(activity: Activity) {
     dialog.findViewById<View>(R.id.btnNo).setOnClickListener { view: View? -> dialog.dismiss() }
 }
 
-fun openChildEndActivity(activity: Activity) {
+/*fun openChildEndActivity(activity: Activity) {
     val dialog = Dialog(activity)
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.setContentView(R.layout.item_dialog)
@@ -74,7 +74,7 @@ fun openChildEndActivity(activity: Activity) {
         //activity.startActivity(Intent(activity, ChildEndingActivity::class.java).putExtra("complete", false))
     }
     dialog.findViewById<View>(R.id.btnNo).setOnClickListener { view: View? -> dialog.dismiss() }
-}
+}*/
 
 fun contextEndActivity(activity: Activity) {
     val dialog = Dialog(activity)

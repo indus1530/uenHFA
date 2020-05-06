@@ -21,9 +21,9 @@
             style="@style/linearlayout_view">
 
 
-            <!-- hh22  Radio   -->
+            <!-- status Radio   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVhh22"
+                android:id="@+id/fldGrpCVstatus"
                 style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
@@ -34,27 +34,27 @@
                         android:background="@drawable/bottom">
 
                         <TextView
-                            android:id="@+id/qtxt_hh22"
+                            android:id="@+id/qtxt_status"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/q_hh22"
-                            android:text="@string/hh22" />
+                            android:layout_toEndOf="@id/q_status"
+                            android:text="@string/j31l" />
 
                         <TextView
-                            android:id="@+id/q_hh22"
+                            android:id="@+id/q_status"
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/qtxt_hh22"
-                            android:layout_alignBottom="@id/qtxt_hh22"
-                            android:text="@string/Q_hh22" />
+                            android:layout_alignTop="@id/qtxt_status"
+                            android:layout_alignBottom="@id/qtxt_status"
+                            android:text="@string/Q_c1a" />
 
                     </RelativeLayout>
 
                     <!--Status-->
                     <TextView
                         style="@style/info"
-                        android:text="@string/hh22h" />
+                        android:text="@string/j31l" />
 
                     <RadioGroup
                         android:id="@+id/istatus"
@@ -65,37 +65,13 @@
                             android:id="@+id/istatusa"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/hh22a" />
+                            android:text="Complete" />
 
                         <RadioButton
                             android:id="@+id/istatusb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/hh22b" />
-
-                        <RadioButton
-                            android:id="@+id/istatusc"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hh22c" />
-
-                        <RadioButton
-                            android:id="@+id/istatusd"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hh22d" />
-
-                        <RadioButton
-                            android:id="@+id/istatuse"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hh22e" />
-
-                        <RadioButton
-                            android:id="@+id/istatusf"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/hh22f" />
+                            android:text="Incomplete" />
 
                         <RadioButton
                             android:id="@+id/istatus96"
