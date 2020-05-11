@@ -106,7 +106,7 @@ public class SectionH5Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(this, SectionH6Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -130,13 +130,14 @@ public class SectionH5Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
         JSONObject json = new JSONObject();
+
         json.put("h0501", bi.h0501a.isChecked() ? "1"
                 : bi.h0501b.isChecked() ? "2"
                 : bi.h0501c.isChecked() ? "3"
                 : bi.h0501x.isChecked() ? "96"
                 : "-1");
-
         json.put("h0501xx", bi.h0501xx.getText().toString());
 
 

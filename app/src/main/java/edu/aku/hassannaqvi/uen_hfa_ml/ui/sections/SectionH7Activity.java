@@ -32,7 +32,7 @@ public class SectionH7Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h5);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h7);
         bi.setCallback(this);
         //setTitle(R.string.sssec);
         setupSkips();
@@ -106,7 +106,7 @@ public class SectionH7Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(this, SectionH8Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -130,7 +130,9 @@ public class SectionH7Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
         JSONObject json = new JSONObject();
+
         json.put("h0701", "-1");
 
         json.put("h0701a", bi.h0701aa.isChecked() ? "1"
@@ -160,7 +162,6 @@ public class SectionH7Activity extends AppCompatActivity {
         json.put("h0701g", bi.h0701ga.isChecked() ? "1"
                 : bi.h0701gb.isChecked() ? "2"
                 : "-1");
-
 
     }
 

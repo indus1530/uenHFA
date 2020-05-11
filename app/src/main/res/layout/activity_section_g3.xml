@@ -1,0 +1,1755 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="callback"
+            type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionG3Activity" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadeScrollbars="false"
+        android:fillViewport="true"
+        android:scrollbarSize="10dip"
+        tools:context=".ui.sections.SectionG3Activity">
+
+        <LinearLayout
+            android:id="@+id/GrpName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- g03  Title   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVg03"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g03" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- g0301  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVg0301"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0301" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- g0301a  Title   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVg0301a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0301a" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0301aa" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0301aa"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0301aa"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0301ab" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0301ab"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0301ab"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- g0301b  Title   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVg0301b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0301b" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0301ba" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0301ba"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0301ba"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0301bb" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0301bb"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0301bb"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- g0301c  Title   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVg0301c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0301c" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0301ca" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0301ca"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0301ca"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0301cb" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0301cb"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0301cb"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- g0302  Radio   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVg0302"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- g0302a  Title   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVg0302a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a10r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a10r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a10r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a10i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a10i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a10i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a10d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a10d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a10d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a10b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a10b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a10b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a20r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a20r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a20r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a20i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a20i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a20i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a20d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a20d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a20d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a20b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a20b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a20b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a0r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a0r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a0r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a0i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a0i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a0i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a0d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a0d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a0d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a0b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a0b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a0b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a40r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a40r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a40r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a40i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a40i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a40i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a40d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a40d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a40d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a40b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a40b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a40b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a50r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a50r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a50r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a50i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a50i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a50i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a50d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a50d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a50d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a50b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a50b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a50b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a60r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a60r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a60r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a60i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a60i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a60i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a60d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a60d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a60d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a60b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a60b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a60b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a70r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a70r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a70r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a70i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a70i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a70i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a70d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a70d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a70d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302a70b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302a70b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302a70b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- g0302b  Title   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVg0302b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b10r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b10r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b10r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b10i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b10i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b10i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b10d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b10d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b10d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b10b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b10b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b10b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b20r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b20r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b20r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b20i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b20i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b20i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b20d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b20d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b20d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b20b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b20b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b20b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b0r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b0r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b0r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b0i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b0i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b0i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b0d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b0d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b0d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b0b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b0b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b0b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b40r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b40r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b40r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b40i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b40i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b40i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b40d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b40d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b40d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b40b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b40b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b40b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b50r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b50r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b50r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b50i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b50i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b50i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b50d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b50d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b50d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b50b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b50b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b50b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b60r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b60r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b60r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b60i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b60i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b60i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b60d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b60d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b60d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b60b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b60b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b60b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b70r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b70r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b70r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b70i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b70i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b70i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b70d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b70d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b70d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302b70b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302b70b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302b70b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- g0302c  Title   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVg0302c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c10r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c10r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c10r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c10i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c10i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c10i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c10d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c10d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c10d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c10b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c10b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c10b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c20r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c20r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c20r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c20i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c20i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c20i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c20d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c20d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c20d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c20b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c20b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c20b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c30r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c30r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c30r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c30i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c30i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c30i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c30d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c30d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c30d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c30b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c30b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c30b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c40r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c40r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c40r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c40i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c40i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c40i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c40d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c40d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c40d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c40b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c40b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c40b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c50r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c50r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c50r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c50i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c50i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c50i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c50d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c50d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c50d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c50b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c50b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c50b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c60r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c60r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c60r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c60i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c60i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c60i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c60d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c60d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c60d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c60b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c60b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c60b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c70r" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c70r"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c70r"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c70i" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c70i"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c70i"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c70d" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c70d"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c70d"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/g0302c70b" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/g0302c70b"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/g0302c70b"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_End"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:onClick="@{() -> callback.BtnEnd()}"
+                    android:text="Cancel" />
+
+                <Button
+                    android:id="@+id/btn_Continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:onClick="@{() -> callback.BtnContinue()}"
+                    android:text="Save" />
+                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</layout>

@@ -19,78 +19,39 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH6Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ8Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
+public class SectionJ8Activity extends AppCompatActivity {
 
-public class SectionH6Activity extends AppCompatActivity {
-
-    ActivitySectionH6Binding bi;
+    ActivitySectionJ8Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h6);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_j8);
         bi.setCallback(this);
-        //setTitle(R.string.sssec);
         setupSkips();
-
 
     }
 
-
     private void setupSkips() {
 
-        /*bi.ss04.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss04b.getId()) {
-                Clear.clearAllFields(bi.ss05cv, false);
+        /*bi.ss22.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.ss22b.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVss23, false);
             } else {
-                Clear.clearAllFields(bi.ss05cv, true);
+                Clear.clearAllFields(bi.fldGrpCVss23, true);
             }
         }));*/
 
 
-        /*bi.ss07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss07h.getId() || i == bi.ss07i.getId()) {
-                Clear.clearAllFields(bi.ss08cv, false);
-                Clear.clearAllFields(bi.ss09cv, false);
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
+        /*bi.ss24.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.ss24b.getId()) {
+                Clear.clearAllFields(bi.ss25cvall, false);
             } else {
-                Clear.clearAllFields(bi.ss08cv, true);
-                Clear.clearAllFields(bi.ss09cv, true);
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss09.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss09b.getId()) {
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-
-            } else {
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-
-            }
-        }));*/
-
-
-        /*bi.ss11.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss11b.getId()) {
-                Clear.clearAllFields(bi.ss12cv, false);
-                Clear.clearAllFields(bi.ss13cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss12cv, true);
-                Clear.clearAllFields(bi.ss13cv, true);
+                Clear.clearAllFields(bi.ss25cvall, true);
             }
         }));*/
 
@@ -106,7 +67,7 @@ public class SectionH6Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionH7Activity.class));
+                startActivity(new Intent(this, SectionJ9Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -118,7 +79,7 @@ public class SectionH6Activity extends AppCompatActivity {
     private boolean UpdateDB() {
 
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SE, MainApp.fc.getsE());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SM, MainApp.fc.getsM());
         if (updcount == 1) {
             return true;
         } else {
@@ -133,37 +94,51 @@ public class SectionH6Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h0601", bi.h0601a.isChecked() ? "1"
-                : bi.h0601b.isChecked() ? "2"
+        json.put("j0800", bi.j0800a.isChecked() ? "1"
+                : bi.j0800b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0601aa", bi.h0601aaa.isChecked() ? "1"
+        json.put("j0800aa", bi.j0800aaa.isChecked() ? "1"
+                : bi.j0800aab.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0601aaax", bi.h0601aaax.getText().toString());
-        json.put("h0602", bi.h0602a.isChecked() ? "1"
-                : bi.h0602b.isChecked() ? "2"
+        json.put("j0801a", bi.j0801aa.isChecked() ? "1"
+                : bi.j0801ab.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0603", "-1");
-
-        json.put("h0603a", bi.h0603aa.isChecked() ? "1"
-                : bi.h0603ab.isChecked() ? "2"
+        json.put("j0801b", bi.j0801ba.isChecked() ? "1"
+                : bi.j0801bb.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0603b", bi.h0603ba.isChecked() ? "1"
-                : bi.h0603bb.isChecked() ? "2"
+        json.put("j0801c", bi.j0801ca.isChecked() ? "1"
+                : bi.j0801cb.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0603c", bi.h0603ca.isChecked() ? "1"
-                : bi.h0603cb.isChecked() ? "2"
+        json.put("j0801d", bi.j0801da.isChecked() ? "1"
+                : bi.j0801db.isChecked() ? "2"
                 : "-1");
+
+        json.put("j0801e", bi.j0801ea.isChecked() ? "1"
+                : bi.j0801eb.isChecked() ? "2"
+                : "-1");
+
+        json.put("j0801f", bi.j0801fa.isChecked() ? "1"
+                : bi.j0801fb.isChecked() ? "2"
+                : "-1");
+
+        json.put("j0801ga", bi.j0801ga.isChecked() ? "1" : "-1");
+        json.put("j0801gb", bi.j0801gb.isChecked() ? "2" : "-1");
+        json.put("j0801gc", bi.j0801gc.isChecked() ? "3" : "-1");
+        json.put("j0801gd", bi.j0801gd.isChecked() ? "4" : "-1");
+
+        MainApp.fc.setsM(String.valueOf(json));
 
     }
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+
+        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionJ8);
 
     }
 
@@ -189,9 +164,6 @@ public class SectionH6Activity extends AppCompatActivity {
             // Question info text must be suffixed with _info e.g.: aa12a_info
             int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
 
-            // Fetch info text from strings.xml
-            //String infoText = (String) getResources().getText(stringRes);
-
             // Check if string resource exists to avoid crash on missing info string
             if (stringRes != 0) {
 
@@ -212,5 +184,4 @@ public class SectionH6Activity extends AppCompatActivity {
 
         }
     }
-
 }
