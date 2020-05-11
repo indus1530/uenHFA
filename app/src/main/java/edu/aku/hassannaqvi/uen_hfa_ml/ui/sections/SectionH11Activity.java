@@ -19,26 +19,22 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI1Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH11Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
+public class SectionH11Activity extends AppCompatActivity {
 
-public class SectionI1Activity extends AppCompatActivity {
-
-    ActivitySectionI1Binding bi;
+    ActivitySectionH11Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_i1);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h11);
         bi.setCallback(this);
-        //setTitle(R.string.sssec);
         setupSkips();
 
-
     }
-
 
     private void setupSkips() {
 
@@ -105,7 +101,7 @@ public class SectionI1Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionI2Activity.class));
+                startActivity(new Intent(this, SectionH12Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -132,48 +128,46 @@ public class SectionI1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("i0101", bi.i0101a.isChecked() ? "1"
-                : bi.i0101b.isChecked() ? "2"
+        json.put("h1101", bi.h1101a.isChecked() ? "1"
+                : bi.h1101b.isChecked() ? "2"
                 : "-1");
 
-        json.put("i0102aa", bi.i0102aa.getText().toString());
-        json.put("i0102ab", bi.i0102ab.getText().toString());
-        json.put("i0102ac", bi.i0102ac.getText().toString());
-        json.put("i0102ba", bi.i0102ba.getText().toString());
-        json.put("i0102bb", bi.i0102bb.getText().toString());
-
-        json.put("i0103", bi.i0103a.isChecked() ? "1"
-                : bi.i0103b.isChecked() ? "2"
+        json.put("h1102", bi.h1102a.isChecked() ? "1"
+                : bi.h1102b.isChecked() ? "2"
                 : "-1");
 
-        json.put("i0104", bi.i0104a.isChecked() ? "1"
-                : bi.i0104b.isChecked() ? "2"
-                : bi.i0104c.isChecked() ? "3"
-                : bi.i0104d.isChecked() ? "4"
+        json.put("h1103", bi.h1103a.isChecked() ? "1"
+                : bi.h1103b.isChecked() ? "2"
+                : bi.h1103c.isChecked() ? "3"
+                : bi.h1103d.isChecked() ? "4"
+                : bi.h1103e.isChecked() ? "5"
+                : bi.h1103f.isChecked() ? "6"
                 : "-1");
 
-        json.put("i0105", bi.i0105a.isChecked() ? "1"
-                : bi.i0105b.isChecked() ? "2"
+        json.put("h1104", bi.h1104a.isChecked() ? "1"
+                : bi.h1104b.isChecked() ? "2"
+                : bi.h1104c.isChecked() ? "3"
+                : bi.h1104d.isChecked() ? "4"
+                : bi.h1104e.isChecked() ? "5"
+                : bi.h1104f.isChecked() ? "6"
                 : "-1");
 
-        json.put("i0106a", bi.i0106a.getText().toString());
-        json.put("i0106b", bi.i0106b.getText().toString());
-
-        json.put("i0107", bi.i0107a.isChecked() ? "1"
-                : bi.i0107b.isChecked() ? "2"
+        json.put("h1105", bi.h1105a.isChecked() ? "1"
+                : bi.h1105b.isChecked() ? "2"
                 : "-1");
 
-        json.put("i0108", bi.i0108a.isChecked() ? "1"
-                : bi.i0108b.isChecked() ? "2"
-                : "-1");
+//        json.put("h1106", bi.h1106.getText().toString());
 
-        MainApp.fc.setsE(String.valueOf(json));
+        json.put("h1106a", bi.h1106a.getText().toString());
+        json.put("h1107", bi.h1107a.isChecked() ? "1"
+                : bi.h1107b.isChecked() ? "2"
+                : "-1");
 
     }
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH11);
 
     }
 
@@ -222,5 +216,4 @@ public class SectionI1Activity extends AppCompatActivity {
 
         }
     }
-
 }

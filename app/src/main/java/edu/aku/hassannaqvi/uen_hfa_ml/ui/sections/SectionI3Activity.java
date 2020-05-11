@@ -20,7 +20,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI3Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -130,7 +129,9 @@ public class SectionI3Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
         JSONObject json = new JSONObject();
+
         json.put("i0301a", bi.i0301aa.isChecked() ? "1"
                 : bi.i0301ab.isChecked() ? "2"
                 : "-1");
@@ -174,7 +175,6 @@ public class SectionI3Activity extends AppCompatActivity {
         json.put("i0301k", bi.i0301ka.isChecked() ? "1"
                 : bi.i0301kb.isChecked() ? "2"
                 : "-1");
-
 
     }
 

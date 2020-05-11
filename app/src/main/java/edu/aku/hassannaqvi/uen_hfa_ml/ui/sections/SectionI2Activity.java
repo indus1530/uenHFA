@@ -20,7 +20,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI2Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -171,13 +170,9 @@ public class SectionI2Activity extends AppCompatActivity {
                 : "-1");
 
         json.put("i0201ja", bi.i0201ja.isChecked() ? "1" : "-1");
-
         json.put("i0201jb", bi.i0201jb.isChecked() ? "2" : "-1");
-
         json.put("i0201jc", bi.i0201jc.isChecked() ? "3" : "-1");
-
         json.put("i0201jd", bi.i0201jd.isChecked() ? "4" : "-1");
-
         json.put("i0201je", bi.i0201je.isChecked() ? "5" : "-1");
 
         json.put("i0201k", bi.i0201ka.isChecked() ? "1"
@@ -186,9 +181,7 @@ public class SectionI2Activity extends AppCompatActivity {
                 : "-1");
 
         json.put("i0201la", bi.i0201la.isChecked() ? "1" : "-1");
-
         json.put("i0201lb", bi.i0201lb.isChecked() ? "2" : "-1");
-
         json.put("i0201lc", bi.i0201lc.isChecked() ? "3" : "-1");
 
         json.put("i0201m", bi.i0201ma.isChecked() ? "1"
@@ -204,15 +197,10 @@ public class SectionI2Activity extends AppCompatActivity {
                 : "-1");
 
         json.put("i0201pa", bi.i0201pa.isChecked() ? "1" : "-1");
-
         json.put("i0201pb", bi.i0201pb.isChecked() ? "2" : "-1");
-
         json.put("i0201pc", bi.i0201pc.isChecked() ? "3" : "-1");
-
         json.put("i0201pd", bi.i0201pd.isChecked() ? "4" : "-1");
-
         json.put("i0201pe", bi.i0201pe.isChecked() ? "5" : "-1");
-
         json.put("i0201pf", bi.i0201pf.isChecked() ? "6" : "-1");
 
         json.put("i0201q", bi.i0201qa.isChecked() ? "1"

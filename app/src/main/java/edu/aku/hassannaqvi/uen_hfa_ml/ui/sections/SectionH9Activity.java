@@ -20,7 +20,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH9Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -32,7 +31,7 @@ public class SectionH9Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h5);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h9);
         bi.setCallback(this);
         //setTitle(R.string.sssec);
         setupSkips();
@@ -106,7 +105,7 @@ public class SectionH9Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(this, SectionH10Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -130,7 +129,9 @@ public class SectionH9Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
         JSONObject json = new JSONObject();
+
         json.put("h0901", bi.h0901a.isChecked() ? "1"
                 : bi.h0901b.isChecked() ? "2"
                 : "-1");
@@ -148,7 +149,6 @@ public class SectionH9Activity extends AppCompatActivity {
         json.put("h0902c", bi.h0902ca.isChecked() ? "1"
                 : bi.h0902cb.isChecked() ? "2"
                 : "-1");
-
 
     }
 

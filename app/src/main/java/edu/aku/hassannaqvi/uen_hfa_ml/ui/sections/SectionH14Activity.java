@@ -19,26 +19,22 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI1Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH14Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
+public class SectionH14Activity extends AppCompatActivity {
 
-public class SectionI1Activity extends AppCompatActivity {
-
-    ActivitySectionI1Binding bi;
+    ActivitySectionH14Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_i1);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h14);
         bi.setCallback(this);
-        //setTitle(R.string.sssec);
         setupSkips();
 
-
     }
-
 
     private void setupSkips() {
 
@@ -105,7 +101,7 @@ public class SectionI1Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionI2Activity.class));
+                startActivity(new Intent(this, SectionH15Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
@@ -132,48 +128,33 @@ public class SectionI1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("i0101", bi.i0101a.isChecked() ? "1"
-                : bi.i0101b.isChecked() ? "2"
-                : "-1");
+        json.put("h1401", bi.h1401.getText().toString());
 
-        json.put("i0102aa", bi.i0102aa.getText().toString());
-        json.put("i0102ab", bi.i0102ab.getText().toString());
-        json.put("i0102ac", bi.i0102ac.getText().toString());
-        json.put("i0102ba", bi.i0102ba.getText().toString());
-        json.put("i0102bb", bi.i0102bb.getText().toString());
+        json.put("h1401aa", bi.h1401aa.getText().toString());
 
-        json.put("i0103", bi.i0103a.isChecked() ? "1"
-                : bi.i0103b.isChecked() ? "2"
-                : "-1");
+        json.put("h1401ab", bi.h1401ab.getText().toString());
 
-        json.put("i0104", bi.i0104a.isChecked() ? "1"
-                : bi.i0104b.isChecked() ? "2"
-                : bi.i0104c.isChecked() ? "3"
-                : bi.i0104d.isChecked() ? "4"
-                : "-1");
+        json.put("h1401ba", bi.h1401ba.getText().toString());
 
-        json.put("i0105", bi.i0105a.isChecked() ? "1"
-                : bi.i0105b.isChecked() ? "2"
-                : "-1");
+        json.put("h1401bb", bi.h1401bb.getText().toString());
 
-        json.put("i0106a", bi.i0106a.getText().toString());
-        json.put("i0106b", bi.i0106b.getText().toString());
+        json.put("h1401ca", bi.h1401ca.getText().toString());
 
-        json.put("i0107", bi.i0107a.isChecked() ? "1"
-                : bi.i0107b.isChecked() ? "2"
-                : "-1");
+        json.put("h1401cb", bi.h1401cb.getText().toString());
 
-        json.put("i0108", bi.i0108a.isChecked() ? "1"
-                : bi.i0108b.isChecked() ? "2"
-                : "-1");
+        json.put("h1401da", bi.h1401da.getText().toString());
 
-        MainApp.fc.setsE(String.valueOf(json));
+        json.put("h1401db", bi.h1401db.getText().toString());
+
+        json.put("h1401ea", bi.h1401ea.getText().toString());
+
+        json.put("h1401eb", bi.h1401eb.getText().toString());
 
     }
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH14);
 
     }
 
@@ -222,5 +203,4 @@ public class SectionI1Activity extends AppCompatActivity {
 
         }
     }
-
 }
