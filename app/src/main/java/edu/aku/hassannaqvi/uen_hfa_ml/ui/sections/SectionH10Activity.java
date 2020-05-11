@@ -19,27 +19,22 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH9Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH10Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
+public class SectionH10Activity extends AppCompatActivity {
 
-public class SectionH9Activity extends AppCompatActivity {
-
-    ActivitySectionH9Binding bi;
+    ActivitySectionH10Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h9);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h10);
         bi.setCallback(this);
-        //setTitle(R.string.sssec);
         setupSkips();
-
-
     }
-
 
     private void setupSkips() {
 
@@ -133,29 +128,25 @@ public class SectionH9Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h0901", bi.h0901a.isChecked() ? "1"
-                : bi.h0901b.isChecked() ? "2"
+        json.put("h1001", bi.h1001a.isChecked() ? "1"
+                : bi.h1001b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0902", "-1");
+        json.put("h1002", "-1");
 
-        json.put("h0902a", bi.h0902aa.isChecked() ? "1"
-                : bi.h0902ab.isChecked() ? "2"
+        json.put("h1002a", bi.h1002aa.isChecked() ? "1"
+                : bi.h1002ab.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0902b", bi.h0902ba.isChecked() ? "1"
-                : bi.h0902bb.isChecked() ? "2"
-                : "-1");
-
-        json.put("h0902c", bi.h0902ca.isChecked() ? "1"
-                : bi.h0902cb.isChecked() ? "2"
+        json.put("h1002b", bi.h1002ba.isChecked() ? "1"
+                : bi.h1002bb.isChecked() ? "2"
                 : "-1");
 
     }
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH10);
 
     }
 
