@@ -216,9 +216,9 @@ public class SectionE3Activity extends AppCompatActivity {
                 : bi.e0305ex.isChecked() ? "96"
                 : "-1");
 
-        json.put("e0306", "-1");
+        //json.put("e0306", "-1");
 
-        json.put("e0306a0a", bi.e0306a0ay.isChecked() ? "1"
+        /*json.put("e0306a0a", bi.e0306a0ay.isChecked() ? "1"
                 : bi.e0306a0an.isChecked() ? "2"
                 : bi.e0306a0aq.isChecked() ? "3"
                 : "-1");
@@ -420,27 +420,27 @@ public class SectionE3Activity extends AppCompatActivity {
                 : bi.e0306q0fn.isChecked() ? "2"
                 : bi.e0306q0fq.isChecked() ? "3"
                 : "-1");
-
         json.put("e0306q0fqx", bi.e0306q0fqx.getText().toString());
+
         json.put("e0306r0a", bi.e0306r0ay.isChecked() ? "1"
                 : bi.e0306r0an.isChecked() ? "2"
                 : bi.e0306r0aq.isChecked() ? "3"
                 : "-1");
+        json.put("e0306r0aqx", bi.e0306r0aqx.getText().toString());*/
 
-        json.put("e0306r0aqx", bi.e0306r0aqx.getText().toString());
-        json.put("e0306r0f", bi.e0306r0fy.isChecked() ? "1"
+        /*json.put("e0306r0f", bi.e0306r0fy.isChecked() ? "1"
                 : bi.e0306r0fn.isChecked() ? "2"
                 : bi.e0306r0fq.isChecked() ? "3"
                 : "-1");
+        json.put("e0306r0fqx", bi.e0306r0fqx.getText().toString());*/
 
-        json.put("e0306r0fqx", bi.e0306r0fqx.getText().toString());
-        json.put("e0307", bi.e0307a.isChecked() ? "1"
+        /*json.put("e0307", bi.e0307a.isChecked() ? "1"
                 : bi.e0307b.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
-        json.put("e0308", bi.e0308a.isChecked() ? "1"
+        /*json.put("e0308", bi.e0308a.isChecked() ? "1"
                 : bi.e0308b.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
         child.setsCC(String.valueOf(json));
 

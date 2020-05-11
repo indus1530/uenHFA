@@ -53,7 +53,7 @@ public class SectionG3Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("g0301", "-1");
+        //json.put("g0301", "-1");
 
         json.put("g0301aa", bi.g0301aa.getText().toString());
 
@@ -67,7 +67,7 @@ public class SectionG3Activity extends AppCompatActivity {
 
         json.put("g0301cb", bi.g0301cb.getText().toString());
 
-        json.put("g0302", "-1");
+        //json.put("g0302", "-1");
 
         json.put("g0302a10r", bi.g0302a10r.getText().toString());
 
@@ -261,7 +261,7 @@ public class SectionG3Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionG4Activity.class));
+                startActivity(new Intent(this, SectionG41Activity.class));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
