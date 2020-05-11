@@ -68,9 +68,6 @@ public class SectionJ9Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                /*selectedChildren = FamilyMembersListActivity.mainVModel.getAllUnder12();
-                Class<?> T = EndingActivity.class;
-                if (selectedChildren.getFirst().size() > 0) T = SectionCHAActivity.class;*/
                 startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
