@@ -161,7 +161,6 @@ public class SectionE5Activity extends AppCompatActivity {
     }
 
     private boolean formValidation() {
-
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
@@ -175,7 +174,7 @@ public class SectionE5Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionF1Activity.class).putExtra(IM02FLAG, !im02Flag));
+                startActivity(new Intent(this, SectionE6Activity.class).putExtra(IM02FLAG, !im02Flag));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
