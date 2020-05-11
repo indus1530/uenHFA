@@ -8,7 +8,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionCActivity" />
+            type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionC1Activity" />
     </data>
 
     <ScrollView
@@ -17,7 +17,7 @@
         android:fadeScrollbars="false"
         android:fillViewport="true"
         android:scrollbarSize="10dip"
-        tools:context=".ui.sections.SectionCActivity">
+        tools:context=".ui.sections.SectionC1Activity">
 
         <LinearLayout
             android:id="@+id/GrpName"
@@ -25,9 +25,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- sectionctitle  Title   -->
+            <!-- modctitle  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVsectionctitle"
+                android:id="@+id/fldGrpCVmodctitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -40,13 +40,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/sectionctitle" />
+                        android:text="@string/modctitle" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1  Title   -->
+            <!-- c01  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1"
+                android:id="@+id/fldGrpCVc01"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -59,13 +59,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1" />
+                        android:text="@string/c01" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1a  Title   -->
+            <!-- c01a  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1a"
+                android:id="@+id/fldGrpCVc01a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -78,20 +78,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1a" />
+                        android:text="@string/c01a" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1aa" />
+                        android:text="@string/c01aa" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1aa"
+                        android:id="@+id/c01aa"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1aa"
+                        android:hint="@string/c01aa"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -101,14 +101,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ab" />
+                        android:text="@string/c01ab" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ab"
+                        android:id="@+id/c01ab"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ab"
+                        android:hint="@string/c01ab"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -118,14 +118,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ac" />
+                        android:text="@string/c01ac" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ac"
+                        android:id="@+id/c01ac"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ac"
+                        android:hint="@string/c01ac"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -135,14 +135,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ad" />
+                        android:text="@string/c01ad" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ad"
+                        android:id="@+id/c01ad"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ad"
+                        android:hint="@string/c01ad"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -152,118 +152,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ae" />
+                        android:text="@string/c01ae" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ae"
+                        android:id="@+id/c01ae"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ae"
-                        app:mask="##"
-                        app:maxValue="100"
-                        app:minValue="0"
-                        app:type="range" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- c1b  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c1b" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c1ba" />
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ba"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ba"
-                        app:mask="##"
-                        app:maxValue="100"
-                        app:minValue="0"
-                        app:type="range" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c1bb" />
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1bb"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/c1bb"
-                        app:mask="##"
-                        app:maxValue="100"
-                        app:minValue="0"
-                        app:type="range" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c1bc" />
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1bc"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/c1bc"
-                        app:mask="##"
-                        app:maxValue="100"
-                        app:minValue="0"
-                        app:type="range" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c1bd" />
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1bd"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/c1bd"
-                        app:mask="##"
-                        app:maxValue="100"
-                        app:minValue="0"
-                        app:type="range" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c1be" />
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1be"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/c1be"
+                        android:hint="@string/c01ae"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -271,9 +167,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1c  Title   -->
+            <!-- c01b  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1c"
+                android:id="@+id/fldGrpCVc01b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -286,20 +182,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1c" />
+                        android:text="@string/c01b" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ca" />
+                        android:text="@string/c01ba" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ca"
+                        android:id="@+id/c01ba"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ca"
+                        android:hint="@string/c01ba"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -309,14 +205,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1cb" />
+                        android:text="@string/c01bb" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1cb"
+                        android:id="@+id/c01bb"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1cb"
+                        android:hint="@string/c01bb"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -326,14 +222,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1cc" />
+                        android:text="@string/c01bc" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1cc"
+                        android:id="@+id/c01bc"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1cc"
+                        android:hint="@string/c01bc"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -343,14 +239,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1cd" />
+                        android:text="@string/c01bd" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1cd"
+                        android:id="@+id/c01bd"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1cd"
+                        android:hint="@string/c01bd"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -360,14 +256,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ce" />
+                        android:text="@string/c01be" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ce"
+                        android:id="@+id/c01be"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ce"
+                        android:hint="@string/c01be"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -375,9 +271,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1d  Title   -->
+            <!-- c01c  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1d"
+                android:id="@+id/fldGrpCVc01c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -390,20 +286,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1d" />
+                        android:text="@string/c01c" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1da" />
+                        android:text="@string/c01ca" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1da"
+                        android:id="@+id/c01ca"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1da"
+                        android:hint="@string/c01ca"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -413,14 +309,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1db" />
+                        android:text="@string/c01cb" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1db"
+                        android:id="@+id/c01cb"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1db"
+                        android:hint="@string/c01cb"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -430,14 +326,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1dc" />
+                        android:text="@string/c01cc" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1dc"
+                        android:id="@+id/c01cc"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1dc"
+                        android:hint="@string/c01cc"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -447,14 +343,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1dd" />
+                        android:text="@string/c01cd" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1dd"
+                        android:id="@+id/c01cd"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1dd"
+                        android:hint="@string/c01cd"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -464,14 +360,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1de" />
+                        android:text="@string/c01ce" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1de"
+                        android:id="@+id/c01ce"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1de"
+                        android:hint="@string/c01ce"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -479,9 +375,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1e  Title   -->
+            <!-- c01d  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1e"
+                android:id="@+id/fldGrpCVc01d"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -494,20 +390,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1e" />
+                        android:text="@string/c01d" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ea" />
+                        android:text="@string/c01da" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ea"
+                        android:id="@+id/c01da"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ea"
+                        android:hint="@string/c01da"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -517,14 +413,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1eb" />
+                        android:text="@string/c01db" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1eb"
+                        android:id="@+id/c01db"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1eb"
+                        android:hint="@string/c01db"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -534,14 +430,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ec" />
+                        android:text="@string/c01dc" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ec"
+                        android:id="@+id/c01dc"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ec"
+                        android:hint="@string/c01dc"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -551,14 +447,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ed" />
+                        android:text="@string/c01dd" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ed"
+                        android:id="@+id/c01dd"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ed"
+                        android:hint="@string/c01dd"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -568,14 +464,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ee" />
+                        android:text="@string/c01de" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ee"
+                        android:id="@+id/c01de"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ee"
+                        android:hint="@string/c01de"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -583,9 +479,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1f  Title   -->
+            <!-- c01e  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1f"
+                android:id="@+id/fldGrpCVc01e"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -598,20 +494,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1f" />
+                        android:text="@string/c01e" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1fa" />
+                        android:text="@string/c01ea" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1fa"
+                        android:id="@+id/c01ea"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1fa"
+                        android:hint="@string/c01ea"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -621,14 +517,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1fb" />
+                        android:text="@string/c01eb" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1fb"
+                        android:id="@+id/c01eb"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1fb"
+                        android:hint="@string/c01eb"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -638,14 +534,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1fc" />
+                        android:text="@string/c01ec" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1fc"
+                        android:id="@+id/c01ec"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1fc"
+                        android:hint="@string/c01ec"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -655,14 +551,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1fd" />
+                        android:text="@string/c01ed" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1fd"
+                        android:id="@+id/c01ed"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1fd"
+                        android:hint="@string/c01ed"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -672,14 +568,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1fe" />
+                        android:text="@string/c01ee" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1fe"
+                        android:id="@+id/c01ee"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1fe"
+                        android:hint="@string/c01ee"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -687,9 +583,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1g  Title   -->
+            <!-- c01f  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1g"
+                android:id="@+id/fldGrpCVc01f"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -702,20 +598,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1g" />
+                        android:text="@string/c01f" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ga" />
+                        android:text="@string/c01fa" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ga"
+                        android:id="@+id/c01fa"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ga"
+                        android:hint="@string/c01fa"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -725,14 +621,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1gb" />
+                        android:text="@string/c01fb" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1gb"
+                        android:id="@+id/c01fb"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1gb"
+                        android:hint="@string/c01fb"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -742,14 +638,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1gc" />
+                        android:text="@string/c01fc" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1gc"
+                        android:id="@+id/c01fc"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1gc"
+                        android:hint="@string/c01fc"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -759,14 +655,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1gd" />
+                        android:text="@string/c01fd" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1gd"
+                        android:id="@+id/c01fd"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1gd"
+                        android:hint="@string/c01fd"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -776,14 +672,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ge" />
+                        android:text="@string/c01fe" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ge"
+                        android:id="@+id/c01fe"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ge"
+                        android:hint="@string/c01fe"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -791,9 +687,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1h  Title   -->
+            <!-- c01g  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1h"
+                android:id="@+id/fldGrpCVc01g"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -806,20 +702,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1h" />
+                        android:text="@string/c01g" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ha" />
+                        android:text="@string/c01ga" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ha"
+                        android:id="@+id/c01ga"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ha"
+                        android:hint="@string/c01ga"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -829,14 +725,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1hb" />
+                        android:text="@string/c01gb" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1hb"
+                        android:id="@+id/c01gb"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1hb"
+                        android:hint="@string/c01gb"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -846,14 +742,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1hc" />
+                        android:text="@string/c01gc" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1hc"
+                        android:id="@+id/c01gc"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1hc"
+                        android:hint="@string/c01gc"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -863,14 +759,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1hd" />
+                        android:text="@string/c01gd" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1hd"
+                        android:id="@+id/c01gd"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1hd"
+                        android:hint="@string/c01gd"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -880,14 +776,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1he" />
+                        android:text="@string/c01ge" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1he"
+                        android:id="@+id/c01ge"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1he"
+                        android:hint="@string/c01ge"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -895,9 +791,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1i  Title   -->
+            <!-- c01h  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1i"
+                android:id="@+id/fldGrpCVc01h"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -910,20 +806,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1i" />
+                        android:text="@string/c01h" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ia" />
+                        android:text="@string/c01ha" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ia"
+                        android:id="@+id/c01ha"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ia"
+                        android:hint="@string/c01ha"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -933,14 +829,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ib" />
+                        android:text="@string/c01hb" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ib"
+                        android:id="@+id/c01hb"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ib"
+                        android:hint="@string/c01hb"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -950,14 +846,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ic" />
+                        android:text="@string/c01hc" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ic"
+                        android:id="@+id/c01hc"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ic"
+                        android:hint="@string/c01hc"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -967,14 +863,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1id" />
+                        android:text="@string/c01hd" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1id"
+                        android:id="@+id/c01hd"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1id"
+                        android:hint="@string/c01hd"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -984,14 +880,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ie" />
+                        android:text="@string/c01he" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ie"
+                        android:id="@+id/c01he"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ie"
+                        android:hint="@string/c01he"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -999,9 +895,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1j  Title   -->
+            <!-- c01i  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1j"
+                android:id="@+id/fldGrpCVc01i"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -1014,20 +910,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1j" />
+                        android:text="@string/c01i" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ja" />
+                        android:text="@string/c01ia" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ja"
+                        android:id="@+id/c01ia"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ja"
+                        android:hint="@string/c01ia"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -1037,14 +933,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1jb" />
+                        android:text="@string/c01ib" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1jb"
+                        android:id="@+id/c01ib"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1jb"
+                        android:hint="@string/c01ib"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -1054,14 +950,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1jc" />
+                        android:text="@string/c01ic" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1jc"
+                        android:id="@+id/c01ic"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1jc"
+                        android:hint="@string/c01ic"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -1071,14 +967,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1jd" />
+                        android:text="@string/c01id" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1jd"
+                        android:id="@+id/c01id"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1jd"
+                        android:hint="@string/c01id"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -1088,14 +984,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1je" />
+                        android:text="@string/c01ie" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1je"
+                        android:id="@+id/c01ie"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1je"
+                        android:hint="@string/c01ie"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -1103,9 +999,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c1k  Title   -->
+            <!-- c01j  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc1k"
+                android:id="@+id/fldGrpCVc01j"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -1118,20 +1014,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1k" />
+                        android:text="@string/c01j" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ka" />
+                        android:text="@string/c01ja" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ka"
+                        android:id="@+id/c01ja"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ka"
+                        android:hint="@string/c01ja"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -1141,14 +1037,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1kb" />
+                        android:text="@string/c01jb" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1kb"
+                        android:id="@+id/c01jb"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1kb"
+                        android:hint="@string/c01jb"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -1158,14 +1054,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1kc" />
+                        android:text="@string/c01jc" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1kc"
+                        android:id="@+id/c01jc"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1kc"
+                        android:hint="@string/c01jc"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -1175,14 +1071,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1kd" />
+                        android:text="@string/c01jd" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1kd"
+                        android:id="@+id/c01jd"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1kd"
+                        android:hint="@string/c01jd"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -1192,14 +1088,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c1ke" />
+                        android:text="@string/c01je" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c1ke"
+                        android:id="@+id/c01je"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c1ke"
+                        android:hint="@string/c01je"
                         app:mask="##"
                         app:maxValue="100"
                         app:minValue="0"
@@ -1207,9 +1103,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- c2  Input   -->
+            <!-- c01k  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc2"
+                android:id="@+id/fldGrpCVc01k"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -1222,250 +1118,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c2" />
+                        android:text="@string/c01k" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c2a" />
-
-                    <EditText
-                        android:id="@+id/c2a"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/c2a" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- c2b  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc2b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c2b" />
-
-                    <RadioGroup
-                        android:id="@+id/c2b"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/c2ba"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/c2ba" />
-
-                        <RadioButton
-                            android:id="@+id/c2bb"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/c2bb" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- c2c  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc2c"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c2c" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c2ca" />
+                        android:text="@string/c01ka" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c2ca"
+                        android:id="@+id/c01ka"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c2ca"
+                        android:hint="@string/c01ka"
                         app:mask="##"
-                        app:maxValue="11"
-                        app:minValue="1"
-                        app:type="range" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c2cb" />
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c2cb"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/c2cb"
-                        app:mask="##"
-                        app:maxValue="10"
-                        app:minValue="0"
-                        app:type="range" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- c3  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c3" />
-
-                    <RadioGroup
-                        android:id="@+id/c3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/c3a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/c3a" />
-
-                        <RadioButton
-                            android:id="@+id/c3b"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/c3b" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- c4  Input   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c4" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c4a" />
-
-                    <EditText
-                        android:id="@+id/c4a"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/c4a" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- c4b  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc4b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c4b" />
-
-                    <RadioGroup
-                        android:id="@+id/c4b"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/c4ba"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/c4ba" />
-
-                        <RadioButton
-                            android:id="@+id/c4bb"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/c4bb" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <!-- c4c  Input-Numeric   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVc4c"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c4c" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/c4ca" />
-
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c4ca"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/c4ca"
-                        app:mask="##"
-                        app:maxValue="0"
+                        app:maxValue="100"
                         app:minValue="0"
                         app:type="range" />
 
@@ -1473,16 +1141,67 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
-                        android:text="@string/c4cb" />
+                        android:text="@string/c01kb" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/c4cb"
+                        android:id="@+id/c01kb"
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:layout_marginBottom="12dp"
-                        android:hint="@string/c4cb"
+                        android:hint="@string/c01kb"
                         app:mask="##"
-                        app:maxValue="0"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/c01kc" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/c01kc"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/c01kc"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/c01kd" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/c01kd"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/c01kd"
+                        app:mask="##"
+                        app:maxValue="100"
+                        app:minValue="0"
+                        app:type="range" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/c01ke" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/c01ke"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginBottom="12dp"
+                        android:hint="@string/c01ke"
+                        app:mask="##"
+                        app:maxValue="100"
                         app:minValue="0"
                         app:type="range" />
                 </LinearLayout>
