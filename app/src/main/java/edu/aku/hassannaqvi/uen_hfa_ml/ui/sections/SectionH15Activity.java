@@ -34,6 +34,7 @@ public class SectionH15Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h15);
         bi.setCallback(this);
         setupSkips();
+
     }
 
     private void setupSkips() {
