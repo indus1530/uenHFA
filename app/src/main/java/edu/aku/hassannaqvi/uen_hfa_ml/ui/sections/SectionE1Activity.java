@@ -180,7 +180,7 @@ public class SectionE1Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionFActivity.class).putExtra(IM02FLAG, !im02Flag));
+                startActivity(new Intent(this, SectionF1Activity.class).putExtra(IM02FLAG, !im02Flag));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
