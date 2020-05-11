@@ -17,6 +17,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionE8Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.IM02FLAG;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
@@ -158,7 +159,7 @@ public class SectionE8Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionFActivity.class).putExtra(IM02FLAG, !im02Flag));
+                startActivity(new Intent(this, EndingActivity.class).putExtra(IM02FLAG, !im02Flag));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
