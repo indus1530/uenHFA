@@ -130,7 +130,9 @@ public class SectionI4Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
         JSONObject json = new JSONObject();
+
         json.put("i0401a", bi.i0401aa.isChecked() ? "1"
                 : bi.i0401ab.isChecked() ? "2"
                 : bi.i0401ac.isChecked() ? "3"
@@ -172,7 +174,6 @@ public class SectionI4Activity extends AppCompatActivity {
                 : bi.i0401gc.isChecked() ? "3"
                 : bi.i0401gd.isChecked() ? "4"
                 : "-1");
-
 
     }
 

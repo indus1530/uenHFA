@@ -20,7 +20,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI1Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -132,18 +131,15 @@ public class SectionI1Activity extends AppCompatActivity {
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
+
         json.put("i0101", bi.i0101a.isChecked() ? "1"
                 : bi.i0101b.isChecked() ? "2"
                 : "-1");
 
         json.put("i0102aa", bi.i0102aa.getText().toString());
-
         json.put("i0102ab", bi.i0102ab.getText().toString());
-
         json.put("i0102ac", bi.i0102ac.getText().toString());
-
         json.put("i0102ba", bi.i0102ba.getText().toString());
-
         json.put("i0102bb", bi.i0102bb.getText().toString());
 
         json.put("i0103", bi.i0103a.isChecked() ? "1"
@@ -161,7 +157,6 @@ public class SectionI1Activity extends AppCompatActivity {
                 : "-1");
 
         json.put("i0106a", bi.i0106a.getText().toString());
-
         json.put("i0106b", bi.i0106b.getText().toString());
 
         json.put("i0107", bi.i0107a.isChecked() ? "1"
