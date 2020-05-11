@@ -19,19 +19,19 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH12Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH13Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
-public class SectionH12Activity extends AppCompatActivity {
+public class SectionH13Activity extends AppCompatActivity {
 
-    ActivitySectionH12Binding bi;
+    ActivitySectionH13Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h12);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h13);
         bi.setCallback(this);
         setupSkips();
 
@@ -129,49 +129,27 @@ public class SectionH12Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h1201", bi.h1201a.isChecked() ? "1"
-                : bi.h1201b.isChecked() ? "2"
+        json.put("h1301", bi.h1301a.isChecked() ? "1"
+                : bi.h1301b.isChecked() ? "2"
+                : bi.h1301c.isChecked() ? "3"
+                : bi.h1301d.isChecked() ? "4"
+                : bi.h1301e.isChecked() ? "5"
+                : bi.h1301f.isChecked() ? "6"
                 : "-1");
 
-        json.put("h1202", bi.h1202a.isChecked() ? "1"
-                : bi.h1202b.isChecked() ? "2"
+        json.put("h1302", bi.h1302a.isChecked() ? "1"
+                : bi.h1302b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h1203", "-1");
-
-        json.put("h1203a", bi.h1203aa.isChecked() ? "1"
-                : bi.h1203ab.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203b", bi.h1203ba.isChecked() ? "1"
-                : bi.h1203bb.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203c", bi.h1203ca.isChecked() ? "1"
-                : bi.h1203cb.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203d", bi.h1203da.isChecked() ? "1"
-                : bi.h1203db.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203e", bi.h1203ea.isChecked() ? "1"
-                : bi.h1203eb.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203f", bi.h1203fa.isChecked() ? "1"
-                : bi.h1203fb.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203g", bi.h1203ga.isChecked() ? "1"
-                : bi.h1203gb.isChecked() ? "2"
+        json.put("h1303", bi.h1303a.isChecked() ? "1"
+                : bi.h1303b.isChecked() ? "2"
                 : "-1");
 
     }
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH12);
+        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH13);
 
     }
 
