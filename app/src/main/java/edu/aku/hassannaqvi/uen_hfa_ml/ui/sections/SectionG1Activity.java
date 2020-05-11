@@ -17,7 +17,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG1Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -53,6 +52,7 @@ public class SectionG1Activity extends AppCompatActivity {
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
+
         json.put("g0101", bi.g0101a.isChecked() ? "1"
                 : bi.g0101b.isChecked() ? "2"
                 : bi.g0101c.isChecked() ? "3"
@@ -198,7 +198,7 @@ public class SectionG1Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(this, SectionG2Activity.class).putExtra("complete", true));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
