@@ -59,7 +59,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionFActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionGActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionHActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionIActivity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ01Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sync.SyncActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable;
 
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                 oF = new Intent(this, SectionIActivity.class);
                 break;
             case R.id.formJ:
-                oF = new Intent(this, SectionJActivity.class);
+                oF = new Intent(this, SectionJ01Activity.class);
                 break;
         }
         startActivity(oF);
