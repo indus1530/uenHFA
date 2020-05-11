@@ -20,7 +20,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ1Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -69,10 +68,7 @@ public class SectionJ1Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                /*selectedChildren = FamilyMembersListActivity.mainVModel.getAllUnder12();
-                Class<?> T = EndingActivity.class;
-                if (selectedChildren.getFirst().size() > 0) T = SectionCHAActivity.class;*/
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(this, SectionJ2Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
