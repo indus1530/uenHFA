@@ -19,19 +19,19 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH10Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH11Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
-public class SectionH10Activity extends AppCompatActivity {
+public class SectionH11Activity extends AppCompatActivity {
 
-    ActivitySectionH10Binding bi;
+    ActivitySectionH11Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h10);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h11);
         bi.setCallback(this);
         setupSkips();
 
@@ -129,25 +129,46 @@ public class SectionH10Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h1001", bi.h1001a.isChecked() ? "1"
-                : bi.h1001b.isChecked() ? "2"
+        json.put("h1101", bi.h1101a.isChecked() ? "1"
+                : bi.h1101b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h1002", "-1");
-
-        json.put("h1002a", bi.h1002aa.isChecked() ? "1"
-                : bi.h1002ab.isChecked() ? "2"
+        json.put("h1102", bi.h1102a.isChecked() ? "1"
+                : bi.h1102b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h1002b", bi.h1002ba.isChecked() ? "1"
-                : bi.h1002bb.isChecked() ? "2"
+        json.put("h1103", bi.h1103a.isChecked() ? "1"
+                : bi.h1103b.isChecked() ? "2"
+                : bi.h1103c.isChecked() ? "3"
+                : bi.h1103d.isChecked() ? "4"
+                : bi.h1103e.isChecked() ? "5"
+                : bi.h1103f.isChecked() ? "6"
+                : "-1");
+
+        json.put("h1104", bi.h1104a.isChecked() ? "1"
+                : bi.h1104b.isChecked() ? "2"
+                : bi.h1104c.isChecked() ? "3"
+                : bi.h1104d.isChecked() ? "4"
+                : bi.h1104e.isChecked() ? "5"
+                : bi.h1104f.isChecked() ? "6"
+                : "-1");
+
+        json.put("h1105", bi.h1105a.isChecked() ? "1"
+                : bi.h1105b.isChecked() ? "2"
+                : "-1");
+
+//        json.put("h1106", bi.h1106.getText().toString());
+
+        json.put("h1106a", bi.h1106a.getText().toString());
+        json.put("h1107", bi.h1107a.isChecked() ? "1"
+                : bi.h1107b.isChecked() ? "2"
                 : "-1");
 
     }
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH10);
+        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH11);
 
     }
 
@@ -196,5 +217,4 @@ public class SectionH10Activity extends AppCompatActivity {
 
         }
     }
-
 }
