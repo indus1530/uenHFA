@@ -23,7 +23,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionF3Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.AgeModel;
 import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.DateRepository;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -215,7 +214,7 @@ public class SectionF3Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(this, SectionF4Activity.class).putExtra("complete", true));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
