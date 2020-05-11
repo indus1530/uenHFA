@@ -19,19 +19,19 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD3Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD6Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
-public class SectionD3Activity extends AppCompatActivity {
+public class SectionD6Activity extends AppCompatActivity {
 
-    ActivitySectionD3Binding bi;
+    ActivitySectionD6Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_d3);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_d6);
         bi.setCallback(this);
         setTitle(R.string.chBsec);
         setupSkips();
@@ -109,26 +109,45 @@ public class SectionD3Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("d0301", bi.d0301a.isChecked() ? "1"
-                : bi.d0301b.isChecked() ? "2"
-                : bi.d0301c.isChecked() ? "3"
-                : bi.d0301d.isChecked() ? "4"
+        json.put("d0601", "-1");
+
+        json.put("d0601a", bi.d0601aa.isChecked() ? "1"
+                : bi.d0601ab.isChecked() ? "2"
                 : "-1");
 
-        json.put("d0302", bi.d0302a.isChecked() ? "1"
-                : bi.d0302b.isChecked() ? "2"
-                : bi.d0302c.isChecked() ? "3"
-                : bi.d0302d.isChecked() ? "4"
-                : bi.d0302e.isChecked() ? "5"
+        json.put("d0601b", bi.d0601ba.isChecked() ? "1"
+                : bi.d060bb.isChecked() ? "2"
                 : "-1");
 
-        json.put("d0303", bi.d0303a.isChecked() ? "1"
-                : bi.d0303b.isChecked() ? "2"
+        json.put("d0601c", bi.d0601ca.isChecked() ? "1"
+                : bi.d0601cb.isChecked() ? "2"
                 : "-1");
 
-        json.put("d0304", bi.d0304a.isChecked() ? "1"
-                : bi.d0304b.isChecked() ? "2"
-                : bi.d0304c.isChecked() ? "3"
+        json.put("d0601d", bi.d0601da.isChecked() ? "1"
+                : bi.d0601db.isChecked() ? "2"
+                : "-1");
+
+        json.put("d0602", bi.d0602a.isChecked() ? "1"
+                : bi.d0602b.isChecked() ? "2"
+                : "-1");
+
+        json.put("d0603", bi.d0603a.isChecked() ? "1"
+                : bi.d0603b.isChecked() ? "2"
+                : "-1");
+
+        json.put("d0604", bi.d0604a.isChecked() ? "1"
+                : bi.d0604b.isChecked() ? "2"
+                : "-1");
+
+        json.put("d0605", bi.d0605a.isChecked() ? "1"
+                : bi.d0605b.isChecked() ? "2"
+                : bi.d0605c.isChecked() ? "3"
+                : bi.d0605d.isChecked() ? "4"
+                : bi.d0605e.isChecked() ? "5"
+                : bi.d0605f.isChecked() ? "6"
+                : bi.d0605g.isChecked() ? "7"
+                : bi.d0605h.isChecked() ? "8"
+                : bi.d0605i.isChecked() ? "9"
                 : "-1");
 
         child.setsCB(String.valueOf(json));
