@@ -130,14 +130,15 @@ public class SectionH4Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
         JSONObject json = new JSONObject();
+
         json.put("h0401", bi.h0401a.isChecked() ? "1"
                 : bi.h0401b.isChecked() ? "2"
                 : bi.h0401c.isChecked() ? "3"
                 : bi.h0401d.isChecked() ? "4"
                 : bi.h0401x.isChecked() ? "96"
                 : "-1");
-
         json.put("h0401xx", bi.h0401xx.getText().toString());
 
 

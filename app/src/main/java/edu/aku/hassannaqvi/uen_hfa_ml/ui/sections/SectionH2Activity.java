@@ -32,7 +32,7 @@ public class SectionH2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h1);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h2);
         bi.setCallback(this);
         //setTitle(R.string.sssec);
         setupSkips();
@@ -130,7 +130,9 @@ public class SectionH2Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
         JSONObject json = new JSONObject();
+
         json.put("h0201", bi.h0201a.isChecked() ? "1"
                 : bi.h0201b.isChecked() ? "2"
                 : "-1");

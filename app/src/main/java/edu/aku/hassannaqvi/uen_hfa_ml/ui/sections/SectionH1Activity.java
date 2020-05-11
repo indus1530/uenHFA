@@ -130,7 +130,9 @@ public class SectionH1Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
         JSONObject json = new JSONObject();
+
         json.put("h0101", bi.h0101.getText().toString());
 
         json.put("h0101aa", bi.h0101aa.getText().toString());
