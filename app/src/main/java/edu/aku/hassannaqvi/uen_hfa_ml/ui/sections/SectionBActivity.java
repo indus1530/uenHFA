@@ -85,19 +85,21 @@ public class SectionBActivity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("b1", bi.b1a.isChecked() ? "1"
-                : bi.b1b.isChecked() ? "2"
+        json.put("b01", bi.b01a.isChecked() ? "1"
+                : bi.b01b.isChecked() ? "2"
                 : "-1");
 
-        json.put("b2", bi.b2a.isChecked() ? "1"
-                : bi.b2b.isChecked() ? "2"
+        json.put("b02", bi.b02a.isChecked() ? "1"
+                : bi.b02b.isChecked() ? "2"
                 : "-1");
 
-        json.put("b3", bi.b3.getText().length() > 0 ? bi.b3.getText().toString() : "-1");
+        json.put("b03", bi.b03.getText().toString());
 
-        json.put("b4", bi.b4.getText().length() > 0 ? bi.b4.getText().toString() : "-1");
+        json.put("b04", bi.b04.getText().toString());
 
-        json.put("b5", bi.b5.getText().length() > 0 ? bi.b5.getText().toString() : "-1");
+        json.put("b05", bi.b05.getText().toString());
+
+
 
     }
 
