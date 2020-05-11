@@ -17,7 +17,7 @@
         android:fadeScrollbars="false"
         android:fillViewport="true"
         android:scrollbarSize="10dip"
-        tools:context=".ui.Myactivity">
+        tools:context=".ui.sections.SectionHActivity">
 
         <LinearLayout
             android:id="@+id/GrpNameSectionH"
@@ -2153,7 +2153,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh61aa"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="@{h61b.checked ? View.GONE : View.VISIBLE}">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -2187,7 +2188,9 @@
                             android:text='@{h61aaa.checked? h61aaax.getText().toString() : "-1"}'
                             android:visibility='@{h61aaa.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- h62  Radio   -->
@@ -3778,7 +3781,7 @@
 
             <!-- h13  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCV813"
+                android:id="@+id/fldGrpCVh13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -4247,9 +4250,9 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- 815  Title   -->
+            <!-- h15  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCV815"
+                android:id="@+id/fldGrpCVh15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -4268,9 +4271,9 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- 81501  Radio   -->
+            <!-- h1501  Radio   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCV81501"
+                android:id="@+id/fldGrpCVh1501"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -8859,7 +8862,9 @@
                     android:text="Save" />
                 <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
             </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>
+
 </layout>
