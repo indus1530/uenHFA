@@ -57,7 +57,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionD1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionE1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionF1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionG1Activity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionHActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sync.SyncActivity;
