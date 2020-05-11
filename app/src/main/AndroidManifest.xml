@@ -23,41 +23,50 @@
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme1">
 
-        <activity android:name=".ui.sections.SectionG42Activity"></activity>
-        <activity android:name=".ui.sections.SectionG41Activity" />
         <activity
             android:name=".ui.sections.SectionAActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionC1Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionC2Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionD1Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionD2Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionD3Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionD4Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionD5Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionD6Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionD7Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionD8Activity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.sections.SectionE1Activity"
             android:screenOrientation="portrait" />
@@ -116,6 +125,14 @@
 
         <activity
             android:name=".ui.sections.SectionG3Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.sections.SectionG41Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.sections.SectionG42Activity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -272,14 +289,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.other.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
         <activity
             android:name=".ui.list_activity.FamilyMembersListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
         <activity
             android:name=".ui.sections.SectionBActivity"
             android:label="@string/tdheading"
@@ -289,18 +309,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.aku.hassannaqvi.uen_hfa_ml.ui.list_activity.FamilyMembersListActivity" />
         </activity>
+
         <activity
             android:name=".ui.other.EndingActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.other.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+
         <activity
             android:name=".core.AndroidDatabaseManager"
             android:parentActivityName=".ui.other.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
         <activity
             android:name=".ui.sync.SyncActivity"
             android:parentActivityName=".ui.other.MainActivity"
