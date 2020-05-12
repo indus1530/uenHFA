@@ -111,7 +111,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0801a0fq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{d0801a0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -189,7 +190,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0801b0fq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{d0801b0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -267,7 +269,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0801c0fq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{d0801c0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -345,7 +348,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0801d0fq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{d0801d0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -423,7 +427,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0801e0fq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{d0801e0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -501,7 +506,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0801f0fq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{d0801f0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -579,7 +585,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0801g0fq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{d0801g0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -657,7 +664,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0801h0fq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{d0801h0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -735,7 +743,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0801i0fq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{d0801i0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -813,7 +822,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0801j0fq"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{d0801j0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -861,6 +871,9 @@
                     android:text="Save" />
                 <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
             </LinearLayout>
+
         </LinearLayout>
+
     </ScrollView>
+
 </layout>
