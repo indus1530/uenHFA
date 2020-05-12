@@ -42,7 +42,7 @@ public class SectionAActivity extends AppCompatActivity {
     private void setupSkips() {
 
        bi.a18.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.a18b.getId()) {
+           if (i != bi.a18b.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVa19);
             }
         }));
@@ -155,8 +155,8 @@ public class SectionAActivity extends AppCompatActivity {
                 : bi.a18d.isChecked() ? "4"
                 : bi.a18x.isChecked() ? "96"
                 : "-1");
-
         json.put("a18xx", bi.a18xx.getText().toString());
+
         json.put("a19", bi.a19a.isChecked() ? "1"
                 : bi.a19b.isChecked() ? "2"
                 : bi.a19c.isChecked() ? "3"
