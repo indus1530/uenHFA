@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -40,22 +41,11 @@ public class SectionAActivity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        /*bi.ss07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss07h.getId() || i == bi.ss07i.getId()) {
-                Clear.clearAllFields(bi.ss08cv, false);
-                Clear.clearAllFields(bi.ss09cv, false);
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss08cv, true);
-                Clear.clearAllFields(bi.ss09cv, true);
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
+       bi.a18.setOnCheckedChangeListener(((radioGroup, i) -> {
+           if (i != bi.a18b.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVa19);
             }
-        }));*/
-
+        }));
 
     }
 
@@ -165,8 +155,8 @@ public class SectionAActivity extends AppCompatActivity {
                 : bi.a18d.isChecked() ? "4"
                 : bi.a18x.isChecked() ? "96"
                 : "-1");
-
         json.put("a18xx", bi.a18xx.getText().toString());
+
         json.put("a19", bi.a19a.isChecked() ? "1"
                 : bi.a19b.isChecked() ? "2"
                 : bi.a19c.isChecked() ? "3"
