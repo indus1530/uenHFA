@@ -197,12 +197,6 @@ public class SectionAActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
-    }
-
-
     public void showTooltip(@NotNull View view) {
         if (view.getId() != View.NO_ID) {
             String package_name = getApplicationContext().getPackageName();
@@ -236,5 +230,11 @@ public class SectionAActivity extends AppCompatActivity {
 
         }
     }
+
+
+    /*@Override
+    public void onBackPressed() {
+        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
+    }*/
 
 }
