@@ -41,6 +41,12 @@ public class SectionBActivity extends AppCompatActivity {
 
     private void setUIComponent() {
 
+        bi.b01.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.b01b.getId()) {
+                Clear.clearAllFields(bi.fldGrpS01);
+            }
+        }));
+
         bi.b02.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.b02b.getId()) {
                 Clear.clearAllFields(bi.fldGrpS01);
