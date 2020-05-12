@@ -316,7 +316,8 @@ public class SectionG41Activity extends AppCompatActivity {
                 : bi.g0401170pn.isChecked() ? "2"
                 : "-1");
 
-        json.put("g0401180a", bi.g0401180ay.isChecked() ? "1"
+
+        /*json.put("g0401180a", bi.g0401180ay.isChecked() ? "1"
                 : bi.g0401180an.isChecked() ? "2"
                 : "-1");
 
@@ -330,9 +331,10 @@ public class SectionG41Activity extends AppCompatActivity {
 
         json.put("g0401180p", bi.g0401180py.isChecked() ? "1"
                 : bi.g0401180pn.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
-        json.put("g0401190a", bi.g0401190ay.isChecked() ? "1"
+
+       /* json.put("g0401190a", bi.g0401190ay.isChecked() ? "1"
                 : bi.g0401190an.isChecked() ? "2"
                 : "-1");
 
@@ -346,9 +348,9 @@ public class SectionG41Activity extends AppCompatActivity {
 
         json.put("g0401190p", bi.g0401190py.isChecked() ? "1"
                 : bi.g0401190pn.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
-        json.put("g0401200a", bi.g0401200ay.isChecked() ? "1"
+        /*json.put("g0401200a", bi.g0401200ay.isChecked() ? "1"
                 : bi.g0401200an.isChecked() ? "2"
                 : "-1");
 
@@ -362,9 +364,9 @@ public class SectionG41Activity extends AppCompatActivity {
 
         json.put("g0401200p", bi.g0401200py.isChecked() ? "1"
                 : bi.g0401200pn.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
-        json.put("g0401210a", bi.g0401210ay.isChecked() ? "1"
+       /* json.put("g0401210a", bi.g0401210ay.isChecked() ? "1"
                 : bi.g0401210an.isChecked() ? "2"
                 : "-1");
 
@@ -378,9 +380,9 @@ public class SectionG41Activity extends AppCompatActivity {
 
         json.put("g0401210p", bi.g0401210py.isChecked() ? "1"
                 : bi.g0401210pn.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
-        json.put("g0401220a", bi.g0401220ay.isChecked() ? "1"
+        /*json.put("g0401220a", bi.g0401220ay.isChecked() ? "1"
                 : bi.g0401220an.isChecked() ? "2"
                 : "-1");
 
@@ -746,7 +748,7 @@ public class SectionG41Activity extends AppCompatActivity {
 
         json.put("g0401440p", bi.g0401440py.isChecked() ? "1"
                 : bi.g0401440pn.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
        /* try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(child.getsCC()), json);
