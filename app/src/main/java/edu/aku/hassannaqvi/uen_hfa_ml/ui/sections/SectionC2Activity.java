@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -41,15 +42,13 @@ public class SectionC2Activity extends AppCompatActivity {
 
     private void setupListeners() {
 
-        /*bi.uf14.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.uf14a.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVuf15, false);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVuf15, true);
+        bi.c03.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.c03b.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVc04 );
             }
         }));
 
-        List<String> childrenLst = new ArrayList<String>() {
+       /* List<String> childrenLst = new ArrayList<String>() {
             {
                 add("....");
                 addAll(MainApp.selectedChildren.getSecond());
