@@ -86,22 +86,24 @@ public class SectionAActivity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("a01", bi.a01.getText().toString());
+        /*json.put("a01", bi.a01.getText().toString());
 
-        json.put("a02", bi.a02.getText().toString());
+        json.put("a02", bi.a02.getText().toString());*/
 
         json.put("a03", bi.a03.getText().toString());
 
-        json.put("a04", bi.a04.getText().toString());
+       /* json.put("a04", bi.a04.getText().toString());
 
-        json.put("a05", bi.a05.getText().toString());
+        json.put("a05", bi.a05.getText().toString());*/
 
-        json.put("a06", bi.a06a.isChecked() ? "1"
+        /*json.put("a06", bi.a06a.isChecked() ? "1"
                 : bi.a06b.isChecked() ? "2"
                 : bi.a06c.isChecked() ? "3"
-                : "-1");
+                : "-1");*/
 
-        json.put("a07", bi.a07a.isChecked() ? "1"
+        json.put("a06", bi.a06.getSelectedItemId());
+
+        /*json.put("a07", bi.a07a.isChecked() ? "1"
                 : bi.a07b.isChecked() ? "2"
                 : bi.a07c.isChecked() ? "3"
                 : bi.a07d.isChecked() ? "4"
@@ -109,19 +111,21 @@ public class SectionAActivity extends AppCompatActivity {
                 : bi.a07f.isChecked() ? "6"
                 : bi.a07g.isChecked() ? "7"
                 : bi.a07h.isChecked() ? "8"
-                : "-1");
+                : "-1");*/
 
-        json.put("a08", "-1");
+        json.put("a07", bi.a07.getSelectedItemId());
 
-        json.put("a09", "-1");
+        json.put("a08", bi.a08.getSelectedItemId());
+
+        json.put("a09", bi.a09.getSelectedItemId());
 
         json.put("a10", bi.a10a.isChecked() ? "1"
                 : bi.a10b.isChecked() ? "2"
                 : "-1");
 
-        json.put("a11", bi.a11a.isChecked() ? "1"
+        /*json.put("a11", bi.a11a.isChecked() ? "1"
                 : bi.a11b.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
         json.put("a12", bi.a12.getText().toString());
 
