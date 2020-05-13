@@ -208,10 +208,14 @@
 
 
     <style name="spinner" parent="Widget.AppCompat.Spinner">
-        <item name="android:background">@drawable/spinner_style</item>
-        <item name="android:paddingRight">15dp</item>
-        <item name="android:paddingStart">15dp</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/spinner_style</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:layout_margin">15dp</item>
+        <item name="android:gravity">center</item>
+        <!--<item name="android:paddingRight">15dp</item>
+        <item name="android:paddingStart">15dp</item>-->
     </style>
 
 
@@ -275,7 +279,7 @@
     </style>
 
 
-    <style name="radiogroup">
+    <style name="radiogroup0">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">end</item>
@@ -296,7 +300,7 @@
         <item name="android:orientation">horizontal</item>
     </style>
 
-    <style name="radiobutton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+    <style name="radiobutton0" parent="Widget.AppCompat.CompoundButton.RadioButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">20sp</item>
@@ -305,6 +309,38 @@
         <item name="android:background">@drawable/bottom_options</item>
         <item name="android:padding">4dp</item>
     </style>
+
+    <style name="vradiogroup0">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <style name="hradiogroup0">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">#d6d6d6</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <style name="radiobutton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/white</item>
+        <!--        <item name="android:button">@color/colorPrimary</item>-->
+        <item name="android:elevation">1dp</item>
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
 
     <style name="button" parent="Widget.AppCompat.Button">
         <item name="android:layout_height">wrap_content</item>

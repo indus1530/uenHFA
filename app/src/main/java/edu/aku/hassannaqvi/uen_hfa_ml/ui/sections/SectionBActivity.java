@@ -85,17 +85,9 @@ public class SectionBActivity extends AppCompatActivity {
         return false;
     }
 
+
     private void SaveDraft() throws JSONException {
 
-        fmc = new FamilyMembersContract();
-        fmc.setUuid(MainApp.fc.get_UID());
-        fmc.setFormdate(MainApp.fc.getFormDate());
-        fmc.setClusterno(MainApp.fc.getClusterCode());
-        fmc.setHhno(MainApp.fc.getHhno());
-//        fmc.setSerialno(bi.ch01.getText().toString());
-//        fmc.setName(bi.ch02.getText().toString());
-//        fmc.setFather_name(bi.ch03.getText().toString());
-//        fmc.setMother_name(bi.ch03b.getText().toString());
 
         JSONObject json = new JSONObject();
 

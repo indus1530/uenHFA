@@ -18,7 +18,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC1Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -89,13 +88,6 @@ public class SectionC1Activity extends AppCompatActivity {
     }
 
     private void SaveDraft() throws JSONException {
-
-        child = new ChildContract();
-        child.set_UUID(MainApp.fc.get_UID());
-        child.setDeviceId(MainApp.appInfo.getDeviceID());
-        child.setDevicetagID(MainApp.appInfo.getTagName());
-        child.setFormDate(MainApp.fc.getFormDate());
-        child.setUser(MainApp.userName);
 
         JSONObject json = new JSONObject();
 
