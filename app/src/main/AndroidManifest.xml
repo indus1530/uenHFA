@@ -69,7 +69,13 @@
 
         <activity
             android:name=".ui.sections.SectionE1Activity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".ui.sections.SectionE2Activity"
@@ -305,11 +311,6 @@
             android:label="@string/tdheading"
             android:parentActivityName=".ui.list_activity.FamilyMembersListActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.aku.hassannaqvi.uen_hfa_ml.ui.list_activity.FamilyMembersListActivity" />
