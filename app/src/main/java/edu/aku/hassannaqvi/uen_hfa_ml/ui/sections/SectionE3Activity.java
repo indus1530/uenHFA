@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -39,19 +40,11 @@ public class SectionE3Activity extends AppCompatActivity {
     private void setupListeners() {
 
 
-        /*bi.im01.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.im011.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim02, false);
-                Clear.clearAllFields(bi.fldGrpCVim02a, false);
-            } else if (i == bi.im012.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim02, false);
-                Clear.clearAllFields(bi.fldGrpCVim02a, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim02, true);
-                Clear.clearAllFields(bi.fldGrpCVim02a, true);
+        bi.e0301.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0301b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSece301);
             }
-
-        }));*/
+        }));
 
         /*bi.im02.setOnCheckedChangeListener((radioGroup, i) -> {
             if (i == bi.im021.getId()) {
@@ -83,6 +76,7 @@ public class SectionE3Activity extends AppCompatActivity {
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
+
         json.put("e0301", bi.e0301a.isChecked() ? "1"
                 : bi.e0301b.isChecked() ? "2"
                 : "-1");
