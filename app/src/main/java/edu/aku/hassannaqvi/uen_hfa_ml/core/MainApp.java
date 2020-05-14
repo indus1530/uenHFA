@@ -28,7 +28,6 @@ import com.jakewharton.threetenabp.AndroidThreeTen;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.CountAlertDialogLayoutBinding;
@@ -75,7 +74,6 @@ public class MainApp extends Application {
     public static AppInfo appInfo;
     public static Boolean admin = false;
     public static FormsContract fc;
-    public static ChildContract child;
     public static FamilyMembersContract selectedKishMWRA;
     public static FamilyMembersContract indexKishMWRAChild;
     public static String userName = "0000";

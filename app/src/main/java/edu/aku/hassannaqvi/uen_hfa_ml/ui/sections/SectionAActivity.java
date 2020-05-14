@@ -105,11 +105,6 @@ public class SectionAActivity extends AppCompatActivity {
     }
 
 
-    /*public void BtnEnd() {
-        openEndActivity(this);
-    }*/
-
-
     /*public void showTooltip(@NotNull View view) {
         if (view.getId() != View.NO_ID) {
             String package_name = getApplicationContext().getPackageName();

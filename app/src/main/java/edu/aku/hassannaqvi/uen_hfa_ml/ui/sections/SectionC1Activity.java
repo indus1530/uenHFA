@@ -13,20 +13,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FamilyMembersContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC1Binding;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
 public class SectionC1Activity extends AppCompatActivity {
 
     ActivitySectionC1Binding bi;
-    int position;
-    FamilyMembersContract selMWRA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +31,10 @@ public class SectionC1Activity extends AppCompatActivity {
         bi.setCallback(this);
 
         setTitle(R.string.modctitle);
-        setupListeners();
+        setupSkips();
     }
 
-    private void setupListeners() {
+    private void setupSkips() {
 
         /*bi.uf14.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.uf14a.getId()) {
@@ -46,40 +42,14 @@ public class SectionC1Activity extends AppCompatActivity {
             } else {
                 Clear.clearAllFields(bi.fldGrpCVuf15, true);
             }
-        }));
-
-        List<String> childrenLst = new ArrayList<String>() {
-            {
-                add("....");
-                addAll(MainApp.selectedChildren.getSecond());
-            }
-        };
-
-        bi.uf09.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, childrenLst));
-
-        bi.uf09.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                position = i;
-                if (i == 0) return;
-                selMWRA = mainVModel.getMemberInfo(MainApp.selectedChildren.getFirst().get(bi.uf09.getSelectedItemPosition() - 1));
-                bi.uf09a.setText(new StringBuilder("Mother name:").append(selMWRA.getMotherName()));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });*/
+        }));*/
 
     }
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        long updcount = db.addChild(child);
-        child.set_ID(String.valueOf(updcount));
-        if (updcount > 0) {
-            child.setUID(MainApp.deviceId + child.get_ID());
-            db.updatesChildColumn(ChildContract.SingleChild.COLUMN_UID, child.getUID());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, fc.getsC());
+        if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -201,7 +171,7 @@ public class SectionC1Activity extends AppCompatActivity {
 
         json.put("c01ke", bi.c01ke.getText().toString());
 
-        child.setsCA(String.valueOf(json));
+        MainApp.fc.setsC(String.valueOf(json));
 
     }
 
@@ -209,6 +179,7 @@ public class SectionC1Activity extends AppCompatActivity {
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
 
     public void BtnContinue() {
 
@@ -226,16 +197,6 @@ public class SectionC1Activity extends AppCompatActivity {
             }
         }
 
-    }
-
-
-    public void BtnEnd() {
-        openEndActivity(this);
-    }
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
     }
 
 }

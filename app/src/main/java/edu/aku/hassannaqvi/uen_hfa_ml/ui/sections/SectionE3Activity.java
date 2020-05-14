@@ -34,10 +34,10 @@ public class SectionE3Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e3);
         bi.setCallback(this);
         setTitle(R.string.chsec);
-        setupListeners();
+        setupSkips();
     }
 
-    private void setupListeners() {
+    private void setupSkips() {
 
 
         bi.e0301.setOnCheckedChangeListener(((radioGroup, i) -> {

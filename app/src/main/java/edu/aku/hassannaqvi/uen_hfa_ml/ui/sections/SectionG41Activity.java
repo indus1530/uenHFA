@@ -33,10 +33,10 @@ public class SectionG41Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g41);
         bi.setCallback(this);
         setTitle(R.string.modgtitle);
-        setupListeners();
+        setupSkips();
     }
 
-    private void setupListeners() {
+    private void setupSkips() {
         bi.g040110s.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.g040110sn.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVg040110so );

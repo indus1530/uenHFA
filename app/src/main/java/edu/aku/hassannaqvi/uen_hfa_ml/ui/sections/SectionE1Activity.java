@@ -14,19 +14,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionE1Binding;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.IM02FLAG;
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
 public class SectionE1Activity extends AppCompatActivity {
 
     ActivitySectionE1Binding bi;
-    boolean im02Flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +31,10 @@ public class SectionE1Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e1);
         bi.setCallback(this);
         setTitle(R.string.chsec);
-        setupListeners();
+        setupSkips();
     }
 
-    private void setupListeners() {
-
+    private void setupSkips() {
 
         bi.e0101.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.e0101b.getId()) {
@@ -47,25 +43,12 @@ public class SectionE1Activity extends AppCompatActivity {
 
         }));
 
-        /*bi.im02.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im021.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim02a, false);
-//                Clear.clearAllFields(bi.fldGrpSecChc2, false);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim02a, true);
-//                Clear.clearAllFields(bi.fldGrpSecChc2, true);
-            }
-
-            Clear.clearAllFields(bi.fldGrpCVim02a, i == bi.im022.getId());
-            im02Flag = i == bi.im021.getId();
-
-        });*/
-
     }
+
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesChildColumn(ChildContract.SingleChild.COLUMN_SCC, child.getsCC());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SE, fc.getsE());
         if (updcount == 1) {
             return true;
         } else {
@@ -74,9 +57,11 @@ public class SectionE1Activity extends AppCompatActivity {
         }
     }
 
+
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
+
         json.put("e0101", bi.e0101a.isChecked() ? "1"
                 : bi.e0101b.isChecked() ? "2"
                 : "-1");
@@ -155,14 +140,11 @@ public class SectionE1Activity extends AppCompatActivity {
 
         //json.put("e0103e", bi.e0103e.getText().toString());
 
-        child.setsCC(String.valueOf(json));
+        MainApp.fc.setsE(String.valueOf(json));
 
     }
 
-    private boolean formValidation() {
 
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
-    }
 
     public void BtnContinue() {
 
@@ -174,7 +156,7 @@ public class SectionE1Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, SectionE2Activity.class).putExtra(IM02FLAG, !im02Flag));
+                startActivity(new Intent(this, SectionE2Activity.class));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -183,13 +165,9 @@ public class SectionE1Activity extends AppCompatActivity {
 
     }
 
-    public void BtnEnd() {
-        openEndActivity(this);
-    }
 
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
+    private boolean formValidation() {
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
 }

@@ -31,10 +31,10 @@ public class SectionG1Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g1);
         bi.setCallback(this);
         setTitle(R.string.modgtitle);
-        setupListeners();
+        setupSkips();
     }
 
-    private void setupListeners() {
+    private void setupSkips() {
 
     }
 

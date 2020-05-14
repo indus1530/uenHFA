@@ -19,7 +19,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionE8Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.IM02FLAG;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -34,10 +33,10 @@ public class SectionE8Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e8);
         bi.setCallback(this);
         setTitle(R.string.chsec);
-        setupListeners();
+        setupSkips();
     }
 
-    private void setupListeners() {
+    private void setupSkips() {
 
 
         /*bi.im01.setOnCheckedChangeListener(((radioGroup, i) -> {

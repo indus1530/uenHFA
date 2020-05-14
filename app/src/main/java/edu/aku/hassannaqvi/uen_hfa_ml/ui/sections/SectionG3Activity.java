@@ -32,10 +32,10 @@ public class SectionG3Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g3);
         bi.setCallback(this);
         setTitle(R.string.modgtitle);
-        setupListeners();
+        setupSkips();
     }
 
-    private void setupListeners() {
+    private void setupSkips() {
 
     }
 

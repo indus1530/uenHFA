@@ -14,33 +14,30 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FamilyMembersContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC2Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionC2Activity extends AppCompatActivity {
 
     ActivitySectionC2Binding bi;
-    int position;
-    FamilyMembersContract selMWRA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_c2);
         bi.setCallback(this);
-
         setTitle(R.string.modctitle);
-        setupListeners();
+        setupSkips();
     }
 
-    private void setupListeners() {
+
+    private void setupSkips() {
 
         bi.c03.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.c03b.getId()) {
@@ -48,38 +45,13 @@ public class SectionC2Activity extends AppCompatActivity {
             }
         }));
 
-       /* List<String> childrenLst = new ArrayList<String>() {
-            {
-                add("....");
-                addAll(MainApp.selectedChildren.getSecond());
-            }
-        };
-
-        bi.uf09.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, childrenLst));
-
-        bi.uf09.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                position = i;
-                if (i == 0) return;
-                selMWRA = mainVModel.getMemberInfo(MainApp.selectedChildren.getFirst().get(bi.uf09.getSelectedItemPosition() - 1));
-                bi.uf09a.setText(new StringBuilder("Mother name:").append(selMWRA.getMotherName()));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });*/
-
     }
+
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        long updcount = db.addChild(child);
-        child.set_ID(String.valueOf(updcount));
-        if (updcount > 0) {
-            child.setUID(MainApp.deviceId + child.get_ID());
-            db.updatesChildColumn(ChildContract.SingleChild.COLUMN_UID, child.getUID());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, fc.getsC());
+        if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -87,14 +59,8 @@ public class SectionC2Activity extends AppCompatActivity {
         }
     }
 
-    private void SaveDraft() throws JSONException {
 
-        child = new ChildContract();
-        child.set_UUID(MainApp.fc.get_UID());
-        child.setDeviceId(MainApp.appInfo.getDeviceID());
-        child.setDevicetagID(MainApp.appInfo.getTagName());
-        child.setFormDate(MainApp.fc.getA3());
-        child.setUser(MainApp.userName);
+    private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
 
@@ -125,7 +91,7 @@ public class SectionC2Activity extends AppCompatActivity {
         json.put("c04cb", bi.c04cb.getText().toString());
 
 
-        child.setsCA(String.valueOf(json));
+        MainApp.fc.setsC(String.valueOf(json));
 
     }
 
@@ -133,6 +99,7 @@ public class SectionC2Activity extends AppCompatActivity {
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
 
     public void BtnContinue() {
 

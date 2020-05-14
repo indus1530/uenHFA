@@ -41,7 +41,7 @@ public class SectionF4Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f4);
         bi.setCallback(this);
         setTitle(R.string.chsec);
-        setupListeners();
+        setupSkips();
         setupTextWatchers();
 
     }
@@ -134,7 +134,7 @@ public class SectionF4Activity extends AppCompatActivity {
 
     }
 
-    private void setupListeners() {
+    private void setupSkips() {
 
 //        Clear.clearAllFields(bi.fldGrpSecChc2, getIntent().getBooleanExtra(IM02FLAG, true));
 

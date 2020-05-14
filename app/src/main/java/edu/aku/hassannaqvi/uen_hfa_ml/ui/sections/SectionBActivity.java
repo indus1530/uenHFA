@@ -15,12 +15,14 @@ import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FamilyMembersContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionBBinding;
 import edu.aku.hassannaqvi.uen_hfa_ml.viewmodel.MainVModel;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.SERIAL_EXTRA;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
 public class SectionBActivity extends AppCompatActivity {
 
@@ -77,19 +79,16 @@ public class SectionBActivity extends AppCompatActivity {
 
     }
 
-    private boolean UpdateDB() {
 
+    private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        long updcount = db.addFamilyMember(fmc);
-        fmc.set_id(String.valueOf(updcount));
-        if (updcount > 0) {
-            fmc.setUid(MainApp.deviceId + fmc.get_id());
-            db.updatesFamilyMemberColumn(FamilyMembersContract.SingleMember.COLUMN_UID, fmc.getUid(), fmc.get_id());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SA, fc.getsA());
+        if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
+            return false;
         }
-        return false;
     }
 
 
@@ -174,14 +173,4 @@ public class SectionBActivity extends AppCompatActivity {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
-
-    public void BtnEnd() {
-        finish();
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
-    }
 }
