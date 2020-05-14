@@ -29,6 +29,7 @@ public final class CreateTable {
             + FormsContract.FormsTable.COLUMN_A8 + " TEXT,"
             + FormsContract.FormsTable.COLUMN_A9 + " TEXT,"
             + FormsContract.FormsTable.COLUMN_A10 + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_A11 + " TEXT,"
             + FormsContract.FormsTable.COLUMN_A12 + " TEXT,"
             + FormsContract.FormsTable.COLUMN_A13 + " TEXT,"
             + FormsContract.FormsTable.COLUMN_APPVERSION + " TEXT,"

@@ -542,6 +542,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_A8, fc.getA8());
         values.put(FormsTable.COLUMN_A9, fc.getA9());
         values.put(FormsTable.COLUMN_A10, fc.getA10());
+        values.put(FormsTable.COLUMN_A11, fc.getA11());
         values.put(FormsTable.COLUMN_A12, fc.getA12());
         values.put(FormsTable.COLUMN_A13, fc.getA13());
         values.put(FormsTable.COLUMN_LUID, fc.getLuid());
@@ -728,6 +729,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_A8,
                 FormsTable.COLUMN_A9,
                 FormsTable.COLUMN_A10,
+                FormsTable.COLUMN_A11,
                 FormsTable.COLUMN_A12,
                 FormsTable.COLUMN_A13,
                 FormsTable.COLUMN_ISTATUS,
@@ -842,6 +844,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_A8,
                 FormsTable.COLUMN_A9,
                 FormsTable.COLUMN_A10,
+                FormsTable.COLUMN_A11,
                 FormsTable.COLUMN_A12,
                 FormsTable.COLUMN_A13,
                 FormsTable.COLUMN_ISTATUS,
@@ -903,6 +906,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_A8,
                 FormsTable.COLUMN_A9,
                 FormsTable.COLUMN_A10,
+                FormsTable.COLUMN_A11,
                 FormsTable.COLUMN_A12,
                 FormsTable.COLUMN_A13,
                 FormsTable.COLUMN_ISTATUS,
