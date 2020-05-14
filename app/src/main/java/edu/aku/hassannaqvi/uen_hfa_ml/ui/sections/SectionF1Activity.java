@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.edittextpicker.aliazaz.EditTextPicker;
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -133,12 +134,12 @@ public class SectionF1Activity extends AppCompatActivity {
 
     private void setupListeners() {
 
-        /*Clear.clearAllFields(bi.fldGrpSecChc2, getIntent().getBooleanExtra(IM02FLAG, true));
+//        Clear.clearAllFields(bi.fldGrpSecChc2, getIntent().getBooleanExtra(IM02FLAG, true));
 
-        bi.im05.setOnCheckedChangeListener((radioGroup, i) -> {
+        /*bi.im05.setOnCheckedChangeListener((radioGroup, i) -> {
             if (i != bi.im051.getId()) {
-                *//*bi.qIm06.setEnabled(false);
-                Clear.clearAllFields(bi.qIm08, false);*//*
+                bi.qIm06.setEnabled(false);
+                Clear.clearAllFields(bi.qIm08, false);
                 Clear.clearAllFields(bi.fldGrpCVim06, false);
                 Clear.clearAllFields(bi.fldGrpSecChc3, false);
                 Clear.clearAllFields(bi.fldGrpCVim08, false);
@@ -151,81 +152,92 @@ public class SectionF1Activity extends AppCompatActivity {
                 Clear.clearAllFields(bi.fldGrpCVim23, false);
                 Clear.clearAllFields(bi.fldGrpCVim23a, false);
             }
-        });
-
-        bi.im08.setOnCheckedChangeListener(((radioGroup, i) -> {
-
-            if (i == bi.im081.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim09, true);
-                Clear.clearAllFields(bi.fldGrpCVim10, true);
-                Clear.clearAllFields(bi.fldGrpSecChc5, true);
-                Clear.clearAllFields(bi.fldGrpSecChc6, true);
-                Clear.clearAllFields(bi.fldGrpCVim23, true);
-                Clear.clearAllFields(bi.fldGrpCVim23a, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim09, false);
-                Clear.clearAllFields(bi.fldGrpCVim10, false);
-                Clear.clearAllFields(bi.fldGrpSecChc5, false);
-                Clear.clearAllFields(bi.fldGrpSecChc6, false);
-                Clear.clearAllFields(bi.fldGrpCVim23, false);
-                Clear.clearAllFields(bi.fldGrpCVim23a, false);
-            }
-
-        }));
-
-        bi.im10.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im101.getId()) {
-                Clear.clearAllFields(bi.fldGrpSecChc5, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpSecChc5, false);
-            }
-
-        });
-
-        bi.im14.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im141.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim15, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim15, false);
-            }
-        });
-
-        bi.im16.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im161.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim17, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim17, false);
-            }
-        });
-
-        bi.im18.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im181.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim19, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim19, false);
-            }
-        });
-
-        bi.im21.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im211.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim22, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim22, false);
-            }
-        });
-
-        bi.im23.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im231.getId() || i == bi.im232.getId() || i == bi.im233.getId()) {
-                Clear.clearAllFields(bi.fldGrpSecChc4, false);
-            } else if (i == bi.im234.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim23a, false);
-                Clear.clearAllFields(bi.fldGrpSecChc4, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim23a, true);
-                Clear.clearAllFields(bi.fldGrpSecChc4, true);
-            }
-
         });*/
+
+
+        bi.f0100.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0100b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecf101);
+            }
+        });
+
+        bi.f0101aa0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0101aa0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0101aa0f);
+            }
+        });
+
+        bi.f0101ab0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0101ab0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0101ab0f);
+            }
+        });
+
+        bi.f0105.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0105b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecf102);
+            }
+        });
+
+        bi.f0105aaa0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0105aaa0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0105aaa0f);
+            }
+        });
+
+        bi.f0105aab0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0105aab0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0105aab0f);
+            }
+        });
+
+        bi.f0105aac0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0105aac0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0105aac0f);
+            }
+        });
+
+        bi.f0106.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0106b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecf103);
+            }
+        });
+
+        bi.f0110.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0110b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecf105);
+            }
+        });
+
+        bi.f0110aaa0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0110aaa0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0110aaa0f);
+            }
+        });
+
+        bi.f0110aab0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0110aab0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0110aab0f);
+            }
+        });
+
+        bi.f0110aac0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0110aac0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0110aac0f);
+            }
+        });
+
+        bi.f0110aad0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0110aad0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0110aad0f);
+            }
+        });
+
+        bi.f0110aae0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0110aae0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0110aae0f);
+            }
+        });
 
     }
 
