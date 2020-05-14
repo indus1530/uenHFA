@@ -72,6 +72,7 @@ public class SectionBActivity extends AppCompatActivity {
     }
 
     private boolean UpdateDB() {
+
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         long updcount = db.addFamilyMember(fmc);
         fmc.set_id(String.valueOf(updcount));
