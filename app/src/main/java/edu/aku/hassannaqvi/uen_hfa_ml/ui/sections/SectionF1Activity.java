@@ -7,9 +7,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
@@ -17,15 +14,17 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionF1Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.AgeModel;
 import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.DateRepository;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
 public class SectionF1Activity extends AppCompatActivity {
 
@@ -42,6 +41,7 @@ public class SectionF1Activity extends AppCompatActivity {
         setupTextWatchers();
 
     }
+
 
     private void setupTextWatchers() {
        /* editTextImplementation(new EditTextPicker[]{bi.im41bcgdd, bi.im41bcgmm, bi.im41bcgyy});
@@ -61,6 +61,7 @@ public class SectionF1Activity extends AppCompatActivity {
         editTextImplementation(new EditTextPicker[]{bi.im415measles1dd, bi.im415measles1mm, bi.im415measles1yy});
         editTextImplementation(new EditTextPicker[]{bi.im416measles2dd, bi.im416measles2mm, bi.im416measles2yy});*/
     }
+
 
     public void editTextImplementation(EditTextPicker[] editTextsArray) {
         if (editTextsArray.length != 3) return;
@@ -130,6 +131,7 @@ public class SectionF1Activity extends AppCompatActivity {
 
 
     }
+
 
     private void setupSkips() {
 
@@ -240,9 +242,10 @@ public class SectionF1Activity extends AppCompatActivity {
 
     }
 
+
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesChildColumn(ChildContract.SingleChild.COLUMN_SCC, child.getsCC());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SF, fc.getsF());
         if (updcount == 1) {
             return true;
         } else {
@@ -250,6 +253,7 @@ public class SectionF1Activity extends AppCompatActivity {
             return false;
         }
     }
+
 
     private void SaveDraft() throws JSONException {
 
@@ -464,13 +468,5 @@ public class SectionF1Activity extends AppCompatActivity {
 
     }
 
-    public void BtnEnd() {
-        openEndActivity(this);
-    }
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
-    }
 
 }

@@ -35,6 +35,7 @@ public class SectionE8Activity extends AppCompatActivity {
         setupSkips();
     }
 
+
     private void setupSkips() {
 
 
@@ -67,6 +68,7 @@ public class SectionE8Activity extends AppCompatActivity {
         });*/
 
     }
+
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
