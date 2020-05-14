@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -36,6 +37,36 @@ public class SectionG41Activity extends AppCompatActivity {
     }
 
     private void setupListeners() {
+        bi.g040110s.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.g040110sn.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg040110so );
+            }
+        }));
+
+
+        bi.g040120s.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.g040120sn.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg040120so );
+            }
+        }));
+
+        bi.g04010s.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.g04010sn.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg04010so );
+            }
+        }));
+
+        bi.g040160s.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.g040160sn.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg040160so );
+            }
+        }));
+
+        bi.g040170s.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.g040170sn.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg040170so );
+            }
+        }));
 
     }
 
