@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -39,6 +40,30 @@ public class SectionD5Activity extends AppCompatActivity {
     }
 
     private void setupSkips() {
+
+        bi.d0502a0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.d0502a0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVd0502a0f);
+            }
+        }));
+
+        bi.d0502b0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.d0502b0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVd0502b0f);
+            }
+        }));
+
+        bi.d0502c0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.d0502c0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVd0502c0f);
+            }
+        }));
+
+        bi.d0502d0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.d0502d0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVd0502d0f);
+            }
+        }));
 
         /*bi.cb01a.addTextChangedListener(new TextWatcher() {
             @Override

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -39,56 +40,11 @@ public class SectionH16Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        /*bi.ss04.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss04b.getId()) {
-                Clear.clearAllFields(bi.ss05cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss05cv, true);
+        bi.h1601.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1601b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSech1601);
             }
-        }));*/
-
-
-        /*bi.ss07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss07h.getId() || i == bi.ss07i.getId()) {
-                Clear.clearAllFields(bi.ss08cv, false);
-                Clear.clearAllFields(bi.ss09cv, false);
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss08cv, true);
-                Clear.clearAllFields(bi.ss09cv, true);
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss09.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss09b.getId()) {
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-
-            } else {
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-
-            }
-        }));*/
-
-
-        /*bi.ss11.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss11b.getId()) {
-                Clear.clearAllFields(bi.ss12cv, false);
-                Clear.clearAllFields(bi.ss13cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss12cv, true);
-                Clear.clearAllFields(bi.ss13cv, true);
-            }
-        }));*/
+        }));
 
     }
 

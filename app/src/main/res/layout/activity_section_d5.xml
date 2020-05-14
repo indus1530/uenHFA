@@ -20,15 +20,12 @@
 
         <LinearLayout
             android:id="@+id/GrpName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            style="@style/vlinearlayout">
 
             <!-- d05  Title   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd05"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -43,8 +40,7 @@
             <!-- d0501  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0501"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -83,8 +79,7 @@
             <!-- d0502  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0502"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -99,8 +94,7 @@
             <!-- d0502a0a  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0502a0a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -149,8 +143,8 @@
             <!-- d0502a0f  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0502a0f"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView"
+                android:visibility='@{d0502a0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -200,8 +194,7 @@
             <!-- d0502b0a  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0502b0a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -250,8 +243,8 @@
             <!-- d0502b0f  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0502b0f"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView"
+                android:visibility='@{d0502b0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -300,8 +293,7 @@
             <!-- d0502c0a  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0502c0a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -350,8 +342,8 @@
             <!-- d0502c0f  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0502c0f"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView"
+                android:visibility='@{d0502c0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -400,8 +392,7 @@
             <!-- d0502d0a  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0502d0a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -450,8 +441,8 @@
             <!-- d0502d0f  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0502d0f"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView"
+                android:visibility='@{d0502d0an.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -500,8 +491,7 @@
             <!-- d0503  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0503"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -516,8 +506,7 @@
             <!-- d0503a  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0503a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -550,8 +539,7 @@
             <!-- d0503b  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0503b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -584,8 +572,7 @@
             <!-- d0503c  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0503c"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -618,8 +605,7 @@
             <!-- d0503d  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0503d"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -652,8 +638,7 @@
             <!-- d0503e  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0503e"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -686,8 +671,7 @@
             <!-- d0503f  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0503f"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -720,8 +704,7 @@
             <!-- d0503g  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0503g"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -754,8 +737,7 @@
             <!-- d0503h  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0503h"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -810,6 +792,7 @@
                 <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </layout>
