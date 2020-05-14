@@ -20,8 +20,6 @@ import java.net.URL;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.SyncListAdapter;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.BLRandomContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.EnumBlockContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UsersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;

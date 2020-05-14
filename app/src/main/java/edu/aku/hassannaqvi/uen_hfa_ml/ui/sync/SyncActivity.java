@@ -32,7 +32,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.SyncListAdapter;
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.UploadListAdapter;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
@@ -154,22 +153,6 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     FormsContract.FormsTable.TABLE_NAME,
                     db.getUnsyncedForms(), 0, uploadListAdapter, uploadlist
-            ).execute();
-
-
-            if (uploadlistActivityCreated) {
-                uploadmodel = new SyncModel();
-                uploadmodel.setstatusID(0);
-                uploadlist.add(uploadmodel);
-            }
-            new SyncAllData(
-                    this,
-                    "Child",
-                    "updateSyncedChildForms",
-                    ChildContract.class,
-                    MainApp._HOST_URL + MainApp._SERVER_URL,
-                    ChildContract.SingleChild.TABLE_NAME,
-                    db.getUnsyncedChildForms(), 1, uploadListAdapter, uploadlist
             ).execute();
 
 

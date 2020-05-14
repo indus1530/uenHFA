@@ -14,22 +14,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionBBinding;
-import edu.aku.hassannaqvi.uen_hfa_ml.viewmodel.MainVModel;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.SERIAL_EXTRA;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
 public class SectionBActivity extends AppCompatActivity {
 
     ActivitySectionBBinding bi;
-    private MainVModel mainVModel;
-    private FamilyMembersContract fmc;
-    private int serial = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +65,7 @@ public class SectionBActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         if (UpdateDB()) {
-            setResult(RESULT_OK, new Intent().putExtra(SERIAL_EXTRA, serial));
+            startActivity(new Intent(this, SectionBActivity.class));
             finish();
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();

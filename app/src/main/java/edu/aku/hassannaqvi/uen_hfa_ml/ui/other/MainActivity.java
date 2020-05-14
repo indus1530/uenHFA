@@ -43,7 +43,6 @@ import java.util.Map;
 import java.util.Objects;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.AreasContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.AndroidDatabaseManager;
@@ -76,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
     String m_Text = "";
     ProgressDialog mProgressDialog;
     ArrayList<String> lablesAreas;
-    Collection<AreasContract> AreasList;
     Map<String, String> AreasMap;
     SharedPreferences sharedPrefDownload;
     SharedPreferences.Editor editorDownload;

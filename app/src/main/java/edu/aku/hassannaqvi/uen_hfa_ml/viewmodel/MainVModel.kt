@@ -1,12 +1,10 @@
 package edu.aku.hassannaqvi.uen_hfa_ml.viewmodel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FamilyMembersContract
 
 class MainVModel : ViewModel() {
 
-    var familyMemLst = MutableLiveData<MutableList<FamilyMembersContract>>()
+    /*var familyMemLst = MutableLiveData<MutableList<FamilyMembersContract>>()
         private set
 
     var childLstU5 = MutableLiveData<MutableList<FamilyMembersContract>>()
@@ -80,7 +78,7 @@ class MainVModel : ViewModel() {
     fun getCheckedItemValues(fmItem: Int): Boolean {
         val flag = checkedItems.value?.find { it == fmItem }
         flag?.let { return true } ?: return false
-    }
+    }*/
 
 
 }

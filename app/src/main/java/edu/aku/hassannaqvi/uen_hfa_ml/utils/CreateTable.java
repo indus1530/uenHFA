@@ -1,10 +1,8 @@
 package edu.aku.hassannaqvi.uen_hfa_ml.utils;
 
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.BLRandomContract.SingleRandomHH;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ChildContract.SingleChild;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.EnumBlockContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FamilyMembersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TalukasContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UsersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
 
@@ -70,7 +68,6 @@ public final class CreateTable {
             VersionAppContract.VersionAppTable.COLUMN_VERSION_NAME + " TEXT, " +
             VersionAppContract.VersionAppTable.COLUMN_PATH_NAME + " TEXT " +
             ");";
-/*
     public static final String SQL_CREATE_TALUKAS = "CREATE TABLE " + TalukasContract.singleTalukas.TABLE_NAME + "("
             + TalukasContract.singleTalukas._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + TalukasContract.singleTalukas.COLUMN_TALUKA_CODE + " TEXT,"
@@ -82,65 +79,5 @@ public final class CreateTable {
             + UCsContract.singleUCs.COLUMN_UCCODE + " TEXT,"
             + UCsContract.singleUCs.COLUMN_TALUKA_CODE + " TEXT,"
             + UCsContract.singleUCs.COLUMN_UCS + " TEXT );";
-
-
-    public static final String SQL_CREATE_AREAS = "CREATE TABLE " + AreasContract.singleAreas.TABLE_NAME + "("
-            + AreasContract.singleAreas._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + AreasContract.singleAreas.COLUMN_AREACODE + " TEXT,"
-            + AreasContract.singleAreas.COLUMN_UC_CODE + " TEXT,"
-            + AreasContract.singleAreas.COLUMN_AREA + " TEXT );";*/
-
-    public static final String SQL_CREATE_BL_RANDOM = "CREATE TABLE " + SingleRandomHH.TABLE_NAME + "("
-            + SingleRandomHH.COLUMN_ID + " TEXT,"
-            + SingleRandomHH.COLUMN_ENUM_BLOCK_CODE + " TEXT,"
-            + SingleRandomHH.COLUMN_LUID + " TEXT,"
-            + SingleRandomHH.COLUMN_HH + " TEXT,"
-            + SingleRandomHH.COLUMN_STRUCTURE_NO + " TEXT,"
-            + SingleRandomHH.COLUMN_FAMILY_EXT_CODE + " TEXT,"
-            + SingleRandomHH.COLUMN_HH_HEAD + " TEXT,"
-            + SingleRandomHH.COLUMN_CONTACT + " TEXT,"
-            + SingleRandomHH.COLUMN_HH_SELECTED_STRUCT + " TEXT,"
-            + SingleRandomHH.COLUMN_RANDOMDT + " TEXT,"
-            + SingleRandomHH.COLUMN_SNO_HH + " TEXT );";
-
-    public static final String SQL_CREATE_PSU_TABLE = "CREATE TABLE " + EnumBlockContract.EnumBlockTable.TABLE_NAME + " (" +
-            EnumBlockContract.EnumBlockTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            EnumBlockContract.EnumBlockTable.COLUMN_DIST_ID + " TEXT, " +
-            EnumBlockContract.EnumBlockTable.COLUMN_GEO_AREA + " TEXT, " +
-            EnumBlockContract.EnumBlockTable.COLUMN_CLUSTER_AREA + " TEXT " +
-            ");";
-
-    public static final String SQL_CREATE_CHILD_TABLE = "CREATE TABLE " + SingleChild.TABLE_NAME + "("
-            + SingleChild._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + SingleChild.COLUMN_UID + " TEXT,"
-            + SingleChild.COLUMN__UUID + " TEXT,"
-            + SingleChild.COLUMN_DEVICEID + " TEXT,"
-            + SingleChild.COLUMN_FORMDATE + " TEXT,"
-            + SingleChild.COLUMN_USER + " TEXT,"
-            + SingleChild.COLUMN_SCA + " TEXT,"
-            + SingleChild.COLUMN_SCB + " TEXT,"
-            + SingleChild.COLUMN_SCC + " TEXT,"
-            + SingleChild.COLUMN_DEVICETAGID + " TEXT,"
-            + SingleChild.COLUMN_SYNCED + " TEXT,"
-            + SingleChild.COLUMN_SYNCED_DATE + " TEXT );";
-
-    public static final String SQL_CREATE_FAMILY_MEMBERS = "CREATE TABLE " + FamilyMembersContract.SingleMember.TABLE_NAME + "("
-            + FamilyMembersContract.SingleMember.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            FamilyMembersContract.SingleMember.COLUMN_UID + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_UUID + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_FORMDATE + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_CLUSTERNO + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_HHNO + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_SERIAL_NO + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_NAME + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_FATHER_NAME + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_AGE + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_MONTH_FM + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_MOTHER_NAME + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_GENDER + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_SD + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_SYNCED + " TEXT," +
-            FamilyMembersContract.SingleMember.COLUMN_SYNCED_DATE + " TEXT"
-            + ");";
 
 }
