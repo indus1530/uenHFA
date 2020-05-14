@@ -117,7 +117,7 @@ public class SectionI2Activity extends AppCompatActivity {
     private boolean UpdateDB() {
 
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SE, MainApp.fc.getsE());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SA, MainApp.fc.getsA());
         if (updcount == 1) {
             return true;
         } else {
@@ -207,7 +207,7 @@ public class SectionI2Activity extends AppCompatActivity {
                 : bi.i0201qb.isChecked() ? "2"
                 : "-1");
 
-        MainApp.fc.setsE(String.valueOf(json));
+        MainApp.fc.setsA(String.valueOf(json));
 
     }
 

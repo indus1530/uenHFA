@@ -93,7 +93,7 @@ public class SectionC2Activity extends AppCompatActivity {
         child.set_UUID(MainApp.fc.get_UID());
         child.setDeviceId(MainApp.appInfo.getDeviceID());
         child.setDevicetagID(MainApp.appInfo.getTagName());
-        child.setFormDate(MainApp.fc.getFormDate());
+        child.setFormDate(MainApp.fc.getA3());
         child.setUser(MainApp.userName);
 
         JSONObject json = new JSONObject();

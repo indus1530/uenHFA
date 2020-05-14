@@ -79,7 +79,7 @@ public class SectionJ4Activity extends AppCompatActivity {
     private boolean UpdateDB() {
 
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SM, MainApp.fc.getsM());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SB, MainApp.fc.getsB());
         if (updcount == 1) {
             return true;
         } else {
@@ -159,7 +159,7 @@ public class SectionJ4Activity extends AppCompatActivity {
         json.put("j0401mx", bi.j0401mx.isChecked() ? "96" : "-1");
         json.put("j0401mxx", bi.j0401mxx.getText().toString());
 
-        MainApp.fc.setsM(String.valueOf(json));
+        MainApp.fc.setsB(String.valueOf(json));
 
     }
 
