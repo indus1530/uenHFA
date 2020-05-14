@@ -16,11 +16,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD4Binding;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionD4Activity extends AppCompatActivity {
@@ -95,7 +96,7 @@ public class SectionD4Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesChildColumn(ChildContract.SingleChild.COLUMN_SCB, child.getsCB());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SD, fc.getsD());
         if (updcount == 1) {
             return true;
         } else {
@@ -134,7 +135,7 @@ public class SectionD4Activity extends AppCompatActivity {
                 : bi.d0404c.isChecked() ? "3"
                 : "-1");
 
-        child.setsCB(String.valueOf(json));
+        MainApp.fc.setsD(String.valueOf(json));
 
     }
 
