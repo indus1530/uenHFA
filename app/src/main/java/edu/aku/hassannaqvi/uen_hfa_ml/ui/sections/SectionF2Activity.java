@@ -23,6 +23,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionF2Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.AgeModel;
 import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.DateRepository;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -301,6 +302,16 @@ public class SectionF2Activity extends AppCompatActivity {
                 : "-1");
 
         json.put("f0203aab0fqx", bi.f0203aab0fqx.getText().toString());
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsF()), json);
+
+            MainApp.fc.setsF(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
     }
 

@@ -7,9 +7,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
@@ -17,15 +14,19 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionF4Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.AgeModel;
 import edu.aku.hassannaqvi.uen_hfa_ml.datecollection.DateRepository;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 
@@ -45,6 +46,7 @@ public class SectionF4Activity extends AppCompatActivity {
 
     }
 
+
     private void setupTextWatchers() {
        /* editTextImplementation(new EditTextPicker[]{bi.im41bcgdd, bi.im41bcgmm, bi.im41bcgyy});
         editTextImplementation(new EditTextPicker[]{bi.im42opv0dd, bi.im42opv0mm, bi.im42opv0yy});
@@ -63,6 +65,7 @@ public class SectionF4Activity extends AppCompatActivity {
         editTextImplementation(new EditTextPicker[]{bi.im415measles1dd, bi.im415measles1mm, bi.im415measles1yy});
         editTextImplementation(new EditTextPicker[]{bi.im416measles2dd, bi.im416measles2mm, bi.im416measles2yy});*/
     }
+
 
     public void editTextImplementation(EditTextPicker[] editTextsArray) {
         if (editTextsArray.length != 3) return;
@@ -133,6 +136,7 @@ public class SectionF4Activity extends AppCompatActivity {
 
     }
 
+
     private void setupSkips() {
 
 //        Clear.clearAllFields(bi.fldGrpSecChc2, getIntent().getBooleanExtra(IM02FLAG, true));
@@ -199,9 +203,10 @@ public class SectionF4Activity extends AppCompatActivity {
 
     }
 
+
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesChildColumn(ChildContract.SingleChild.COLUMN_SCC, child.getsCC());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SF, fc.getsF());
         if (updcount == 1) {
             return true;
         } else {
@@ -209,6 +214,7 @@ public class SectionF4Activity extends AppCompatActivity {
             return false;
         }
     }
+
 
     private void SaveDraft() throws JSONException {
 
@@ -311,6 +317,15 @@ public class SectionF4Activity extends AppCompatActivity {
 
         json.put("f0404aaa0fqx", bi.f0404aaa0fqx.getText().toString());
 
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsF()), json);
+
+            MainApp.fc.setsF(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -329,7 +344,7 @@ public class SectionF4Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(this, SectionMainActivity.class));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -337,6 +352,7 @@ public class SectionF4Activity extends AppCompatActivity {
         }
 
     }
+
 
     public void BtnEnd() {
         openEndActivity(this);
