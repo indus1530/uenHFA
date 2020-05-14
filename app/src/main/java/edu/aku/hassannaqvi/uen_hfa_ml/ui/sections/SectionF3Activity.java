@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.edittextpicker.aliazaz.EditTextPicker;
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -133,16 +134,25 @@ public class SectionF3Activity extends AppCompatActivity {
 
     private void setupListeners() {
 
-        /*Clear.clearAllFields(bi.fldGrpSecChc2, getIntent().getBooleanExtra(IM02FLAG, true));
+//        Clear.clearAllFields(bi.fldGrpSecChc2, getIntent().getBooleanExtra(IM02FLAG, true));
 
-        bi.im10.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im101.getId()) {
-                Clear.clearAllFields(bi.fldGrpSecChc5, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpSecChc5, false);
+        bi.f0301.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0301b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecf301);
             }
+        });
 
-        });  */
+        bi.f0301aaa0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0301aaa0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0301aaa0f);
+            }
+        });
+
+        bi.f0302.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0302b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecf302);
+            }
+        });
 
     }
 
