@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.edittextpicker.aliazaz.EditTextPicker;
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -135,16 +136,67 @@ public class SectionF4Activity extends AppCompatActivity {
 
     private void setupListeners() {
 
-        /*Clear.clearAllFields(bi.fldGrpSecChc2, getIntent().getBooleanExtra(IM02FLAG, true));
+//        Clear.clearAllFields(bi.fldGrpSecChc2, getIntent().getBooleanExtra(IM02FLAG, true));
 
-        bi.im10.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im101.getId()) {
-                Clear.clearAllFields(bi.fldGrpSecChc5, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpSecChc5, false);
+        bi.f0401.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0401b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecf401);
             }
+        });
 
-        });  */
+        bi.f0401aaa0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0401aaa0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0401aaa0f);
+            }
+        });
+
+        bi.f0401aab0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0401aab0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0401aab0f);
+            }
+        });
+
+        bi.f0401aac0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0401aac0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0401aac0f);
+            }
+        });
+
+        bi.f0402.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0402b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecf402);
+            }
+        });
+
+        bi.f0402aaa0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0402aaa0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0402aaa0f);
+            }
+        });
+
+        bi.f0403.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0403b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecf403);
+            }
+        });
+
+        bi.f0403aaa0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0403aaa0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0403aaa0f);
+            }
+        });
+
+        bi.f0404.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0404b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecf404);
+            }
+        });
+
+        bi.f0404aaa0a.setOnCheckedChangeListener((radioGroup, i) -> {
+            if (i == bi.f0404aaa0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVf0404aaa0f);
+            }
+        });
 
     }
 
