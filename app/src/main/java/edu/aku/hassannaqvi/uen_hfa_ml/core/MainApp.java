@@ -18,14 +18,13 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.core.app.ActivityCompat;
-
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
+import java.io.Serializable;
 import java.util.List;
 
+import androidx.core.app.ActivityCompat;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 import kotlin.Pair;
 
 
@@ -126,7 +125,7 @@ public class MainApp extends Application {
         return sharedPref.getString("tagName", null);
     }
 
-    public static void endActivity(final Context context, final Activity activity) {
+    /*public static void endActivity(final Context context, final Activity activity) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 context);
         alertDialogBuilder
@@ -150,7 +149,44 @@ public class MainApp extends Application {
                 });
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
+    }*/
+
+
+    public static void endActivity(final Context context, final Activity activity, final Class EndActivityClass, final boolean complete, final Object objectData) {
+        String message = "";
+
+        if (complete)
+            message = "Do you want to Finish?";
+        else
+            message = "Do you want to Exit?";
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                context);
+        alertDialogBuilder
+                .setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int id) {
+                                activity.finish();
+                                Intent end_intent = new Intent(context, EndActivityClass);
+                                end_intent.putExtra("complete", complete);
+                                end_intent.putExtra("typeFlag", objectData.getClass().equals(FormsContract.class));
+                                end_intent.putExtra("fc_data", (Serializable) objectData);
+                                context.startActivity(end_intent);
+                            }
+                        });
+        alertDialogBuilder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
+
 
     @Override
     public void onCreate() {
