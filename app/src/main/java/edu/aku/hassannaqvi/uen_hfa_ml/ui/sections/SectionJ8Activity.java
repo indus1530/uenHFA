@@ -79,7 +79,7 @@ public class SectionJ8Activity extends AppCompatActivity {
     private boolean UpdateDB() {
 
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SM, MainApp.fc.getsM());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SB, MainApp.fc.getsB());
         if (updcount == 1) {
             return true;
         } else {
@@ -131,7 +131,7 @@ public class SectionJ8Activity extends AppCompatActivity {
         json.put("j0801gc", bi.j0801gc.isChecked() ? "3" : "-1");
         json.put("j0801gd", bi.j0801gd.isChecked() ? "4" : "-1");
 
-        MainApp.fc.setsM(String.valueOf(json));
+        MainApp.fc.setsB(String.valueOf(json));
 
     }
 

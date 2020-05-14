@@ -16,6 +16,9 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -71,7 +74,7 @@ public class SectionAActivity extends AppCompatActivity {
     private boolean UpdateDB() {
 
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SE, MainApp.fc.getsE());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SA, MainApp.fc.getsA());
         if (updcount == 1) {
             return true;
         } else {
@@ -84,37 +87,35 @@ public class SectionAActivity extends AppCompatActivity {
 
     private void SaveDraft() throws JSONException {
 
-        JSONObject json = new JSONObject();
+        MainApp.fc = new FormsContract();
+        MainApp.fc.setA1(MainApp.userName);
+        MainApp.fc.setA3(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        MainApp.fc.setDeviceID(MainApp.appInfo.getDeviceID());
+        MainApp.fc.setDevicetagID(MainApp.appInfo.getTagName());
+        MainApp.fc.setAppversion(MainApp.appInfo.getAppVersion());
+        MainApp.setGPS(this); // Set GPS
 
-        /*json.put("a01", bi.a01.getText().toString());
+        MainApp.fc.setA6(String.valueOf(bi.a06.getSelectedItem()));
 
-        json.put("a02", bi.a02.getText().toString());*/
+        MainApp.fc.setA7(String.valueOf(bi.a07.getSelectedItem()));
 
-        //json.put("a03", bi.a03.getText().toString());
+        MainApp.fc.setA8(String.valueOf(bi.a08.getSelectedItem()));
 
-       /* json.put("a04", bi.a04.getText().toString());
+        MainApp.fc.setA9(String.valueOf(bi.a09.getSelectedItem()));
 
-        json.put("a05", bi.a05.getText().toString());*/
-
-        json.put("a06", bi.a06.getSelectedItem());
-
-        json.put("a07", bi.a07.getSelectedItem());
-
-        json.put("a08", bi.a08.getSelectedItem());
-
-        json.put("a09", bi.a09.getSelectedItem());
-
-        json.put("a10", bi.a10a.isChecked() ? "1"
+        MainApp.fc.setA10(bi.a10a.isChecked() ? "1"
                 : bi.a10b.isChecked() ? "2"
                 : "-1");
+
+        MainApp.fc.setA12(String.valueOf(bi.a13.getSelectedItemId()));
+
+        MainApp.fc.setA13(String.valueOf(bi.a13.getSelectedItem()));
+
+        JSONObject json = new JSONObject();
 
         /*json.put("a11", bi.a11a.isChecked() ? "1"
                 : bi.a11b.isChecked() ? "2"
                 : "-1");*/
-
-        json.put("a12", bi.a13.getSelectedItemId());
-
-        json.put("a13", bi.a13.getSelectedItem());
 
         json.put("a14", bi.a14a.isChecked() ? "1"
                 : bi.a14b.isChecked() ? "2"
@@ -170,7 +171,7 @@ public class SectionAActivity extends AppCompatActivity {
                 : bi.a22e.isChecked() ? "5"
                 : "-1");
 
-        MainApp.fc.setsE(String.valueOf(json));
+        MainApp.fc.setsA(String.valueOf(json));
 
     }
 
@@ -220,10 +221,5 @@ public class SectionAActivity extends AppCompatActivity {
         }
     }
 
-
-    /*@Override
-    public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
-    }*/
 
 }
