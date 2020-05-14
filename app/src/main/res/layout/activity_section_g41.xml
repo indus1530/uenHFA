@@ -1129,7 +1129,8 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg040180so"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility='@{g040180sn.checked ? View.GONE : View.VISIBLE}' >
 
                 <LinearLayout style="@style/vlinearlayout">
 

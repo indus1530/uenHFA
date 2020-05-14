@@ -68,6 +68,12 @@ public class SectionG41Activity extends AppCompatActivity {
             }
         }));
 
+        bi.g040180s.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.g040180sn.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg040180so);
+            }
+        }));
+
     }
 
     private boolean UpdateDB() {
