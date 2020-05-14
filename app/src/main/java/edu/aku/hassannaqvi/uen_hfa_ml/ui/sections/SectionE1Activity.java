@@ -4,15 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -137,8 +136,6 @@ public class SectionE1Activity extends AppCompatActivity {
                 : bi.e0104dc.isChecked() ? "3"
                 : bi.e0104dd.isChecked() ? "4"
                 : "-1");
-
-        //json.put("e0103e", bi.e0103e.getText().toString());
 
         MainApp.fc.setsE(String.valueOf(json));
 
