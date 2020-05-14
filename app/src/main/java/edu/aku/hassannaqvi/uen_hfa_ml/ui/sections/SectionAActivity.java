@@ -2,17 +2,21 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
@@ -23,15 +27,185 @@ import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionABinding;
 public class SectionAActivity extends AppCompatActivity {
 
     ActivitySectionABinding bi;
+    private DatabaseHelper db;
+    private List<String> reportingMonth, districtNames, districtCodes, tehsilName, tehsilCode, UcNames, ucCode, hfName, hfCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_a);
         bi.setCallback(this);
-        setTitle(R.string.modatitle);
+        db = MainApp.appInfo.getDbHelper();
+        //tempVisible(this);
 
     }
+
+
+
+
+    /*private void tempVisible(final Context context) {
+
+        districtNames = new ArrayList<>();
+        districtCodes = new ArrayList<>();
+
+        districtNames.add("....");
+        districtCodes.add("....");
+        Collection<District> districts;
+        try {
+            districts = (Collection<District>) new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getAllDistricts").execute().get();
+
+            if (districts != null) {
+                for (District d : districts) {
+                    districtNames.add(d.getDistrict_name());
+                    districtCodes.add(d.getDistrict_code());
+                }
+                // Creating adapter for spinner
+                ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(context,
+                        android.R.layout.simple_spinner_dropdown_item, districtNames);
+
+                // Drop down layout style - list view with radio button
+                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                // attaching data adapter to spinner
+                bi.hfDistrict.setAdapter(dataAdapter);
+
+            } else {
+                Toast.makeText(this, "District not found!!", Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
+        if (!type.equals(MainApp.DHMT)) {
+            bi.hfDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    if (position == 0) return;
+
+                    tehsilName = new ArrayList<>();
+                    tehsilCode = new ArrayList<>();
+                    tehsilName.add("....");
+                    tehsilCode.add("....");
+
+                    Collection<Tehsil> tehsils;
+                    try {
+                        tehsils =
+                                (Collection<Tehsil>)
+                                        new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getTehsil")
+                                                .execute(districtCodes.get(position)).get();
+
+                        if (tehsils.size() != 0) {
+                            for (Tehsil fp : tehsils) {
+                                tehsilName.add(fp.getTehsil_name());
+                                tehsilCode.add(fp.getTehsil_code());
+                            }
+                        }
+
+                        bi.hfTehsil.setAdapter(new ArrayAdapter<>(context,
+                                android.R.layout.simple_spinner_dropdown_item, tehsilName));
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
+            bi.hfTehsil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    if (position == 0) return;
+
+                    hfName = new ArrayList<>();
+                    hfCode = new ArrayList<>();
+                    hfCode.add("....");
+                    hfName.add("....");
+
+                    Collection<FacilityProvider> hfp;
+                    try {
+                        hfp =
+                                *//*(Collection<FacilityProvider>)
+                                        new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getFacilityProvider")
+                                                .execute(tehsilName.get(position)).get();*//*
+
+
+                                (Collection<FacilityProvider>)
+                                        new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getFacilityProvider")
+                                                .execute("%" + tehsilCode.get(position) + "%", hf_type).get();
+
+                        if (hfp.size() != 0) {
+                            for (FacilityProvider fp : hfp) {
+                                hfName.add(fp.getHf_name());
+                                hfCode.add(fp.getHf_uen_code());
+
+                            }
+                        }
+
+                        bi.hfname.setAdapter(new ArrayAdapter<>(context,
+                                android.R.layout.simple_spinner_dropdown_item, hfName));
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
+        }
+
+        reportingMonth = new ArrayList<>();
+        reportingMonth.add("....");
+        reportingMonth.add(mon.toUpperCase());
+        reportingMonth.add(DateUtils.getMonthsBack("MMM-yy", -1).toUpperCase());
+        reportingMonth.add(DateUtils.getMonthsBack("MMM-yy", -2).toUpperCase());
+        // Creating adapter for spinner
+        ArrayAdapter<String> monAdapter = new ArrayAdapter<>(context,
+                android.R.layout.simple_spinner_dropdown_item, reportingMonth);
+        // Drop down layout style - list view with radio button
+        monAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // attaching data adapter to spinner
+        bi.reportMonth.setAdapter(monAdapter);
+        bi.reportMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                setTitle(type.equals(MainApp.RSD) ? "DHIS Data-Validation Tools for Decision Making (" + bi.reportMonth.getSelectedItem() + ")"
+                        : type.equals(MainApp.DHMT) ? "Performance Evaluation of District Team Meetings (" + bi.reportMonth.getSelectedItem() + ")"
+                        : type.equals(MainApp.QOC) ? "Key Quality Indicator Tool for Health Facility (" + bi.reportMonth.getSelectedItem() + ")" : " ");
+
+                ClearClass.ClearAllFields(bi.llrsdInfo01, null);
+                ClearClass.ClearAllFields(bi.llrsdInfo02, null);
+                ClearClass.ClearAllFields(bi.llrsdInfo03, null);
+                ClearClass.ClearAllFields(bi.llrsdInfo04, null);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+    }*/
 
 
     public void BtnContinue() {
@@ -53,10 +227,11 @@ public class SectionAActivity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SA, MainApp.fc.getsA());
-        if (updcount == 1) {
+        long updcount = db.addForm(MainApp.fc);
+        MainApp.fc.set_ID(String.valueOf(updcount));
+        if (updcount > 0) {
+            MainApp.fc.set_UID(MainApp.fc.getDeviceID() + MainApp.fc.get_ID());
+            db.updatesFormColumn(FormsContract.FormsTable.COLUMN_UID, MainApp.fc.get_UID());
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -105,7 +280,7 @@ public class SectionAActivity extends AppCompatActivity {
     }
 
 
-    /*public void showTooltip(@NotNull View view) {
+    public void showTooltip(@NotNull View view) {
         if (view.getId() != View.NO_ID) {
             String package_name = getApplicationContext().getPackageName();
 
@@ -137,7 +312,7 @@ public class SectionAActivity extends AppCompatActivity {
             Toast.makeText(this, "No ID Associated with this question.", Toast.LENGTH_SHORT).show();
 
         }
-    }*/
+    }
 
 
 }
