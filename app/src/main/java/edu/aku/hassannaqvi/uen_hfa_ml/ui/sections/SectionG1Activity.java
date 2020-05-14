@@ -4,21 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG1Binding;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
 public class SectionG1Activity extends AppCompatActivity {
 
@@ -33,13 +32,15 @@ public class SectionG1Activity extends AppCompatActivity {
         setupSkips();
     }
 
+
     private void setupSkips() {
 
     }
 
+
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesChildColumn(ChildContract.SingleChild.COLUMN_SCC, child.getsCC());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
         if (updcount == 1) {
             return true;
         } else {
@@ -47,6 +48,7 @@ public class SectionG1Activity extends AppCompatActivity {
             return false;
         }
     }
+
 
     private void SaveDraft() throws JSONException {
 
@@ -172,20 +174,15 @@ public class SectionG1Activity extends AppCompatActivity {
                 : bi.g01117e.isChecked() ? "5"
                 : "-1");
 
+        MainApp.fc.setsG(String.valueOf(json));
 
-       /* try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(child.getsCC()), json);
-
-            child.setsCC(String.valueOf(json_merge));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
     }
+
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
 
     public void BtnContinue() {
 
@@ -204,15 +201,6 @@ public class SectionG1Activity extends AppCompatActivity {
             }
         }
 
-    }
-
-    public void BtnEnd() {
-        openEndActivity(this);
-    }
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
     }
 
 }

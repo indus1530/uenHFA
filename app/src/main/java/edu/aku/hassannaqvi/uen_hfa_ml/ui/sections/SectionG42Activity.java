@@ -4,21 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG42Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 
@@ -35,13 +36,15 @@ public class SectionG42Activity extends AppCompatActivity {
         setupSkips();
     }
 
+
     private void setupSkips() {
 
     }
 
+
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesChildColumn(ChildContract.SingleChild.COLUMN_SCC, child.getsCC());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
         if (updcount == 1) {
             return true;
         } else {
@@ -49,6 +52,7 @@ public class SectionG42Activity extends AppCompatActivity {
             return false;
         }
     }
+
 
     private void SaveDraft() throws JSONException {
 
@@ -748,19 +752,22 @@ public class SectionG42Activity extends AppCompatActivity {
                 : bi.g040460pn.isChecked() ? "2"
                 : "-1");*/
 
-       /* try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(child.getsCC()), json);
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsG()), json);
 
-            child.setsCC(String.valueOf(json_merge));
+            MainApp.fc.setsG(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();
-        }*/
+        }
+
     }
+
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
 
     public void BtnContinue() {
 
@@ -772,7 +779,7 @@ public class SectionG42Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(this, SectionMainActivity.class));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -781,9 +788,11 @@ public class SectionG42Activity extends AppCompatActivity {
 
     }
 
+
     public void BtnEnd() {
         openEndActivity(this);
     }
+
 
     @Override
     public void onBackPressed() {

@@ -440,6 +440,8 @@ public class SectionF1Activity extends AppCompatActivity {
 
         json.put("f0110aae0fqx", bi.f0110aae0fqx.getText().toString());
 
+        MainApp.fc.setsF(String.valueOf(json));
+
 
     }
 

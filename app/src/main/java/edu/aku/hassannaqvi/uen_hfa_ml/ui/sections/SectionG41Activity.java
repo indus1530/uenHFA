@@ -4,21 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG41Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.child;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 
@@ -34,6 +35,7 @@ public class SectionG41Activity extends AppCompatActivity {
         setTitle(R.string.modgtitle);
         setupSkips();
     }
+
 
     private void setupSkips() {
         bi.g040110s.setOnCheckedChangeListener(((radioGroup, i) -> {
@@ -75,9 +77,10 @@ public class SectionG41Activity extends AppCompatActivity {
 
     }
 
+
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesChildColumn(ChildContract.SingleChild.COLUMN_SCC, child.getsCC());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
         if (updcount == 1) {
             return true;
         } else {
@@ -85,6 +88,7 @@ public class SectionG41Activity extends AppCompatActivity {
             return false;
         }
     }
+
 
     private void SaveDraft() throws JSONException {
 
@@ -786,19 +790,21 @@ public class SectionG41Activity extends AppCompatActivity {
                 : bi.g0401440pn.isChecked() ? "2"
                 : "-1");*/
 
-       /* try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(child.getsCC()), json);
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsG()), json);
 
-            child.setsCC(String.valueOf(json_merge));
+            MainApp.fc.setsG(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();
-        }*/
+        }
     }
+
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
 
     public void BtnContinue() {
 
@@ -819,9 +825,11 @@ public class SectionG41Activity extends AppCompatActivity {
 
     }
 
+
     public void BtnEnd() {
         openEndActivity(this);
     }
+
 
     @Override
     public void onBackPressed() {

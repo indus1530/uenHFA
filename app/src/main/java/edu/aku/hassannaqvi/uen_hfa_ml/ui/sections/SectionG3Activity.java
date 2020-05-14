@@ -4,20 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG3Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
@@ -36,9 +34,11 @@ public class SectionG3Activity extends AppCompatActivity {
         setupSkips();
     }
 
+
     private void setupSkips() {
 
     }
+
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
@@ -50,6 +50,7 @@ public class SectionG3Activity extends AppCompatActivity {
             return false;
         }
     }
+
 
     private void SaveDraft() throws JSONException {
 
@@ -249,9 +250,11 @@ public class SectionG3Activity extends AppCompatActivity {
         }
     }
 
+
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
 
     public void BtnContinue() {
 
@@ -263,7 +266,7 @@ public class SectionG3Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, EndingActivity.class));
+                startActivity(new Intent(this, SectionG41Activity.class));
 
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -272,9 +275,11 @@ public class SectionG3Activity extends AppCompatActivity {
 
     }
 
+
     public void BtnEnd() {
         openEndActivity(this);
     }
+
 
     @Override
     public void onBackPressed() {
