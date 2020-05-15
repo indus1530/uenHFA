@@ -44,16 +44,32 @@
 
                 <LinearLayout style="@style/vlinearlayout">
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/d0501" />
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_d0501"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_d0501"
+                            android:text="@string/d0501" />
+
+                        <TextView
+                            android:id="@+id/q_d0501"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_d0501"
+                            android:layout_alignBottom="@id/qtxt_d0501"
+                            android:text="@string/Q_d0501" />
+
+                    </RelativeLayout>
 
                     <RadioGroup
                         android:id="@+id/d0501"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        style="@style/radiogroup0">
 
                         <RadioButton
                             android:id="@+id/d0501a"
