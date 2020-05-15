@@ -21,8 +21,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ1Binding;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
-
 public class SectionJ1Activity extends AppCompatActivity {
 
     ActivitySectionJ1Binding bi;
@@ -172,17 +170,6 @@ public class SectionJ1Activity extends AppCompatActivity {
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpNameSectionJ1);
 
-    }
-
-
-    public void BtnEnd() {
-        openEndActivity(this);
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
     }
 
 
