@@ -18,12 +18,13 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
+
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import java.io.Serializable;
 import java.util.List;
 
-import androidx.core.app.ActivityCompat;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import kotlin.Pair;
 
@@ -192,7 +193,7 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // font from assets: "assets/fonts/Roboto-Regular.ttf
+        //font from assets: "assets/fonts/Roboto-Regular.ttf
 
         TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/MBLateefi.ttf");
 
