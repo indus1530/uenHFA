@@ -50,15 +50,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionAActivity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionBActivity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionC1Activity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionD1Activity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionE1Activity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionF1Activity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionG1Activity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH1Activity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI1Activity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sync.SyncActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable;
 
@@ -182,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.formA:
                 oF = new Intent(this, SectionAActivity.class);
                 break;
-            case R.id.formB:
+           /* case R.id.formB:
                 oF = new Intent(this, SectionBActivity.class);
                 break;
             case R.id.formC:
@@ -208,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.formJ:
                 oF = new Intent(this, SectionJ1Activity.class);
-                break;
+                break;*/
         }
         startActivity(oF);
     }
