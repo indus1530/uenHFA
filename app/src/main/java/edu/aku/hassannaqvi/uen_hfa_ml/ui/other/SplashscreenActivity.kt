@@ -4,9 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import edu.aku.hassannaqvi.uen_hfa_ml.R
-import edu.aku.hassannaqvi.uen_hfa_ml.repository.getEnumData
-import edu.aku.hassannaqvi.uen_hfa_ml.repository.setProvinceDistricts
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -16,18 +17,14 @@ class SplashscreenActivity : Activity() {
     private val activityScope = CoroutineScope(Dispatchers.Main)
 
     init {
-        provinces = mutableListOf("....")
-        districtsMap = mutableMapOf()
+        /*provinces = mutableListOf("....")
+        districtsMap = mutableMapOf()*/
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splashscreen)
         activityScope.launch {
-            val def = withContext(Dispatchers.Main) { getEnumData(this@SplashscreenActivity) }
-            if (def.isNotEmpty())
-                withContext(Dispatchers.Main) { setProvinceDistricts(this@SplashscreenActivity, def) }
-            delay(SPLASH_TIME_OUT.toLong())
             finish()
             startActivity(Intent(this@SplashscreenActivity, LoginActivity::class.java))
         }
@@ -35,8 +32,6 @@ class SplashscreenActivity : Activity() {
 
     companion object {
         private const val SPLASH_TIME_OUT = 1000
-        lateinit var provinces: MutableList<String>
-        lateinit var districtsMap: MutableMap<String, Pair<String, EnumBlockContract>>
     }
 
     override fun onPause() {

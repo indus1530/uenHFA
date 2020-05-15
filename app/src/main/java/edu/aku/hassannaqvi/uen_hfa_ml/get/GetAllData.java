@@ -124,14 +124,6 @@ public class GetAllData extends AsyncTask<String, String, String> {
                     url = new URL(MainApp._UPDATE_URL + VersionAppContract.VersionAppTable._URI);
                     position = 1;
                     break;
-                case "EnumBlock":
-                    url = new URL(MainApp._HOST_URL + EnumBlockContract.EnumBlockTable._URI);
-                    position = 2;
-                    break;
-                case "BLRandom":
-                    url = new URL(MainApp._HOST_URL + BLRandomContract.SingleRandomHH._URI);
-                    position = 0;
-                    break;
             }
 
             urlConnection = (HttpURLConnection) url.openConnection();
@@ -235,15 +227,6 @@ public class GetAllData extends AsyncTask<String, String, String> {
                             db.syncVersionApp(jsonArray);
                             position = 1;
                             break;
-                        case "EnumBlock":
-                            db.syncEnumBlocks(jsonArray);
-                            position = 2;
-                            break;
-                        case "BLRandom":
-                            db.syncBLRandom(jsonArray);
-                            position = 0;
-                            break;
-
                     }
 
                     pd.setMessage("Received: " + jsonArray.length());

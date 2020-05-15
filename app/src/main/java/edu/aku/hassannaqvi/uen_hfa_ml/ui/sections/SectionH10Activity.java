@@ -111,7 +111,7 @@ public class SectionH10Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH10);
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
 
     }
 

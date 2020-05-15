@@ -141,9 +141,7 @@ public class SectionJ9Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-
         return Validator.emptyCheckingContainer(this, bi.GrpNameSectionJ9);
-
     }
 
 

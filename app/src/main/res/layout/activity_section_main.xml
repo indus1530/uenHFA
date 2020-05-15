@@ -1,10 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="edu.aku.ramshasaeed.mnch.activities.RsdMain">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <import type="android.view.View" />
 
         <variable
@@ -14,18 +10,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_height="wrap_content">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!--<TextView
-                style="@style/textViewCenterGravity"
-                android:text="@string/routineone" />-->
+        <LinearLayout style="@style/vlinearlayout">
 
             <Button
                 android:id="@+id/form01"
@@ -91,7 +79,7 @@
             <Button
                 android:id="@+id/form07"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:onClick="openForm"
@@ -102,7 +90,7 @@
             <Button
                 android:id="@+id/form08"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:onClick="openForm"
@@ -113,7 +101,7 @@
             <Button
                 android:id="@+id/form09"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:onClick="openForm"

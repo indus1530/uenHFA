@@ -48,8 +48,6 @@ import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.Target;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -70,15 +68,12 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.AppInfo;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sync.SyncActivity;
-import kotlin.Unit;
-import kotlin.coroutines.CoroutineContext;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.MINIMUM_DISTANCE_CHANGE_FOR_UPDATES;
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.MINIMUM_TIME_BETWEEN_UPDATES;
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.MY_PERMISSIONS_REQUEST_READ_CONTACTS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.MY_PERMISSIONS_REQUEST_READ_PHONE_STATE;
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.TWO_MINUTES;
-import static edu.aku.hassannaqvi.uen_hfa_ml.repository.SplashRepositoryKt.populatingSpinners;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DB_NAME;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.PROJECT_NAME;
@@ -566,7 +561,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         super.onResume();
 
         //To call coroutine here
-        populatingSpinners(getApplicationContext(), new SplashscreenActivity.Continuation<Unit>() {
+        /*populatingSpinners(getApplicationContext(), new SplashscreenActivity.Continuation<Unit>() {
             @Override
             public void resume(Unit value) {
 
@@ -582,7 +577,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             public CoroutineContext getContext() {
                 return null;
             }
-        });
+        });*/
     }
 
     private interface ProfileQuery {
