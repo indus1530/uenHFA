@@ -21,6 +21,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI4Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -116,16 +117,14 @@ public class SectionI4Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SA, MainApp.fc.getsA());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SI, MainApp.fc.getsI());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
         }
-
     }
 
 
@@ -174,6 +173,15 @@ public class SectionI4Activity extends AppCompatActivity {
                 : bi.i0401gc.isChecked() ? "3"
                 : bi.i0401gd.isChecked() ? "4"
                 : "-1");
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsI()), json);
+
+            MainApp.fc.setsI(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 

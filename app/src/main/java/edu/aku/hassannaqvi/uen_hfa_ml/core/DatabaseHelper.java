@@ -26,11 +26,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_VERSION;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_BL_RANDOM;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_CHILD_TABLE;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_FORMS;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_PSU_TABLE;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_VERSIONAPP;
 
@@ -57,11 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
-        db.execSQL(SQL_CREATE_PSU_TABLE);
-        db.execSQL(SQL_CREATE_BL_RANDOM);
         db.execSQL(SQL_CREATE_VERSIONAPP);
-        db.execSQL(SQL_CREATE_FAMILY_MEMBERS);
-        db.execSQL(SQL_CREATE_CHILD_TABLE);
     }
 
     @Override

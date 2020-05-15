@@ -1,8 +1,6 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <import type="android.view.View" />
 
         <variable
@@ -12,14 +10,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false"
-        android:fillViewport="true"
-        android:scrollbarSize="10dip"
-        tools:context=".ui.sections.SectionH10Activity">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:id="@+id/GrpNameSectionH10"
+            android:id="@+id/GrpName"
             style="@style/vlinearlayout">
 
             <!-- h10  Title   -->
@@ -30,11 +24,11 @@
                 <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
+                        style="@style/textviewh"
                         android:text="@string/h10" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- h1001  Radio   -->
@@ -66,8 +60,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/h1001b" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
