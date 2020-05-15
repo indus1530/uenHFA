@@ -78,16 +78,14 @@ public class SectionJ1Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SB, MainApp.fc.getsB());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SJ, MainApp.fc.getsJ());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
         }
-
     }
 
 
@@ -166,7 +164,7 @@ public class SectionJ1Activity extends AppCompatActivity {
         json.put("j0101mx", bi.j0101mx.isChecked() ? "96" : "-1");
         json.put("j0101mxx", bi.j0101mxx.getText().toString());
 
-        MainApp.fc.setsB(String.valueOf(json));
+        MainApp.fc.setsJ(String.valueOf(json));
 
     }
 

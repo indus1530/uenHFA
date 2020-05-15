@@ -21,8 +21,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI1Binding;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
-
 
 public class SectionI1Activity extends AppCompatActivity {
 
@@ -115,16 +113,14 @@ public class SectionI1Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SA, MainApp.fc.getsA());
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SI, MainApp.fc.getsI());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
         }
-
     }
 
 
@@ -167,7 +163,7 @@ public class SectionI1Activity extends AppCompatActivity {
                 : bi.i0108b.isChecked() ? "2"
                 : "-1");
 
-        MainApp.fc.setsA(String.valueOf(json));
+        MainApp.fc.setsI(String.valueOf(json));
 
     }
 
@@ -175,17 +171,6 @@ public class SectionI1Activity extends AppCompatActivity {
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
 
-    }
-
-
-    public void BtnEnd() {
-        openEndActivity(this);
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
     }
 
 
