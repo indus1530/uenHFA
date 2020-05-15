@@ -13,23 +13,17 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false"
-        android:fillViewport="true"
-        android:scrollbarSize="10dip"
-        tools:context=".ui.sections.SectionC2Activity">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/GrpName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            style="@style/vlinearlayout">
+
 
             <!-- c02  Title   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc02"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -38,14 +32,16 @@
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
                         android:text="@string/c02" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- c02a  Input   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc02a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -57,11 +53,12 @@
 
                     <EditText
                         android:id="@+id/c02a"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/c02a" />
+                        style="@style/EditTextAlpha"
+                        android:maxLength="15"
+                        android:hint="@string/name" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- c02b  Radio   -->
