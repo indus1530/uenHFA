@@ -42,11 +42,11 @@ public class SectionD8Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        bi.d0801a0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+       /* bi.d0801a0a.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.d0801a0an.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVd0801a0fq);
             }
-        }));
+        }));*/
 
         bi.d0801b0a.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.d0801b0an.getId()) {
