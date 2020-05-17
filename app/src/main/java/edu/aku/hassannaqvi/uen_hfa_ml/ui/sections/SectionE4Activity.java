@@ -35,6 +35,7 @@ public class SectionE4Activity extends AppCompatActivity {
         setupSkips();
     }
 
+
     private void setupSkips() {
 
 
@@ -59,6 +60,7 @@ public class SectionE4Activity extends AppCompatActivity {
         });*/
 
     }
+
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
@@ -148,9 +150,13 @@ public class SectionE4Activity extends AppCompatActivity {
                 : bi.e0408d.isChecked() ? "4"
                 : "-1");
 
-        //json.put("e0409", bi.e0409.getText().toString());
+        json.put("e0409", bi.e0409a.isChecked() ? "1"
+                : bi.e0409x.isChecked() ? "96"
+                : "-1");
 
-        json.put("e0410", "-1");
+        json.put("e0409xx", bi.e0409xx.getText().toString().trim().length() > 0 ? bi.e0409xx.getText().toString() : "-1");
+
+        //json.put("e0410", "-1");
 
         json.put("e0410a", bi.e0410aa.isChecked() ? "1"
                 : bi.e0410ab.isChecked() ? "2"
