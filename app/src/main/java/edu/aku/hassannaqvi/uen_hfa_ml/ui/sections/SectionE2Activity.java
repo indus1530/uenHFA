@@ -134,6 +134,7 @@ public class SectionE2Activity extends AppCompatActivity {
         json.put("e0204d", bi.e0204da.isChecked() ? "1"
                 : bi.e0204dx.isChecked() ? "96"
                 : "-1");
+        json.put("e0204dxx", bi.e0204dxx.getText().toString().trim().length() > 0 ? bi.e0204dxx.getText().toString() : "-1");
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsE()), json);

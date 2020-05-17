@@ -65,7 +65,7 @@ public class SectionE1Activity extends AppCompatActivity {
                 : bi.e0101b.isChecked() ? "2"
                 : "-1");
 
-        json.put("e0102", "-1");
+        //json.put("e0102", "-1");
 
         json.put("e0102a", bi.e0102aa.isChecked() ? "1"
                 : bi.e0102ab.isChecked() ? "2"
@@ -107,7 +107,7 @@ public class SectionE1Activity extends AppCompatActivity {
                 : bi.e0102jb.isChecked() ? "2"
                 : "-1");
 
-        json.put("e0103", "-1");
+        //json.put("e0103", "-1");
 
         json.put("e0103a", bi.e0103aa.isChecked() ? "1"
                 : bi.e0103ab.isChecked() ? "2"
@@ -119,7 +119,7 @@ public class SectionE1Activity extends AppCompatActivity {
                 : bi.e0103bc.isChecked() ? "3"
                 : "-1");
 
-        json.put("e0104", "-1");
+        //json.put("e0104", "-1");
 
         json.put("e0104a", bi.e0104aa.isChecked() ? "1"
                 : bi.e0104ab.isChecked() ? "2"
@@ -129,13 +129,18 @@ public class SectionE1Activity extends AppCompatActivity {
                 : bi.e0104bb.isChecked() ? "2"
                 : "-1");
 
-        json.put("e0104c", bi.e0104c.getText().toString());
+        json.put("e0104c", bi.e0104c.getText().toString().trim().length() > 0 ? bi.e0104c.getText().toString() : "-1");
 
         json.put("e0104d", bi.e0104da.isChecked() ? "1"
                 : bi.e0104db.isChecked() ? "2"
                 : bi.e0104dc.isChecked() ? "3"
                 : bi.e0104dd.isChecked() ? "4"
                 : "-1");
+
+        json.put("e0104e", bi.e0104ea.isChecked() ? "1"
+                : bi.e0104ex.isChecked() ? "2"
+                : "-1");
+        json.put("e0104exx", bi.e0104exx.getText().toString().trim().length() > 0 ? bi.e0104exx.getText().toString() : "-1");
 
         MainApp.fc.setsE(String.valueOf(json));
 

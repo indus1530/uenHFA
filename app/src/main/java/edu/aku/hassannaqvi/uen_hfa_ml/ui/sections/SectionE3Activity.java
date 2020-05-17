@@ -79,7 +79,7 @@ public class SectionE3Activity extends AppCompatActivity {
                 : bi.e0301b.isChecked() ? "2"
                 : "-1");
 
-        json.put("e0302", "-1");
+        //json.put("e0302", "-1");
 
         json.put("e0302a", bi.e0302aa.isChecked() ? "1"
                 : bi.e0302ab.isChecked() ? "2"
@@ -101,7 +101,7 @@ public class SectionE3Activity extends AppCompatActivity {
                 : bi.e0302eb.isChecked() ? "2"
                 : "-1");
 
-        json.put("e0303", "-1");
+        //json.put("e0303", "-1");
 
         json.put("e0303a", bi.e0303aa.isChecked() ? "1"
                 : bi.e0303ab.isChecked() ? "2"
@@ -159,7 +159,7 @@ public class SectionE3Activity extends AppCompatActivity {
                 : bi.e0303nb.isChecked() ? "2"
                 : "-1");
 
-        json.put("e0304", "-1");
+        //json.put("e0304", "-1");
 
         json.put("e0304a", bi.e0304aa.isChecked() ? "1"
                 : bi.e0304ab.isChecked() ? "2"
@@ -181,7 +181,7 @@ public class SectionE3Activity extends AppCompatActivity {
                 : bi.e0304dc.isChecked() ? "3"
                 : "-1");
 
-        json.put("e0305", "-1");
+        //json.put("e0305", "-1");
 
         json.put("e0305a", bi.e0305aa.isChecked() ? "1"
                 : bi.e0305ab.isChecked() ? "2"
@@ -207,6 +207,7 @@ public class SectionE3Activity extends AppCompatActivity {
         json.put("e0305e", bi.e0305ea.isChecked() ? "1"
                 : bi.e0305ex.isChecked() ? "96"
                 : "-1");
+        json.put("e0305exx", bi.e0305exx.getText().toString().trim().length() > 0 ? bi.e0305exx.getText().toString() : "-1");
 
         //json.put("e0306", "-1");
 
