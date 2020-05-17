@@ -594,7 +594,8 @@
             <!-- modbtitle     -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVmodbtitle"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:layout_marginTop="20dp">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -638,19 +639,20 @@
 
                     <RadioGroup
                         android:id="@+id/b01"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        style="@style/hradiogroup">
 
                         <RadioButton
                             android:id="@+id/b01a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:text="@string/b01a" />
 
                         <RadioButton
                             android:id="@+id/b01b"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:text="@string/b01b" />
 
                     </RadioGroup>
@@ -692,19 +694,20 @@
 
                     <RadioGroup
                         android:id="@+id/b02"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        style="@style/hradiogroup">
 
                         <RadioButton
                             android:id="@+id/b02a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:text="@string/b02a" />
 
                         <RadioButton
                             android:id="@+id/b02b"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:text="@string/b02b" />
 
                     </RadioGroup>
@@ -862,7 +865,7 @@
                     style="@style/btnNext"
                     android:onClick="@{() -> callback.BtnContinue()}"
                     android:text="Save" />
-                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
             </LinearLayout>
             <!--EndButton LinearLayout-->
 
