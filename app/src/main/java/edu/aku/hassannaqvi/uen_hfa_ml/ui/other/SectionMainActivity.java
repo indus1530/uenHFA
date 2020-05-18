@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionMainBinding;
@@ -32,29 +33,7 @@ public class SectionMainActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_main);
         bi.setCallback(this);
 
-
-        /*for (String item : MainApp.FORM_SUB_TYPE) {
-            if (item.contains("f1")) {
-                bi.form01.setEnabled(false);
-            }
-            if (item.contains("f2")) {
-                bi.form02.setEnabled(false);
-            }
-            if (item.contains("f3")) {
-                bi.form03.setEnabled(false);
-            }
-            if (item.contains("f4")) {
-                bi.form04.setEnabled(false);
-            }
-            if (item.contains("f5")) {
-                bi.form05.setEnabled(false);
-            }
-            if (item.contains("f6")) {
-                bi.form06.setEnabled(false);
-            }
-        }*/
-
-        if (!fc.getsB().equals(""))
+        if (!fc.getsB().isEmpty())
             bi.form01.setEnabled(false);
 
         if (!fc.getsC().equals(""))
