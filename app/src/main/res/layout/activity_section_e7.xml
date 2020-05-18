@@ -19,21 +19,21 @@
             style="@style/vlinearlayout">
 
 
-            <!-- e07  Title   -->
+            <!-- e07  Section Title   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVe07"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
+                        style="@style/textView3Head"
                         android:text="@string/e07" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- e0701  Radio   -->
             <androidx.cardview.widget.CardView
@@ -72,26 +72,25 @@
 
             <LinearLayout
                 android:id="@+id/fldGrpSece701"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                style="@style/vlinearlayout"
                 android:visibility='@{e0701b.checked ? View.GONE : View.VISIBLE}'>
 
-                <!-- e0702  Radio   -->
+
+                <!-- e0702  SUB TextView   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0702"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginTop="12dp"
+                            style="@style/sub"
                             android:text="@string/e0702" />
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- e0702a  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -123,8 +122,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/e0702ab" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
                 <!-- e0702b  Radio   -->
@@ -501,21 +503,22 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+
                 <!-- e0703  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0703"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginTop="12dp"
+                            style="@style/sub"
                             android:text="@string/e0703" />
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- e0703a  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -677,21 +680,22 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+
                 <!-- e0704  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0704"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginTop="12dp"
+                            style="@style/sub"
                             android:text="@string/e0704" />
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- e0704a  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -829,11 +833,11 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+
                 <!-- e0704e  Input   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0704e"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -848,9 +852,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="56dp"
                             android:layout_marginBottom="12dp"
-                            android:hint="@string/e0704e" />
+                            android:hint="@string/name" />
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- e0704f  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -894,9 +901,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/e0704fd" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- e0704g  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -928,8 +939,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/e0704gx" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
                 <!-- e0705  Radio   -->
