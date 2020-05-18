@@ -11,7 +11,6 @@ import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionMainBinding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionAActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionBActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionC1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionD1Activity;
@@ -79,8 +78,8 @@ public class SectionMainActivity extends AppCompatActivity {
                 && !bi.form07.isEnabled()
                 && !bi.form08.isEnabled()
                 && !bi.form09.isEnabled()) {
-            //startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-            MainApp.endActivity(this, this, EndingActivity.class, true, SectionAActivity.fc);
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            //MainApp.endActivity(this, SectionBActivity.class);
         } else {
             Toast.makeText(this, "Sections still in Pending!", Toast.LENGTH_SHORT).show();
         }
@@ -94,8 +93,8 @@ public class SectionMainActivity extends AppCompatActivity {
                 || bi.form04.isEnabled()
                 || bi.form05.isEnabled()
                 || bi.form06.isEnabled()) {
-            //startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
-            MainApp.endActivity(this, this, EndingActivity.class, false, SectionAActivity.fc);
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+            //MainApp.endActivity(this, EndingActivity.class).putExtra("complete", false);
         } else {
             Toast.makeText(this, "ALL SECTIONS FILLED \n Good to GO GREEN!", Toast.LENGTH_SHORT).show();
         }
