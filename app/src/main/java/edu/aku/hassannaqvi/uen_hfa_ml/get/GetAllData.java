@@ -7,11 +7,9 @@ import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -61,12 +59,6 @@ public class GetAllData extends AsyncTask<String, String, String> {
             case "VersionApp":
                 position = 1;
                 break;
-            case "EnumBlock":
-                position = 2;
-                break;
-            case "BLRandom":
-                position = 0;
-                break;
         }
         list.get(position).settableName(syncClass);
     }
@@ -94,12 +86,6 @@ public class GetAllData extends AsyncTask<String, String, String> {
                 break;
             case "VersionApp":
                 position = 1;
-                break;
-            case "EnumBlock":
-                position = 2;
-                break;
-            case "BLRandom":
-                position = 0;
                 break;
         }
         list.get(position).setstatus("Syncing");
@@ -130,7 +116,7 @@ public class GetAllData extends AsyncTask<String, String, String> {
             urlConnection.setReadTimeout(100000 /* milliseconds */);
             urlConnection.setConnectTimeout(150000 /* milliseconds */);
 
-            switch (syncClass) {
+            /*switch (syncClass) {
                 case "BLRandom":
 
                     if (args[0] != null && !args[0].equals("")) {
@@ -183,7 +169,7 @@ public class GetAllData extends AsyncTask<String, String, String> {
                     wr.flush();
                     wr.close();
                     break;
-            }
+            }*/
 
 
             Log.d(TAG, "doInBackground: " + urlConnection.getResponseCode());
