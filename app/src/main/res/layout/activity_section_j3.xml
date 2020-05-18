@@ -1,5 +1,4 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -12,11 +11,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false"
-        android:fillViewport="true"
-        android:scrollbarSize="10dip"
-        tools:context=".ui.sections.SectionJ3Activity">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/GrpNameSectionj3"
@@ -30,11 +25,11 @@
                 <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
+                        style="@style/textView3Head"
                         android:text="@string/j03" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- j0300  Radio   -->
@@ -1349,13 +1344,16 @@
                         <EditText
                             android:id="@+id/j0301wxx"
                             style="@style/EditTextAlpha"
-                            android:hint="@string/j0301wx"
-                            android:tag="j0301wx"
+                            android:hint="@string/specify"
                             android:text='@{j0301wx.checked? j0301wxx.getText().toString() : ""}'
                             android:visibility='@{j0301wx.checked? View.VISIBLE : View.GONE}' />
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!--EndButton LinearLayout-->
             <LinearLayout

@@ -366,8 +366,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-
-
     public FormsContract isDataExists(String studyId) {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = null;
@@ -407,9 +405,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allFC;
-
-
     }
+
 
     public void updateSyncedForms(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -653,8 +650,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
     public Collection<FormsContract> getTodayForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -704,6 +699,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return allFC;
     }
+
+
+    public Collection<FormsContract> getHfs() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FormsTable._ID,
+                FormsTable.COLUMN_A12,
+                FormsTable.COLUMN_ISTATUS,
+                FormsTable.COLUMN_SYNCED,
+
+        };
+        String whereClause = FormsTable.COLUMN_A12 + " Like ? ";
+        String[] whereArgs = new String[]{/*"%" + spDateT.substring(0, 8).trim() + "%"*/};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FormsTable.COLUMN_ID + " ASC";
+
+        Collection<FormsContract> allFC = new ArrayList<>();
+        try {
+            c = db.query(
+                    FormsTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FormsContract fc = new FormsContract();
+                fc.set_ID(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
+                fc.setA12(c.getString(c.getColumnIndex(FormsTable.COLUMN_A12)));
+                fc.setIstatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
+                fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
+                allFC.add(fc);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
+    }
+
 
     public int updateEnding() {
         SQLiteDatabase db = this.getReadableDatabase();

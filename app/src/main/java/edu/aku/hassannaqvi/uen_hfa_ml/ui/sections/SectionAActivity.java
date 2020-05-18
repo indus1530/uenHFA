@@ -278,9 +278,57 @@ public class SectionAActivity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        /*if (!Validator.emptyCheckingContainer(this, spinners))
-            return;*/
         return Validator.emptyCheckingContainer(this, bi.GrpName);
+
+            /*Object getData = null;
+
+            try {
+                getData = new Collection<ge>(db, GetFncDAO.class.getName(), "getFncDao", "getPendingFormo") {}
+                        .execute(bi.a13.getSelectedItem().toString(),
+                                hfCode.get(bi.a13.getSelectedItemPosition())).get();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            *//*if (bi.pub.isChecked()) {
+                try {
+                    getData = new GetIndDBData(db, GetFncDAO.class.getName(), "getFncDao", "getPendingPublicForm")
+                            .execute(bi.reportMonth.getSelectedItem().toString(),
+                                    districtCodes.get(bi.hfDistrict.getSelectedItemPosition()),
+                                    hfCode.get(bi.hfname.getSelectedItemPosition())).get();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                try {
+                    getData = new GetIndDBData(db, GetFncDAO.class.getName(), "getFncDao", "getPendingPrivateForm")
+                            .execute(bi.reportMonth.getSelectedItem().toString(),
+                                    districtCodes.get(bi.hfDistrict.getSelectedItemPosition()),
+                                    hfCode.get(bi.hfname.getSelectedItemPosition())).get();
+                    //bi.hfName.getText().toString()).get();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }*//*
+
+            if (getData == null) {
+                fc = null;
+                return true;
+            }
+
+            if (((FormsContract) getData).getIstatus().equals("1")) {
+                Toast.makeText(this, "All Sections filled for this Facility", Toast.LENGTH_LONG).show();
+                return false;
+            }
+
+            fc = (FormsContract) getData;*/
+
 
     }
 
