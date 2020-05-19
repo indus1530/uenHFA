@@ -5,16 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.validatorcrawler.aliazaz.Clear;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -48,7 +48,7 @@ public class SectionD8Activity extends AppCompatActivity {
             }
         }));*/
 
-        bi.d0801b0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.d0801b0a.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.d0801b0an.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVd0801b0fq);
             }
@@ -100,7 +100,7 @@ public class SectionD8Activity extends AppCompatActivity {
             if (i == bi.d0801j0an.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVd0801j0fq);
             }
-        }));
+        }));*/
 
         /*bi.cb01a.addTextChangedListener(new TextWatcher() {
             @Override
