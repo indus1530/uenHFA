@@ -96,11 +96,28 @@
 
                 <LinearLayout style="@style/vlinearlayout">
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/h0601aa" />
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_h0601aa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_h0601aa"
+                            android:text="@string/h0601aa" />
+
+                        <TextView
+                            android:id="@+id/q_h0601aa"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_h0601aa"
+                            android:layout_alignBottom="@id/qtxt_h0601aa"
+                            android:text="@string/Q_h0601aa" />
+
+                    </RelativeLayout>
 
                     <RadioGroup
                         android:id="@+id/h0601aa"
@@ -122,8 +139,11 @@
                             android:tag="h0601aaa"
                             android:text='@{h0601aaa.checked? h0601aaax.getText().toString() : ""}'
                             android:visibility='@{h0601aaa.checked? View.VISIBLE : View.GONE}' />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- h0602  Radio   -->
