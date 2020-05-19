@@ -28,7 +28,6 @@ public class SectionG1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g1);
         bi.setCallback(this);
-        setTitle(R.string.modgtitle);
         setupSkips();
     }
 
@@ -197,12 +196,10 @@ public class SectionG1Activity extends AppCompatActivity {
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionG2Activity.class));
-
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
 }
