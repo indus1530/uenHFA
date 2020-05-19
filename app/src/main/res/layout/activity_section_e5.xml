@@ -1,50 +1,44 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionE5Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false"
-        android:fillViewport="true"
-        android:scrollbarSize="10dip"
-        tools:context=".ui.sections.SectionE5Activity">
+        android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:id="@+id/GrpName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            style="@style/vlinearlayout">
+
 
             <!-- e05  Title   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVe05"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
+                        style="@style/textView3Head"
                         android:text="@string/e05" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- e0501  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVe0501"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -70,23 +64,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/e0501b" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
             <LinearLayout
                 android:id="@+id/fldGrpSece501"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                style="@style/vlinearlayout"
                 android:visibility='@{e0501b.checked ? View.GONE : View.VISIBLE}'>
 
                 <!-- e0502  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0502"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -101,8 +95,7 @@
                 <!-- e0502a  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0502a"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -135,8 +128,7 @@
                 <!-- e0502b  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0502b"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -169,8 +161,7 @@
                 <!-- e0502c  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0502c"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -203,8 +194,7 @@
                 <!-- e0502d  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0502d"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -237,8 +227,7 @@
                 <!-- e0502e  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0502e"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -271,8 +260,7 @@
                 <!-- e0502f  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0502f"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -305,8 +293,7 @@
                 <!-- e0502g  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0502g"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -339,8 +326,7 @@
                 <!-- e0502h  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0502h"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -373,8 +359,7 @@
                 <!-- e0502i  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0502i"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -407,8 +392,7 @@
                 <!-- e0503  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0503"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -447,8 +431,7 @@
                 <!-- e0504  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0504"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -481,8 +464,7 @@
                 <!-- e0505  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0505"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -521,8 +503,7 @@
                 <!-- e0506  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0506"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -555,8 +536,7 @@
                 <!-- e0507  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0507"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -589,8 +569,7 @@
                 <!-- e0508  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0508"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -623,8 +602,7 @@
                 <!-- e0509  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVe0509"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/cardView">
 
                     <LinearLayout style="@style/vlinearlayout">
 
