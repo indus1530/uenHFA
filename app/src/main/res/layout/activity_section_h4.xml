@@ -99,10 +99,8 @@
 
                         <EditText
                             android:id="@+id/h0401xx"
-                            android:layout_width="match_parent"
-                            android:layout_height="56dp"
-                            android:layout_marginBottom="12dp"
-                            android:hint="@string/h0401x"
+                            style="@style/EditTextAlpha"
+                            android:hint="@string/specify"
                             android:tag="h0401x"
                             android:text='@{h0401x.checked? h0401xx.getText().toString() : ""}'
                             android:visibility='@{h0401x.checked? View.VISIBLE : View.GONE}' />
