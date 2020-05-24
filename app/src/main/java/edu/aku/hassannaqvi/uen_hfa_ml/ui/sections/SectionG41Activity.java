@@ -100,11 +100,11 @@ public class SectionG41Activity extends AppCompatActivity {
             }
         }));
 
-        bi.g0401120s.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.g0401120s.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.g0401120sn.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVg0401120so);
             }
-        }));
+        }));*/
 
         /*bi.g0401130s.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.g0401130sn.getId()) {
@@ -483,7 +483,7 @@ public class SectionG41Activity extends AppCompatActivity {
                 : bi.g0401110pn.isChecked() ? "2"
                 : "-1");
 
-        json.put("g0401120a", bi.g0401120ay.isChecked() ? "1"
+        /*json.put("g0401120a", bi.g0401120ay.isChecked() ? "1"
                 : bi.g0401120an.isChecked() ? "2"
                 : "-1");
 
@@ -497,7 +497,7 @@ public class SectionG41Activity extends AppCompatActivity {
 
         json.put("g0401120p", bi.g0401120py.isChecked() ? "1"
                 : bi.g0401120pn.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
         /*json.put("g0401130a", bi.g0401130ay.isChecked() ? "1"
                 : bi.g0401130an.isChecked() ? "2"
