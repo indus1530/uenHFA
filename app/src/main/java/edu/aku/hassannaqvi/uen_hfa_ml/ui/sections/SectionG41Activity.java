@@ -106,29 +106,29 @@ public class SectionG41Activity extends AppCompatActivity {
             }
         }));
 
-        bi.g0401130s.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.g0401130s.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.g0401130sn.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVg0401130so);
             }
-        }));
+        }));*/
 
-        bi.g0401140s.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.g0401140s.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.g0401140sn.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVg0401140so);
             }
-        }));
+        }));*/
 
-        bi.g0401150s.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.g0401150s.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.g0401150sn.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVg0401150so);
             }
-        }));
+        }));*/
 
-        bi.g0401160s.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.g0401160s.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.g0401160sn.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVg0401160so);
             }
-        }));
+        }));*/
 
         /*bi.g0401170s.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.g0401170sn.getId()) {
@@ -499,7 +499,7 @@ public class SectionG41Activity extends AppCompatActivity {
                 : bi.g0401120pn.isChecked() ? "2"
                 : "-1");
 
-        json.put("g0401130a", bi.g0401130ay.isChecked() ? "1"
+        /*json.put("g0401130a", bi.g0401130ay.isChecked() ? "1"
                 : bi.g0401130an.isChecked() ? "2"
                 : "-1");
 
@@ -513,9 +513,9 @@ public class SectionG41Activity extends AppCompatActivity {
 
         json.put("g0401130p", bi.g0401130py.isChecked() ? "1"
                 : bi.g0401130pn.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
-        json.put("g0401140a", bi.g0401140ay.isChecked() ? "1"
+        /*json.put("g0401140a", bi.g0401140ay.isChecked() ? "1"
                 : bi.g0401140an.isChecked() ? "2"
                 : "-1");
 
@@ -529,9 +529,9 @@ public class SectionG41Activity extends AppCompatActivity {
 
         json.put("g0401140p", bi.g0401140py.isChecked() ? "1"
                 : bi.g0401140pn.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
-        json.put("g0401150a", bi.g0401150ay.isChecked() ? "1"
+        /*json.put("g0401150a", bi.g0401150ay.isChecked() ? "1"
                 : bi.g0401150an.isChecked() ? "2"
                 : "-1");
 
@@ -545,9 +545,9 @@ public class SectionG41Activity extends AppCompatActivity {
 
         json.put("g0401150p", bi.g0401150py.isChecked() ? "1"
                 : bi.g0401150pn.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
-        json.put("g0401160a", bi.g0401160ay.isChecked() ? "1"
+       /* json.put("g0401160a", bi.g0401160ay.isChecked() ? "1"
                 : bi.g0401160an.isChecked() ? "2"
                 : "-1");
 
@@ -561,7 +561,7 @@ public class SectionG41Activity extends AppCompatActivity {
 
         json.put("g0401160p", bi.g0401160py.isChecked() ? "1"
                 : bi.g0401160pn.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
 
        /* json.put("g0401170a", bi.g0401170ay.isChecked() ? "1"
                 : bi.g0401170an.isChecked() ? "2"
