@@ -5,16 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -360,7 +359,7 @@ public class SectionH15Activity extends AppCompatActivity {
         json.put("h1501n0dn", bi.h1501n0dn.getText().toString());
 
 
-        json.put("h1501o0a", bi.h1501o0ay.isChecked() ? "1"
+        /*json.put("h1501o0a", bi.h1501o0ay.isChecked() ? "1"
                 : bi.h1501o0an.isChecked() ? "2"
                 : "-1");
 
@@ -374,7 +373,7 @@ public class SectionH15Activity extends AppCompatActivity {
 
         json.put("h1501o0dy", bi.h1501o0dy.getText().toString());
 
-        json.put("h1501o0dn", bi.h1501o0dn.getText().toString());
+        json.put("h1501o0dn", bi.h1501o0dn.getText().toString());*/
 
 
         /*json.put("h1501p0a", bi.h1501p0ay.isChecked() ? "1"

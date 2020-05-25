@@ -1,21 +1,23 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH16Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <LinearLayout
             android:id="@+id/GrpNameSectionH16"
             style="@style/vlinearlayout">
+
 
             <!-- h16  Title   -->
             <androidx.cardview.widget.CardView
@@ -31,6 +33,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- h1601  Radio   -->
             <androidx.cardview.widget.CardView
@@ -93,6 +96,7 @@
                 android:id="@+id/fldGrpSech1601"
                 style="@style/vlinearlayout"
                 android:visibility='@{h1601b.checked? View.GONE : View.VISIBLE}'>
+
 
                 <!-- h1602  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -166,6 +170,7 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+
                 <!-- h1603  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVh1603"
@@ -229,7 +234,6 @@
                                 android:id="@+id/h1603xx"
                                 style="@style/EditTextAlpha"
                                 android:hint="@string/specify"
-                                android:tag="h1603x"
                                 android:text='@{h1603x.checked? h1603xx.getText().toString() : ""}'
                                 android:visibility='@{h1603x.checked? View.VISIBLE : View.GONE}' />
 
@@ -238,6 +242,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- h1604  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -370,14 +375,15 @@
                             android:id="@+id/h1605xx"
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
-                            android:tag="h1605x"
                             android:text='@{h1605x.checked? h1605xx.getText().toString() : ""}'
                             android:visibility='@{h1605x.checked? View.VISIBLE : View.GONE}' />
 
                     </RadioGroup>
 
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!--EndButton LinearLayout-->
             <LinearLayout
