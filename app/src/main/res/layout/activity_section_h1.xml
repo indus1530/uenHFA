@@ -1,6 +1,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <data>
 
         <import type="android.view.View" />
@@ -10,30 +11,18 @@
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH1Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:id="@+id/GrpName"
             style="@style/vlinearlayout">
 
-            <!-- modhtitle  Title   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVmodhtitle"
-                style="@style/cardView">
 
-                <LinearLayout style="@style/vlinearlayout">
-
-                    <TextView
-                        style="@style/textView3Head"
-                        android:text="@string/modhtitle" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- h01  Title   -->
+            <!-- h01  SectionTitle   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh01"
                 style="@style/cardView">
@@ -47,6 +36,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- h0101  Input-Numeric   -->
             <androidx.cardview.widget.CardView
@@ -78,15 +68,11 @@
 
                     </RelativeLayout>
 
-
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/h0101"
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginBottom="12dp"
-                        android:hint="@string/h0101"
-                        android:inputType="number"
-                        app:mask="##"
+                        style="@style/EditTextNum"
+                        android:hint="@string/num"
+                        android:maxLength="3"
                         app:maxValue="100"
                         app:minValue="0"
                         app:type="range" />
@@ -94,6 +80,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- h0101a  Title   -->
             <androidx.cardview.widget.CardView
@@ -125,31 +112,51 @@
 
                     </RelativeLayout>
 
-                    <TextView
-                        style="@style/textviewh"
-                        android:text="@string/h0101aa" />
+                    <LinearLayout style="@style/hlinearlayout">
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/h0101aa"
-                        style="@style/EditTextNum"
-                        android:hint="@string/h0101aa"
-                        android:maxLength="2"
-                        app:maxValue="30"
-                        app:minValue="1"
-                        app:type="range" />
+                        <LinearLayout
+                            style="@style/vlinearlayout"
+                            android:layout_width="0dp"
+                            android:layout_weight="1">
 
-                    <TextView
-                        style="@style/textviewh"
-                        android:text="@string/h0101ab" />
+                            <TextView
+                                style="@style/textviewh"
+                                android:text="@string/h0101aa" />
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/h0101ab"
-                        style="@style/EditTextNum"
-                        android:hint="@string/h0101ab"
-                        android:maxLength="2"
-                        app:maxValue="100"
-                        app:minValue="0"
-                        app:type="range" />
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/h0101aa"
+                                style="@style/EditTextNum"
+                                android:gravity="center"
+                                android:hint="##"
+                                android:maxLength="2"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/vlinearlayout"
+                            android:layout_width="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                style="@style/textviewh"
+                                android:text="@string/h0101ab" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/h0101ab"
+                                style="@style/EditTextNum"
+                                android:gravity="center"
+                                android:hint="##"
+                                android:maxLength="2"
+                                app:maxValue="99"
+                                app:minValue="0"
+                                app:type="range" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -186,7 +193,7 @@
                     </RelativeLayout>
 
                     <TextView
-                        style="@style/textviewh"
+                        style="@style/sub"
                         android:text="@string/h0101ba" />
 
                     <com.edittextpicker.aliazaz.EditTextPicker
