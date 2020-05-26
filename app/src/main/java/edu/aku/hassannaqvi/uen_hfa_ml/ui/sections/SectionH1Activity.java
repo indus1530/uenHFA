@@ -1,10 +1,14 @@
 package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -20,21 +24,60 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH1Binding;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.R.array.months_array;
 
 
 public class SectionH1Activity extends AppCompatActivity {
 
     ActivitySectionH1Binding bi;
+    private int h0101 = months_array;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h1);
         bi.setCallback(this);
-        //setTitle(R.string.sssec);
+        setupSpinner(this);
         setupSkips();
 
+    }
+
+
+    private void setupSpinner(final Context context) {
+
+        // Creating adapter for spinner
+        ArrayAdapter<CharSequence> mAdapter = ArrayAdapter.createFromResource(this, h0101, android.R.layout.simple_spinner_item);
+
+        // Drop down layout style - list view with radio button
+        mAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        bi.h0101a.setAdapter(mAdapter);
+
+        bi.h0101a.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+                // attaching data adapter to spinner
+                if (!bi.h0101a.getSelectedItem().toString().equals("....")) {
+
+                    //mAdapter.remove(bi.h0101a.getSelectedItem().toString());
+                    bi.h0101b.setAdapter(mAdapter);
+
+                    bi.qtxtH0101a.setText(bi.h0101a.getSelectedItem().toString().toUpperCase());
+                    Clear.clearAllFields(bi.fldGrpCVh0101a, true);
+                } else {
+                    Clear.clearAllFields(bi.fldGrpCVh0101a, true);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
     }
 
@@ -129,7 +172,13 @@ public class SectionH1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h0101", bi.h0101.getText().toString());
+        json.put("h0101a", bi.h0101a.getSelectedItem().toString());
+
+        json.put("h0101b", bi.h0101b.getSelectedItem().toString());
+
+        json.put("h0101c", bi.h0101c.getSelectedItem().toString());
+
+        //json.put("h0101", bi.h0101.getText().toString());
 
         json.put("h0101aa", bi.h0101aa.getText().toString());
 

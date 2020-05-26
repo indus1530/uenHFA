@@ -2,20 +2,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH1Activity" />
     </data>
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
 
 
         <LinearLayout
@@ -69,14 +68,36 @@
 
                     </RelativeLayout>
 
-                    <com.edittextpicker.aliazaz.EditTextPicker
-                        android:id="@+id/h0101"
-                        style="@style/EditTextNum"
-                        android:hint="@string/num"
-                        android:maxLength="3"
-                        app:maxValue="100"
-                        app:minValue="0"
-                        app:type="range" />
+                    <LinearLayout style="@style/hlinearlayout">
+
+                        <Spinner
+                            android:id="@+id/h0101a"
+                            style="@style/spinner"
+                            android:layout_width="0dp"
+                            android:layout_weight="1" />
+
+                        <Spinner
+                            android:id="@+id/h0101b"
+                            style="@style/spinner"
+                            android:layout_width="0dp"
+                            android:layout_weight="1" />
+
+                        <Spinner
+                            android:id="@+id/h0101c"
+                            style="@style/spinner"
+                            android:layout_width="0dp"
+                            android:layout_weight="1" />
+
+                        <!--<com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/h0101"
+                            style="@style/EditTextNum"
+                            android:hint="@string/num"
+                            android:maxLength="3"
+                            app:maxValue="100"
+                            app:minValue="0"
+                            app:type="range" />-->
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
