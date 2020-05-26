@@ -15,6 +15,9 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -24,13 +27,10 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH1Binding;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.R.array.months_array;
-
 
 public class SectionH1Activity extends AppCompatActivity {
 
     ActivitySectionH1Binding bi;
-    private int h0101 = months_array;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,59 @@ public class SectionH1Activity extends AppCompatActivity {
 
     private void setupSpinner(final Context context) {
 
+        List<String> spinnera = new ArrayList<>();
+        List<String> spinnerb = new ArrayList<>();
+        List<String> spinnerc = new ArrayList<>();
+
+        final String[] tempRemovedItem = {null};
+
+        ArrayAdapter<String> adaptera = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnera);// Drop down layout style - list view with radio button
+        adaptera.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<String> adapterb = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerb);
+
+        ArrayAdapter<String> adapterc = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerc);
+
+        bi.h0101a.setAdapter(adaptera);
+        bi.h0101b.setAdapter(adapterb);
+        bi.h0101c.setAdapter(adapterc);
+
+
+        bi.h0101a.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                //when item is selected remove it from data2 and update the adapter of the second spinner
+
+                spinnerb.remove(bi.h0101a.getSelectedItem().toString());
+
+                if (tempRemovedItem[0] != null || !bi.h0101a.getSelectedItem().toString().equals("....")) {
+
+                    spinnerb.add(tempRemovedItem[0]);
+
+                    bi.qtxtH0101a.setText(bi.h0101a.getSelectedItem().toString().toUpperCase());
+                    Clear.clearAllFields(bi.fldGrpCVh0101a, true);
+
+                } else {
+                    Clear.clearAllFields(bi.fldGrpCVh0101a, true);
+                }
+
+                tempRemovedItem[0] = bi.h0101a.getSelectedItem().toString();
+                adapterb.notifyDataSetChanged();
+                bi.h0101b.setAdapter(adapterb);
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
         // Creating adapter for spinner
-        ArrayAdapter<CharSequence> mAdapter = ArrayAdapter.createFromResource(this, h0101, android.R.layout.simple_spinner_item);
+       /* ArrayAdapter<CharSequence> mAdapter = ArrayAdapter.createFromResource(this, h0101, android.R.layout.simple_spinner_item);
 
         // Drop down layout style - list view with radio button
         mAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -77,7 +128,7 @@ public class SectionH1Activity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
 
     }
 
