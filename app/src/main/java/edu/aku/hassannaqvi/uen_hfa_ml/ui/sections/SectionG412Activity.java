@@ -771,6 +771,7 @@ public class SectionG412Activity extends AppCompatActivity {
                 : bi.g0401430pn.isChecked() ? "2"
                 : "-1");
 
+
         json.put("g0401440a", bi.g0401440ay.isChecked() ? "1"
                 : bi.g0401440an.isChecked() ? "2"
                 : "-1");
@@ -786,6 +787,7 @@ public class SectionG412Activity extends AppCompatActivity {
         json.put("g0401440p", bi.g0401440py.isChecked() ? "1"
                 : bi.g0401440pn.isChecked() ? "2"
                 : "-1");
+
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsG()), json);
