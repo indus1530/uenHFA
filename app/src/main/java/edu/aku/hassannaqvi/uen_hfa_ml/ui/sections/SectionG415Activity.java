@@ -174,7 +174,6 @@ public class SectionG415Activity extends AppCompatActivity {
                 : bi.g0401440pn.isChecked() ? "2"
                 : "-1");
 
-
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsG()), json);
 

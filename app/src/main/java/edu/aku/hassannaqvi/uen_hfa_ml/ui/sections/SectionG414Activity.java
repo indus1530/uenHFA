@@ -100,36 +100,6 @@ public class SectionG414Activity extends AppCompatActivity {
             }
         }));
 
-        bi.g0401400s.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.g0401400sn.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVg0401400so);
-            }
-        }));
-
-        bi.g0401410s.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.g0401410sn.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVg0401410so);
-            }
-        }));
-
-        bi.g0401420s.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.g0401420sn.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVg0401420so);
-            }
-        }));
-
-        bi.g0401430s.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.g0401430sn.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVg0401430so);
-            }
-        }));
-
-        bi.g0401440s.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.g0401440sn.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVg0401440so);
-            }
-        }));
-
     }
 
 
@@ -309,92 +279,6 @@ public class SectionG414Activity extends AppCompatActivity {
         json.put("g0401390p", bi.g0401390py.isChecked() ? "1"
                 : bi.g0401390pn.isChecked() ? "2"
                 : "-1");
-
-
-        json.put("g0401400a", bi.g0401400ay.isChecked() ? "1"
-                : bi.g0401400an.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0401400s", bi.g0401400sy.isChecked() ? "1"
-                : bi.g0401400sn.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0401400sd", bi.g0401400sd.getText().toString());
-
-        json.put("g0401400sm", bi.g0401400sm.getText().toString());
-
-        json.put("g0401400p", bi.g0401400py.isChecked() ? "1"
-                : bi.g0401400pn.isChecked() ? "2"
-                : "-1");
-
-
-        json.put("g0401410a", bi.g0401410ay.isChecked() ? "1"
-                : bi.g0401410an.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0401410s", bi.g0401410sy.isChecked() ? "1"
-                : bi.g0401410sn.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0401410sd", bi.g0401410sd.getText().toString());
-
-        json.put("g0401410sm", bi.g0401410sm.getText().toString());
-
-        json.put("g0401410p", bi.g0401410py.isChecked() ? "1"
-                : bi.g0401410pn.isChecked() ? "2"
-                : "-1");
-
-
-        json.put("g0401420a", bi.g0401420ay.isChecked() ? "1"
-                : bi.g0401420an.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0401420s", bi.g0401420sy.isChecked() ? "1"
-                : bi.g0401420sn.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0401420sd", bi.g0401420sd.getText().toString());
-
-        json.put("g0401420sm", bi.g0401420sm.getText().toString());
-
-        json.put("g0401420p", bi.g0401420py.isChecked() ? "1"
-                : bi.g0401420pn.isChecked() ? "2"
-                : "-1");
-
-
-        json.put("g0401430a", bi.g0401430ay.isChecked() ? "1"
-                : bi.g0401430an.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0401430s", bi.g0401430sy.isChecked() ? "1"
-                : bi.g0401430sn.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0401430sd", bi.g0401430sd.getText().toString());
-
-        json.put("g0401430sm", bi.g0401430sm.getText().toString());
-
-        json.put("g0401430p", bi.g0401430py.isChecked() ? "1"
-                : bi.g0401430pn.isChecked() ? "2"
-                : "-1");
-
-
-        json.put("g0401440a", bi.g0401440ay.isChecked() ? "1"
-                : bi.g0401440an.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0401440s", bi.g0401440sy.isChecked() ? "1"
-                : bi.g0401440sn.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0401440sd", bi.g0401440sd.getText().toString());
-
-        json.put("g0401440sm", bi.g0401440sm.getText().toString());
-
-        json.put("g0401440p", bi.g0401440py.isChecked() ? "1"
-                : bi.g0401440pn.isChecked() ? "2"
-                : "-1");
-
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsG()), json);
