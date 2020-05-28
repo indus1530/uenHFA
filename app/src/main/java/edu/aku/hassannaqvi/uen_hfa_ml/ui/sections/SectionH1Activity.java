@@ -16,11 +16,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -45,7 +49,10 @@ public class SectionH1Activity extends AppCompatActivity {
 
     private void setupSpinner(final Context context) {
 
-        List<String> spinnera = new ArrayList<>();
+        bi.h0101b.setEnabled(false);
+        bi.h0101c.setEnabled(false);
+
+        /*List<String> spinnera = new ArrayList<>();
         List<String> spinnerb = new ArrayList<>();
         List<String> spinnerc = new ArrayList<>();
 
@@ -89,6 +96,42 @@ public class SectionH1Activity extends AppCompatActivity {
                 bi.h0101b.setAdapter(adapterb);
 
 
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });*/
+
+        bi.h0101a.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, Arrays.asList(getResources().getStringArray(R.array.months_array))));
+        bi.h0101a.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position == 0) return;
+                List<String> items = new LinkedList<>(Arrays.asList(getResources().getStringArray(R.array.months_array)));
+                items.remove(bi.h0101a.getSelectedItemPosition());
+                bi.h0101b.setAdapter(new ArrayAdapter<>(SectionH1Activity.this, android.R.layout.simple_spinner_dropdown_item, items));
+                bi.h0101b.setEnabled(true);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        bi.h0101b.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position == 0) return;
+                List<String> items = new LinkedList<>(Arrays.asList(getResources().getStringArray(R.array.months_array)));
+                items.remove(bi.h0101a.getSelectedItemPosition());
+                items.remove(bi.h0101b.getSelectedItemPosition());
+                bi.h0101c.setAdapter(new ArrayAdapter<>(SectionH1Activity.this, android.R.layout.simple_spinner_dropdown_item, items));
+                bi.h0101c.setEnabled(true);
             }
 
             @Override
