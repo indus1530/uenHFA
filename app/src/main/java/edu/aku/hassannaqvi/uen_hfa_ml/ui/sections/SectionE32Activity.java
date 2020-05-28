@@ -4,32 +4,32 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.validatorcrawler.aliazaz.Clear;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionE3Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionE32Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
-public class SectionE3Activity extends AppCompatActivity {
+public class SectionE32Activity extends AppCompatActivity {
 
-    ActivitySectionE3Binding bi;
+    ActivitySectionE32Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e3);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e32);
         bi.setCallback(this);
         setTitle(R.string.chsec);
         setupSkips();
@@ -37,26 +37,11 @@ public class SectionE3Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-
-        bi.e0301.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.e0301.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.e0301b.getId()) {
                 Clear.clearAllFields(bi.fldGrpSece301);
             }
-        }));
-
-        /*bi.im02.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im021.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim02a, false);
-//                Clear.clearAllFields(bi.fldGrpSecChc2, false);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim02a, true);
-//                Clear.clearAllFields(bi.fldGrpSecChc2, true);
-            }
-
-            Clear.clearAllFields(bi.fldGrpCVim02a, i == bi.im022.getId());
-            im02Flag = i == bi.im021.getId();
-
-        });*/
+        }));*/
 
     }
 
@@ -75,143 +60,8 @@ public class SectionE3Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("e0301", bi.e0301a.isChecked() ? "1"
-                : bi.e0301b.isChecked() ? "2"
-                : "-1");
 
-        //json.put("e0302", "-1");
-
-        json.put("e0302a", bi.e0302aa.isChecked() ? "1"
-                : bi.e0302ab.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0302b", bi.e0302ba.isChecked() ? "1"
-                : bi.e0302bb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0302c", bi.e0302ca.isChecked() ? "1"
-                : bi.e0302cb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0302d", bi.e0302da.isChecked() ? "1"
-                : bi.e0302db.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0302e", bi.e0302ea.isChecked() ? "1"
-                : bi.e0302eb.isChecked() ? "2"
-                : "-1");
-
-        //json.put("e0303", "-1");
-
-        json.put("e0303a", bi.e0303aa.isChecked() ? "1"
-                : bi.e0303ab.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303b", bi.e0303ba.isChecked() ? "1"
-                : bi.e0303bb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303c", bi.e0303ca.isChecked() ? "1"
-                : bi.e0303cb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303d", bi.e0303da.isChecked() ? "1"
-                : bi.e0303db.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303e", bi.e0303ea.isChecked() ? "1"
-                : bi.e0303eb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303f", bi.e0303fa.isChecked() ? "1"
-                : bi.e0303fb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303g", bi.e0303ga.isChecked() ? "1"
-                : bi.e0303gb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303h", bi.e0303ha.isChecked() ? "1"
-                : bi.e0303hb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303i", bi.e0303ia.isChecked() ? "1"
-                : bi.e0303ib.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303j", bi.e0303ja.isChecked() ? "1"
-                : bi.e0303jb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303k", bi.e0303ka.isChecked() ? "1"
-                : bi.e0303kb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303l", bi.e0303la.isChecked() ? "1"
-                : bi.e0303lb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303m", bi.e0303ma.isChecked() ? "1"
-                : bi.e0303mb.isChecked() ? "2"
-                : "-1");
-
-        json.put("e0303n", bi.e0303na.isChecked() ? "1"
-                : bi.e0303nb.isChecked() ? "2"
-                : "-1");
-
-        //json.put("e0304", "-1");
-
-        json.put("e0304a", bi.e0304aa.isChecked() ? "1"
-                : bi.e0304ab.isChecked() ? "2"
-                : bi.e0304ac.isChecked() ? "3"
-                : "-1");
-
-        json.put("e0304b", bi.e0304ba.isChecked() ? "1"
-                : bi.e0304bb.isChecked() ? "2"
-                : bi.e0304bc.isChecked() ? "3"
-                : "-1");
-
-        json.put("e0304c", bi.e0304ca.isChecked() ? "1"
-                : bi.e0304cb.isChecked() ? "2"
-                : bi.e0304cc.isChecked() ? "3"
-                : "-1");
-
-        json.put("e0304d", bi.e0304da.isChecked() ? "1"
-                : bi.e0304db.isChecked() ? "2"
-                : bi.e0304dc.isChecked() ? "3"
-                : "-1");
-
-        //json.put("e0305", "-1");
-
-        json.put("e0305a", bi.e0305aa.isChecked() ? "1"
-                : bi.e0305ab.isChecked() ? "2"
-                : bi.e0305ac.isChecked() ? "3"
-                : "-1");
-
-        json.put("e0305b", bi.e0305ba.isChecked() ? "1"
-                : bi.e0305bb.isChecked() ? "2"
-                : bi.e0305bc.isChecked() ? "3"
-                : "-1");
-
-        json.put("e0305c", bi.e0305ca.isChecked() ? "1"
-                : bi.e0305cb.isChecked() ? "2"
-                : bi.e0305cc.isChecked() ? "3"
-                : "-1");
-
-        json.put("e0305d", bi.e0305da.isChecked() ? "1"
-                : bi.e0305db.isChecked() ? "2"
-                : bi.e0305dc.isChecked() ? "3"
-                : bi.e0305dd.isChecked() ? "4"
-                : "-1");
-
-        json.put("e0305e", bi.e0305ea.isChecked() ? "1"
-                : bi.e0305ex.isChecked() ? "96"
-                : "-1");
-        json.put("e0305exx", bi.e0305exx.getText().toString().trim().length() > 0 ? bi.e0305exx.getText().toString() : "-1");
-
-        //json.put("e0306", "-1");
-
-        /*json.put("e0306a0a", bi.e0306a0ay.isChecked() ? "1"
+        json.put("e0306a0a", bi.e0306a0ay.isChecked() ? "1"
                 : bi.e0306a0an.isChecked() ? "2"
                 : bi.e0306a0aq.isChecked() ? "3"
                 : "-1");
@@ -419,21 +269,21 @@ public class SectionE3Activity extends AppCompatActivity {
                 : bi.e0306r0an.isChecked() ? "2"
                 : bi.e0306r0aq.isChecked() ? "3"
                 : "-1");
-        json.put("e0306r0aqx", bi.e0306r0aqx.getText().toString());*/
+        json.put("e0306r0aqx", bi.e0306r0aqx.getText().toString());
 
-        /*json.put("e0306r0f", bi.e0306r0fy.isChecked() ? "1"
+        json.put("e0306r0f", bi.e0306r0fy.isChecked() ? "1"
                 : bi.e0306r0fn.isChecked() ? "2"
                 : bi.e0306r0fq.isChecked() ? "3"
                 : "-1");
-        json.put("e0306r0fqx", bi.e0306r0fqx.getText().toString());*/
+        json.put("e0306r0fqx", bi.e0306r0fqx.getText().toString());
 
-        /*json.put("e0307", bi.e0307a.isChecked() ? "1"
+        json.put("e0307", bi.e0307a.isChecked() ? "1"
                 : bi.e0307b.isChecked() ? "2"
-                : "-1");*/
+                : "-1");
 
-        /*json.put("e0308", bi.e0308a.isChecked() ? "1"
+        json.put("e0308", bi.e0308a.isChecked() ? "1"
                 : bi.e0308b.isChecked() ? "2"
-                : "-1");*/
+                : "-1");
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsE()), json);
