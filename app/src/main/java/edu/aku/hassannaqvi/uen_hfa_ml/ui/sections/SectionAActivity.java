@@ -270,7 +270,7 @@ public class SectionAActivity extends AppCompatActivity {
                 : bi.a11b.isChecked() ? "2"
                 : "-1");
 
-        MainApp.fc.setA12(String.valueOf(bi.a13.getSelectedItemId()));
+        MainApp.fc.setA12(String.valueOf(bi.a13.getSelectedItemPosition()));
 
         MainApp.fc.setA13(String.valueOf(bi.a13.getSelectedItem()));
 
