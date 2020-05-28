@@ -49,6 +49,8 @@ public class SectionH1Activity extends AppCompatActivity {
         List<String> spinnerb = new ArrayList<>();
         List<String> spinnerc = new ArrayList<>();
 
+        //spinnera = R.array.months_array;
+
         final String[] tempRemovedItem = {null};
 
         ArrayAdapter<String> adaptera = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnera);// Drop down layout style - list view with radio button
