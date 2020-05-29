@@ -81,6 +81,7 @@ public class SectionG3Activity extends AppCompatActivity {
 
         json.put("g0302a10b", bi.g0302a10b.getText().toString());
 
+
         json.put("g0302a20r", bi.g0302a20r.getText().toString());
 
         json.put("g0302a20i", bi.g0302a20i.getText().toString());
@@ -89,13 +90,15 @@ public class SectionG3Activity extends AppCompatActivity {
 
         json.put("g0302a20b", bi.g0302a20b.getText().toString());
 
-        json.put("g0302a0r", bi.g0302a0r.getText().toString());
 
-        json.put("g0302a0i", bi.g0302a0i.getText().toString());
+        json.put("g0302a30r", bi.g0302a30r.getText().toString());
 
-        json.put("g0302a0d", bi.g0302a0d.getText().toString());
+        json.put("g0302a30i", bi.g0302a30i.getText().toString());
 
-        json.put("g0302a0b", bi.g0302a0b.getText().toString());
+        json.put("g0302a30d", bi.g0302a30d.getText().toString());
+
+        json.put("g0302a30b", bi.g0302a30b.getText().toString());
+
 
         json.put("g0302a40r", bi.g0302a40r.getText().toString());
 
@@ -105,6 +108,7 @@ public class SectionG3Activity extends AppCompatActivity {
 
         json.put("g0302a40b", bi.g0302a40b.getText().toString());
 
+
         json.put("g0302a50r", bi.g0302a50r.getText().toString());
 
         json.put("g0302a50i", bi.g0302a50i.getText().toString());
@@ -112,6 +116,7 @@ public class SectionG3Activity extends AppCompatActivity {
         json.put("g0302a50d", bi.g0302a50d.getText().toString());
 
         json.put("g0302a50b", bi.g0302a50b.getText().toString());
+
 
         json.put("g0302a60r", bi.g0302a60r.getText().toString());
 
@@ -121,6 +126,7 @@ public class SectionG3Activity extends AppCompatActivity {
 
         json.put("g0302a60b", bi.g0302a60b.getText().toString());
 
+
         json.put("g0302a70r", bi.g0302a70r.getText().toString());
 
         json.put("g0302a70i", bi.g0302a70i.getText().toString());
@@ -128,6 +134,7 @@ public class SectionG3Activity extends AppCompatActivity {
         json.put("g0302a70d", bi.g0302a70d.getText().toString());
 
         json.put("g0302a70b", bi.g0302a70b.getText().toString());
+
 
         json.put("g0302b10r", bi.g0302b10r.getText().toString());
 
@@ -145,13 +152,10 @@ public class SectionG3Activity extends AppCompatActivity {
 
         json.put("g0302b20b", bi.g0302b20b.getText().toString());
 
-        json.put("g0302b0r", bi.g0302b0r.getText().toString());
-
-        json.put("g0302b0i", bi.g0302b0i.getText().toString());
-
-        json.put("g0302b0d", bi.g0302b0d.getText().toString());
-
-        json.put("g0302b0b", bi.g0302b0b.getText().toString());
+        json.put("g0302b30r", bi.g0302b30r.getText().toString());
+        json.put("g0302b30i", bi.g0302b30i.getText().toString());
+        json.put("g0302b30d", bi.g0302b30d.getText().toString());
+        json.put("g0302b30b", bi.g0302b30b.getText().toString());
 
         json.put("g0302b40r", bi.g0302b40r.getText().toString());
 
@@ -202,11 +206,8 @@ public class SectionG3Activity extends AppCompatActivity {
         json.put("g0302c20b", bi.g0302c20b.getText().toString());
 
         json.put("g0302c30r", bi.g0302c30r.getText().toString());
-
         json.put("g0302c30i", bi.g0302c30i.getText().toString());
-
         json.put("g0302c30d", bi.g0302c30d.getText().toString());
-
         json.put("g0302c30b", bi.g0302c30b.getText().toString());
 
         json.put("g0302c40r", bi.g0302c40r.getText().toString());
