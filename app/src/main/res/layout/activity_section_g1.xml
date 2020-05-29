@@ -310,6 +310,13 @@
                             android:layout_height="wrap_content"
                             android:text="@string/g0103x" />
 
+                        <EditText
+                            android:id="@+id/g0103xx"
+                            style="@style/EditTextAlpha"
+                            android:hint="@string/specify"
+                            android:text='@{g0103x.checked? g0103xx.getText().toString() : ""}'
+                            android:visibility='@{g0103x.checked? View.VISIBLE : View.GONE}' />
+
                     </RadioGroup>
 
                 </LinearLayout>
