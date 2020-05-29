@@ -4,14 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -42,11 +43,11 @@ public class SectionBActivity extends AppCompatActivity {
             }
         }));
 
-        bi.b01.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.b01.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.b01b.getId()) {
                 Clear.clearAllFields(bi.fldGrpS01);
             }
-        }));
+        }));*/
 
         bi.b02.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.b02b.getId()) {
