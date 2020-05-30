@@ -2,11 +2,15 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -23,16 +27,69 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 public class SectionC1Activity extends AppCompatActivity {
 
     ActivitySectionC1Binding bi;
+    boolean imFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_c1);
         bi.setCallback(this);
-
-        setTitle(R.string.modctitle);
         setupSkips();
+        setupTextWatchers();
     }
+
+
+    private void setupTextWatchers() {
+        editTextImplementation(bi.c01aa, new EditTextPicker[]{bi.c01ab, bi.c01ad, bi.c01ae}, bi.c01ac);
+    }
+
+
+    public void editTextImplementation(EditTextPicker edit01, EditTextPicker[] editTextsArray, EditTextPicker edit02) {
+
+        edit01.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                if (TextUtils.isEmpty(edit01.getText().toString().trim())) return;
+                for (EditTextPicker item : editTextsArray)
+                    item.setMaxvalue(Integer.parseInt(edit01.getText().toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        editTextsArray[0].addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                if (TextUtils.isEmpty(edit01.getText().toString().trim()) || TextUtils.isEmpty(edit02.getText().toString().trim()))
+                    return;
+                edit02.setEnabled(false);
+                edit02.setText(Integer.parseInt(edit01.getText().toString()) - Integer.parseInt(editTextsArray[0].getText().toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+    }
+
 
     private void setupSkips() {
 
@@ -44,6 +101,9 @@ public class SectionC1Activity extends AppCompatActivity {
             }
         }));*/
 
+        /*bi.c01ab.setMaxvalue(bi.c01aa.getText().toString().trim().length() > 0 ?
+                Float.parseFloat(bi.c01aa.getText().toString().trim())
+                : Float.parseFloat(bi.c01ab.getText().toString().trim()));*/
     }
 
     private boolean UpdateDB() {
