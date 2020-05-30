@@ -1,17 +1,18 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI2Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:id="@+id/GrpName"
@@ -120,18 +121,22 @@
 
                     <RadioGroup
                         android:id="@+id/i0201b"
-                        style="@style/vradiogroup">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/i0201ba"
-                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:text="@string/i0201ba" />
 
                         <RadioButton
                             android:id="@+id/i0201bb"
-                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1.1"
                             android:text="@string/i0201bb" />
 
                     </RadioGroup>
@@ -594,13 +599,14 @@
                             android:layout_height="wrap_content"
                             android:text="@string/i0201jd" />
 
-                        <CheckBox
-                            android:id="@+id/i0201je"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/i0201je" />
-
                     </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/i0201je"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="-1"
+                        android:text="@string/i0201je" />
 
                 </LinearLayout>
 
@@ -836,6 +842,7 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!-- i0201o  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVi0201o"
@@ -892,10 +899,12 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!-- i0201p  CheckBox   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVi0201p"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility='@{i0201oa.checked ? View.VISIBLE : View.GONE }'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -968,6 +977,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- i0201q  Radio   -->
             <androidx.cardview.widget.CardView

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -41,13 +42,23 @@ public class SectionI2Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        /*bi.ss04.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss04b.getId()) {
-                Clear.clearAllFields(bi.ss05cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss05cv, true);
+        bi.i0201o.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.i0201ob.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVi0201p, false);
             }
-        }));*/
+        }));
+
+
+        //i0201je
+        bi.i0201je.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                Clear.clearAllFields(bi.i0201jcheck, false);
+                bi.i0201jcheck.setTag("-1");
+            } else {
+                Clear.clearAllFields(bi.i0201jcheck, true);
+                bi.i0201jcheck.setTag("0");
+            }
+        });
 
     }
 
