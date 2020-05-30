@@ -42,13 +42,6 @@ public class SectionI2Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        bi.i0201o.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.i0201ob.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVi0201p, false);
-            }
-        }));
-
-
         //i0201je
         bi.i0201je.setOnCheckedChangeListener((compoundButton, b) -> {
             if (b) {
@@ -59,6 +52,12 @@ public class SectionI2Activity extends AppCompatActivity {
                 bi.i0201jcheck.setTag("0");
             }
         });
+
+        bi.i0201o.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.i0201ob.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVi0201p);
+            }
+        }));
 
     }
 
