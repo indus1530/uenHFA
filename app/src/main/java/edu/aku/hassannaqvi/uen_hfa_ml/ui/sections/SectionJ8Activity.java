@@ -47,15 +47,6 @@ public class SectionJ8Activity extends AppCompatActivity {
             }
         }));*/
 
-
-        /*bi.ss24.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss24b.getId()) {
-                Clear.clearAllFields(bi.ss25cvall, false);
-            } else {
-                Clear.clearAllFields(bi.ss25cvall, true);
-            }
-        }));*/
-
     }
 
 

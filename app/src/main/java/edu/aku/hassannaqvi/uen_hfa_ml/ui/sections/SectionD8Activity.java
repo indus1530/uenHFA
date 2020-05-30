@@ -35,14 +35,13 @@ public class SectionD8Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_d8);
         bi.setCallback(this);
-        setTitle(R.string.chBsec);
         setupSkips();
 
     }
 
     private void setupSkips() {
 
-       /* bi.d0801a0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.d0801a0a.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.d0801a0an.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVd0801a0fq);
             }

@@ -20,7 +20,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ9Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -48,15 +48,6 @@ public class SectionJ9Activity extends AppCompatActivity {
             }
         }));*/
 
-
-        /*bi.ss24.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss24b.getId()) {
-                Clear.clearAllFields(bi.ss25cvall, false);
-            } else {
-                Clear.clearAllFields(bi.ss25cvall, true);
-            }
-        }));*/
-
     }
 
 
@@ -69,7 +60,7 @@ public class SectionJ9Activity extends AppCompatActivity {
             }
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                startActivity(new Intent(this, SectionMainActivity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
