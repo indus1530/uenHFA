@@ -15,11 +15,15 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI1Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.validator.ValidatorClass;
 
 
 public class SectionI1Activity extends AppCompatActivity {
@@ -31,7 +35,6 @@ public class SectionI1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_i1);
         bi.setCallback(this);
-        //setTitle(R.string.sssec);
         setupSkips();
 
 
@@ -45,49 +48,6 @@ public class SectionI1Activity extends AppCompatActivity {
                 Clear.clearAllFields(bi.ss05cv, false);
             } else {
                 Clear.clearAllFields(bi.ss05cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss07h.getId() || i == bi.ss07i.getId()) {
-                Clear.clearAllFields(bi.ss08cv, false);
-                Clear.clearAllFields(bi.ss09cv, false);
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss08cv, true);
-                Clear.clearAllFields(bi.ss09cv, true);
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss09.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss09b.getId()) {
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-
-            } else {
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-
-            }
-        }));*/
-
-
-        /*bi.ss11.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss11b.getId()) {
-                Clear.clearAllFields(bi.ss12cv, false);
-                Clear.clearAllFields(bi.ss13cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss12cv, true);
-                Clear.clearAllFields(bi.ss13cv, true);
             }
         }));*/
 
@@ -132,11 +92,8 @@ public class SectionI1Activity extends AppCompatActivity {
                 : bi.i0101b.isChecked() ? "2"
                 : "-1");
 
-        json.put("i0102aa", bi.i0102aa.getText().toString());
-        json.put("i0102ab", bi.i0102ab.getText().toString());
-        json.put("i0102ac", bi.i0102ac.getText().toString());
-        json.put("i0102ba", bi.i0102ba.getText().toString());
-        json.put("i0102bb", bi.i0102bb.getText().toString());
+        json.put("i0102a", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+        json.put("i0102b", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
 
         json.put("i0103", bi.i0103a.isChecked() ? "1"
                 : bi.i0103b.isChecked() ? "2"
@@ -169,7 +126,17 @@ public class SectionI1Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        if (!Validator.emptyCheckingContainer(this, bi.GrpName))
+            return false;
+
+        if (bi.i0106a.getText().toString().trim().length() > 0 && bi.i0106b.getText().toString().trim().length() > 0) {
+            if (Integer.parseInt(bi.i0106a.getText().toString().trim()) + Integer.parseInt(bi.i0106a.getText().toString().trim()) == 0) {
+                return ValidatorClass.EmptyCustomeTextBox(this, bi.i0106a, "Both!! Month & Year Can't be Zero!");
+                //return Validator.emptyCheckingContainer(this, bi.i0106a);
+            }
+        }
+
+        return true;
 
     }
 
