@@ -57,8 +57,9 @@ public class SectionC1Activity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {
                 if ((edit01.getText()).hashCode() == editable.hashCode()) {
-                    for (EditTextPicker item : editTextsArray)
+                    for (EditTextPicker item : editTextsArray) {
                         item.setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()));
+                    }
                 }
             }
         });
