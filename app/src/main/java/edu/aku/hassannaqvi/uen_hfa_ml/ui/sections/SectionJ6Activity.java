@@ -5,16 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -93,9 +92,9 @@ public class SectionJ6Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("j0600", bi.j0600a.isChecked() ? "1"
-                : bi.j0600b.isChecked() ? "2"
-                : "-1");
+
+        json.put("j0600a", bi.j0600a.getText().toString().trim().length() > 0 ? bi.j0600a.getText().toString() : "-1");
+        json.put("j0600b", bi.j0600b.getText().toString().trim().length() > 0 ? bi.j0600b.getText().toString() : "-1");
 
         json.put("j0600aa", bi.j0600aaa.isChecked() ? "1"
                 : bi.j0600aab.isChecked() ? "2"

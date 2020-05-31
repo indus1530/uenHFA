@@ -1,21 +1,23 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH8Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <LinearLayout
             android:id="@+id/GrpName"
             style="@style/vlinearlayout">
+
 
             <!-- h08  Title   -->
             <androidx.cardview.widget.CardView
@@ -31,6 +33,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- h0801  Radio   -->
             <androidx.cardview.widget.CardView
@@ -88,6 +91,7 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!-- h0802  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh0802"
@@ -144,6 +148,7 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!--EndButton LinearLayout-->
             <LinearLayout
                 style="@style/hlinearlayout"
@@ -168,5 +173,6 @@
         </LinearLayout>
 
     </ScrollView>
+
 
 </layout>
