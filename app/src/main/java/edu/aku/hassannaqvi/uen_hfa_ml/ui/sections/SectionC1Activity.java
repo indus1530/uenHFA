@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC1Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static java.lang.Float.parseFloat;
 
 public class SectionC1Activity extends AppCompatActivity {
 
@@ -38,11 +40,12 @@ public class SectionC1Activity extends AppCompatActivity {
 
 
     private void setupTextWatchers() {
-        editTextImplementation(bi.c01aa, new EditTextPicker[]{bi.c01ab, bi.c01ad, bi.c01ae}, bi.c01ac);
+        editTextImplementation(bi.c01aa, new EditTextPicker[]{bi.c01ab, bi.c01ad, bi.c01ae}/*, bi.c01ac*/);
+        editTextImplementation1(bi.c01aa, bi.c01ab, bi.c01ac);
     }
 
 
-    public void editTextImplementation(EditTextPicker edit01, EditTextPicker[] editTextsArray, EditTextPicker edit02) {
+    public void editTextImplementation(EditTextPicker edit01, EditTextPicker[] editTextsArray/*, EditTextPicker edit02*/) {
 
         edit01.addTextChangedListener(new TextWatcher() {
             @Override
@@ -56,16 +59,16 @@ public class SectionC1Activity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if ((edit01.getText()).hashCode() == editable.hashCode()) {
-                    for (EditTextPicker item : editTextsArray) {
-                        item.setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()));
-                    }
+                if (TextUtils.isEmpty(edit01.getText().toString().trim()))
+                    return;
+                for (EditTextPicker item : editTextsArray) {
+                    item.setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()));
                 }
             }
         });
 
 
-        editTextsArray[0].addTextChangedListener(new TextWatcher() {
+        /*editTextsArray[0].addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -73,11 +76,38 @@ public class SectionC1Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if ((editTextsArray[0].getText()).hashCode() == charSequence.hashCode()) {
-                    edit02.setText(null);
-                    edit02.setEnabled(false);
-                    edit02.setText((Integer.parseInt(edit01.getText().toString().trim()) - Integer.parseInt(editTextsArray[0].getText().toString().trim())));
-                }
+                if (TextUtils.isEmpty(edit01.getText().toString().trim()) || TextUtils.isEmpty(editTextsArray[0].getText().toString().trim()))
+                    return;
+                edit02.setText(null);
+                edit02.setEnabled(false);
+                edit02.setText((int) (parseFloat(edit01.getText().toString().trim()) - parseFloat(editTextsArray[0].getText().toString().trim())));
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });*/
+
+    }
+
+
+    public void editTextImplementation1(EditTextPicker edit01, EditTextPicker edit02, EditTextPicker edit03) {
+
+        edit02.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (TextUtils.isEmpty(edit01.getText().toString().trim()) || TextUtils.isEmpty(edit02.getText().toString().trim()))
+                    return;
+                edit03.setText(null);
+                edit03.setEnabled(false);
+                edit03.setText((int) (parseFloat(edit01.getText().toString().trim()) - parseFloat(edit02.getText().toString().trim())));
+
             }
 
             @Override
