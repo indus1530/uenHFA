@@ -92,7 +92,6 @@ public class SectionJ6Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-
         json.put("j0600a", bi.j0600a.getText().toString().trim().length() > 0 ? bi.j0600a.getText().toString() : "-1");
         json.put("j0600b", bi.j0600b.getText().toString().trim().length() > 0 ? bi.j0600b.getText().toString() : "-1");
 

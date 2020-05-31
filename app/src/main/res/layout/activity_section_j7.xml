@@ -1,21 +1,23 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ7Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <LinearLayout
             android:id="@+id/GrpNameSectionJ7"
             style="@style/vlinearlayout">
+
 
             <!-- j07  Title   -->
             <androidx.cardview.widget.CardView
@@ -27,8 +29,11 @@
                     <TextView
                         style="@style/textView3Head"
                         android:text="@string/j07" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- j0700  Radio   -->
             <androidx.cardview.widget.CardView
@@ -60,28 +65,50 @@
 
                     </RelativeLayout>
 
-                    <RadioGroup
-                        android:id="@+id/j0700"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <LinearLayout style="@style/hlinearlayout">
 
-                        <RadioButton
-                            android:id="@+id/j0700a"
-                            android:layout_height="wrap_content"
+                        <LinearLayout
+                            style="@style/vlinearlayout"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text="@string/j0700a" />
+                            android:layout_weight="1">
 
-                        <RadioButton
-                            android:id="@+id/j0700b"
-                            android:layout_height="wrap_content"
+                            <TextView
+                                style="@style/textviewh"
+                                android:text="@string/j0700a" />
+
+                            <EditText
+                                android:id="@+id/j0700a"
+                                style="@style/EditTextAlpha"
+                                android:gravity="center"
+                                android:hint="@string/j0700a"
+                                android:maxLength="15" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/vlinearlayout"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text="@string/j0700b" />
-                    </RadioGroup>
+                            android:layout_weight="1">
+
+                            <TextView
+                                style="@style/textviewh"
+                                android:text="@string/j0700b" />
+
+                            <EditText
+                                android:id="@+id/j0700b"
+                                style="@style/EditTextAlpha"
+                                android:gravity="center"
+                                android:hint="@string/j0700b"
+                                android:maxLength="15" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!-- j0700aa  Radio   -->
             <androidx.cardview.widget.CardView
@@ -559,6 +586,7 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!--EndButton LinearLayout-->
             <LinearLayout
                 style="@style/hlinearlayout"
@@ -583,5 +611,6 @@
         </LinearLayout>
 
     </ScrollView>
+
 
 </layout>
