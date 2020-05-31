@@ -3,12 +3,8 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 
 import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Validator;
@@ -16,6 +12,8 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -54,17 +52,17 @@ public class SectionC1Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                if (TextUtils.isEmpty(edit01.getText().toString().trim())) return;
-                for (EditTextPicker item : editTextsArray)
-                    item.setMaxvalue(Integer.parseInt(edit01.getText().toString()));
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                if ((edit01.getText()).hashCode() == editable.hashCode()) {
+                    for (EditTextPicker item : editTextsArray)
+                        item.setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()));
+                }
             }
         });
+
 
         editTextsArray[0].addTextChangedListener(new TextWatcher() {
             @Override
@@ -74,19 +72,17 @@ public class SectionC1Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                if (TextUtils.isEmpty(edit01.getText().toString().trim()) || TextUtils.isEmpty(edit02.getText().toString().trim()))
-                    return;
-                edit02.setEnabled(false);
-                edit02.setText(Integer.parseInt(edit01.getText().toString()) - Integer.parseInt(editTextsArray[0].getText().toString()));
+                if ((editTextsArray[0].getText()).hashCode() == charSequence.hashCode()) {
+                    edit02.setText(null);
+                    edit02.setEnabled(false);
+                    edit02.setText((Integer.parseInt(edit01.getText().toString().trim()) - Integer.parseInt(editTextsArray[0].getText().toString().trim())));
+                }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
-
 
     }
 
