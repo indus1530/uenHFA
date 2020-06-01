@@ -226,15 +226,13 @@ public class SectionF4Activity extends AppCompatActivity {
 
         json.put("f0401aaa0a", bi.f0401aaa0ay.isChecked() ? "1"
                 : bi.f0401aaa0an.isChecked() ? "2"
-                : bi.f0401aaa0aq.isChecked() ? "3"
                 : "-1");
-        json.put("f0401aaa0aqx", bi.f0401aaa0aqx.getText().toString().trim().length() > 0 ? bi.f0401aaa0aqx.getText().toString() : "-1");
+        json.put("f0401aaa0ayx", bi.f0401aaa0ayx.getText().toString().trim().length() > 0 ? bi.f0401aaa0ayx.getText().toString() : "-1");
 
         json.put("f0401aaa0f", bi.f0401aaa0fy.isChecked() ? "1"
                 : bi.f0401aaa0fn.isChecked() ? "2"
-                : bi.f0401aaa0fq.isChecked() ? "3"
                 : "-1");
-        json.put("f0401aaa0fqx", bi.f0401aaa0fqx.getText().toString().trim().length() > 0 ? bi.f0401aaa0fqx.getText().toString() : "-1");
+        json.put("f0401aaa0fyx", bi.f0401aaa0fyx.getText().toString().trim().length() > 0 ? bi.f0401aaa0fyx.getText().toString() : "-1");
 
         json.put("f0401aab0a", bi.f0401aab0ay.isChecked() ? "1"
                 : bi.f0401aab0an.isChecked() ? "2"
