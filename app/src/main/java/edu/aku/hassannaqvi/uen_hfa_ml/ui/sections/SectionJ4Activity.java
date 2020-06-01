@@ -93,9 +93,8 @@ public class SectionJ4Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("j0400", bi.j0400a.isChecked() ? "1"
-                : bi.j0400b.isChecked() ? "2"
-                : "-1");
+        json.put("j0400a", bi.j0400a.getText().toString().trim().length() > 0 ? bi.j0400a.getText().toString() : "-1");
+        json.put("j0400b", bi.j0400b.getText().toString().trim().length() > 0 ? bi.j0400b.getText().toString() : "-1");
 
         json.put("j0400aa", bi.j0400aaa.isChecked() ? "1"
                 : bi.j0400aab.isChecked() ? "2"

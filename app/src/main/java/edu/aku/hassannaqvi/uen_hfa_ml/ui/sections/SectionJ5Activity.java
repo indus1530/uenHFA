@@ -93,9 +93,8 @@ public class SectionJ5Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("j0500", bi.j0500a.isChecked() ? "1"
-                : bi.j0500b.isChecked() ? "2"
-                : "-1");
+        json.put("j0500a", bi.j0500a.getText().toString().trim().length() > 0 ? bi.j0500a.getText().toString() : "-1");
+        json.put("j0500b", bi.j0500b.getText().toString().trim().length() > 0 ? bi.j0500b.getText().toString() : "-1");
 
         json.put("j0500aa", bi.j0500aaa.isChecked() ? "1"
                 : bi.j0500aab.isChecked() ? "2"
