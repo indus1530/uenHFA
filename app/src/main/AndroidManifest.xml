@@ -132,7 +132,13 @@
         <activity
             android:name=".ui.sections.SectionG1Activity"
             android:label="@string/modgtitle"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.sections.SectionG2Activity"
             android:label="@string/modgtitle"
@@ -271,11 +277,11 @@
             android:theme="@style/AppTheme">
 
 
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
 
         </activity>
         <activity
