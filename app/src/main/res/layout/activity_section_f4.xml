@@ -164,22 +164,15 @@
                                 android:layout_weight="1"
                                 android:text="@string/f0401aaa0an" />
 
-                            <RadioButton
-                                android:id="@+id/f0401aaa0aq"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/f0401aaa0aq" />
-
                         </RadioGroup>
 
                         <EditText
-                            android:id="@+id/f0401aaa0aqx"
+                            android:id="@+id/f0401aaa0ayx"
                             style="@style/EditTextNum"
-                            android:hint="@string/num"
+                            android:hint="@string/f0401aaa0aq"
                             android:maxLength="3"
-                            android:text='@{f0401aaa0aq.checked? f0401aaa0aqx.getText().toString() : ""}'
-                            android:visibility='@{f0401aaa0aq.checked? View.VISIBLE : View.GONE}' />
+                            android:text='@{f0401aaa0ay.checked? f0401aaa0ayx.getText().toString() : ""}'
+                            android:visibility='@{f0401aaa0ay.checked? View.VISIBLE : View.GONE}' />
 
                     </LinearLayout>
 
@@ -190,7 +183,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVf0401aaa0f"
                     style="@style/cardView"
-                    android:visibility='@{f0401aaa0an.checked? View.GONE : View.VISIBLE}'>
+                    android:visibility='@{f0401aaa0ay.checked ? View.VISIBLE : View.GONE}'>
 
                     <LinearLayout style="@style/vlinearlayout">
 
@@ -237,22 +230,15 @@
                                 android:layout_weight="1"
                                 android:text="@string/f0401aaa0fn" />
 
-                            <RadioButton
-                                android:id="@+id/f0401aaa0fq"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="@string/f0401aaa0fq" />
-
                         </RadioGroup>
 
                         <EditText
-                            android:id="@+id/f0401aaa0fqx"
+                            android:id="@+id/f0401aaa0fyx"
                             style="@style/EditTextNum"
                             android:hint="@string/f0401aaa0fq"
                             android:maxLength="3"
-                            android:text='@{f0401aaa0fq.checked? f0401aaa0fqx.getText().toString() : ""}'
-                            android:visibility='@{f0401aaa0fq.checked? View.VISIBLE : View.GONE}' />
+                            android:text='@{f0401aaa0fy.checked? f0401aaa0fyx.getText().toString() : ""}'
+                            android:visibility='@{f0401aaa0fy.checked? View.VISIBLE : View.GONE}' />
 
                     </LinearLayout>
 
