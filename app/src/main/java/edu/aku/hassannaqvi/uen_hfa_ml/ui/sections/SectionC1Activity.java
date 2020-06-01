@@ -41,12 +41,11 @@ public class SectionC1Activity extends AppCompatActivity {
 
 
     private void setupTextWatchers() {
-        editTextImplementation(bi.c01aa, new EditTextPicker[]{bi.c01ab, bi.c01ad, bi.c01ae}/*, bi.c01ac*/);
-        editTextImplementation1(bi.c01aa, bi.c01ab, bi.c01ac);
+        editTextImplementation(bi.c01aa, new EditTextPicker[]{bi.c01ab, bi.c01ad, bi.c01ae}, bi.c01ac);
     }
 
 
-    public void editTextImplementation(EditTextPicker edit01, EditTextPicker[] editTextsArray/*, EditTextPicker edit02*/) {
+    public void editTextImplementation(EditTextPicker edit01, EditTextPicker[] editTextsArray, EditTextPicker edit02) {
 
         edit01.addTextChangedListener(new TextWatcher() {
             @Override
@@ -69,7 +68,7 @@ public class SectionC1Activity extends AppCompatActivity {
         });
 
 
-        /*editTextsArray[0].addTextChangedListener(new TextWatcher() {
+        editTextsArray[0].addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -81,14 +80,14 @@ public class SectionC1Activity extends AppCompatActivity {
                     return;
                 edit02.setText(null);
                 edit02.setEnabled(false);
-                edit02.setText((int) (parseFloat(edit01.getText().toString().trim()) - parseFloat(editTextsArray[0].getText().toString().trim())));
+                edit02.setText(String.valueOf(parseFloat(edit01.getText().toString().trim()) - parseFloat(editTextsArray[0].getText().toString().trim())));
 
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
             }
-        });*/
+        });
 
     }
 
