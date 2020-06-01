@@ -62,27 +62,48 @@
 
                     </RelativeLayout>
 
-                    <RadioGroup
-                        android:id="@+id/j0300"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <LinearLayout style="@style/hlinearlayout">
 
-                        <RadioButton
-                            android:id="@+id/j0300a"
-                            android:layout_height="wrap_content"
+                        <LinearLayout
+                            style="@style/vlinearlayout"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text="@string/j0300a" />
+                            android:layout_weight="1">
 
-                        <RadioButton
-                            android:id="@+id/j0300b"
-                            android:layout_height="wrap_content"
+                            <TextView
+                                style="@style/textviewh"
+                                android:text="@string/j0300a" />
+
+                            <EditText
+                                android:id="@+id/j0300a"
+                                style="@style/EditTextAlpha"
+                                android:gravity="center"
+                                android:hint="@string/j0300a"
+                                android:maxLength="15" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            style="@style/vlinearlayout"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text="@string/j0300b" />
-                    </RadioGroup>
+                            android:layout_weight="1">
+
+                            <TextView
+                                style="@style/textviewh"
+                                android:text="@string/j0300b" />
+
+                            <EditText
+                                android:id="@+id/j0300b"
+                                style="@style/EditTextAlpha"
+                                android:gravity="center"
+                                android:hint="@string/j0300b"
+                                android:maxLength="15" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- j0300aa  Radio   -->
