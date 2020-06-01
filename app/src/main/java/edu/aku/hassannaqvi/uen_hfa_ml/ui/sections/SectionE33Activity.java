@@ -44,7 +44,50 @@ public class SectionE33Activity extends AppCompatActivity {
             }
         }));
 
+        bi.e0306l0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306l0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306l0f);
+            }
+        }));
+
+        bi.e0306m0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306m0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306m0f);
+            }
+        }));
+
+        bi.e0306n0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306n0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306n0f);
+            }
+        }));
+
+        bi.e0306o0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306o0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306o0f);
+            }
+        }));
+
+        bi.e0306p0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306p0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306p0f);
+            }
+        }));
+
+        bi.e0306q0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306q0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306q0f);
+            }
+        }));
+
+        bi.e0306r0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306r0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306r0f);
+            }
+        }));
+
     }
+
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
