@@ -42,6 +42,16 @@ public class SectionC1Activity extends AppCompatActivity {
 
     private void setupTextWatchers() {
         editTextImplementation(bi.c01aa, new EditTextPicker[]{bi.c01ab, bi.c01ad, bi.c01ae}, bi.c01ac);
+        editTextImplementation(bi.c01ba, new EditTextPicker[]{bi.c01bb, bi.c01bd, bi.c01be}, bi.c01bc);
+        editTextImplementation(bi.c01ca, new EditTextPicker[]{bi.c01cb, bi.c01cd, bi.c01ce}, bi.c01cc);
+        editTextImplementation(bi.c01da, new EditTextPicker[]{bi.c01db, bi.c01dd, bi.c01de}, bi.c01dc);
+        editTextImplementation(bi.c01ea, new EditTextPicker[]{bi.c01eb, bi.c01ed, bi.c01ee}, bi.c01ec);
+        editTextImplementation(bi.c01fa, new EditTextPicker[]{bi.c01fb, bi.c01fd, bi.c01fe}, bi.c01fc);
+        editTextImplementation(bi.c01ga, new EditTextPicker[]{bi.c01gb, bi.c01gd, bi.c01ge}, bi.c01gc);
+        editTextImplementation(bi.c01ha, new EditTextPicker[]{bi.c01hb, bi.c01hd, bi.c01he}, bi.c01hc);
+        editTextImplementation(bi.c01ia, new EditTextPicker[]{bi.c01ib, bi.c01id, bi.c01ie}, bi.c01ic);
+        editTextImplementation(bi.c01ja, new EditTextPicker[]{bi.c01jb, bi.c01jd, bi.c01je}, bi.c01jc);
+        editTextImplementation(bi.c01ka, new EditTextPicker[]{bi.c01kb, bi.c01kd, bi.c01ke}, bi.c01kc);
     }
 
 
@@ -78,7 +88,7 @@ public class SectionC1Activity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (TextUtils.isEmpty(edit01.getText().toString().trim()) || TextUtils.isEmpty(editTextsArray[0].getText().toString().trim()))
                     return;
-                edit02.setText(null);
+                edit02.setText("");
                 edit02.setEnabled(false);
                 edit02.setText(String.valueOf(parseFloat(edit01.getText().toString().trim()) - parseFloat(editTextsArray[0].getText().toString().trim())));
 
