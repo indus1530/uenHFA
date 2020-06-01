@@ -149,7 +149,8 @@
             <!-- d0203  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVd0203"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility='@{d0202a.checked ? View.VISIBLE : View.GONE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -224,5 +225,7 @@
 
 
         </LinearLayout>
+
     </ScrollView>
+
 </layout>
