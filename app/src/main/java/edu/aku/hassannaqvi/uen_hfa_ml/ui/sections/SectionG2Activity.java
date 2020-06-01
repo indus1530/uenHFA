@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -68,8 +69,8 @@ public class SectionG2Activity extends AppCompatActivity {
 
         json.put("g0203", bi.g0203a.isChecked() ? "1"
                 : bi.g0203b.isChecked() ? "2"
-                : bi.g0203c.isChecked() ? "3"
                 : "-1");
+        json.put("g0203x", bi.g0203x.getText().toString().trim().length() > 0 ? bi.g0203x.getText().toString() : "-1");
 
         json.put("g0204", bi.g0204a.isChecked() ? "1"
                 : bi.g0204b.isChecked() ? "2"
