@@ -4,14 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -216,64 +217,53 @@ public class SectionE7Activity extends AppCompatActivity {
 
         json.put("e0705a0a", bi.e0705a0ay.isChecked() ? "1"
                 : bi.e0705a0an.isChecked() ? "2"
-                : bi.e0705a0aq.isChecked() ? "3"
                 : "-1");
+        json.put("e0705a0ayx", bi.e0705a0ayx.getText().toString());
 
-        json.put("e0705a0aqx", bi.e0705a0aqx.getText().toString());
         json.put("e0705a0f", bi.e0705a0fy.isChecked() ? "1"
                 : bi.e0705a0fn.isChecked() ? "2"
-                : bi.e0705a0fq.isChecked() ? "3"
                 : "-1");
+        json.put("e0705a0fyx", bi.e0705a0fyx.getText().toString());
 
-        json.put("e0705a0fqx", bi.e0705a0fqx.getText().toString());
         json.put("e0705b0a", bi.e0705b0ay.isChecked() ? "1"
                 : bi.e0705b0an.isChecked() ? "2"
-                : bi.e0705b0aq.isChecked() ? "3"
                 : "-1");
+        json.put("e0705b0ayx", bi.e0705b0ayx.getText().toString());
 
-        json.put("e0705b0aqx", bi.e0705b0aqx.getText().toString());
         json.put("e0705b0f", bi.e0705b0fy.isChecked() ? "1"
                 : bi.e0705b0fn.isChecked() ? "2"
-                : bi.e0705b0fq.isChecked() ? "3"
                 : "-1");
+        json.put("e0705b0fyx", bi.e0705b0fyx.getText().toString());
 
-        json.put("e0705b0fqx", bi.e0705b0fqx.getText().toString());
         json.put("e0705c0a", bi.e0705c0ay.isChecked() ? "1"
                 : bi.e0705c0an.isChecked() ? "2"
-                : bi.e0705c0aq.isChecked() ? "3"
                 : "-1");
+        json.put("e0705c0ayx", bi.e0705c0ayx.getText().toString());
 
-        json.put("e0705c0aqx", bi.e0705c0aqx.getText().toString());
         json.put("e0705c0f", bi.e0705c0fy.isChecked() ? "1"
                 : bi.e0705c0fn.isChecked() ? "2"
-                : bi.e0705c0fq.isChecked() ? "3"
                 : "-1");
+        json.put("e0705c0fyx", bi.e0705c0fyx.getText().toString());
 
-        json.put("e0705c0fqx", bi.e0705c0fqx.getText().toString());
         json.put("e0705d0a", bi.e0705d0ay.isChecked() ? "1"
                 : bi.e0705d0an.isChecked() ? "2"
-                : bi.e0705d0aq.isChecked() ? "3"
                 : "-1");
+        json.put("e0705d0ayx", bi.e0705d0ayx.getText().toString());
 
-        json.put("e0705d0aqx", bi.e0705d0aqx.getText().toString());
         json.put("e0705d0f", bi.e0705d0fy.isChecked() ? "1"
                 : bi.e0705d0fn.isChecked() ? "2"
-                : bi.e0705d0fq.isChecked() ? "3"
                 : "-1");
+        json.put("e0705d0fyx", bi.e0705d0fyx.getText().toString());
 
-        json.put("e0705d0fqx", bi.e0705d0fqx.getText().toString());
         json.put("e0705e0a", bi.e0705e0ay.isChecked() ? "1"
                 : bi.e0705e0an.isChecked() ? "2"
-                : bi.e0705e0aq.isChecked() ? "3"
                 : "-1");
+        json.put("e0705e0ayx", bi.e0705e0ayx.getText().toString());
 
-        json.put("e0705e0aqx", bi.e0705e0aqx.getText().toString());
         json.put("e0705e0f", bi.e0705e0fy.isChecked() ? "1"
                 : bi.e0705e0fn.isChecked() ? "2"
-                : bi.e0705e0fq.isChecked() ? "3"
                 : "-1");
-
-        json.put("e0705e0fqx", bi.e0705e0fqx.getText().toString());
+        json.put("e0705e0fyx", bi.e0705e0fyx.getText().toString());
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsE()), json);
