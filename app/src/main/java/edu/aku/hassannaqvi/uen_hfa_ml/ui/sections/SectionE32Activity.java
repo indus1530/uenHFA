@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -37,11 +38,65 @@ public class SectionE32Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        /*bi.e0301.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.e0301b.getId()) {
-                Clear.clearAllFields(bi.fldGrpSece301);
+        bi.e0306a0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306a0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306a0f);
             }
-        }));*/
+        }));
+
+        bi.e0306b0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306b0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306b0f);
+            }
+        }));
+
+        bi.e0306c0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306c0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306c0f);
+            }
+        }));
+
+        bi.e0306d0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306d0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306d0f);
+            }
+        }));
+
+        bi.e0306e0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306e0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306e0f);
+            }
+        }));
+
+        bi.e0306f0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306f0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306f0f);
+            }
+        }));
+
+        bi.e0306g0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306g0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306g0f);
+            }
+        }));
+
+        bi.e0306h0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306h0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306h0f);
+            }
+        }));
+
+        bi.e0306i0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306i0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306i0f);
+            }
+        }));
+
+        bi.e0306j0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.e0306j0an.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVe0306j0f);
+            }
+        }));
 
     }
 
