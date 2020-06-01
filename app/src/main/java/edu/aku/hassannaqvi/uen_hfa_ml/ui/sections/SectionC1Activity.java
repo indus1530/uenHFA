@@ -28,7 +28,6 @@ import static java.lang.Float.parseFloat;
 public class SectionC1Activity extends AppCompatActivity {
 
     ActivitySectionC1Binding bi;
-    boolean imFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,32 +90,6 @@ public class SectionC1Activity extends AppCompatActivity {
                 edit02.setText("");
                 edit02.setEnabled(false);
                 edit02.setText(String.valueOf(parseFloat(edit01.getText().toString().trim()) - parseFloat(editTextsArray[0].getText().toString().trim())));
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-            }
-        });
-
-    }
-
-
-    public void editTextImplementation1(EditTextPicker edit01, EditTextPicker edit02, EditTextPicker edit03) {
-
-        edit02.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (TextUtils.isEmpty(edit01.getText().toString().trim()) || TextUtils.isEmpty(edit02.getText().toString().trim()))
-                    return;
-                edit03.setText(null);
-                edit03.setEnabled(false);
-                edit03.setText((int) (parseFloat(edit01.getText().toString().trim()) - parseFloat(edit02.getText().toString().trim())));
 
             }
 
