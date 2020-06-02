@@ -115,8 +115,8 @@ public class SectionD7Activity extends AppCompatActivity {
                 : bi.d0701c.isChecked() ? "3"
                 : bi.d0701x.isChecked() ? "96"
                 : "-1");
-
         json.put("d0701xx", bi.d0701xx.getText().toString());
+
         json.put("d0702", bi.d0702a.isChecked() ? "1"
                 : bi.d0702b.isChecked() ? "2"
                 : bi.d0702c.isChecked() ? "3"
@@ -124,14 +124,13 @@ public class SectionD7Activity extends AppCompatActivity {
                 : bi.d0702e.isChecked() ? "5"
                 : bi.d0702x.isChecked() ? "96"
                 : "-1");
+        json.put("d0702xx", bi.d0702xx.getText().toString());
 
         json.put("d0703", bi.d0703a.isChecked() ? "1"
                 : bi.d0703b.isChecked() ? "2"
                 : bi.d0703c.isChecked() ? "3"
                 : bi.d0703x.isChecked() ? "98"
                 : "-1");
-
-        json.put("d0704", "-1");
 
         json.put("d0704a", bi.d0704aa.isChecked() ? "1"
                 : bi.d0704ab.isChecked() ? "2"
