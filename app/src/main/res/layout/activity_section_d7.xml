@@ -2,7 +2,9 @@
 
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionD7Activity" />
@@ -98,6 +100,7 @@
                             android:id="@+id/d0701xx"
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
+                            android:tag="d0701x"
                             android:text='@{d0701x.checked? d0701xx.getText().toString() : ""}'
                             android:visibility='@{d0701x.checked? View.VISIBLE : View.GONE}' />
                     </RadioGroup>
