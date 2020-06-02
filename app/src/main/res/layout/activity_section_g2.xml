@@ -3,9 +3,7 @@
 
 
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionG2Activity" />
@@ -228,6 +226,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:hint="##.##"
+                            android:tag="g0203a"
                             android:text='@{g0203a.checked? g0203x.getText().toString() : ""}'
                             app:mask="##.##"
                             app:maxValue="30"
