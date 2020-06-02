@@ -159,7 +159,7 @@ public class SectionBActivity extends AppCompatActivity {
 
         json.put("b05", bi.b05.getText().toString().trim().isEmpty() ? "-1" : bi.b05.getText().toString());
 
-        MainApp.fc.setsA(String.valueOf(json));
+        MainApp.fc.setsB(String.valueOf(json));
 
     }
 
