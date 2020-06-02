@@ -155,7 +155,7 @@
                                 android:id="@+id/h1602x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/h1602x" />
+                                android:text="@string/other" />
 
                             <EditText
                                 android:id="@+id/h1602xx"
@@ -228,12 +228,13 @@
                                 android:id="@+id/h1603x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/h1603x" />
+                                android:text="@string/other" />
 
                             <EditText
                                 android:id="@+id/h1603xx"
                                 style="@style/EditTextAlpha"
                                 android:hint="@string/specify"
+                                android:tag="h1603x"
                                 android:text='@{h1603x.checked? h1603xx.getText().toString() : ""}'
                                 android:visibility='@{h1603x.checked? View.VISIBLE : View.GONE}' />
 
@@ -369,12 +370,13 @@
                             android:id="@+id/h1605x"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/h1605x" />
+                            android:text="@string/other" />
 
                         <EditText
                             android:id="@+id/h1605xx"
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
+                            android:tag="h1605x"
                             android:text='@{h1605x.checked? h1605xx.getText().toString() : ""}'
                             android:visibility='@{h1605x.checked? View.VISIBLE : View.GONE}' />
 
