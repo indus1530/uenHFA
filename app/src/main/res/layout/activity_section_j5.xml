@@ -27,7 +27,9 @@
                     <TextView
                         style="@style/textView3Head"
                         android:text="@string/j05" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- j0500  Radio   -->
@@ -943,8 +945,11 @@
                             android:tag="j0501nx"
                             android:text='@{j0501nx.checked? j0501nxx.getText().toString() : ""}'
                             android:visibility='@{j0501nx.checked? View.VISIBLE : View.GONE}' />
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!--EndButton LinearLayout-->
