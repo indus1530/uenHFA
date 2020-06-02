@@ -35,6 +35,7 @@ public class SectionG1Activity extends AppCompatActivity {
         setupSkips();
         bi.g0105cx.setMinvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())));
         bi.g0105cx.setMaxvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())) + 2);
+
     }
 
 

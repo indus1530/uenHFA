@@ -31,8 +31,10 @@ public class SectionG3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g3);
         bi.setCallback(this);
-        setTitle(R.string.modgtitle);
         setupSkips();
+        /*Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -6);*/
+
     }
 
 
