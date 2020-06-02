@@ -1076,15 +1076,16 @@
                                 android:layout_weight="1"
                                 android:text="@string/e0104ex" />
 
-                        </RadioGroup>
+                            <EditText
+                                android:id="@+id/e0104exx"
+                                style="@style/EditTextAlpha"
+                                android:hint="@string/specify"
+                                android:maxLength="20"
+                                android:tag="e0104ex"
+                                android:text='@{e0104ex.checked ? e0104exx.getText().toString() : "" }'
+                                android:visibility='@{e0104ex.checked ? View.VISIBLE : View.GONE }' />
 
-                        <EditText
-                            android:id="@+id/e0104exx"
-                            style="@style/EditTextAlpha"
-                            android:hint="@string/specify"
-                            android:maxLength="20"
-                            android:text='@{e0104ex.checked ? e0104exx.getText().toString() : "" }'
-                            android:visibility='@{e0104ex.checked ? View.VISIBLE : View.GONE }' />
+                        </RadioGroup>
 
                     </LinearLayout>
 

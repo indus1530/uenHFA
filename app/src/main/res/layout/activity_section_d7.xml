@@ -99,12 +99,16 @@
                         <EditText
                             android:id="@+id/d0701xx"
                             style="@style/EditTextAlpha"
+                            android:tag="d0701x"
                             android:hint="@string/specify"
                             android:tag="d0701x"
                             android:text='@{d0701x.checked? d0701xx.getText().toString() : ""}'
                             android:visibility='@{d0701x.checked? View.VISIBLE : View.GONE}' />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -178,8 +182,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/d0702x" />
+
+                        <EditText
+                            android:id="@+id/d0702xx"
+                            style="@style/EditTextAlpha"
+                            android:hint="@string/specify"
+                            android:tag="d0701x"
+                            android:text='@{d0702x.checked ? d0702xx.getText().toString() : ""}'
+                            android:visibility='@{d0702x.checked ? View.VISIBLE : View.GONE}' />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -241,8 +256,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/d0703x" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -309,8 +327,11 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/d0704ab" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -361,8 +382,11 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/d0704bb" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -413,8 +437,11 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/d0704cb" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -465,8 +492,11 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/d0704db" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -517,8 +547,11 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/d0704eb" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
