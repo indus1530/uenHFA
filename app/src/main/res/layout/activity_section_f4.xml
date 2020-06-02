@@ -95,7 +95,7 @@
             <LinearLayout
                 android:id="@+id/fldGrpSecf401"
                 style="@style/vlinearlayout"
-                android:visibility='@{f0401b.checked? View.GONE : View.VISIBLE}'>
+                android:visibility='@{f0401a.checked ? View.VISIBLE : View.GONE}'>
 
 
                 <!-- f0401aa  SUB TextView   -->
@@ -570,7 +570,7 @@
             <LinearLayout
                 android:id="@+id/fldGrpSecf402"
                 style="@style/vlinearlayout"
-                android:visibility='@{f0402b.checked? View.GONE : View.VISIBLE}'>
+                android:visibility='@{f0402a.checked? View.VISIBLE : View.GONE}'>
 
 
                 <!-- f0402aa  SUB TExtView   -->
@@ -782,7 +782,7 @@
             <LinearLayout
                 android:id="@+id/fldGrpSecf403"
                 style="@style/vlinearlayout"
-                android:visibility='@{f0403b.checked? View.GONE : View.VISIBLE}'>
+                android:visibility='@{f0403a.checked? View.VISIBLE : View.GONE}'>
 
 
                 <!-- f0403aa  SUB TextView   -->
@@ -994,7 +994,7 @@
             <LinearLayout
                 android:id="@+id/fldGrpSecf404"
                 style="@style/vlinearlayout"
-                android:visibility='@{f0404b.checked? View.GONE : View.VISIBLE}'>
+                android:visibility='@{f0404a.checked ? View.VISIBLE : View.GONE}'>
 
 
                 <!-- f0404aa  SUB TextView -->
@@ -1136,8 +1136,8 @@
                             style="@style/EditTextNum"
                             android:hint="@string/f0404aaa0fq"
                             android:maxLength="3"
-                            android:text='@{f0404aaa0fy.checked? f0404aaa0fyx.getText().toString() : ""}'
-                            android:visibility='@{f0404aaa0fy.checked? View.VISIBLE : View.GONE}' />
+                            android:text='@{f0404aaa0fy.checked ? f0404aaa0fyx.getText().toString() : ""}'
+                            android:visibility='@{f0404aaa0fy.checked ? View.VISIBLE : View.GONE}' />
 
                     </LinearLayout>
 
