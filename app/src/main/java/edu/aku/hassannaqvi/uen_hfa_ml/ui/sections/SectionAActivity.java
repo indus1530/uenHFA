@@ -254,7 +254,7 @@ public class SectionAActivity extends AppCompatActivity {
         MainApp.fc.setAppversion(MainApp.appInfo.getAppVersion());
         MainApp.setGPS(this); // Set GPS
 
-        MainApp.fc.setA6(String.valueOf(bi.a06.getSelectedItem()));
+        //MainApp.fc.setA6(String.valueOf(bi.a06.getSelectedItem()));
 
         MainApp.fc.setA7(String.valueOf(bi.a07.getSelectedItem()));
 
