@@ -1,8 +1,11 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionG2Activity" />
@@ -214,12 +217,30 @@
 
                     </RadioGroup>
 
-                    <EditText
-                        android:id="@+id/g0203x"
-                        style="@style/EditTextAlpha"
-                        android:hint="@string/g0203c"
-                        android:text='@{g0203a.checked? g0203x.getText().toString() : ""}'
-                        android:visibility='@{g0203a.checked? View.VISIBLE : View.GONE}' />
+                    <LinearLayout
+                        style="@style/hlinearlayout"
+                        android:visibility='@{g0203a.checked? View.VISIBLE : View.GONE}'>
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/g0203x"
+                            style="@style/EditTextNumS"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:hint="##.##"
+                            android:text='@{g0203a.checked? g0203x.getText().toString() : ""}'
+                            app:mask="##.##"
+                            app:maxValue="30"
+                            app:minValue="-8"
+                            app:type="range" />
+
+                        <TextView
+                            style="@style/textviewh"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="Temperature Centigrade" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 

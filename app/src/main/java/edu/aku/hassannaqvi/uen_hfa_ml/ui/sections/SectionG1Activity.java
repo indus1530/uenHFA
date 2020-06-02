@@ -12,6 +12,9 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -30,6 +33,8 @@ public class SectionG1Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g1);
         bi.setCallback(this);
         setupSkips();
+        bi.g0105cx.setMinvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())));
+        bi.g0105cx.setMaxvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())) + 2);
     }
 
 

@@ -118,8 +118,8 @@
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
                             android:tag="g0101x"
-                            android:text='@{g0101x.checked? g0101xx.getText().toString() : ""}'
-                            android:visibility='@{g0101x.checked? View.VISIBLE : View.GONE}' />
+                            android:text='@{g0101x.checked ? g0101xx.getText().toString() : ""}'
+                            android:visibility='@{g0101x.checked ? View.VISIBLE : View.GONE}' />
 
                     </RadioGroup>
 
@@ -499,8 +499,8 @@
                                 android:gravity="center"
                                 android:hint="####"
                                 android:maxLength="4"
-                                app:maxValue="2020"
-                                app:minValue="2015"
+                                app:maxValue="0"
+                                app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
@@ -966,8 +966,8 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
-                                app:maxValue="31"
-                                app:minValue="1"
+                                app:maxValue="30"
+                                app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
@@ -987,8 +987,8 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
-                                app:maxValue="12"
-                                app:minValue="1"
+                                app:maxValue="11"
+                                app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
@@ -1006,10 +1006,10 @@
                                 android:id="@+id/g0110cx"
                                 style="@style/EditTextNum"
                                 android:gravity="center"
-                                android:hint="####"
-                                android:maxLength="4"
-                                app:maxValue="2020"
-                                app:minValue="2015"
+                                android:hint="##"
+                                android:maxLength="2"
+                                app:maxValue="10"
+                                app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
