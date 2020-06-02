@@ -2,14 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-
     <data>
         <import type="android.view.View" />
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionG411Activity" />
     </data>
-
 
 
     <ScrollView
@@ -2364,21 +2362,27 @@
                     <RadioGroup
                         android:id="@+id/g0401100p"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/g0401100py"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="@string/g0401100py" />
 
                         <RadioButton
                             android:id="@+id/g0401100pn"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="@string/g0401100pn" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
@@ -2428,8 +2432,9 @@
 
                         <RadioButton
                             android:id="@+id/g0401110an"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="@string/g0401110an" />
 
                     </RadioGroup>
@@ -2469,25 +2474,30 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/g0401110s"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/g0401110sy"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="@string/g0401110sy" />
 
                         <RadioButton
                             android:id="@+id/g0401110sn"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:text="@string/g0401110sn" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
 
