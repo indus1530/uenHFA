@@ -68,7 +68,7 @@ public class SectionC1Activity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (TextUtils.isEmpty(edit01.getText().toString().trim()))
+                if (TextUtils.isEmpty(edit01.getText()))
                     return;
                 for (EditTextPicker item : editTextsArray) {
                     item.setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()));
@@ -85,10 +85,12 @@ public class SectionC1Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (TextUtils.isEmpty(edit01.getText().toString().trim()) || TextUtils.isEmpty(editTextsArray[0].getText().toString().trim()))
+                if (TextUtils.isEmpty(edit01.getText()) || TextUtils.isEmpty(editTextsArray[0].getText()))
                     return;
                 edit02.setText("");
                 edit02.setEnabled(false);
+                editTextsArray[1].setMaxvalue(Integer.parseInt(editTextsArray[0].getText().toString().trim()));
+                editTextsArray[2].setMaxvalue(Integer.parseInt(editTextsArray[0].getText().toString().trim()));
                 edit02.setText(String.valueOf(parseFloat(edit01.getText().toString().trim()) - parseFloat(editTextsArray[0].getText().toString().trim())));
 
             }
