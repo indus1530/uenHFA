@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TalukasContract;
@@ -37,6 +38,7 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_VERSIO
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+    private static final String SQL_DELETE_DISTRICTS = "DROP TABLE IF EXISTS " + DistrictContract.singleDistrict.TABLE_NAME;
     private static final String SQL_DELETE_TALUKAS = "DROP TABLE IF EXISTS " + TalukasContract.singleTalukas.TABLE_NAME;
     private static final String SQL_DELETE_UCS = "DROP TABLE IF EXISTS " + UCsContract.singleUCs.TABLE_NAME;
 
@@ -61,6 +63,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public void syncDistricts(JSONArray Districtslist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(DistrictContract.singleDistrict.TABLE_NAME, null, null);
+        try {
+            JSONArray jsonArray = Districtslist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectCC = jsonArray.getJSONObject(i);
+
+                DistrictContract Vc = new DistrictContract();
+                Vc.Sync(jsonObjectCC);
+
+                ContentValues values = new ContentValues();
+
+                values.put(DistrictContract.singleDistrict.COLUMN_DISTRICT_CODE, Vc.getDistrictCode());
+                values.put(DistrictContract.singleDistrict.COLUMN_DISTRICT, Vc.getDistrict());
+
+                db.insert(DistrictContract.singleDistrict.TABLE_NAME, null, values);
+            }
+        } catch (Exception e) {
+        } finally {
+            db.close();
+        }
+    }
+
+
     public void syncTalukas(JSONArray Talukaslist) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TalukasContract.singleTalukas.TABLE_NAME, null, null);
@@ -76,6 +103,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 values.put(TalukasContract.singleTalukas.COLUMN_TALUKA_CODE, Vc.getTalukacode());
                 values.put(TalukasContract.singleTalukas.COLUMN_TALUKA, Vc.getTaluka());
+                values.put(TalukasContract.singleTalukas.COLUMN_DISTRICT_CODE, Vc.getDistrictcode());
 
                 db.insert(TalukasContract.singleTalukas.TABLE_NAME, null, values);
             }
@@ -84,7 +112,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
     }
-
 
 
     public void syncUCs(JSONArray UCslist) {
@@ -113,13 +140,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public Collection<DistrictContract> getAllDistricts() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                DistrictContract.singleDistrict.COLUMN_DISTRICT_CODE,
+                DistrictContract.singleDistrict.COLUMN_DISTRICT
+        };
+
+        String whereClause = null;
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                DistrictContract.singleDistrict.COLUMN_DISTRICT + " ASC";
+
+        Collection<DistrictContract> allDC = new ArrayList<>();
+        try {
+            c = db.query(
+                    DistrictContract.singleDistrict.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                DistrictContract dc = new DistrictContract();
+                allDC.add(dc.HydrateDistrict(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allDC;
+    }
+
 
     public Collection<TalukasContract> getAllTalukas() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
                 TalukasContract.singleTalukas.COLUMN_TALUKA_CODE,
-                TalukasContract.singleTalukas.COLUMN_TALUKA
+                TalukasContract.singleTalukas.COLUMN_TALUKA,
+                TalukasContract.singleTalukas.COLUMN_DISTRICT_CODE
         };
 
         String whereClause = null;
@@ -365,7 +435,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
     public FormsContract isDataExists(String studyId) {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = null;
@@ -506,7 +575,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return allFC;
     }
-
 
 
     public Collection<FormsContract> checkFormExist() {
@@ -789,7 +857,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selection,
                 selectionArgs);
     }
-
 
 
     // ANDROID DATABASE MANAGER

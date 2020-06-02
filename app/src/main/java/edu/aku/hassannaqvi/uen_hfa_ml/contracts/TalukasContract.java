@@ -12,6 +12,7 @@ public class TalukasContract {
     private static final String TAG = "Talukas_CONTRACT";
     String talukacode;
     String taluka;
+    String districtcode;
 
     public TalukasContract() {
         // Default Constructor
@@ -20,12 +21,14 @@ public class TalukasContract {
     public TalukasContract Sync(JSONObject jsonObject) throws JSONException {
         this.talukacode = jsonObject.getString(singleTalukas.COLUMN_TALUKA_CODE);
         this.taluka = jsonObject.getString(singleTalukas.COLUMN_TALUKA);
+        this.districtcode = jsonObject.getString(singleTalukas.COLUMN_DISTRICT_CODE);
         return this;
     }
 
     public TalukasContract HydrateTalukas(Cursor cursor) {
         this.talukacode = cursor.getString(cursor.getColumnIndex(singleTalukas.COLUMN_TALUKA_CODE));
         this.taluka = cursor.getString(cursor.getColumnIndex(singleTalukas.COLUMN_TALUKA));
+        this.districtcode = cursor.getString(cursor.getColumnIndex(singleTalukas.COLUMN_DISTRICT_CODE));
         return this;
     }
 
@@ -45,11 +48,20 @@ public class TalukasContract {
         this.taluka = taluka;
     }
 
-    public JSONObject toJSONObject() throws JSONException {
+    public String getDistrictcode() {
+        return districtcode;
+    }
 
+    public void setDistrictcode(String districtcode) {
+        this.districtcode = districtcode;
+    }
+
+
+    public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
         json.put(singleTalukas.COLUMN_TALUKA_CODE, this.talukacode == null ? JSONObject.NULL : this.talukacode);
         json.put(singleTalukas.COLUMN_TALUKA, this.taluka == null ? JSONObject.NULL : this.taluka);
+        json.put(singleTalukas.COLUMN_DISTRICT_CODE, this.districtcode == null ? JSONObject.NULL : this.districtcode);
         return json;
     }
 
@@ -59,6 +71,7 @@ public class TalukasContract {
         public static final String TABLE_NAME = "talukas";
         public static final String COLUMN_TALUKA_CODE = "taluka_code";
         public static final String COLUMN_TALUKA = "taluka_name";
+        public static final String COLUMN_DISTRICT_CODE = "district_code";
 
         public static final String _URI = "talukas.php";
     }
