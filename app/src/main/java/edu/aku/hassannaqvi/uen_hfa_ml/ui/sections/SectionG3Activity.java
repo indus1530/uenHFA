@@ -12,12 +12,16 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG3Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.RandomDates;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -34,6 +38,8 @@ public class SectionG3Activity extends AppCompatActivity {
         setupSkips();
         /*Calendar cal = Calendar.getInstance();
         cal.add(Calendar.MONTH, -6);*/
+
+        RandomDates.randBetween(Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date().getTime())) - 365, Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date().getTime())));
 
     }
 
@@ -58,8 +64,6 @@ public class SectionG3Activity extends AppCompatActivity {
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
-
-        //json.put("g0301", "-1");
 
         json.put("g0301aa", bi.g0301aa.getText().toString().trim().length() > 0 ? bi.g0301aa.getText().toString() : "-1");
         json.put("g0301ab", bi.g0301ab.getText().toString().trim().length() > 0 ? bi.g0301ab.getText().toString() : "-1");
