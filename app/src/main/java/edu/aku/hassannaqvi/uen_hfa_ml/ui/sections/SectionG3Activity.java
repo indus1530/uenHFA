@@ -13,7 +13,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
@@ -21,7 +24,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG3Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
-import edu.aku.hassannaqvi.uen_hfa_ml.utils.RandomDates;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -36,10 +38,23 @@ public class SectionG3Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g3);
         bi.setCallback(this);
         setupSkips();
-        /*Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.MONTH, -6);*/
 
-        RandomDates.randBetween(Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date().getTime())) - 365, Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date().getTime())));
+
+        List<String> allDates = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM-yyyy");
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -1);
+
+        for (int i = 1; i <= 6; i++) {
+            String monthName = sdf.format(cal.getTime());
+            allDates.add(monthName);
+            cal.add(Calendar.MONTH, -1);
+        }
+
+        Collections.shuffle(allDates);
+        for (int i = 1; i <= 3; i++) {
+            Toast.makeText(this, "Random Month: " + allDates.get(i), Toast.LENGTH_SHORT).show();
+        }
 
     }
 

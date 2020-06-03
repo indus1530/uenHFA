@@ -20,7 +20,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG1Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.utils.RandomDates;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
@@ -36,8 +35,6 @@ public class SectionG1Activity extends AppCompatActivity {
         setupSkips();
         bi.g0105cx.setMinvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())));
         bi.g0105cx.setMaxvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())) + 2);
-
-        bi.g0101a.setText(String.valueOf(RandomDates.randBetween(Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date().getTime())) - 1, Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date().getTime())))));
 
     }
 
