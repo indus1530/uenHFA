@@ -32,7 +32,7 @@ public class SectionMainActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_main);
         bi.setCallback(this);
 
-        if (!fc.getsB().isEmpty())
+        if (!fc.getsB().equals(""))
             bi.form01.setEnabled(false);
 
         if (!fc.getsC().equals(""))

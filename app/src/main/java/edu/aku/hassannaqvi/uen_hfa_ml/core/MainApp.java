@@ -80,8 +80,36 @@ public class MainApp extends Application {
     public static String userName = "0000";
     public static int deathCount = 0;
     public static String DeviceURL = "devices.php";
+
+    public static String Mon1;
+    public static String Mon2;
+
     public static String IMEI;
-    public static String G102;
+    public static String Mon3;
+
+    public static String getMon1() {
+        return Mon1;
+    }
+
+    public static void setMon1(String mon1) {
+        Mon1 = mon1;
+    }
+
+    public static String getMon2() {
+        return Mon2;
+    }
+
+    public static void setMon2(String mon2) {
+        Mon2 = mon2;
+    }
+
+    public static String getMon3() {
+        return Mon3;
+    }
+
+    public static void setMon3(String mon3) {
+        Mon3 = mon3;
+    }
     public static SharedPreferences sharedPref;
     public static String DIST_ID;
     public static Pair<List<Integer>, List<String>> selectedChildren;

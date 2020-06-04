@@ -2,7 +2,6 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,32 +12,36 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG3Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.utils.DateUtils;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon1;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon2;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon3;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon1;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon2;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon3;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionG3Activity extends AppCompatActivity {
 
     ActivitySectionG3Binding bi;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g3);
-        bi.setCallback(this);
-        setupSkips();
 
-        DateUtils.setPreMonths(new TextView[]{bi.qtxtG0301a, bi.qtxtG0301b, bi.qtxtG0301c});
+    public static void setPreMonths() {
 
-
-        /*List<String> allDates = new ArrayList<>();
+        List<String> allDates = new ArrayList<>();
         SimpleDateFormat sdf = new SimpleDateFormat("MMMM-yyyy");
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.MONTH, -1);
@@ -51,9 +54,18 @@ public class SectionG3Activity extends AppCompatActivity {
 
         Collections.shuffle(allDates);
         for (int i = 1; i <= 3; i++) {
-            Toast.makeText(this, "Random Month: " + allDates.get(i), Toast.LENGTH_SHORT).show();
-        }*/
-
+            switch (i) {
+                case 1:
+                    setMon1(allDates.get(i));
+                    break;
+                case 2:
+                    setMon2(allDates.get(i));
+                    break;
+                case 3:
+                    setMon3(allDates.get(i));
+                    break;
+            }
+        }
     }
 
 
@@ -87,7 +99,6 @@ public class SectionG3Activity extends AppCompatActivity {
         json.put("g0301ca", bi.g0301ca.getText().toString().trim().length() > 0 ? bi.g0301ca.getText().toString() : "-1");
         json.put("g0301cb", bi.g0301cb.getText().toString().trim().length() > 0 ? bi.g0301cb.getText().toString() : "-1");
 
-        //json.put("g0302", "-1");
 
         json.put("g0302a10r", bi.g0302a10r.getText().toString().trim().length() > 0 ? bi.g0302a10r.getText().toString() : "-1");
         json.put("g0302a10i", bi.g0302a10i.getText().toString().trim().length() > 0 ? bi.g0302a10i.getText().toString() : "-1");
@@ -240,6 +251,28 @@ public class SectionG3Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g3);
+        bi.setCallback(this);
+        setPreMonths();
+        setupSkips();
+
+        String[] one = getMon1().split("-");
+        bi.g0301ab.setText(one[0]);
+        bi.g0301aa.setText(one[1]);
+
+        String[] two = getMon2().split("-");
+        bi.g0301bb.setText(two[0]);
+        bi.g0301ba.setText(two[1]);
+
+        String[] three = getMon3().split("-");
+        bi.g0301cb.setText(three[0]);
+        bi.g0301ca.setText(three[1]);
+
     }
 
 }
