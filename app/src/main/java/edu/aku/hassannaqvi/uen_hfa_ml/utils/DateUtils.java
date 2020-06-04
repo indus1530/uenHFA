@@ -1,9 +1,14 @@
 package edu.aku.hassannaqvi.uen_hfa_ml.utils;
 
+import android.widget.TextView;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS;
@@ -35,6 +40,7 @@ public class DateUtils {
         monthsBetween += (end.get(Calendar.YEAR) - start.get(Calendar.YEAR)) * 12;
         return monthsBetween;
     }
+
 
     public static String ageInYears(int day, int month, int year) {
         Calendar dob = Calendar.getInstance();
@@ -204,4 +210,28 @@ public class DateUtils {
         cal.add(Calendar.MONTH, month);
         return new SimpleDateFormat(format).format(cal.getTime()); //"dd-MM-yyyy HH:mm"
     }
+
+
+    public static void setPreMonths(TextView[] tvs) {
+
+        List<String> allDates = new ArrayList<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM-yyyy");
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -1);
+
+        for (int i = 1; i <= 6; i++) {
+            String monthName = sdf.format(cal.getTime());
+            allDates.add(monthName);
+            cal.add(Calendar.MONTH, -1);
+        }
+
+        Collections.shuffle(allDates);
+        for (int i = 1; i <= 3; i++) {
+            for (TextView item : tvs) {
+                item.setText(allDates.get(i));
+            }
+        }
+    }
+
+
 }

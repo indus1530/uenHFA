@@ -91,15 +91,12 @@ public class SectionH6Activity extends AppCompatActivity {
                 : bi.h0601b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0601aa", bi.h0601aaa.isChecked() ? "1"
-                : "-1");
+        json.put("h0601aa", bi.h0601aa.getText().toString().trim().length() > 0 ? bi.h0601aa.getText().toString() : "-1");
 
-        json.put("h0601aaax", bi.h0601aaax.getText().toString());
+
         json.put("h0602", bi.h0602a.isChecked() ? "1"
                 : bi.h0602b.isChecked() ? "2"
                 : "-1");
-
-        json.put("h0603", "-1");
 
         json.put("h0603a", bi.h0603aa.isChecked() ? "1"
                 : bi.h0603ab.isChecked() ? "2"

@@ -1,4 +1,5 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <data>
@@ -119,26 +120,27 @@
 
                     </RelativeLayout>
 
-                    <RadioGroup
-                        android:id="@+id/h0601aa"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <LinearLayout style="@style/hlinearlayout">
 
-                        <RadioButton
-                            android:id="@+id/h0601aaa"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                        <TextView
+                            style="@style/textviewh"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:text="@string/h0601aaa" />
 
-                        <EditText
-                            android:id="@+id/h0601aaax"
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/h0601aa"
                             style="@style/EditTextNum"
-                            android:hint="@string/h0601aaa"
-                            android:tag="h0601aaa"
-                            android:text='@{h0601aaa.checked? h0601aaax.getText().toString() : ""}'
-                            android:visibility='@{h0601aaa.checked? View.VISIBLE : View.GONE}' />
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:hint="##"
+                            android:tag="h0601a"
+                            app:maxValue="31"
+                            app:minValue="1"
+                            app:type="range" />
 
-                    </RadioGroup>
+                    </LinearLayout>
 
                 </LinearLayout>
 
