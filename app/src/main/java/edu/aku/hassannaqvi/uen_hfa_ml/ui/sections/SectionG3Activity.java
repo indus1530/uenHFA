@@ -2,8 +2,12 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.widget.Toast;
 
+import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -31,6 +35,7 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon1;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon2;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon3;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
+import static java.lang.Float.parseFloat;
 
 public class SectionG3Activity extends AppCompatActivity {
 
@@ -44,6 +49,7 @@ public class SectionG3Activity extends AppCompatActivity {
         bi.setCallback(this);
         setPreMonths();
         setupSkips();
+        setupTextWatchers();
 
         String[] one = MainApp.getMon1().split("-");
         bi.g0301aa.setText(one[0]);
@@ -59,6 +65,77 @@ public class SectionG3Activity extends AppCompatActivity {
 
     }
 
+
+    private void setupTextWatchers() {
+        editTextImplementation(bi.g0302a10r, new EditTextPicker[]{bi.g0302a10i, bi.g0302a10d, bi.g0302a10b});
+        editTextImplementation(bi.g0302a20r, new EditTextPicker[]{bi.g0302a20i, bi.g0302a20d, bi.g0302a20b});
+        editTextImplementation(bi.g0302a30r, new EditTextPicker[]{bi.g0302a30i, bi.g0302a30d, bi.g0302a30b});
+        editTextImplementation(bi.g0302a40r, new EditTextPicker[]{bi.g0302a40i, bi.g0302a40d, bi.g0302a40b});
+        editTextImplementation(bi.g0302a50r, new EditTextPicker[]{bi.g0302a50i, bi.g0302a50d, bi.g0302a50b});
+        editTextImplementation(bi.g0302a60r, new EditTextPicker[]{bi.g0302a60i, bi.g0302a60d, bi.g0302a60b});
+        editTextImplementation(bi.g0302a70r, new EditTextPicker[]{bi.g0302a70i, bi.g0302a70d, bi.g0302a70b});
+        editTextImplementation(bi.g0302b10r, new EditTextPicker[]{bi.g0302b10i, bi.g0302b10d, bi.g0302b10b});
+        editTextImplementation(bi.g0302b20r, new EditTextPicker[]{bi.g0302b20i, bi.g0302b20d, bi.g0302b20b});
+        editTextImplementation(bi.g0302b30r, new EditTextPicker[]{bi.g0302b30i, bi.g0302b30d, bi.g0302b30b});
+        editTextImplementation(bi.g0302b40r, new EditTextPicker[]{bi.g0302b40i, bi.g0302b40d, bi.g0302b40b});
+        editTextImplementation(bi.g0302b50r, new EditTextPicker[]{bi.g0302b50i, bi.g0302b50d, bi.g0302b50b});
+        editTextImplementation(bi.g0302b60r, new EditTextPicker[]{bi.g0302b60i, bi.g0302b60d, bi.g0302b60b});
+        editTextImplementation(bi.g0302b70r, new EditTextPicker[]{bi.g0302b70i, bi.g0302b70d, bi.g0302b70b});
+        editTextImplementation(bi.g0302c10r, new EditTextPicker[]{bi.g0302c10i, bi.g0302c10d, bi.g0302c10b});
+        editTextImplementation(bi.g0302c20r, new EditTextPicker[]{bi.g0302c20i, bi.g0302c20d, bi.g0302c20b});
+        editTextImplementation(bi.g0302c30r, new EditTextPicker[]{bi.g0302c30i, bi.g0302c30d, bi.g0302c30b});
+        editTextImplementation(bi.g0302c40r, new EditTextPicker[]{bi.g0302c40i, bi.g0302c40d, bi.g0302c40b});
+        editTextImplementation(bi.g0302c50r, new EditTextPicker[]{bi.g0302c50i, bi.g0302c50d, bi.g0302c50b});
+        editTextImplementation(bi.g0302c60r, new EditTextPicker[]{bi.g0302c60i, bi.g0302c60d, bi.g0302c60b});
+        editTextImplementation(bi.g0302c70r, new EditTextPicker[]{bi.g0302c70i, bi.g0302c70d, bi.g0302c70b});
+    }
+
+
+    public void editTextImplementation(EditTextPicker edit01, EditTextPicker[] editTextsArray) {
+
+        edit01.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (TextUtils.isEmpty(edit01.getText()))
+                    return;
+                for (EditTextPicker item : editTextsArray) {
+                    item.setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()));
+                }
+            }
+        });
+
+
+        editTextsArray[1].addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (TextUtils.isEmpty(editTextsArray[0].getText()) || TextUtils.isEmpty(editTextsArray[1].getText()))
+                    return;
+                editTextsArray[2].setText("");
+                editTextsArray[2].setEnabled(false);
+                editTextsArray[2].setText(String.valueOf(parseFloat(editTextsArray[0].getText().toString().trim()) - parseFloat(editTextsArray[1].getText().toString().trim())));
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+    }
 
 
     public static void setPreMonths() {
