@@ -4,15 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
-import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -39,11 +37,11 @@ public class SectionC2Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        bi.c03.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.c03.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.c03b.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVc0401);
             }
-        }));
+        }));*/
 
     }
 
@@ -64,31 +62,30 @@ public class SectionC2Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("c02a", bi.c02a.getText().toString());
+        json.put("c021a", bi.c021a.getText().toString().trim().length() > 0 ? bi.c021a.getText().toString() : "-1");
 
-        json.put("c02b", bi.c02ba.isChecked() ? "1"
-                : bi.c02bb.isChecked() ? "2"
+        json.put("c021b", bi.c021ba.isChecked() ? "1"
+                : bi.c021bb.isChecked() ? "2"
+                : bi.c021bc.isChecked() ? "3"
+                : bi.c021bd.isChecked() ? "4"
+                : bi.c021be.isChecked() ? "5"
+                : bi.c021bf.isChecked() ? "6"
                 : "-1");
+        json.put("c021bfx", bi.c021bfx.getText().toString().trim().length() > 0 ? bi.c021bfx.getText().toString() : "-1");
 
-        json.put("c02ca", bi.c02ca.getText().toString());
+        json.put("c021c", bi.c021c.getText().toString().trim().length() > 0 ? bi.c021c.getText().toString() : "-1");
 
-        json.put("c02cb", bi.c02cb.getText().toString());
-
-        json.put("c03", bi.c03a.isChecked() ? "1"
-                : bi.c03b.isChecked() ? "2"
+        json.put("c021d", bi.c021da.isChecked() ? "1"
+                : bi.c021db.isChecked() ? "2"
+                : bi.c021dc.isChecked() ? "3"
+                : bi.c021dd.isChecked() ? "4"
+                : bi.c021de.isChecked() ? "5"
+                : bi.c021df.isChecked() ? "6"
+                : bi.c021dg.isChecked() ? "6"
                 : "-1");
+        json.put("c021dgx", bi.c021dgx.getText().toString().trim().length() > 0 ? bi.c021dgx.getText().toString() : "-1");
 
-        json.put("c04", bi.c04.getText().toString());
-
-        json.put("c04a", bi.c04a.getText().toString());
-
-        json.put("c04b", bi.c04ba.isChecked() ? "1"
-                : bi.c04bb.isChecked() ? "2"
-                : "-1");
-
-        json.put("c04ca", bi.c04ca.getText().toString());
-
-        json.put("c04cb", bi.c04cb.getText().toString());
+        json.put("c021e", bi.c021e.getText().toString().trim().length() > 0 ? bi.c021e.getText().toString() : "-1");
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsC()), json);
