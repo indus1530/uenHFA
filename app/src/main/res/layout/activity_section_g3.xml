@@ -3,9 +3,7 @@
 
 
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionG3Activity" />
@@ -32,22 +30,6 @@
                     <TextView
                         style="@style/textView3Head"
                         android:text="@string/g03" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- g0301  SUB TextView   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVg0301"
-                style="@style/cardView">
-
-                <LinearLayout style="@style/vlinearlayout">
-
-                    <TextView
-                        style="@style/sub"
-                        android:text="@string/g0301" />
 
                 </LinearLayout>
 
@@ -102,144 +84,6 @@
                             android:text="@string/g0301ab" />
 
                     </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- g0301b  EditText   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVg0301b"
-                style="@style/cardView">
-
-                <LinearLayout style="@style/vlinearlayout">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom">
-
-                        <TextView
-                            android:id="@+id/qtxt_g0301b"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/q_g0301b"
-                            android:text="@string/g0301b" />
-
-                        <TextView
-                            android:id="@+id/q_g0301b"
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/qtxt_g0301b"
-                            android:layout_alignBottom="@id/qtxt_g0301b"
-                            android:text="@string/Q_g0301b" />
-
-                    </RelativeLayout>
-
-                    <LinearLayout style="@style/hlinearlayout">
-
-                        <TextView
-                            android:id="@+id/g0301ba"
-                            style="@style/textviewh"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text="@string/g0301ba" />
-
-                        <TextView
-                            android:id="@+id/g0301bb"
-                            style="@style/textviewh"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text="@string/g0301bb" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- g0301c  EditText   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVg0301c"
-                style="@style/cardView">
-
-                <LinearLayout style="@style/vlinearlayout">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom">
-
-                        <TextView
-                            android:id="@+id/qtxt_g0301c"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/q_g0301c"
-                            android:text="@string/g0301c" />
-
-                        <TextView
-                            android:id="@+id/q_g0301c"
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/qtxt_g0301c"
-                            android:layout_alignBottom="@id/qtxt_g0301c"
-                            android:text="@string/Q_g0301c" />
-
-                    </RelativeLayout>
-
-                    <LinearLayout style="@style/hlinearlayout">
-
-                        <TextView
-                            android:id="@+id/g0301ca"
-                            style="@style/textviewh"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text="@string/g0301ca" />
-
-                        <TextView
-                            android:id="@+id/g0301cb"
-                            style="@style/textviewh"
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text="@string/g0301cb" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- g0302  SUB TextView   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVg0302"
-                style="@style/cardView">
-
-                <LinearLayout style="@style/vlinearlayout">
-
-                    <TextView
-                        style="@style/sub"
-                        android:text="@string/g0302" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- g0302a  SUB TextView   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVg0302a"
-                style="@style/cardView">
-
-                <LinearLayout style="@style/vlinearlayout">
-
-                    <TextView
-                        style="@style/sub"
-                        android:text="@string/g0302a" />
 
                 </LinearLayout>
 
@@ -1163,16 +1007,53 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0302b  SUB TextView   -->
+            <!-- g0301b  EditText   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVg0302b"
+                android:id="@+id/fldGrpCVg0301b"
                 style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
-                    <TextView
-                        style="@style/sub"
-                        android:text="@string/g0302b" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_g0301b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_g0301b"
+                            android:text="@string/g0301b" />
+
+                        <TextView
+                            android:id="@+id/q_g0301b"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_g0301b"
+                            android:layout_alignBottom="@id/qtxt_g0301b"
+                            android:text="@string/Q_g0301b" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout style="@style/hlinearlayout">
+
+                        <TextView
+                            android:id="@+id/g0301ba"
+                            style="@style/textviewh"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/g0301ba" />
+
+                        <TextView
+                            android:id="@+id/g0301bb"
+                            style="@style/textviewh"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/g0301bb" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -2096,16 +1977,53 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0302c  SUB TextView   -->
+            <!-- g0301c  EditText   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVg0302c"
+                android:id="@+id/fldGrpCVg0301c"
                 style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
-                    <TextView
-                        style="@style/sub"
-                        android:text="@string/g0302c" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_g0301c"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_g0301c"
+                            android:text="@string/g0301c" />
+
+                        <TextView
+                            android:id="@+id/q_g0301c"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_g0301c"
+                            android:layout_alignBottom="@id/qtxt_g0301c"
+                            android:text="@string/Q_g0301c" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout style="@style/hlinearlayout">
+
+                        <TextView
+                            android:id="@+id/g0301ca"
+                            style="@style/textviewh"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/g0301ca" />
+
+                        <TextView
+                            android:id="@+id/g0301cb"
+                            style="@style/textviewh"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/g0301cb" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
