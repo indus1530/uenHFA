@@ -46,16 +46,16 @@ public class SectionG3Activity extends AppCompatActivity {
         setupSkips();
 
         String[] one = MainApp.getMon1().split("-");
-        bi.g0301ab.setText(one[0]);
-        bi.g0301aa.setText(one[1]);
+        bi.g0301aa.setText(one[0]);
+        bi.g0301ab.setText(one[1]);
 
         String[] two = getMon2().split("-");
-        bi.g0301bb.setText(two[0]);
-        bi.g0301ba.setText(two[1]);
+        bi.g0301ba.setText(two[0]);
+        bi.g0301bb.setText(two[1]);
 
         String[] three = getMon3().split("-");
-        bi.g0301cb.setText(three[0]);
-        bi.g0301ca.setText(three[1]);
+        bi.g0301ca.setText(three[0]);
+        bi.g0301cb.setText(three[1]);
 
     }
 
