@@ -101,15 +101,34 @@ public class SectionG3Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
                 if (TextUtils.isEmpty(edit01.getText()))
                     return;
                 for (EditTextPicker item : editTextsArray) {
                     item.setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()));
                 }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
+        editTextsArray[0].addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (TextUtils.isEmpty(editTextsArray[0].getText()))
+                    return;
+                editTextsArray[1].setMaxvalue(Integer.parseInt(editTextsArray[0].getText().toString().trim()));
+                editTextsArray[2].setMaxvalue(Integer.parseInt(editTextsArray[0].getText().toString().trim()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
             }
         });
 
