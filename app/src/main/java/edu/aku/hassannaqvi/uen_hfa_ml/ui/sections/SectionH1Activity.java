@@ -1,11 +1,8 @@
 package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.validatorcrawler.aliazaz.Validator;
@@ -13,10 +10,6 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +19,10 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH1Binding;
+
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon1;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon2;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon3;
 
 
 public class SectionH1Activity extends AppCompatActivity {
@@ -37,13 +34,32 @@ public class SectionH1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h1);
         bi.setCallback(this);
-        setupSpinner(this);
+        //setupSpinner(this);
         setupSkips();
+
+
+        if (!MainApp.fc.getsG().isEmpty()) {
+            bi.h0101a.setText(getMon1());
+            bi.h0101b.setText(getMon2());
+            bi.h0101c.setText(getMon3());
+
+            String[] one = getMon1().split("-");
+            bi.h0101aa.setText(one[0]);
+            bi.h0101ab.setText(one[1]);
+
+            String[] two = getMon2().split("-");
+            bi.h0101ba.setText(two[0]);
+            bi.h0101bb.setText(two[1]);
+
+            String[] three = getMon3().split("-");
+            bi.h0101ca.setText(three[0]);
+            bi.h0101cb.setText(three[1]);
+        }
 
     }
 
 
-    private void setupSpinner(final Context context) {
+    /*private void setupSpinner(final Context context) {
 
         bi.h0101b.setEnabled(false);
         bi.h0101c.setEnabled(false);
@@ -84,7 +100,7 @@ public class SectionH1Activity extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
 
     private void setupSkips() {
@@ -134,11 +150,11 @@ public class SectionH1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h0101a", bi.h0101a.getSelectedItem().toString());
+        json.put("h0101a", bi.h0101a.getText().toString());
 
-        json.put("h0101b", bi.h0101b.getSelectedItem().toString());
+        json.put("h0101b", bi.h0101b.getText().toString());
 
-        json.put("h0101c", bi.h0101c.getSelectedItem().toString());
+        json.put("h0101c", bi.h0101c.getText().toString());
 
         //json.put("h0101", bi.h0101.getText().toString());
 

@@ -1,5 +1,4 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <data>
@@ -70,32 +69,26 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
-                        <Spinner
+                        <TextView
                             android:id="@+id/h0101a"
-                            style="@style/spinner"
+                            style="@style/textviewh"
                             android:layout_width="0dp"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:text="@string/h0101a" />
 
-                        <Spinner
+                        <TextView
                             android:id="@+id/h0101b"
-                            style="@style/spinner"
+                            style="@style/textviewh"
                             android:layout_width="0dp"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:text="@string/h0101b" />
 
-                        <Spinner
+                        <TextView
                             android:id="@+id/h0101c"
-                            style="@style/spinner"
+                            style="@style/textviewh"
                             android:layout_width="0dp"
-                            android:layout_weight="1" />
-
-                        <!--<com.edittextpicker.aliazaz.EditTextPicker
-                            android:id="@+id/h0101"
-                            style="@style/EditTextNum"
-                            android:hint="@string/num"
-                            android:maxLength="3"
-                            app:maxValue="100"
-                            app:minValue="0"
-                            app:type="range" />-->
+                            android:layout_weight="1"
+                            android:text="@string/h0101c" />
 
                     </LinearLayout>
 
@@ -145,15 +138,11 @@
                                 style="@style/textviewh"
                                 android:text="@string/h0101aa" />
 
-                            <com.edittextpicker.aliazaz.EditTextPicker
+                            <EditText
                                 android:id="@+id/h0101aa"
-                                style="@style/EditTextNum"
+                                style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:hint="##"
-                                android:maxLength="2"
-                                app:maxValue="30"
-                                app:minValue="1"
-                                app:type="range" />
+                                android:hint="@string/month" />
 
                         </LinearLayout>
 
@@ -166,15 +155,11 @@
                                 style="@style/textviewh"
                                 android:text="@string/h0101ab" />
 
-                            <com.edittextpicker.aliazaz.EditTextPicker
+                            <EditText
                                 android:id="@+id/h0101ab"
-                                style="@style/EditTextNum"
+                                style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:hint="##"
-                                android:maxLength="2"
-                                app:maxValue="99"
-                                app:minValue="0"
-                                app:type="range" />
+                                android:hint="@string/year" />
 
                         </LinearLayout>
 
@@ -226,15 +211,11 @@
                                 style="@style/textviewh"
                                 android:text="@string/h0101ba" />
 
-                            <com.edittextpicker.aliazaz.EditTextPicker
+                            <EditText
                                 android:id="@+id/h0101ba"
-                                style="@style/EditTextNum"
+                                style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:hint="##"
-                                android:maxLength="2"
-                                app:maxValue="30"
-                                app:minValue="1"
-                                app:type="range" />
+                                android:hint="@string/month" />
 
                         </LinearLayout>
 
@@ -247,15 +228,11 @@
                                 style="@style/textviewh"
                                 android:text="@string/h0101bb" />
 
-                            <com.edittextpicker.aliazaz.EditTextPicker
+                            <EditText
                                 android:id="@+id/h0101bb"
-                                style="@style/EditTextNum"
+                                style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:hint="##"
-                                android:maxLength="2"
-                                app:maxValue="99"
-                                app:minValue="0"
-                                app:type="range" />
+                                android:hint="@string/year" />
 
                         </LinearLayout>
 
@@ -307,15 +284,11 @@
                                 style="@style/textviewh"
                                 android:text="@string/h0101ca" />
 
-                            <com.edittextpicker.aliazaz.EditTextPicker
+                            <EditText
                                 android:id="@+id/h0101ca"
-                                style="@style/EditTextNum"
+                                style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:hint="##"
-                                android:maxLength="2"
-                                app:maxValue="30"
-                                app:minValue="1"
-                                app:type="range" />
+                                android:hint="@string/month" />
 
                         </LinearLayout>
 
@@ -330,13 +303,9 @@
 
                             <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/h0101cb"
-                                style="@style/EditTextNum"
+                                style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:hint="##"
-                                android:maxLength="2"
-                                app:maxValue="99"
-                                app:minValue="0"
-                                app:type="range" />
+                                android:hint="@string/year" />
 
                         </LinearLayout>
 

@@ -7,7 +7,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionMainBinding;
@@ -32,32 +31,50 @@ public class SectionMainActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_main);
         bi.setCallback(this);
 
-        if (!fc.getsB().equals(""))
+        if (!fc.getsB().isEmpty()) {
             bi.form01.setEnabled(false);
+            bi.form01.setBackgroundResource(R.color.dullWhite);
+        }
 
-        if (!fc.getsC().equals(""))
+        if (!fc.getsC().equals("")) {
             bi.form02.setEnabled(false);
+            bi.form02.setBackgroundResource(R.color.dullWhite);
+        }
 
-        if (!fc.getsD().equals(""))
+        if (!fc.getsD().equals("")) {
             bi.form03.setEnabled(false);
+            bi.form03.setBackgroundResource(R.color.dullWhite);
+        }
 
-        if (!fc.getsE().equals(""))
+        if (!fc.getsE().equals("")) {
             bi.form04.setEnabled(false);
+            bi.form04.setBackgroundResource(R.color.dullWhite);
+        }
 
-        if (!fc.getsF().equals(""))
+        if (!fc.getsF().equals("")) {
             bi.form05.setEnabled(false);
+            bi.form05.setBackgroundResource(R.color.dullWhite);
+        }
 
-        if (!fc.getsG().equals(""))
+        if (!fc.getsG().equals("")) {
             bi.form06.setEnabled(false);
+            bi.form06.setBackgroundResource(R.color.dullWhite);
+        }
 
-        if (!fc.getsH().equals(""))
-            bi.form07.setEnabled(false);
+        if (!fc.getsH().equals("")) {
+            bi.form071.setEnabled(false);
+            bi.form071.setBackgroundResource(R.color.dullWhite);
+        }
 
-        if (!fc.getsI().equals(""))
+        if (!fc.getsI().equals("")) {
             bi.form08.setEnabled(false);
+            bi.form08.setBackgroundResource(R.color.dullWhite);
+        }
 
-        if (!fc.getsJ().equals(""))
+        if (!fc.getsJ().equals("")) {
             bi.form09.setEnabled(false);
+            bi.form09.setBackgroundResource(R.color.dullWhite);
+        }
 
     }
 
@@ -75,7 +92,7 @@ public class SectionMainActivity extends AppCompatActivity {
                 && !bi.form04.isEnabled()
                 && !bi.form05.isEnabled()
                 && !bi.form06.isEnabled()
-                && !bi.form07.isEnabled()
+                && !bi.form071.isEnabled()
                 && !bi.form08.isEnabled()
                 && !bi.form09.isEnabled()) {
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
@@ -124,7 +141,7 @@ public class SectionMainActivity extends AppCompatActivity {
                 case R.id.form06:
                     oF = new Intent(SectionMainActivity.this, SectionG1Activity.class);
                     break;
-                case R.id.form07:
+                case R.id.form071:
                     oF = new Intent(SectionMainActivity.this, SectionH1Activity.class);
                     break;
                 case R.id.form08:
@@ -143,7 +160,7 @@ public class SectionMainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(this, "You can't go back", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
     }
 
 }

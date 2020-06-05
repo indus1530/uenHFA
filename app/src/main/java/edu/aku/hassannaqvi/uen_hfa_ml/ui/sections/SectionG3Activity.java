@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -18,6 +15,8 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -26,7 +25,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG3Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon1;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon2;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon3;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon1;
@@ -37,6 +35,30 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 public class SectionG3Activity extends AppCompatActivity {
 
     ActivitySectionG3Binding bi;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g3);
+        bi.setCallback(this);
+        setPreMonths();
+        setupSkips();
+
+        String[] one = MainApp.getMon1().split("-");
+        bi.g0301ab.setText(one[0]);
+        bi.g0301aa.setText(one[1]);
+
+        String[] two = getMon2().split("-");
+        bi.g0301bb.setText(two[0]);
+        bi.g0301ba.setText(two[1]);
+
+        String[] three = getMon3().split("-");
+        bi.g0301cb.setText(three[0]);
+        bi.g0301ca.setText(three[1]);
+
+    }
+
 
 
     public static void setPreMonths() {
@@ -251,28 +273,6 @@ public class SectionG3Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g3);
-        bi.setCallback(this);
-        setPreMonths();
-        setupSkips();
-
-        String[] one = getMon1().split("-");
-        bi.g0301ab.setText(one[0]);
-        bi.g0301aa.setText(one[1]);
-
-        String[] two = getMon2().split("-");
-        bi.g0301bb.setText(two[0]);
-        bi.g0301ba.setText(two[1]);
-
-        String[] three = getMon3().split("-");
-        bi.g0301cb.setText(three[0]);
-        bi.g0301ca.setText(three[1]);
-
     }
 
 }
