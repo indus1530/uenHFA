@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.support.design.widget.FloatingActionButton
+            android:id="@+id/btnClearView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="4dp"
+            android:src="@drawable/ic_clear_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.support.v7.widget.CardView
+            android:id="@+id/pofpa15cv"
+            style="@style/cardView"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:padding="5dp"
+            app:cardElevation="2sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layoutDirection="rtl"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtpofpa15"
+                    style="@style/textviewh"
+                    android:text="@string/c021a"
+                    android:textAlignment="center"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/llpofpa151a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/c021a" />
+
+
+                    <EditText
+                        android:id="@+id/pofpa151a"
+                        style="@style/textInput"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/c021a" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llpofpa151c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/c021b" />
+
+
+                    <EditText
+                        android:id="@+id/pofpa151c"
+                        style="@style/EditTextAlpha"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/c021b" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llpofpa151b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/c021c" />
+
+                    <com.edittextpicker.aliazaz.EditTextPicker
+                        android:id="@+id/pofpa151b"
+                        style="@style/EditTextNum"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/c021c"
+                        app:mask="#"
+                        app:maxValue="4"
+                        app:minValue="1"
+                        app:type="range" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llpofpa151d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        style="@style/textviewh"
+                        android:text="@string/days" />
+
+                    <RadioGroup
+                        android:id="@+id/pofpa151d"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/pofpa151da"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="@string/month" />
+
+                        <RadioButton
+                            android:id="@+id/pofpa151db"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="@string/days" />
+
+                        <RadioButton
+                            android:id="@+id/pofpa151dc"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="1dp"
+                            android:layout_weight="1"
+                            android:text="@string/year" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <CheckBox
+                    android:id="@+id/pofpa152"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:tag="-1"
+                    android:text="@string/c021d" />
+
+                <CheckBox
+                    android:id="@+id/pofpa1597"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:tag="-1"
+                    android:text="@string/c021e" />
+
+            </LinearLayout>
+
+        </androidx.support.v7.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

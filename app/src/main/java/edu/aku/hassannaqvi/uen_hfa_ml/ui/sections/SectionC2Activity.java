@@ -2,15 +2,19 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
+import java.util.List;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -25,6 +29,7 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 public class SectionC2Activity extends AppCompatActivity {
 
     ActivitySectionC2Binding bi;
+    List<View> pofpa15List;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +48,41 @@ public class SectionC2Activity extends AppCompatActivity {
             }
         }));*/
 
+        /*bi.pofpa15Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (pofpa15List.size() == 4) {
+                    Toast.makeText(SectionC2Activity.this, "Can't add more than 5 medicine", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                addViewInPof15();
+
+            }
+        });*/
+
     }
+
+
+
+
+    /*private void addViewInPof15() {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View rowView = inflater.inflate(R.layout.c200, null);
+        bi.pofpa15Items.addView(rowView);
+        pofpa15List.add(rowView);
+
+        C200Binding c200Binding = DataBindingUtil.bind(rowView);
+        c200Binding.btnClearView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bi.pofpa15Items.removeView(rowView);
+                pofpa15List.remove(rowView);
+            }
+        });
+
+    }*/
 
 
     private boolean UpdateDB() {
