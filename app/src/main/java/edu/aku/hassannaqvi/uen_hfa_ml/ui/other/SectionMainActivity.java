@@ -96,6 +96,7 @@ public class SectionMainActivity extends AppCompatActivity {
                 && !bi.form07.isEnabled()
                 && !bi.form08.isEnabled()
                 && !bi.form09.isEnabled()) {
+            finish();
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
             //MainApp.endActivity(this, SectionBActivity.class);
         } else {
@@ -114,6 +115,7 @@ public class SectionMainActivity extends AppCompatActivity {
                 || bi.form07.isEnabled()
                 || bi.form08.isEnabled()
                 || bi.form09.isEnabled()) {
+            finish();
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
             //MainApp.endActivity(this, EndingActivity.class).putExtra("complete", false);
         } else {
