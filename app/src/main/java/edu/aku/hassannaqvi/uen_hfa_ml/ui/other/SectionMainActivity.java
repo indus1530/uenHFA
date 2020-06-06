@@ -110,7 +110,10 @@ public class SectionMainActivity extends AppCompatActivity {
                 || bi.form03.isEnabled()
                 || bi.form04.isEnabled()
                 || bi.form05.isEnabled()
-                || bi.form06.isEnabled()) {
+                || bi.form06.isEnabled()
+                || bi.form07.isEnabled()
+                || bi.form08.isEnabled()
+                || bi.form09.isEnabled()) {
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
             //MainApp.endActivity(this, EndingActivity.class).putExtra("complete", false);
         } else {
