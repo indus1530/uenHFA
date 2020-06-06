@@ -7,6 +7,9 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -19,8 +22,6 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -49,7 +50,7 @@ public class SectionG3Activity extends AppCompatActivity {
         bi.setCallback(this);
         setPreMonths();
         setupSkips();
-        setupTextWatchers();
+        //setupTextWatchers();
 
         String[] one = MainApp.getMon1().split("-");
         bi.g0301aa.setText(one[0]);
@@ -121,10 +122,10 @@ public class SectionG3Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (TextUtils.isEmpty(editTextsArray[0].getText()))
+                if (TextUtils.isEmpty(edit01.getText()) || TextUtils.isEmpty(editTextsArray[0].getText()) || TextUtils.isEmpty(editTextsArray[1].getText()))
                     return;
-                editTextsArray[1].setMaxvalue(Integer.parseInt(editTextsArray[0].getText().toString().trim()));
-                editTextsArray[2].setMaxvalue(Integer.parseInt(editTextsArray[0].getText().toString().trim()));
+                editTextsArray[1].setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()) - Integer.parseInt(editTextsArray[0].getText().toString().trim()));
+                editTextsArray[2].setText(String.valueOf(parseFloat(edit01.getText().toString().trim()) - (parseFloat(editTextsArray[0].getText().toString().trim()) + parseFloat(editTextsArray[1].getText().toString().trim()))));
             }
 
             @Override
@@ -141,12 +142,11 @@ public class SectionG3Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (TextUtils.isEmpty(editTextsArray[0].getText()) || TextUtils.isEmpty(editTextsArray[1].getText()))
+                if (TextUtils.isEmpty(edit01.getText()) || TextUtils.isEmpty(editTextsArray[0].getText()) || TextUtils.isEmpty(editTextsArray[1].getText()))
                     return;
                 editTextsArray[2].setText("");
                 editTextsArray[2].setEnabled(false);
-                editTextsArray[2].setText(String.valueOf(parseFloat(editTextsArray[0].getText().toString().trim()) - parseFloat(editTextsArray[1].getText().toString().trim())));
-
+                editTextsArray[2].setText(String.valueOf(parseFloat(edit01.getText().toString().trim()) - (parseFloat(editTextsArray[0].getText().toString().trim()) + parseFloat(editTextsArray[1].getText().toString().trim()))));
             }
 
             @Override
