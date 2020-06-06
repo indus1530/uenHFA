@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionMainBinding;
@@ -62,8 +63,8 @@ public class SectionMainActivity extends AppCompatActivity {
         }
 
         if (!fc.getsH().equals("")) {
-            bi.form071.setEnabled(false);
-            bi.form071.setBackgroundResource(R.color.dullWhite);
+            bi.form07.setEnabled(false);
+            bi.form07.setBackgroundResource(R.color.dullWhite);
         }
 
         if (!fc.getsI().equals("")) {
@@ -92,7 +93,7 @@ public class SectionMainActivity extends AppCompatActivity {
                 && !bi.form04.isEnabled()
                 && !bi.form05.isEnabled()
                 && !bi.form06.isEnabled()
-                && !bi.form071.isEnabled()
+                && !bi.form07.isEnabled()
                 && !bi.form08.isEnabled()
                 && !bi.form09.isEnabled()) {
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
@@ -141,7 +142,7 @@ public class SectionMainActivity extends AppCompatActivity {
                 case R.id.form06:
                     oF = new Intent(SectionMainActivity.this, SectionG1Activity.class);
                     break;
-                case R.id.form071:
+                case R.id.form07:
                     oF = new Intent(SectionMainActivity.this, SectionH1Activity.class);
                     break;
                 case R.id.form08:
