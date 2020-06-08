@@ -16,6 +16,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionD1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionE1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionF1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionG1Activity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH16Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ1Activity;
@@ -31,10 +32,6 @@ public class SectionMainActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_main);
         bi.setCallback(this);
 
-
-        if (fc.getA10().equals("2")) {
-            bi.form07.setVisibility(View.GONE);
-        }
 
 
         if (!fc.getsB().isEmpty()) {
@@ -153,7 +150,7 @@ public class SectionMainActivity extends AppCompatActivity {
                     oF = new Intent(SectionMainActivity.this, SectionG1Activity.class);
                     break;
                 case R.id.form07:
-                    oF = new Intent(SectionMainActivity.this, SectionH1Activity.class);
+                    oF = new Intent(SectionMainActivity.this, fc.getA10().equals("2") ? SectionH16Activity.class : SectionH1Activity.class);
                     break;
                 case R.id.form08:
                     oF = new Intent(SectionMainActivity.this, SectionI1Activity.class);
