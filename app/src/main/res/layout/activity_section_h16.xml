@@ -95,7 +95,7 @@
             <LinearLayout
                 android:id="@+id/fldGrpSech1601"
                 style="@style/vlinearlayout"
-                android:visibility='@{h1601b.checked? View.GONE : View.VISIBLE}'>
+                android:visibility='@{h1601a.checked? View.VISIBLE : View.GONE}'>
 
 
                 <!-- h1602  Radio   -->
@@ -304,7 +304,8 @@
             <!-- h1605  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1605"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility='@{h1601b.checked? View.VISIBLE : View.GONE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 

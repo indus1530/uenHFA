@@ -21,7 +21,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH16Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
-import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 public class SectionH16Activity extends AppCompatActivity {
 
@@ -39,8 +38,9 @@ public class SectionH16Activity extends AppCompatActivity {
     private void setupSkips() {
 
         bi.h1601.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.h1601b.getId()) {
+            if (i == bi.h1601a.getId() || i == bi.h1601b.getId()) {
                 Clear.clearAllFields(bi.fldGrpSech1601);
+                Clear.clearAllFields(bi.fldGrpCVh1605);
             }
         }));
 
@@ -113,14 +113,7 @@ public class SectionH16Activity extends AppCompatActivity {
 
         json.put("h1605xx", bi.h1605xx.getText().toString());
 
-        try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsH()), json);
-
-            MainApp.fc.setsH(String.valueOf(json_merge));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        MainApp.fc.setsH(String.valueOf(json));
 
     }
 
