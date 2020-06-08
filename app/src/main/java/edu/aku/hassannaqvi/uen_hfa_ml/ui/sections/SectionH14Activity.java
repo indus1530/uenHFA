@@ -2,19 +2,22 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
+import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -33,62 +36,39 @@ public class SectionH14Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h14);
         bi.setCallback(this);
-        setupSkips();
+        setupTextWatchers();
 
     }
 
-    private void setupSkips() {
 
-        /*bi.ss04.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss04b.getId()) {
-                Clear.clearAllFields(bi.ss05cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss05cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss07h.getId() || i == bi.ss07i.getId()) {
-                Clear.clearAllFields(bi.ss08cv, false);
-                Clear.clearAllFields(bi.ss09cv, false);
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss08cv, true);
-                Clear.clearAllFields(bi.ss09cv, true);
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-            }
-        }));*/
+    private void setupTextWatchers() {
+        editTextImplementation(bi.h1401aa, bi.h1401ab);
+        editTextImplementation(bi.h1401ba, bi.h1401bb);
+        editTextImplementation(bi.h1401ca, bi.h1401cb);
+        editTextImplementation(bi.h1401da, bi.h1401db);
+        editTextImplementation(bi.h1401ea, bi.h1401eb);
+    }
 
 
-        /*bi.ss09.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss09b.getId()) {
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
+    public void editTextImplementation(EditTextPicker edit01, EditTextPicker edit02) {
 
-            } else {
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
+        edit01.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             }
-        }));*/
 
-
-        /*bi.ss11.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss11b.getId()) {
-                Clear.clearAllFields(bi.ss12cv, false);
-                Clear.clearAllFields(bi.ss13cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss12cv, true);
-                Clear.clearAllFields(bi.ss13cv, true);
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
-        }));*/
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (TextUtils.isEmpty(edit01.getText()))
+                    return;
+                edit02.setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()));
+            }
+        });
 
     }
 
@@ -127,27 +107,20 @@ public class SectionH14Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h1401", bi.h1401.getText().toString());
+        json.put("h1401aa", bi.h1401aa.getText().toString().trim().length() > 0 ? bi.h1401aa.getText().toString() : "-1");
+        json.put("h1401ab", bi.h1401ab.getText().toString().trim().length() > 0 ? bi.h1401ab.getText().toString() : "-1");
 
-        json.put("h1401aa", bi.h1401aa.getText().toString());
+        json.put("h1401ba", bi.h1401ba.getText().toString().trim().length() > 0 ? bi.h1401ba.getText().toString() : "-1");
+        json.put("h1401bb", bi.h1401bb.getText().toString().trim().length() > 0 ? bi.h1401bb.getText().toString() : "-1");
 
-        json.put("h1401ab", bi.h1401ab.getText().toString());
+        json.put("h1401ca", bi.h1401ca.getText().toString().trim().length() > 0 ? bi.h1401ca.getText().toString() : "-1");
+        json.put("h1401cb", bi.h1401cb.getText().toString().trim().length() > 0 ? bi.h1401cb.getText().toString() : "-1");
 
-        json.put("h1401ba", bi.h1401ba.getText().toString());
+        json.put("h1401da", bi.h1401da.getText().toString().trim().length() > 0 ? bi.h1401da.getText().toString() : "-1");
+        json.put("h1401db", bi.h1401db.getText().toString().trim().length() > 0 ? bi.h1401db.getText().toString() : "-1");
 
-        json.put("h1401bb", bi.h1401bb.getText().toString());
-
-        json.put("h1401ca", bi.h1401ca.getText().toString());
-
-        json.put("h1401cb", bi.h1401cb.getText().toString());
-
-        json.put("h1401da", bi.h1401da.getText().toString());
-
-        json.put("h1401db", bi.h1401db.getText().toString());
-
-        json.put("h1401ea", bi.h1401ea.getText().toString());
-
-        json.put("h1401eb", bi.h1401eb.getText().toString());
+        json.put("h1401ea", bi.h1401ea.getText().toString().trim().length() > 0 ? bi.h1401ea.getText().toString() : "-1");
+        json.put("h1401eb", bi.h1401eb.getText().toString().trim().length() > 0 ? bi.h1401eb.getText().toString() : "-1");
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsH()), json);
