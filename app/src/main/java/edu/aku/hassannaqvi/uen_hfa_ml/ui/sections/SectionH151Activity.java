@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -18,21 +19,21 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH15Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH151Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
-public class SectionH15Activity extends AppCompatActivity {
+public class SectionH151Activity extends AppCompatActivity {
 
-    ActivitySectionH15Binding bi;
+    ActivitySectionH151Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h15);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h151);
         bi.setCallback(this);
         setupSkips();
 
@@ -40,56 +41,29 @@ public class SectionH15Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        /*bi.ss04.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss04b.getId()) {
-                Clear.clearAllFields(bi.ss05cv, false);
+        bi.h1501a0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501a0ay.getId()) {
+                bi.fldGrpCVh1501a0b.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501a0c.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501a0d.setVisibility(View.VISIBLE);
             } else {
-                Clear.clearAllFields(bi.ss05cv, true);
+                Clear.clearAllFields(bi.fldGrpCVh1501a0b);
+                Clear.clearAllFields(bi.fldGrpCVh1501a0c);
+                Clear.clearAllFields(bi.fldGrpCVh1501a0d);
+                bi.fldGrpCVh1501a0b.setVisibility(View.GONE);
+                bi.fldGrpCVh1501a0c.setVisibility(View.GONE);
+                bi.fldGrpCVh1501a0d.setVisibility(View.GONE);
             }
-        }));*/
+        }));
 
-
-        /*bi.ss07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss07h.getId() || i == bi.ss07i.getId()) {
-                Clear.clearAllFields(bi.ss08cv, false);
-                Clear.clearAllFields(bi.ss09cv, false);
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
+        bi.h1501a0c.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501a0cy.getId()) {
+                bi.fldGrpCVh1501a0d.setVisibility(View.VISIBLE);
             } else {
-                Clear.clearAllFields(bi.ss08cv, true);
-                Clear.clearAllFields(bi.ss09cv, true);
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
+                Clear.clearAllFields(bi.fldGrpCVh1501a0d);
+                bi.fldGrpCVh1501a0d.setVisibility(View.GONE);
             }
-        }));*/
-
-
-        /*bi.ss09.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss09b.getId()) {
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-
-            } else {
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-
-            }
-        }));*/
-
-
-        /*bi.ss11.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss11b.getId()) {
-                Clear.clearAllFields(bi.ss12cv, false);
-                Clear.clearAllFields(bi.ss13cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss12cv, true);
-                Clear.clearAllFields(bi.ss13cv, true);
-            }
-        }));*/
+        }));
 
     }
 
