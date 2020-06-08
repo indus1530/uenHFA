@@ -67,6 +67,7 @@ public class SectionD2Activity extends AppCompatActivity {
         }
     }
 
+
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
@@ -94,9 +95,11 @@ public class SectionD2Activity extends AppCompatActivity {
 
     }
 
+
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
 
     public void BtnContinue() {
 
@@ -115,6 +118,7 @@ public class SectionD2Activity extends AppCompatActivity {
         }
 
     }
+
 
     public void BtnEnd() {
         openEndActivity(this);
