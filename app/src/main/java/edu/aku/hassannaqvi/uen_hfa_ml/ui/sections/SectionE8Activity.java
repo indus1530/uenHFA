@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -32,27 +31,6 @@ public class SectionE8Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e8);
         bi.setCallback(this);
-        setTitle(R.string.chsec);
-        setupSkips();
-    }
-
-
-    private void setupSkips() {
-
-        /*bi.im01.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.im011.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim02, false);
-                Clear.clearAllFields(bi.fldGrpCVim02a, false);
-            } else if (i == bi.im012.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim02, false);
-                Clear.clearAllFields(bi.fldGrpCVim02a, true);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim02, true);
-                Clear.clearAllFields(bi.fldGrpCVim02a, true);
-            }
-
-        }));*/
-
     }
 
 

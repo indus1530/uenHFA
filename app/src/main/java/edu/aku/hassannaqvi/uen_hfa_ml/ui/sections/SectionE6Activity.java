@@ -44,20 +44,6 @@ public class SectionE6Activity extends AppCompatActivity {
             }
         }));
 
-        /*bi.im02.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im021.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim02a, false);
-//                Clear.clearAllFields(bi.fldGrpSecChc2, false);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim02a, true);
-//                Clear.clearAllFields(bi.fldGrpSecChc2, true);
-            }
-
-            Clear.clearAllFields(bi.fldGrpCVim02a, i == bi.im022.getId());
-            im02Flag = i == bi.im021.getId();
-
-        });*/
-
     }
 
     private boolean UpdateDB() {
