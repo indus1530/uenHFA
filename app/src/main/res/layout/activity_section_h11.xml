@@ -1,8 +1,9 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <data>
         <import type="android.view.View" />
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH11Activity" />
@@ -13,11 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <LinearLayout
             android:id="@+id/GrpNameSectionH11"
             style="@style/vlinearlayout">
 
-            <!-- h11  Title   -->
+
+            <!-- h11  SectionTitle   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh11"
                 style="@style/cardView">
@@ -31,6 +34,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- h1101  Radio   -->
             <androidx.cardview.widget.CardView
@@ -87,6 +91,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- h1102  Radio   -->
             <androidx.cardview.widget.CardView
@@ -361,10 +366,6 @@
 
                     <LinearLayout style="@style/vlinearlayout">
 
-                        <TextView
-                            style="@style/textviewh"
-                            android:text="@string/h1106" />
-
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -375,7 +376,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_toEndOf="@id/q_h1106"
-                                android:text="@string/h1106a" />
+                                android:text="@string/h1106" />
 
                             <TextView
                                 android:id="@+id/q_h1106"
@@ -388,10 +389,28 @@
 
                         </RelativeLayout>
 
-                        <EditText
+
+                        <LinearLayout style="@style/hlinearlayout">
+
+                            <TextView
+                                style="@style/textviewh"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:text="@string/h1106a" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/h1106a"
                             style="@style/EditTextNum"
-                            android:hint="@string/h1106a" />
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:hint="##"
+                                android:maxLength="2"
+                                app:maxValue="12"
+                                app:minValue="1"
+                                app:type="range" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -479,6 +498,8 @@
 
         </LinearLayout>
 
+
     </ScrollView>
+
 
 </layout>
