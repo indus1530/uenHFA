@@ -32,7 +32,7 @@ public class SectionMainActivity extends AppCompatActivity {
         bi.setCallback(this);
 
 
-        if (fc.getA12().equals("2")) {
+        if (fc.getA10().equals("2")) {
             bi.form07.setVisibility(View.GONE);
         }
 
