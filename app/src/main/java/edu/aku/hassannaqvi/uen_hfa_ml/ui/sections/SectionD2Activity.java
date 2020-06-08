@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -16,6 +12,9 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -42,65 +41,20 @@ public class SectionD2Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
+        bi.d0201.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i != bi.d0201a.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVd0203);
+            }
+        }));
+
         bi.d0202.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i != bi.d0202a.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVd0203);
             }
         }));
 
-        /*bi.cb01a.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                if ((bi.cb01a.getText()).hashCode() == s.hashCode()) {
-                    if (bi.cb01a.getText().toString().trim().length() > 0 && Integer.parseInt(bi.cb01a.getText().toString()) == 77) {
-                        bi.cb01b.setEnabled(true);
-                    } else {
-                        bi.cb01b.setEnabled(false);
-                        bi.cb01b.setText("");
-                    }
-                }
-
-            }
-        });
-
-
-        bi.cb02a.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                if ((bi.cb02a.getText()).hashCode() == s.hashCode()) {
-                    if (bi.cb02a.getText().toString().trim().length() > 0 && Integer.parseInt(bi.cb02a.getText().toString()) == 77) {
-                        bi.cb02b.setEnabled(true);
-                    } else {
-                        bi.cb02b.setEnabled(false);
-                        bi.cb02b.setText(null);
-                    }
-                }
-
-            }
-        });*/
-
     }
+
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
