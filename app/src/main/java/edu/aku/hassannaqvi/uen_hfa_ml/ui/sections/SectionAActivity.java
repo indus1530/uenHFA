@@ -28,6 +28,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 public class SectionAActivity extends AppCompatActivity {
 
     ActivitySectionABinding bi;
+
     private DatabaseHelper db;
     private static final String TAG = SectionAActivity.class.getName();
     public static FormsContract fc;
@@ -37,7 +38,13 @@ public class SectionAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_a);
+
+        // Databinding Edit Mode (only in first activity for every contract)
+        MainApp.fc = new FormsContract();
+        bi.setFormsContract(MainApp.fc);
+
         bi.setCallback(this);
+
         db = MainApp.appInfo.getDbHelper();
         //tempVisible(this);
 
@@ -246,7 +253,7 @@ public class SectionAActivity extends AppCompatActivity {
 
     private void SaveDraft() throws JSONException {
 
-        MainApp.fc = new FormsContract();
+        //MainApp.fc = new FormsContract();
         MainApp.fc.setA1(MainApp.userName);
         MainApp.fc.setA3(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
         MainApp.fc.setDeviceID(MainApp.appInfo.getDeviceID());

@@ -5,6 +5,11 @@
 
         <import type="android.view.View" />
 
+        <!-- Databinding Edit Mode -->
+        <variable
+            name="formsContract"
+            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
+
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionBActivity" />
@@ -58,13 +63,17 @@
                             style="@style/radiobutton"
                             android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:text="@string/a14a" />
+                            android:checked="@{formsContract.a14.equals(formsContract.ONE)}"
+                            android:text="@string/a14a"
+
+                            />
 
                         <RadioButton
                             android:id="@+id/a14b"
                             style="@style/radiobutton"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.a14.equals(formsContract.TWO)}"
                             android:text="@string/a14b" />
 
                     </RadioGroup>
