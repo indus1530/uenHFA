@@ -29,9 +29,9 @@ public class SectionE1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e1);
         bi.setCallback(this);
-        setTitle(R.string.chsec);
         setupSkips();
     }
+
 
     private void setupSkips() {
 

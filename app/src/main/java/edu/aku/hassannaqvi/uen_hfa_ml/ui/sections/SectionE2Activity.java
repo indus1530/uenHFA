@@ -4,15 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -38,26 +37,11 @@ public class SectionE2Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-
         bi.e0201.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.e0201b.getId()) {
                 Clear.clearAllFields(bi.fldGrpSece201);
             }
         }));
-
-        /*bi.im02.setOnCheckedChangeListener((radioGroup, i) -> {
-            if (i == bi.im021.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVim02a, false);
-//                Clear.clearAllFields(bi.fldGrpSecChc2, false);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVim02a, true);
-//                Clear.clearAllFields(bi.fldGrpSecChc2, true);
-            }
-
-            Clear.clearAllFields(bi.fldGrpCVim02a, i == bi.im022.getId());
-            im02Flag = i == bi.im021.getId();
-
-        });*/
 
     }
 
