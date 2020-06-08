@@ -30,6 +30,9 @@ public class SectionBActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_b);
+
+        // Databinding Edit Mode
+        bi.setFormsContract(MainApp.fc);
         bi.setCallback(this);
         setupSkips();
     }
