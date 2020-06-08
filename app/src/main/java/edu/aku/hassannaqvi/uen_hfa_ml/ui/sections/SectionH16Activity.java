@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -16,6 +12,9 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -23,8 +22,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH16Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
-
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionH16Activity extends AppCompatActivity {
 
@@ -131,11 +128,6 @@ public class SectionH16Activity extends AppCompatActivity {
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH16);
 
-    }
-
-
-    public void BtnEnd() {
-        openEndActivity(this);
     }
 
 

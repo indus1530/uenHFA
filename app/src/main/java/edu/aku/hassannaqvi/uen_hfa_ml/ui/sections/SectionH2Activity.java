@@ -20,8 +20,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH2Binding;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
-
 
 public class SectionH2Activity extends AppCompatActivity {
 
@@ -161,11 +159,6 @@ public class SectionH2Activity extends AppCompatActivity {
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
 
-    }
-
-
-    public void BtnEnd() {
-        openEndActivity(this);
     }
 
 
