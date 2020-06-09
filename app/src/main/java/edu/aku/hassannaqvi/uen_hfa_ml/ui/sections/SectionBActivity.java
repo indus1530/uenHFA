@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
@@ -59,11 +58,7 @@ public class SectionBActivity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (!formValidation()) return;
-        try {
             SaveDraft();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
         if (UpdateDB()) {
             startActivity(new Intent(this, SectionMainActivity.class));
             finish();
@@ -87,7 +82,7 @@ public class SectionBActivity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
         JSONObject json = new JSONObject();
 
