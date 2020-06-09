@@ -5,16 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD7Binding;
 
@@ -33,6 +32,7 @@ public class SectionD7Activity extends AppCompatActivity {
 
     }
 
+
     private void setupSkips() {
 
         /*if (fc.getA10().equals("2")) {
@@ -40,6 +40,7 @@ public class SectionD7Activity extends AppCompatActivity {
         }*/
 
     }
+
 
     private boolean UpdateDB() {
 
@@ -53,6 +54,7 @@ public class SectionD7Activity extends AppCompatActivity {
         }*/
         return true;
     }
+
 
     private void SaveDraft() throws JSONException {
 
@@ -102,9 +104,11 @@ public class SectionD7Activity extends AppCompatActivity {
 
     }
 
+
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
 
     public void BtnContinue() {
 
@@ -124,9 +128,11 @@ public class SectionD7Activity extends AppCompatActivity {
 
     }
 
+
     public void BtnEnd() {
         openEndActivity(this);
     }
+
 
     @Override
     public void onBackPressed() {

@@ -1,8 +1,7 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <data>
-
         <import type="android.view.View" />
 
         <variable
@@ -10,19 +9,16 @@
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionK1Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false"
-        android:fillViewport="true"
-        android:scrollbarSize="10dip"
-        tools:context=".ui.Myactivity">
+        android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:id="@+id/GrpNameSectionK1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            style="@style/vlinearlayout">
+
 
             <!-- modktitle  Title   -->
             <androidx.cardview.widget.CardView
@@ -43,6 +39,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
             <!-- k01  Title   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk01"
@@ -61,6 +58,7 @@
                         android:text="@string/k01" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
 
             <!-- k0101a  Radio   -->
             <androidx.cardview.widget.CardView
@@ -99,6 +97,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
             <!-- k0101b  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0101b"
@@ -135,6 +134,7 @@
                     </RadioGroup>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
 
             <!-- k0101c  Radio   -->
             <androidx.cardview.widget.CardView
@@ -209,6 +209,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
             <!-- k0102  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0102"
@@ -252,6 +253,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
             <!-- k0103  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0103"
@@ -289,6 +291,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
             <!-- k0104  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0104"
@@ -325,6 +328,7 @@
                     </RadioGroup>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
 
             <!-- k0104aa  Radio   -->
             <androidx.cardview.widget.CardView
@@ -381,6 +385,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
             <!-- k0105  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0105"
@@ -420,9 +425,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/k0105c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!--EndButton LinearLayout-->
             <LinearLayout
@@ -440,5 +449,7 @@
             <!--EndButton LinearLayout-->
 
         </LinearLayout>
+
     </ScrollView>
+
 </layout>

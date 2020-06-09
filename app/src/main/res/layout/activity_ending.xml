@@ -79,6 +79,7 @@
                             android:id="@+id/istatus96x"
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
+                            android:tag="istatus96"
                             android:maxLength="40"
                             android:text='@{istatus96.checked? istatus96x.getText().toString(): ""}'
                             android:visibility='@{istatus96.checked? View.VISIBLE : View.GONE}' />
