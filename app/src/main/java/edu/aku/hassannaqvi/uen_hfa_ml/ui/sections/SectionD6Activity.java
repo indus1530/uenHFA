@@ -5,17 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD6Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -33,6 +31,7 @@ public class SectionD6Activity extends AppCompatActivity {
         setupSkips();
 
     }
+
 
     private void setupSkips() {
 
@@ -90,6 +89,7 @@ public class SectionD6Activity extends AppCompatActivity {
 
     }
 
+
     private boolean UpdateDB() {
 
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
@@ -103,41 +103,38 @@ public class SectionD6Activity extends AppCompatActivity {
         return true;
     }
 
-    private void SaveDraft() throws JSONException {
 
-        JSONObject json = new JSONObject();
+    private void SaveDraft() {
 
-        json.put("d0601", "-1");
-
-        json.put("d0601a", bi.d0601aa.isChecked() ? "1"
+        MainApp.fc.d0601a = bi.d0601aa.isChecked() ? "1"
                 : bi.d0601ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0601b", bi.d0601ba.isChecked() ? "1"
-                : bi.d060bb.isChecked() ? "2"
-                : "-1");
+        MainApp.fc.d0601b = bi.d0601ba.isChecked() ? "1"
+                : bi.d0601bb.isChecked() ? "2"
+                : "-1";
 
-        json.put("d0601c", bi.d0601ca.isChecked() ? "1"
+        MainApp.fc.d0601c = bi.d0601ca.isChecked() ? "1"
                 : bi.d0601cb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0601d", bi.d0601da.isChecked() ? "1"
+        MainApp.fc.d0601d = bi.d0601da.isChecked() ? "1"
                 : bi.d0601db.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0602", bi.d0602a.isChecked() ? "1"
+        MainApp.fc.d0602 = bi.d0602a.isChecked() ? "1"
                 : bi.d0602b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0603", bi.d0603a.isChecked() ? "1"
+        MainApp.fc.d0603 = bi.d0603a.isChecked() ? "1"
                 : bi.d0603b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0604", bi.d0604a.isChecked() ? "1"
+        MainApp.fc.d0604 = bi.d0604a.isChecked() ? "1"
                 : bi.d0604b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0605", bi.d0605a.isChecked() ? "1"
+        MainApp.fc.d0605 = bi.d0605a.isChecked() ? "1"
                 : bi.d0605b.isChecked() ? "2"
                 : bi.d0605c.isChecked() ? "3"
                 : bi.d0605d.isChecked() ? "4"
@@ -146,22 +143,19 @@ public class SectionD6Activity extends AppCompatActivity {
                 : bi.d0605g.isChecked() ? "7"
                 : bi.d0605h.isChecked() ? "8"
                 : bi.d0605i.isChecked() ? "9"
-                : "-1");
+                : "-1";
 
     }
+
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
-    public void BtnContinue() {
 
+    public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionD7Activity.class));
@@ -172,9 +166,11 @@ public class SectionD6Activity extends AppCompatActivity {
 
     }
 
+
     public void BtnEnd() {
         openEndActivity(this);
     }
+
 
     @Override
     public void onBackPressed() {
