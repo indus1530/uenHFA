@@ -4,16 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionE1Binding;
 
 public class SectionE1Activity extends AppCompatActivity {
@@ -58,53 +58,50 @@ public class SectionE1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("e0101", bi.e0101a.isChecked() ? "1"
+        MainApp.fc.e0101 = bi.e0101a.isChecked() ? "1"
                 : bi.e0101b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        //json.put("e0102", "-1");
-
-        json.put("e0102a", bi.e0102aa.isChecked() ? "1"
+        MainApp.fc.e0102a = bi.e0102aa.isChecked() ? "1"
                 : bi.e0102ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("e0102b", bi.e0102ba.isChecked() ? "1"
+        MainApp.fc.e0102b = bi.e0102ba.isChecked() ? "1"
                 : bi.e0102bb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("e0102c", bi.e0102ca.isChecked() ? "1"
+        MainApp.fc.e0102c = bi.e0102ca.isChecked() ? "1"
                 : bi.e0102cb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("e0102d", bi.e0102da.isChecked() ? "1"
+        MainApp.fc.e0102d = bi.e0102da.isChecked() ? "1"
                 : bi.e0102db.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("e0102e", bi.e0102ea.isChecked() ? "1"
+        MainApp.fc.e0102e = bi.e0102ea.isChecked() ? "1"
                 : bi.e0102eb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("e0102f", bi.e0102fa.isChecked() ? "1"
+        MainApp.fc.e0102f = bi.e0102fa.isChecked() ? "1"
                 : bi.e0102fb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("e0102g", bi.e0102ga.isChecked() ? "1"
+        MainApp.fc.e0102g = bi.e0102ga.isChecked() ? "1"
                 : bi.e0102gb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("e0102h", bi.e0102ha.isChecked() ? "1"
+        MainApp.fc.e0102h = bi.e0102ha.isChecked() ? "1"
                 : bi.e0102hb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("e0102i", bi.e0102ia.isChecked() ? "1"
+        MainApp.fc.e0102i = bi.e0102ia.isChecked() ? "1"
                 : bi.e0102ib.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("e0102j", bi.e0102ja.isChecked() ? "1"
+        MainApp.fc.e0102j = bi.e0102ja.isChecked() ? "1"
                 : bi.e0102jb.isChecked() ? "2"
-                : "-1");
-
-        //json.put("e0103", "-1");
+                : "-1";
+        
 
         json.put("e0103a", bi.e0103aa.isChecked() ? "1"
                 : bi.e0103ab.isChecked() ? "2"
