@@ -16,11 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ3Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -78,14 +74,16 @@ public class SectionJ3Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+
+        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SJ, MainApp.fc.getsJ());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }
+        }*/
+        return true;
     }
 
 
@@ -196,15 +194,6 @@ public class SectionJ3Activity extends AppCompatActivity {
         json.put("j0301wf", bi.j0301wf.isChecked() ? "6" : "-1");
         json.put("j0301wx", bi.j0301wx.isChecked() ? "96" : "-1");
         json.put("j0301wxx", bi.j0301wxx.getText().toString());
-
-        try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsJ()), json);
-
-            MainApp.fc.setsJ(String.valueOf(json_merge));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
     }
 

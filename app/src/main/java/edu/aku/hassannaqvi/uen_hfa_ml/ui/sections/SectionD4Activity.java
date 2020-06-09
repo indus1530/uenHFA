@@ -104,6 +104,7 @@ public class SectionD4Activity extends AppCompatActivity {
         return false;
     }
 
+
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
@@ -134,20 +135,13 @@ public class SectionD4Activity extends AppCompatActivity {
                 : bi.d0404c.isChecked() ? "3"
                 : "-1");
 
-        try {
-        /*    JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsD()), json);
-
-            MainApp.fc.setsD(String.valueOf(json_merge));
-*/
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
     }
+
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
 
     public void BtnContinue() {
 

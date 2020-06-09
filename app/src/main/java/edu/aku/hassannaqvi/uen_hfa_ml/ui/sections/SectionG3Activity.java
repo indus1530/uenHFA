@@ -23,13 +23,9 @@ import java.util.Collections;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG3Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon2;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon3;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon1;
@@ -193,14 +189,16 @@ public class SectionG3Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+
+        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }
+        }*/
+        return true;
     }
 
 
@@ -324,15 +322,6 @@ public class SectionG3Activity extends AppCompatActivity {
         json.put("g0302c70i", bi.g0302c70i.getText().toString().trim().length() > 0 ? bi.g0302c70i.getText().toString() : "-1");
         json.put("g0302c70d", bi.g0302c70d.getText().toString().trim().length() > 0 ? bi.g0302c70d.getText().toString() : "-1");
         json.put("g0302c70b", bi.g0302c70b.getText().toString().trim().length() > 0 ? bi.g0302c70b.getText().toString() : "-1");
-
-        try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsG()), json);
-
-            MainApp.fc.setsG(String.valueOf(json_merge));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
 
 

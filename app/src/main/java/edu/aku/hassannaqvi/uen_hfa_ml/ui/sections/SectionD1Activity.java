@@ -35,59 +35,6 @@ public class SectionD1Activity extends AppCompatActivity {
     }
 
     private void setupSkips() {
-
-        /*bi.cb01a.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                if ((bi.cb01a.getText()).hashCode() == s.hashCode()) {
-                    if (bi.cb01a.getText().toString().trim().length() > 0 && Integer.parseInt(bi.cb01a.getText().toString()) == 77) {
-                        bi.cb01b.setEnabled(true);
-                    } else {
-                        bi.cb01b.setEnabled(false);
-                        bi.cb01b.setText("");
-                    }
-                }
-
-            }
-        });
-
-
-        bi.cb02a.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                if ((bi.cb02a.getText()).hashCode() == s.hashCode()) {
-                    if (bi.cb02a.getText().toString().trim().length() > 0 && Integer.parseInt(bi.cb02a.getText().toString()) == 77) {
-                        bi.cb02b.setEnabled(true);
-                    } else {
-                        bi.cb02b.setEnabled(false);
-                        bi.cb02b.setText(null);
-                    }
-                }
-
-            }
-        });*/
-
     }
 
     private boolean UpdateDB() {

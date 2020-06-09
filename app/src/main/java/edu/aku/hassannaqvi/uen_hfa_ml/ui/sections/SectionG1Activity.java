@@ -16,12 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG1Binding;
-
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
 public class SectionG1Activity extends AppCompatActivity {
 
@@ -45,14 +40,15 @@ public class SectionG1Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }
+        }*/
+        return true;
     }
 
 
@@ -182,8 +178,6 @@ public class SectionG1Activity extends AppCompatActivity {
                 : bi.g01117d.isChecked() ? "4"
                 : bi.g01117e.isChecked() ? "5"
                 : "-1");
-
-        MainApp.fc.setsG(String.valueOf(json));
 
     }
 

@@ -124,15 +124,6 @@ public class SectionC2Activity extends AppCompatActivity {
 
         json.put("c021e", bi.c021e.getText().toString().trim().length() > 0 ? bi.c021e.getText().toString() : "-1");
 
-        try {
-          /*  JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsC()), json);
-
-            MainApp.fc.setsC(String.valueOf(json_merge));
-*/
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
     }
 
 

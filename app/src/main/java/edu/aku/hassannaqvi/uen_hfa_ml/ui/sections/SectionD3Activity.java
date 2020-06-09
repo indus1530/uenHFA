@@ -130,15 +130,6 @@ public class SectionD3Activity extends AppCompatActivity {
                 : bi.d0304c.isChecked() ? "3"
                 : "-1");
 
-        try {
-        /*    JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsD()), json);
-
-            MainApp.fc.setsD(String.valueOf(json_merge));
-*/
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
     }
 
     private boolean formValidation() {

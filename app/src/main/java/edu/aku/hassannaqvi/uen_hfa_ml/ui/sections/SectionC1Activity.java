@@ -245,8 +245,6 @@ public class SectionC1Activity extends AppCompatActivity {
 
         json.put("c01ke", bi.c01ke.getText().toString());
 
-        MainApp.fc.setsC(String.valueOf(json));
-
     }
 
 

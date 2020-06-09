@@ -4,21 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionE1Binding;
-
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
 public class SectionE1Activity extends AppCompatActivity {
 
@@ -46,14 +42,15 @@ public class SectionE1Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SE, fc.getsE());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }
+        }*/
+        return true;
     }
 
 
@@ -141,8 +138,6 @@ public class SectionE1Activity extends AppCompatActivity {
                 : bi.e0104ex.isChecked() ? "2"
                 : "-1");
         json.put("e0104exx", bi.e0104exx.getText().toString().trim().length() > 0 ? bi.e0104exx.getText().toString() : "-1");
-
-        MainApp.fc.setsE(String.valueOf(json));
 
     }
 
