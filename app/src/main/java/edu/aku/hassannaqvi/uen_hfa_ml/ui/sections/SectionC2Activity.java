@@ -16,14 +16,11 @@ import org.json.JSONObject;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC2Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
-import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionC2Activity extends AppCompatActivity {
@@ -87,13 +84,14 @@ public class SectionC2Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, fc.getsC());
+     /*   int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, fc.getsC());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }
+        }*/
+        return false;
     }
 
 
@@ -127,10 +125,10 @@ public class SectionC2Activity extends AppCompatActivity {
         json.put("c021e", bi.c021e.getText().toString().trim().length() > 0 ? bi.c021e.getText().toString() : "-1");
 
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsC()), json);
+          /*  JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsC()), json);
 
             MainApp.fc.setsC(String.valueOf(json_merge));
-
+*/
         } catch (JSONException e) {
             e.printStackTrace();
         }

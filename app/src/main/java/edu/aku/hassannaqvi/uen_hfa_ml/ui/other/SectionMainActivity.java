@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionMainBinding;
@@ -34,50 +35,7 @@ public class SectionMainActivity extends AppCompatActivity {
 
 
 
-        if (!fc.getsB().isEmpty()) {
-            bi.form01.setEnabled(false);
-            bi.form01.setBackgroundResource(R.color.dullWhite);
-        }
 
-        if (!fc.getsC().equals("")) {
-            bi.form02.setEnabled(false);
-            bi.form02.setBackgroundResource(R.color.dullWhite);
-        }
-
-        if (!fc.getsD().equals("")) {
-            bi.form03.setEnabled(false);
-            bi.form03.setBackgroundResource(R.color.dullWhite);
-        }
-
-        if (!fc.getsE().equals("")) {
-            bi.form04.setEnabled(false);
-            bi.form04.setBackgroundResource(R.color.dullWhite);
-        }
-
-        if (!fc.getsF().equals("")) {
-            bi.form05.setEnabled(false);
-            bi.form05.setBackgroundResource(R.color.dullWhite);
-        }
-
-        if (!fc.getsG().equals("")) {
-            bi.form06.setEnabled(false);
-            bi.form06.setBackgroundResource(R.color.dullWhite);
-        }
-
-        if (!fc.getsH().equals("")) {
-            bi.form07.setEnabled(false);
-            bi.form07.setBackgroundResource(R.color.dullWhite);
-        }
-
-        if (!fc.getsI().equals("")) {
-            bi.form08.setEnabled(false);
-            bi.form08.setBackgroundResource(R.color.dullWhite);
-        }
-
-        if (!fc.getsJ().equals("")) {
-            bi.form09.setEnabled(false);
-            bi.form09.setBackgroundResource(R.color.dullWhite);
-        }
 
     }
 
@@ -150,7 +108,7 @@ public class SectionMainActivity extends AppCompatActivity {
                     oF = new Intent(SectionMainActivity.this, SectionG1Activity.class);
                     break;
                 case R.id.form07:
-                    oF = new Intent(SectionMainActivity.this, fc.getA10().equals("2") ? SectionH16Activity.class : SectionH2Activity.class);
+                    oF = new Intent(SectionMainActivity.this, fc.a10.equals("2") ? SectionH16Activity.class : SectionH2Activity.class);
                     break;
                 case R.id.form08:
                     oF = new Intent(SectionMainActivity.this, SectionI1Activity.class);

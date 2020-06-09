@@ -65,7 +65,6 @@
                             android:layout_weight="1"
                             android:checked="@{formsContract.a14.equals(formsContract.ONE)}"
                             android:text="@string/a14a"
-
                             />
 
                         <RadioButton
@@ -122,8 +121,6 @@
                             style="@style/radiobutton"
                             android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:checked="@{formsContract.a15.equals(formsContract.ONE)}"
-
                             android:text="@string/a15a" />
 
                         <RadioButton
@@ -173,8 +170,10 @@
                     <com.edittextpicker.aliazaz.EditTextPicker
                         android:id="@+id/a16"
                         style="@style/EditTextNum"
+                        android:layout_height="wrap_content"
                         android:hint="@string/num"
                         android:maxLength="6"
+                        android:text="@{formsContract.a16}"
                         app:maxValue="999999"
                         app:minValue="0"
                         app:type="range" />

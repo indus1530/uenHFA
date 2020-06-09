@@ -390,33 +390,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(FormsTable.COLUMN_PROJECT_NAME, fc.getProjectName());
-        values.put(FormsTable.COLUMN_UID, fc.get_UID());
-        values.put(FormsTable.COLUMN_A1, fc.getA1());
-        values.put(FormsTable.COLUMN_A3, fc.getA3());
-        values.put(FormsTable.COLUMN_A4, fc.getA4());
-        values.put(FormsTable.COLUMN_A5, fc.getA5());
-        values.put(FormsTable.COLUMN_A6, fc.getA6());
-        values.put(FormsTable.COLUMN_A7, fc.getA7());
-        values.put(FormsTable.COLUMN_A8, fc.getA8());
-        values.put(FormsTable.COLUMN_A9, fc.getA9());
-        values.put(FormsTable.COLUMN_A10, fc.getA10());
-        values.put(FormsTable.COLUMN_A11, fc.getA11());
-        values.put(FormsTable.COLUMN_A12, fc.getA12());
-        values.put(FormsTable.COLUMN_A13, fc.getA13());
-        values.put(FormsTable.COLUMN_LUID, fc.getLuid());
+       /* values.put(FormsTable.COLUMN_UID, fc.UID());
+        values.put(FormsTable.COLUMN_A1, fc.A1());
+        values.put(FormsTable.COLUMN_A3, fc.A3());
+        values.put(FormsTable.COLUMN_A4, fc.A4());
+        values.put(FormsTable.COLUMN_A5, fc.A5());
+        values.put(FormsTable.COLUMN_A6, fc.A6());
+        values.put(FormsTable.COLUMN_A7, fc.A7());
+        values.put(FormsTable.COLUMN_A8, fc.A8());
+        values.put(FormsTable.COLUMN_A9, fc.A9());
+        values.put(FormsTable.COLUMN_A10, fc.A10());
+        values.put(FormsTable.COLUMN_A11, fc.A11());
+        values.put(FormsTable.COLUMN_A12, fc.A12());
+        values.put(FormsTable.COLUMN_A13, fc.A13());
+        values.put(FormsTable.COLUMN_LUID, fc.Luid());*/
         values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus());
         values.put(FormsTable.COLUMN_ISTATUS88x, fc.getIstatus88x());
         values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingdatetime());
-        values.put(FormsTable.COLUMN_SA, fc.getsA());
-        values.put(FormsTable.COLUMN_SB, fc.getsB());
-        values.put(FormsTable.COLUMN_SC, fc.getsC());
-        values.put(FormsTable.COLUMN_SD, fc.getsD());
-        values.put(FormsTable.COLUMN_SE, fc.getsE());
-        values.put(FormsTable.COLUMN_SF, fc.getsF());
-        values.put(FormsTable.COLUMN_SG, fc.getsG());
-        values.put(FormsTable.COLUMN_SH, fc.getsH());
-        values.put(FormsTable.COLUMN_SI, fc.getsI());
-        values.put(FormsTable.COLUMN_SJ, fc.getsJ());
         values.put(FormsTable.COLUMN_GPSLAT, fc.getGpsLat());
         values.put(FormsTable.COLUMN_GPSLNG, fc.getGpsLng());
         values.put(FormsTable.COLUMN_GPSDATE, fc.getGpsDT());
@@ -661,16 +651,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_ISTATUS88x,
                 FormsTable.COLUMN_LUID,
                 FormsTable.COLUMN_ENDINGDATETIME,
-                FormsTable.COLUMN_SA,
-                FormsTable.COLUMN_SB,
-                FormsTable.COLUMN_SC,
-                FormsTable.COLUMN_SD,
-                FormsTable.COLUMN_SE,
-                FormsTable.COLUMN_SF,
-                FormsTable.COLUMN_SG,
-                FormsTable.COLUMN_SH,
-                FormsTable.COLUMN_SI,
-                FormsTable.COLUMN_SJ,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
                 FormsTable.COLUMN_GPSDATE,
@@ -752,7 +732,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsContract fc = new FormsContract();
                 fc.set_ID(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
                 fc.setLuid(c.getString(c.getColumnIndex(FormsTable.COLUMN_LUID)));
+/*
                 fc.setA3(c.getString(c.getColumnIndex(FormsTable.COLUMN_A3)));
+*/
                 fc.setIstatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
                 fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
@@ -801,7 +783,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 FormsContract fc = new FormsContract();
                 fc.set_ID(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
+/*
                 fc.setA12(c.getString(c.getColumnIndex(FormsTable.COLUMN_A12)));
+*/
                 fc.setIstatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
                 fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);

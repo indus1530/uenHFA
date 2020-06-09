@@ -1404,94 +1404,7 @@ public class FormsContract {
     public FormsContract() {
     }
 
-   /* public String getsA() {
-        return sA;
-    }
 
-    public void setsA(String sA) {
-        this.sA = sA;
-    }
-
-
-    public String getsB() {
-        return sB;
-    }
-
-    public void setsB(String sB) {
-        this.sB = sB;
-    }
-
-
-    public String getsC() {
-        return sC;
-    }
-
-    public void setsC(String sC) {
-        this.sC = sC;
-    }
-
-
-    public String getsD() {
-        return sD;
-    }
-
-    public void setsD(String sD) {
-        this.sD = sD;
-    }
-
-
-    public String getsE() {
-        return sE;
-    }
-
-    public void setsE(String sE) {
-        this.sE = sE;
-    }
-
-
-    public String getsF() {
-        return sF;
-    }
-
-    public void setsF(String sF) {
-        this.sF = sF;
-    }
-
-
-    public String getsG() {
-        return sG;
-    }
-
-    public void setsG(String sG) {
-        this.sG = sG;
-    }
-
-
-    public String getsH() {
-        return sH;
-    }
-
-    public void setsH(String sH) {
-        this.sH = sH;
-    }
-
-
-    public String getsI() {
-        return sI;
-    }
-
-    public void setsI(String sI) {
-        this.sI = sI;
-    }
-
-
-    public String getsJ() {
-        return sJ;
-    }
-
-    public void setsJ(String sJ) {
-        this.sJ = sJ;
-    }*/
     
 
     public String getAppversion() {
@@ -1530,16 +1443,7 @@ public class FormsContract {
         this.synced = jsonObject.getString(FormsTable.COLUMN_SYNCED);
         this.synced_date = jsonObject.getString(FormsTable.COLUMN_SYNCED_DATE);
         this.appversion = jsonObject.getString(FormsTable.COLUMN_SYNCED_DATE);
-       /* this.sA = jsonObject.getString(FormsTable.COLUMN_SA);
-        this.sB = jsonObject.getString(FormsTable.COLUMN_SB);
-        this.sC = jsonObject.getString(FormsTable.COLUMN_SC);
-        this.sD = jsonObject.getString(FormsTable.COLUMN_SD);
-        this.sE = jsonObject.getString(FormsTable.COLUMN_SE);
-        this.sF = jsonObject.getString(FormsTable.COLUMN_SF);
-        this.sG = jsonObject.getString(FormsTable.COLUMN_SG);
-        this.sH = jsonObject.getString(FormsTable.COLUMN_SH);
-        this.sI = jsonObject.getString(FormsTable.COLUMN_SI);
-        this.sJ = jsonObject.getString(FormsTable.COLUMN_SJ);*/
+
 
         return this;
 
@@ -1571,16 +1475,7 @@ public class FormsContract {
         this.deviceID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICEID));
         this.devicetagID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DEVICETAGID));
         this.appversion = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_APPVERSION));
-       /* this.sA = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SA));
-        this.sB = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SB));
-        this.sC = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SC));
-        this.sD = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SD));
-        this.sE = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SE));
-        this.sF = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SF));
-        this.sG = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SG));
-        this.sH = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SH));
-        this.sI = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SI));
-        this.sJ = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SJ));*/
+
 
         return this;
     }
@@ -1608,47 +1503,6 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_ISTATUS88x, this.istatus88x == null ? JSONObject.NULL : this.istatus88x);
         json.put(FormsTable.COLUMN_LUID, this.luid == null ? JSONObject.NULL : this.luid);
         json.put(FormsTable.COLUMN_ENDINGDATETIME, this.endingdatetime == null ? JSONObject.NULL : this.endingdatetime);
-
-        /*if (!this.sA.equals("")) {
-            json.put(FormsTable.COLUMN_SA, this.sA.equals("") ? JSONObject.NULL : new JSONObject(this.sA));
-        }
-
-        if (!this.sB.equals("")) {
-            json.put(FormsTable.COLUMN_SB, this.sB.equals("") ? JSONObject.NULL : new JSONObject(this.sB));
-        }
-
-        if (!this.sC.equals("")) {
-            json.put(FormsTable.COLUMN_SC, this.sC.equals("") ? JSONObject.NULL : new JSONObject(this.sC));
-        }
-
-        if (!this.sD.equals("")) {
-            json.put(FormsTable.COLUMN_SD, this.sD.equals("") ? JSONObject.NULL : new JSONObject(this.sD));
-        }
-
-        if (!this.sE.equals("")) {
-            json.put(FormsTable.COLUMN_SE, this.sE.equals("") ? JSONObject.NULL : new JSONObject(this.sE));
-        }
-
-        if (!this.sF.equals("")) {
-            json.put(FormsTable.COLUMN_SF, this.sF.equals("") ? JSONObject.NULL : new JSONObject(this.sF));
-        }
-
-        if (!this.sG.equals("")) {
-            json.put(FormsTable.COLUMN_SG, this.sG.equals("") ? JSONObject.NULL : new JSONObject(this.sG));
-        }
-
-        if (!this.sH.equals("")) {
-            json.put(FormsTable.COLUMN_SH, this.sH.equals("") ? JSONObject.NULL : new JSONObject(this.sH));
-        }
-
-        if (!this.sI.equals("")) {
-            json.put(FormsTable.COLUMN_SI, this.sI.equals("") ? JSONObject.NULL : new JSONObject(this.sI));
-        }
-
-        if (!this.sJ.equals("")) {
-            json.put(FormsTable.COLUMN_SJ, this.sJ.equals("") ? JSONObject.NULL : new JSONObject(this.sJ));
-        }*/
-
         json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
         json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
         json.put(FormsTable.COLUMN_GPSDATE, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
@@ -1680,114 +1534,6 @@ public class FormsContract {
         this._UID = _UID;
     }
 
-
-    /*public String getA1() {
-        return a1;
-    }
-
-    public void setA1(String a1) {
-        this.a1 = a1;
-    }
-
-
-    public String getA3() {
-        return a3;
-    }
-
-    public void setA3(String a3) {
-        this.a3 = a3;
-    }
-
-
-    public String getA4() {
-        return a4;
-    }
-
-    public void setA4(String a4) {
-        this.a4 = a4;
-    }
-
-
-    public String getA5() {
-        return a5;
-    }
-
-    public void setA5(String a5) {
-        this.a5 = a5;
-    }
-
-
-    public String getA6() {
-        return a6;
-    }
-
-    public void setA6(String a6) {
-        this.a6 = a6;
-    }
-
-
-    public String getA7() {
-        return a7;
-    }
-
-    public void setA7(String a7) {
-        this.a7 = a7;
-    }
-
-
-    public String getA8() {
-        return a8;
-    }
-
-    public void setA8(String a8) {
-        this.a8 = a8;
-    }
-
-
-    public String getA9() {
-        return a9;
-    }
-
-    public void setA9(String a9) {
-        this.a9 = a9;
-    }
-
-
-    public String getA10() {
-        return a10;
-    }
-
-    public void setA10(String a10) {
-        this.a10 = a10;
-    }
-
-
-    public String getA11() {
-        return a11;
-    }
-
-    public void setA11(String a11) {
-        this.a11 = a11;
-    }
-
-
-    public String getA12() {
-        return a12;
-    }
-
-    public void setA12(String a12) {
-        this.a12 = a12;
-    }
-
-
-    public String getA13() {
-        return a13;
-    }
-
-    public void setA13(String a13) {
-        this.a13 = a13;
-    }*/
-    
 
     public String getIstatus() {
         return istatus;
@@ -1919,16 +1665,7 @@ public class FormsContract {
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_APPVERSION = "appversion";
-        public static final String COLUMN_SA = "sA";
-        public static final String COLUMN_SB = "sB";
-        public static final String COLUMN_SC = "sC";
-        public static final String COLUMN_SD = "sD";
-        public static final String COLUMN_SE = "sE";
-        public static final String COLUMN_SF = "sF";
-        public static final String COLUMN_SG = "sG";
-        public static final String COLUMN_SH = "sH";
-        public static final String COLUMN_SI = "sI";
-        public static final String COLUMN_SJ = "sJ";
+
 
         public static String _URL = "sync.php";
     }
