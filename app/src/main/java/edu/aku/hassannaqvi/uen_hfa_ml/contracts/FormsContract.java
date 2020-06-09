@@ -169,7 +169,9 @@ public class FormsContract {
     public String d0605;
     public String d07;
     public String d0701;
+    public String d0701xx;
     public String d0702;
+    public String d0702xx;
     public String d0703;
     public String d0704;
     public String d0704a;
