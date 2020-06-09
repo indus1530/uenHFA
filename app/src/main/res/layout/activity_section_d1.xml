@@ -1,13 +1,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <import type="android.view.View" />
+
+        <variable
+            name="formsContract"
+            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
 
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionD1Activity" />
     </data>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -71,6 +75,7 @@
                         <RadioButton
                             android:id="@+id/d0101a"
                             style="@style/radiobutton"
+                            android:checked='@{formsContract.}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:text="@string/d0101a" />

@@ -1,13 +1,18 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
 
+    <data>
         <import type="android.view.View" />
+
+        <variable
+            name="formsContract"
+            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
 
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI4Activity" />
     </data>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,7 +32,9 @@
                     <TextView
                         style="@style/textView3Head"
                         android:text="@string/i04" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- i0401a  Radio   -->

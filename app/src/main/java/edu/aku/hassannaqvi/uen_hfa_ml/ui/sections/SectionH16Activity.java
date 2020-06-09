@@ -17,7 +17,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH16Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 
@@ -113,8 +112,6 @@ public class SectionH16Activity extends AppCompatActivity {
                 : "-1");
 
         json.put("h1605xx", bi.h1605xx.getText().toString());
-
-        MainApp.fc.setsH(String.valueOf(json));
 
     }
 

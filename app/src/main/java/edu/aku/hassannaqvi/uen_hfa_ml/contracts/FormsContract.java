@@ -69,7 +69,9 @@ public class FormsContract {
     public String a15;
     public String a16;
     public String a18;
+    public String a18xx;
     public String a19;
+    public String a19xx;
     public String a20;
     public String a21;
     public String a22;
