@@ -9,8 +9,6 @@ import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -130,9 +128,7 @@ public class SectionD5Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
-
-        JSONObject json = new JSONObject();
+    private void SaveDraft() {
 
         MainApp.fc.d0501 = bi.d0501a.isChecked() ? "1"
                 : bi.d0501b.isChecked() ? "2"
@@ -159,58 +155,58 @@ public class SectionD5Activity extends AppCompatActivity {
                 : "-1";
         MainApp.fc.d0502b0fyx = bi.d0502b0fyx.getText().toString();
 
-        json.put("d0502c0a", bi.d0502c0ay.isChecked() ? "1"
+        MainApp.fc.d0502c0a = bi.d0502c0ay.isChecked() ? "1"
                 : bi.d0502c0an.isChecked() ? "2"
-                : "-1");
-        json.put("d0502c0ayx", bi.d0502c0ayx.getText().toString());
+                : "-1";
+        MainApp.fc.d0502c0ayx = bi.d0502c0ayx.getText().toString();
 
-        json.put("d0502c0f", bi.d0502c0fy.isChecked() ? "1"
+        MainApp.fc.d0502c0f = bi.d0502c0fy.isChecked() ? "1"
                 : bi.d0502c0fn.isChecked() ? "2"
-                : "-1");
-        json.put("d0502c0fyx", bi.d0502c0fyx.getText().toString());
+                : "-1";
+        MainApp.fc.d0502c0fyx = bi.d0502c0fyx.getText().toString();
 
-        json.put("d0502d0a", bi.d0502d0ay.isChecked() ? "1"
+        MainApp.fc.d0502d0a = bi.d0502d0ay.isChecked() ? "1"
                 : bi.d0502d0an.isChecked() ? "2"
-                : "-1");
-        json.put("d0502d0ayx", bi.d0502d0ayx.getText().toString());
+                : "-1";
+        MainApp.fc.d0502d0ayx = bi.d0502d0ayx.getText().toString();
 
-        json.put("d0502d0f", bi.d0502d0fy.isChecked() ? "1"
+        MainApp.fc.d0502d0f = bi.d0502d0fy.isChecked() ? "1"
                 : bi.d0502d0fn.isChecked() ? "2"
-                : "-1");
-        json.put("d0502d0fyx", bi.d0502d0fyx.getText().toString());
+                : "-1";
+        MainApp.fc.d0502d0fyx = bi.d0502d0fyx.getText().toString();
 
 
-        json.put("d0503a", bi.d0503aa.isChecked() ? "1"
+        MainApp.fc.d0503a = bi.d0503aa.isChecked() ? "1"
                 : bi.d0503ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0503b", bi.d0503ba.isChecked() ? "1"
+        MainApp.fc.d0503b = bi.d0503ba.isChecked() ? "1"
                 : bi.d0503bb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0503c", bi.d0503ca.isChecked() ? "1"
+        MainApp.fc.d0503c = bi.d0503ca.isChecked() ? "1"
                 : bi.d0503cb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0503d", bi.d0503da.isChecked() ? "1"
+        MainApp.fc.d0503d = bi.d0503da.isChecked() ? "1"
                 : bi.d0503db.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0503e", bi.d0503ea.isChecked() ? "1"
+        MainApp.fc.d0503e = bi.d0503ea.isChecked() ? "1"
                 : bi.d0503eb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0503f", bi.d0503fa.isChecked() ? "1"
+        MainApp.fc.d0503f = bi.d0503fa.isChecked() ? "1"
                 : bi.d0503fb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0503g", bi.d0503ga.isChecked() ? "1"
+        MainApp.fc.d0503g = bi.d0503ga.isChecked() ? "1"
                 : bi.d0503gb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0503h", bi.d0503ha.isChecked() ? "1"
+        MainApp.fc.d0503h = bi.d0503ha.isChecked() ? "1"
                 : bi.d0503hb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
     }
 
@@ -223,11 +219,7 @@ public class SectionD5Activity extends AppCompatActivity {
     public void BtnContinue() {
 
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionD6Activity.class));

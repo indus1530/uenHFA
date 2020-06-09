@@ -143,7 +143,10 @@ public class FormsContract {
     public String d0502c0fyx;
 
     public String d0502d0a;
+    public String d0502d0ayx;
     public String d0502d0f;
+    public String d0502d0fyx;
+
     public String d0503;
     public String d0503a;
     public String d0503b;
@@ -153,6 +156,7 @@ public class FormsContract {
     public String d0503f;
     public String d0503g;
     public String d0503h;
+
     public String d06;
     public String d0601;
     public String d0601a;
