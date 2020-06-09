@@ -14,13 +14,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionBBinding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
-
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
 public class SectionBActivity extends AppCompatActivity {
 
@@ -79,14 +75,15 @@ public class SectionBActivity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SA, fc.getsA());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }
+        }*/
+        return true;
     }
 
 
@@ -162,7 +159,7 @@ public class SectionBActivity extends AppCompatActivity {
 
         json.put("b05", bi.b05.getText().toString().trim().isEmpty() ? "-1" : bi.b05.getText().toString());
 
-        MainApp.fc.setsB(String.valueOf(json));
+        //MainApp.fc.setsB(String.valueOf(json));
 
     }
 
