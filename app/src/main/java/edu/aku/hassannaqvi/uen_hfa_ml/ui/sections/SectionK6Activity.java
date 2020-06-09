@@ -172,20 +172,20 @@ public class SectionK6Activity extends AppCompatActivity {
                 : bi.k60106b.isChecked() ? "2"
                 : "-1");
 
-        json.put("k6010k600", "-1");
+        json.put("k6010600", "-1");
 
-        json.put("k6010k601", bi.k6010k601a.isChecked() ? "1"
-                : bi.k6010k601b.isChecked() ? "2"
-                : bi.k6010k601c.isChecked() ? "3"
+        json.put("k6010601", bi.k6010601a.isChecked() ? "1"
+                : bi.k6010601b.isChecked() ? "2"
+                : bi.k6010601c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k6010k601cx", bi.k6010k601cx.getText().toString());
-        json.put("k6010k602", bi.k6010k602a.isChecked() ? "1"
-                : bi.k6010k602b.isChecked() ? "2"
-                : bi.k6010k602c.isChecked() ? "3"
+        json.put("k6010601cx", bi.k6010601cx.getText().toString());
+        json.put("k6010602", bi.k6010602a.isChecked() ? "1"
+                : bi.k6010602b.isChecked() ? "2"
+                : bi.k6010602c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k6010k602cx", bi.k6010k602cx.getText().toString());
+        json.put("k6010602cx", bi.k6010602cx.getText().toString());
         json.put("k60107", bi.k60107a.isChecked() ? "1"
                 : bi.k60107b.isChecked() ? "2"
                 : "-1");
@@ -390,7 +390,7 @@ public class SectionK6Activity extends AppCompatActivity {
                 : "-1");
 
         json.put("k60401", bi.k60401a.isChecked() ? "1"
-                : bi.k60101b.isChecked() ? "2"
+                : bi.k60401b.isChecked() ? "2"
                 : "-1");
 
         json.put("k6040101", bi.k6040101a.isChecked() ? "1"
