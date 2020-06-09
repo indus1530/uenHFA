@@ -13,11 +13,8 @@ import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD2Binding;
 
@@ -32,7 +29,6 @@ public class SectionD2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_d2);
         bi.setCallback(this);
-        setTitle(R.string.chBsec);
         setupSkips();
 
     }
@@ -55,34 +51,31 @@ public class SectionD2Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
-       /* int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SD, fc.getsD());
+        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SD, fc.getsD());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
         }*/
-        return false;
+        return true;
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("d0201", bi.d0201a.isChecked() ? "1"
+        MainApp.fc.d0201 = bi.d0201a.isChecked() ? "1"
                 : bi.d0201b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0202", bi.d0202a.isChecked() ? "1"
+        MainApp.fc.d0202 = bi.d0202a.isChecked() ? "1"
                 : bi.d0202b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0203", bi.d0203a.isChecked() ? "1"
+        MainApp.fc.d0203 = bi.d0203a.isChecked() ? "1"
                 : bi.d0203b.isChecked() ? "2"
-                : "-1");
-
+                : "-1";
     }
 
 
@@ -94,11 +87,7 @@ public class SectionD2Activity extends AppCompatActivity {
     public void BtnContinue() {
 
         if (formValidation()) {
-            try {
                 SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionD3Activity.class));
