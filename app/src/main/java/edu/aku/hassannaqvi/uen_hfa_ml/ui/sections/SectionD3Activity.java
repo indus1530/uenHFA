@@ -5,18 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD3Binding;
 
@@ -31,10 +27,10 @@ public class SectionD3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_d3);
         bi.setCallback(this);
-        setTitle(R.string.chBsec);
         setupSkips();
 
     }
+
 
     private void setupSkips() {
 
@@ -92,58 +88,56 @@ public class SectionD3Activity extends AppCompatActivity {
 
     }
 
+
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        /*int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SD, fc.getsD());
+        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SD, fc.getsD());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
         }*/
-        return false;
+        return true;
     }
 
-    private void SaveDraft() throws JSONException {
 
-        JSONObject json = new JSONObject();
+    private void SaveDraft() {
 
-        json.put("d0301", bi.d0301a.isChecked() ? "1"
+        MainApp.fc.d0301 = bi.d0301a.isChecked() ? "1"
                 : bi.d0301b.isChecked() ? "2"
                 : bi.d0301c.isChecked() ? "3"
                 : bi.d0301d.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
-        json.put("d0302", bi.d0302a.isChecked() ? "1"
+        MainApp.fc.d0302 = bi.d0302a.isChecked() ? "1"
                 : bi.d0302b.isChecked() ? "2"
                 : bi.d0302c.isChecked() ? "3"
                 : bi.d0302d.isChecked() ? "4"
                 : bi.d0302e.isChecked() ? "5"
-                : "-1");
+                : "-1";
 
-        json.put("d0303", bi.d0303a.isChecked() ? "1"
+        MainApp.fc.d0303 = bi.d0303a.isChecked() ? "1"
                 : bi.d0303b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("d0304", bi.d0304a.isChecked() ? "1"
+        MainApp.fc.d0304 = bi.d0304a.isChecked() ? "1"
                 : bi.d0304b.isChecked() ? "2"
                 : bi.d0304c.isChecked() ? "3"
-                : "-1");
+                : "-1";
 
     }
+
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
+
     public void BtnContinue() {
 
         if (formValidation()) {
-            try {
                 SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionD4Activity.class));
@@ -154,9 +148,11 @@ public class SectionD3Activity extends AppCompatActivity {
 
     }
 
+
     public void BtnEnd() {
         openEndActivity(this);
     }
+
 
     @Override
     public void onBackPressed() {

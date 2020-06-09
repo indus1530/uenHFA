@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -16,7 +12,11 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD5Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -34,6 +34,7 @@ public class SectionD5Activity extends AppCompatActivity {
         setupSkips();
 
     }
+
 
     private void setupSkips() {
 
@@ -115,6 +116,7 @@ public class SectionD5Activity extends AppCompatActivity {
 
     }
 
+
     private boolean UpdateDB() {
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SD, fc.getsD());
@@ -127,34 +129,35 @@ public class SectionD5Activity extends AppCompatActivity {
         return true;
     }
 
+
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
 
-        json.put("d0501", bi.d0501a.isChecked() ? "1"
+        MainApp.fc.d0501 = bi.d0501a.isChecked() ? "1"
                 : bi.d0501b.isChecked() ? "2"
                 : bi.d0501c.isChecked() ? "3"
-                : "-1");
+                : "-1";
 
-        json.put("d0502a0a", bi.d0502a0ay.isChecked() ? "1"
+        MainApp.fc.d0502a0a = bi.d0502a0ay.isChecked() ? "1"
                 : bi.d0502a0an.isChecked() ? "2"
-                : "-1");
-        json.put("d0502a0ayx", bi.d0502a0ayx.getText().toString());
+                : "-1";
+        MainApp.fc.d0502a0ayx = bi.d0502a0ayx.getText().toString();
 
-        json.put("d0502a0f", bi.d0502a0fy.isChecked() ? "1"
+        MainApp.fc.d0502a0f = bi.d0502a0fy.isChecked() ? "1"
                 : bi.d0502a0fn.isChecked() ? "2"
-                : "-1");
-        json.put("d0502a0fyx", bi.d0502a0fyx.getText().toString());
+                : "-1";
+        MainApp.fc.d0502a0fyx = bi.d0502a0fyx.getText().toString();
 
-        json.put("d0502b0a", bi.d0502b0ay.isChecked() ? "1"
+        MainApp.fc.d0502b0a = bi.d0502b0ay.isChecked() ? "1"
                 : bi.d0502b0an.isChecked() ? "2"
-                : "-1");
-        json.put("d0502b0ayx", bi.d0502b0ayx.getText().toString());
+                : "-1";
+        MainApp.fc.d0502b0ayx = bi.d0502b0ayx.getText().toString();
 
-        json.put("d0502b0f", bi.d0502b0fy.isChecked() ? "1"
+        MainApp.fc.d0502b0f = bi.d0502b0fy.isChecked() ? "1"
                 : bi.d0502b0fn.isChecked() ? "2"
-                : "-1");
-        json.put("d0502b0fyx", bi.d0502b0fyx.getText().toString());
+                : "-1";
+        MainApp.fc.d0502b0fyx = bi.d0502b0fyx.getText().toString();
 
         json.put("d0502c0a", bi.d0502c0ay.isChecked() ? "1"
                 : bi.d0502c0an.isChecked() ? "2"
@@ -211,9 +214,11 @@ public class SectionD5Activity extends AppCompatActivity {
 
     }
 
+
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
 
     public void BtnContinue() {
 
@@ -233,9 +238,11 @@ public class SectionD5Activity extends AppCompatActivity {
 
     }
 
+
     public void BtnEnd() {
         openEndActivity(this);
     }
+
 
     @Override
     public void onBackPressed() {

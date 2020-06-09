@@ -126,12 +126,22 @@ public class FormsContract {
     public String d05;
     public String d0501;
     public String d0502;
+
     public String d0502a0a;
+    public String d0502a0ayx;
     public String d0502a0f;
+    public String d0502a0fyx;
+
     public String d0502b0a;
+    public String d0502b0ayx;
     public String d0502b0f;
+    public String d0502b0fyx;
+
     public String d0502c0a;
+    public String d0502c0ayx;
     public String d0502c0f;
+    public String d0502c0fyx;
+
     public String d0502d0a;
     public String d0502d0f;
     public String d0503;

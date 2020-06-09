@@ -71,26 +71,35 @@
 
                     <RadioGroup
                         android:id="@+id/d0301"
-                        style="@style/vradiogroup">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                         <RadioButton
                             android:id="@+id/d0301a"
-                            style="@style/radiobutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0301.equals(formsContract.ONE)}"
                             android:text="@string/d0301a" />
 
                         <RadioButton
                             android:id="@+id/d0301b"
-                            style="@style/radiobutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0301.equals(formsContract.TWO)}"
                             android:text="@string/d0301b" />
 
                         <RadioButton
                             android:id="@+id/d0301c"
-                            style="@style/radiobutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0301.equals(formsContract.THREE)}"
                             android:text="@string/d0301c" />
 
                         <RadioButton
                             android:id="@+id/d0301d"
-                            style="@style/radiobutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0301.equals(formsContract.FOUR)}"
                             android:text="@string/d0301d" />
 
                     </RadioGroup>
@@ -139,30 +148,35 @@
                             android:id="@+id/d0302a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0302.equals(formsContract.ONE)}"
                             android:text="@string/d0302a" />
 
                         <RadioButton
                             android:id="@+id/d0302b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0302.equals(formsContract.TWO)}"
                             android:text="@string/d0302b" />
 
                         <RadioButton
                             android:id="@+id/d0302c"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0302.equals(formsContract.THREE)}"
                             android:text="@string/d0302c" />
 
                         <RadioButton
                             android:id="@+id/d0302d"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0302.equals(formsContract.FOUR)}"
                             android:text="@string/d0302d" />
 
                         <RadioButton
                             android:id="@+id/d0302e"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0302.equals(formsContract.FIVE)}"
                             android:text="@string/d0302e" />
 
                     </RadioGroup>
@@ -204,13 +218,16 @@
 
                     <RadioGroup
                         android:id="@+id/d0303"
-                        style="@style/hradiogroup">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/d0303a"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.d0303.equals(formsContract.ONE)}"
                             android:text="@string/d0303a" />
 
                         <RadioButton
@@ -218,6 +235,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.d0303.equals(formsContract.TWO)}"
                             android:text="@string/d0303b" />
 
                     </RadioGroup>
@@ -266,18 +284,21 @@
                             android:id="@+id/d0304a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0304.equals(formsContract.ONE)}"
                             android:text="@string/d0304a" />
 
                         <RadioButton
                             android:id="@+id/d0304b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0304.equals(formsContract.TWO)}"
                             android:text="@string/d0304b" />
 
                         <RadioButton
                             android:id="@+id/d0304c"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.d0304.equals(formsContract.THREE)}"
                             android:text="@string/d0304c" />
 
                     </RadioGroup>
@@ -310,5 +331,7 @@
 
 
         </LinearLayout>
+
     </ScrollView>
+
 </layout>
