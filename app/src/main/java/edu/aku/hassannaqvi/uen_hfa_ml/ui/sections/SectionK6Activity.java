@@ -378,10 +378,10 @@ public class SectionK6Activity extends AppCompatActivity {
 
         json.put("k6030200", "-1");
 
-        json.put("k6030201", bi .3010201 a.isChecked() ? "1"
+        json.put("k6030201", bi.k6030201a.isChecked() ? "1"
                 : bi.k6030201b.isChecked() ? "2"
                 : bi.k6030201c.isChecked() ? "3"
-                : "-1")
+                : "-1");
 
         json.put("k6030201cx", bi.k6030201cx.getText().toString());
         json.put("k6030202", bi.k6030202a.isChecked() ? "1"
