@@ -14,8 +14,6 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
@@ -254,7 +252,7 @@ public class SectionAActivity extends AppCompatActivity {
     private void SaveDraft() throws JSONException {
 
         //MainApp.fc = new FormsContract();
-        MainApp.fc.setA1(MainApp.userName);
+       /* MainApp.fc.setA1(MainApp.userName);
         MainApp.fc.setA3(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
         MainApp.fc.setDeviceID(MainApp.appInfo.getDeviceID());
         MainApp.fc.setDevicetagID(MainApp.appInfo.getTagName());
@@ -279,7 +277,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         MainApp.fc.setA12(String.valueOf(bi.a13.getSelectedItemPosition()));
 
-        MainApp.fc.setA13(String.valueOf(bi.a13.getSelectedItem()));
+        MainApp.fc.setA13(String.valueOf(bi.a13.getSelectedItem()));*/
 
     }
 
