@@ -94,9 +94,9 @@ public class SectionBActivity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        FormsContract.a14 = bi.a14a.isChecked() ? "1"
+        json.put("a14", bi.a14a.isChecked() ? "1"
                 : bi.a14b.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
         json.put("a15", bi.a15a.isChecked() ? "1"
                 : bi.a15b.isChecked() ? "2"
