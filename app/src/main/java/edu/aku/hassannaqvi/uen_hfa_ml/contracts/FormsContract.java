@@ -514,41 +514,74 @@ public class FormsContract {
     public String modftitle;
     public String f01;
     public String f0100;
-    public String f0101a;
+    public String f01001;
+
     public String f0101aa0a;
+    public String f0101aa0ayx;
     public String f0101aa0f;
+    public String f0101aa0fyx;
+
     public String f0101ab0a;
+    public String f0101ab0ayx;
     public String f0101ab0f;
+    public String f0101ab0fyx;
+
     public String f0102;
     public String f0103;
     public String f0104;
     public String f0105;
     public String f0105aa;
+
     public String f0105aaa0a;
+    public String f0105aaa0ayx;
     public String f0105aaa0f;
+    public String f0105aaa0fyx;
+
     public String f0105aab0a;
+    public String f0105aab0ayx;
     public String f0105aab0f;
+    public String f0105aab0fyx;
+
     public String f0105aac0a;
+    public String f0105aac0ayx;
     public String f0105aac0f;
+    public String f0105aac0fyx;
+
     public String f0106;
     public String f0106aa;
+
     public String f0106aaa0a;
+    public String f0106aaa0ayx;
     public String f0106aaa0f;
+    public String f0106aaa0fyx;
+
     public String f0107;
     public String f0108;
     public String f0109;
     public String f0110;
     public String f0110aa;
+
     public String f0110aaa0a;
+    public String f0110aaa0ayx;
     public String f0110aaa0f;
+    public String f0110aaa0fyx;
     public String f0110aab0a;
+    public String f0110aab0ayx;
     public String f0110aab0f;
+    public String f0110aab0fyx;
     public String f0110aac0a;
+    public String f0110aac0ayx;
     public String f0110aac0f;
+    public String f0110aac0fyx;
     public String f0110aad0a;
+    public String f0110aad0ayx;
     public String f0110aad0f;
+    public String f0110aad0fyx;
     public String f0110aae0a;
+    public String f0110aae0ayx;
     public String f0110aae0f;
+    public String f0110aae0fyx;
+
     public String f02;
     public String f0201;
     public String f0201aa;
