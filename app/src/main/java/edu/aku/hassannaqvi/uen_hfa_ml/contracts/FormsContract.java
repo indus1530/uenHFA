@@ -678,7 +678,9 @@ public class FormsContract {
     public String g0102b;
     public String g0103;
     public String g0104;
-    public String g0105;
+    public String g0105ax;
+    public String g0105bx;
+    public String g0105cx;
     public String g0106;
     public String g0107;
     public String g0108;
@@ -686,7 +688,9 @@ public class FormsContract {
     public String g0108b;
     public String g0108c;
     public String g0109;
-    public String g0110;
+    public String g0110ax;
+    public String g0110bx;
+    public String g0110cx;
     public String g0111;
     public String g01112;
     public String g01113;
