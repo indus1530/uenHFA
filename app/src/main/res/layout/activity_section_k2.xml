@@ -5,6 +5,11 @@
 
         <import type="android.view.View" />
 
+        <!-- Databinding Edit Mode -->
+        <variable
+            name="formsContract"
+            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
+
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionK2Activity" />
@@ -30,66 +35,101 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/cardView">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
+                        style="@style/textView3Head"
                         android:text="@string/k02" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k0201a  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0201a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/vlinearlayout">
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/k0201a" />
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_k0201a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_k0201a"
+                            android:text="@string/k0201a" />
+
+                        <TextView
+                            android:id="@+id/q_k0201a"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_k0201a"
+                            android:layout_alignBottom="@id/qtxt_k0201a"
+                            android:text="@string/Q_k0201a" />
+
+                    </RelativeLayout>
 
                     <RadioGroup
                         android:id="@+id/k0201a"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        style="@style/hradiogroup">
 
                         <RadioButton
                             android:id="@+id/k0201aa"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:checked="@{formsContract.k0201a.equals(formsContract.ONE)}"
                             android:text="@string/k0201aa" />
 
                         <RadioButton
                             android:id="@+id/k0201ab"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:checked="@{formsContract.k0201a.equals(formsContract.TWO)}"
                             android:text="@string/k0201ab" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k0201b  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0201b"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/vlinearlayout">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_k0201a"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_k0201a"
+                            android:text="@string/k0201a" />
+
+                        <TextView
+                            android:id="@+id/q_k0201a"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_k0201a"
+                            android:layout_alignBottom="@id/qtxt_k0201a"
+                            android:text="@string/Q_k0201a" />
+
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -126,13 +166,9 @@
             <!-- k0202  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0202"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -169,13 +205,9 @@
             <!-- k0203  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0203"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -206,13 +238,9 @@
             <!-- k0204  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0204"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
                         android:layout_width="match_parent"
