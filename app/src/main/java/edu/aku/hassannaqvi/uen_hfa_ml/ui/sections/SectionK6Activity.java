@@ -5,15 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK6Binding;
 
@@ -321,7 +322,8 @@ public class SectionK6Activity extends AppCompatActivity {
                 : "-1");
 
         json.put("k6020204cx", bi.k6020204cx.getText().toString());
-        json.put("k60203", bi.k60203a.isChecked() ? "1"
+
+       /* json.put("k60203", bi.k60203a.isChecked() ? "1"
                 : bi.k60203b.isChecked() ? "2"
                 : "-1");
 
@@ -384,9 +386,9 @@ public class SectionK6Activity extends AppCompatActivity {
         json.put("k6030202", bi.k6030202a.isChecked() ? "1"
                 : bi.k6030202b.isChecked() ? "2"
                 : bi.k6030202c.isChecked() ? "98"
-                : "-1");
+                : "-1");*/
 
-        json.put("k60401", bi.k60401a.isChecked() ? "1"
+       /* json.put("k60401", bi.k60401a.isChecked() ? "1"
                 : bi.k60401b.isChecked() ? "2"
                 : "-1");
 
@@ -479,7 +481,7 @@ public class SectionK6Activity extends AppCompatActivity {
                 : bi.k6040402c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k6040402cx", bi.k6040402cx.getText().toString());
+        json.put("k6040402cx", bi.k6040402cx.getText().toString());*/
 
     }
 
