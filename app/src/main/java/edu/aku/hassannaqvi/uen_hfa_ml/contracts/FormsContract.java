@@ -1544,7 +1544,6 @@ public class FormsContract {
     public String j0901fd;
     public String j0901fe;
 
-
     public String k0101a;
     public String k0101b;
     public String k0101c;
@@ -1555,6 +1554,11 @@ public class FormsContract {
     public String k0104aa;
     public String k0104aaxx;
     public String k0105;
+    public String k0201a;
+    public String k0201b;
+    public String k0202;
+    public String k0203;
+    public String k0204;
 
 
     public FormsContract() {

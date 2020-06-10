@@ -25,15 +25,12 @@
 
         <LinearLayout
             android:id="@+id/GrpNameSectionK2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            style="@style/vlinearlayout">
 
             <!-- k02  Title   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk02"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/cardView">
 
@@ -114,53 +111,49 @@
                         android:background="@drawable/bottom">
 
                         <TextView
-                            android:id="@+id/qtxt_k0201a"
+                            android:id="@+id/qtxt_k0201b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/q_k0201a"
-                            android:text="@string/k0201a" />
+                            android:layout_toEndOf="@id/q_k0201b"
+                            android:text="@string/k0201b" />
 
                         <TextView
-                            android:id="@+id/q_k0201a"
+                            android:id="@+id/q_k0201b"
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/qtxt_k0201a"
-                            android:layout_alignBottom="@id/qtxt_k0201a"
-                            android:text="@string/Q_k0201a" />
+                            android:layout_alignTop="@id/qtxt_k0201b"
+                            android:layout_alignBottom="@id/qtxt_k0201b"
+                            android:text="@string/Q_k0201b" />
 
                     </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/k0201b" />
-
                     <RadioGroup
                         android:id="@+id/k0201b"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        style="@style/vradiogroup">
 
                         <RadioButton
                             android:id="@+id/k0201ba"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:checked="@{formsContract.k0201b.equals(formsContract.ONE)}"
                             android:text="@string/k0201ba" />
 
                         <RadioButton
                             android:id="@+id/k0201bb"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:checked="@{formsContract.k0201b.equals(formsContract.TWO)}"
                             android:text="@string/k0201bb" />
 
                         <RadioButton
                             android:id="@+id/k0201bc"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:checked="@{formsContract.k0201b.equals(formsContract.THREE)}"
                             android:text="@string/k0201bc" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k0202  Radio   -->
@@ -170,36 +163,55 @@
 
                 <LinearLayout style="@style/vlinearlayout">
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/k0202" />
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_k0202"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_k0202"
+                            android:text="@string/k0202" />
+
+                        <TextView
+                            android:id="@+id/q_k0202"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_k0202"
+                            android:layout_alignBottom="@id/qtxt_k0202"
+                            android:text="@string/Q_k0202" />
+
+                    </RelativeLayout>
 
                     <RadioGroup
                         android:id="@+id/k0202"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        style="@style/vradiogroup">
 
                         <RadioButton
                             android:id="@+id/k0202a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:checked="@{formsContract.k0202.equals(formsContract.ONE)}"
                             android:text="@string/k0202a" />
 
                         <RadioButton
                             android:id="@+id/k0202b"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:checked="@{formsContract.k0202.equals(formsContract.TWO)}"
                             android:text="@string/k0202b" />
 
                         <RadioButton
                             android:id="@+id/k0202c"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:checked="@{formsContract.k0202.equals(formsContract.THREE)}"
                             android:text="@string/k0202c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k0203  Radio   -->
@@ -209,30 +221,53 @@
 
                 <LinearLayout style="@style/vlinearlayout">
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/k0203" />
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_k0203"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_k0203"
+                            android:text="@string/k0203" />
+
+                        <TextView
+                            android:id="@+id/q_k0203"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_k0203"
+                            android:layout_alignBottom="@id/qtxt_k0203"
+                            android:text="@string/Q_k0203" />
+
+                    </RelativeLayout>
 
                     <RadioGroup
                         android:id="@+id/k0203"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        style="@style/hradiogroup">
 
                         <RadioButton
                             android:id="@+id/k0203a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:checked="@{formsContract.k0203.equals(formsContract.ONE)}"
                             android:text="@string/k0203a" />
 
                         <RadioButton
                             android:id="@+id/k0203b"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:checked="@{formsContract.k0203.equals(formsContract.TWO)}"
                             android:text="@string/k0203b" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k0204  Radio   -->
@@ -242,42 +277,61 @@
 
                 <LinearLayout style="@style/vlinearlayout">
 
-                    <TextView
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/k0204" />
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_k0204"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_k0204"
+                            android:text="@string/k0204" />
+
+                        <TextView
+                            android:id="@+id/q_k0204"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_k0204"
+                            android:layout_alignBottom="@id/qtxt_k0204"
+                            android:text="@string/Q_k0204" />
+
+                    </RelativeLayout>
 
                     <RadioGroup
                         android:id="@+id/k0204"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        style="@style/vradiogroup">
 
                         <RadioButton
                             android:id="@+id/k0204a"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:checked="@{formsContract.k0204.equals(formsContract.ONE)}"
                             android:text="@string/k0204a" />
 
                         <RadioButton
                             android:id="@+id/k0204b"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:checked="@{formsContract.k0204.equals(formsContract.TWO)}"
                             android:text="@string/k0204b" />
 
                         <RadioButton
                             android:id="@+id/k0204c"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:checked="@{formsContract.k0204.equals(formsContract.THREE)}"
                             android:text="@string/k0204c" />
 
                         <RadioButton
                             android:id="@+id/k0204d"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            style="@style/radiobutton"
+                            android:checked="@{formsContract.k0204.equals(formsContract.FOUR)}"
                             android:text="@string/k0204d" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!--EndButton LinearLayout-->
@@ -302,5 +356,7 @@
             <!--EndButton LinearLayout-->
 
         </LinearLayout>
+
     </ScrollView>
+
 </layout>
