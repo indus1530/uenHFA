@@ -585,31 +585,56 @@ public class FormsContract {
     public String f02;
     public String f0201;
     public String f0201aa;
+
     public String f0201aaa0a;
+    public String f0201aaa0ayx;
     public String f0201aaa0f;
+    public String f0201aaa0fyx;
     public String f0201aab0a;
+    public String f0201aab0ayx;
     public String f0201aab0f;
+    public String f0201aab0fyx;
+
     public String f0202;
     public String f0202aa;
+
     public String f0202aaa0a;
+    public String f0202aaa0ayx;
     public String f0202aaa0f;
+    public String f0202aaa0fyx;
     public String f0202aab0a;
+    public String f0202aab0ayx;
     public String f0202aab0f;
+    public String f0202aab0fyx;
+
     public String f0203;
     public String f0203aa;
     public String f0203aaa0a;
+    public String f0203aaa0ayx;
     public String f0203aaa0f;
+    public String f0203aaa0fyx;
     public String f0203aab0a;
+    public String f0203aab0ayx;
     public String f0203aab0f;
+    public String f0203aab0fyx;
+
     public String f03;
     public String f0301;
     public String f0301aa;
+
     public String f0301aaa0a;
+    public String f0301aaa0ayx;
     public String f0301aaa0f;
+    public String f0301aaa0fyx;
+
     public String f0302;
     public String f0302aa;
+
     public String f0302aaa0a;
+    public String f0302aaa0ayx;
     public String f0302aaa0f;
+    public String f0302aaa0fyx;
+
     public String f04;
     public String f0401;
     public String f0401aa;

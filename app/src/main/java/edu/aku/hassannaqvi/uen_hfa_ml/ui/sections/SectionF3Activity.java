@@ -4,16 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionF3Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -70,40 +67,40 @@ public class SectionF3Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
 
-        json.put("f0301", bi.f0301a.isChecked() ? "1"
+        MainApp.fc.f0301 = bi.f0301a.isChecked() ? "1"
                 : bi.f0301b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
 
-
-        json.put("f0301aaa0a", bi.f0301aaa0ay.isChecked() ? "1"
+        MainApp.fc.f0301aaa0a = bi.f0301aaa0ay.isChecked() ? "1"
                 : bi.f0301aaa0an.isChecked() ? "2"
-                : "-1");
-        json.put("f0301aaa0ayx", bi.f0301aaa0ayx.getText().toString());
+                : "-1";
+        MainApp.fc.f0301aaa0ayx = bi.f0301aaa0ayx.getText().toString().trim().length() > 0 ? bi.f0301aaa0ayx.getText().toString() : "-1";
 
-        json.put("f0301aaa0f", bi.f0301aaa0fy.isChecked() ? "1"
+        MainApp.fc.f0301aaa0f = bi.f0301aaa0fy.isChecked() ? "1"
                 : bi.f0301aaa0fn.isChecked() ? "2"
-                : "-1");
-        json.put("f0301aaa0fyx", bi.f0301aaa0fyx.getText().toString());
+                : "-1";
+        MainApp.fc.f0301aaa0fyx = bi.f0301aaa0fyx.getText().toString().trim().length() > 0 ? bi.f0301aaa0fyx.getText().toString() : "-1";
 
-        json.put("f0302", bi.f0302a.isChecked() ? "1"
+
+        MainApp.fc.f0302 = bi.f0302a.isChecked() ? "1"
                 : bi.f0302b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
 
-        json.put("f0302aaa0a", bi.f0302aaa0ay.isChecked() ? "1"
+        MainApp.fc.f0302aaa0a = bi.f0302aaa0ay.isChecked() ? "1"
                 : bi.f0302aaa0an.isChecked() ? "2"
-                : "-1");
-        json.put("f0302aaa0ayx", bi.f0302aaa0ayx.getText().toString());
+                : "-1";
+        MainApp.fc.f0302aaa0ayx = bi.f0302aaa0ayx.getText().toString().trim().length() > 0 ? bi.f0302aaa0ayx.getText().toString() : "-1";
 
-        json.put("f0302aaa0f", bi.f0302aaa0fy.isChecked() ? "1"
+        MainApp.fc.f0302aaa0f = bi.f0302aaa0fy.isChecked() ? "1"
                 : bi.f0302aaa0fn.isChecked() ? "2"
-                : "-1");
-        json.put("f0302aaa0fyx", bi.f0302aaa0fyx.getText().toString());
+                : "-1";
+        MainApp.fc.f0302aaa0fyx = bi.f0302aaa0fyx.getText().toString().trim().length() > 0 ? bi.f0302aaa0fyx.getText().toString() : "-1";
+
     }
 
 
@@ -113,13 +110,8 @@ public class SectionF3Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionF4Activity.class));
