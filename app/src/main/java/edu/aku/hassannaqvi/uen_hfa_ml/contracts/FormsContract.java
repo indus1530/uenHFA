@@ -276,55 +276,109 @@ public class FormsContract {
     public String e0303l;
     public String e0303m;
     public String e0303n;
-    public String e0304;
+
     public String e0304a;
     public String e0304b;
     public String e0304c;
     public String e0304d;
-    public String e0305;
+
     public String e0305a;
     public String e0305b;
     public String e0305c;
     public String e0305d;
     public String e0305e;
     public String e0305exx;
-    public String e0306;
+
     public String e0306a0a;
+    public String e0306a0ayx;
     public String e0306a0f;
+    public String e0306a0fyx;
+
     public String e0306b0a;
+    public String e0306b0ayx;
     public String e0306b0f;
+    public String e0306b0fyx;
+
     public String e0306c0a;
+    public String e0306c0ayx;
     public String e0306c0f;
+    public String e0306c0fyx;
+
     public String e0306d0a;
+    public String e0306d0ayx;
     public String e0306d0f;
+    public String e0306d0fyx;
+
     public String e0306e0a;
+    public String e0306e0ayx;
     public String e0306e0f;
+    public String e0306e0fyx;
+
     public String e0306f0a;
+    public String e0306f0ayx;
     public String e0306f0f;
+    public String e0306f0fyx;
+
     public String e0306g0a;
+    public String e0306g0ayx;
     public String e0306g0f;
+    public String e0306g0fyx;
+
     public String e0306h0a;
+    public String e0306h0ayx;
     public String e0306h0f;
+    public String e0306h0fyx;
+
     public String e0306i0a;
+    public String e0306i0ayx;
     public String e0306i0f;
+    public String e0306i0fyx;
+
     public String e0306j0a;
+    public String e0306j0ayx;
     public String e0306j0f;
+    public String e0306j0fyx;
+
     public String e0306k0a;
+    public String e0306k0ayx;
     public String e0306k0f;
+    public String e0306k0fyx;
+
     public String e0306l0a;
+    public String e0306l0ayx;
     public String e0306l0f;
+    public String e0306l0fyx;
+
     public String e0306m0a;
+    public String e0306m0ayx;
     public String e0306m0f;
+    public String e0306m0fyx;
+
     public String e0306n0a;
+    public String e0306n0ayx;
     public String e0306n0f;
+    public String e0306n0fyx;
+
     public String e0306o0a;
+    public String e0306o0ayx;
     public String e0306o0f;
+    public String e0306o0fyx;
+
     public String e0306p0a;
+    public String e0306p0ayx;
     public String e0306p0f;
+    public String e0306p0fyx;
+
     public String e0306q0a;
+    public String e0306q0ayx;
     public String e0306q0f;
+    public String e0306q0fyx;
+
     public String e0306r0a;
+    public String e0306r0ayx;
     public String e0306r0f;
+    public String e0306r0fyx;
+
     public String e0307;
     public String e0308;
     public String e04;
