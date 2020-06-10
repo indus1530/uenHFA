@@ -113,117 +113,122 @@ public class SectionE32Activity extends AppCompatActivity {
         MainApp.fc.e0306a0a = bi.e0306a0ay.isChecked() ? "1"
                 : bi.e0306a0an.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306a0ayx = bi.e0306a0ayx.getText().toString();
+        MainApp.fc.e0306a0ayx = bi.e0306a0ayx.getText().toString().trim().length() > 0 ? bi.e0306a0ayx.getText().toString() : "-1";
 
         MainApp.fc.e0306a0f = bi.e0306a0fy.isChecked() ? "1"
                 : bi.e0306a0fn.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306a0fyx = bi.e0306a0fyx.getText().toString();
+        MainApp.fc.e0306a0fyx = bi.e0306a0fyx.getText().toString().trim().length() > 0 ? bi.e0306a0fyx.getText().toString() : "-1";
 
 
         MainApp.fc.e0306b0a = bi.e0306b0ay.isChecked() ? "1"
                 : bi.e0306b0an.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306b0ayx = bi.e0306b0ayx.getText().toString();
+        MainApp.fc.e0306b0ayx = bi.e0306b0ayx.getText().toString().trim().length() > 0 ? bi.e0306b0ayx.getText().toString() : "-1";
 
         MainApp.fc.e0306b0f = bi.e0306b0fy.isChecked() ? "1"
                 : bi.e0306b0fn.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306b0fyx = bi.e0306b0fyx.getText().toString();
+        MainApp.fc.e0306b0fyx = bi.e0306b0fyx.getText().toString().trim().length() > 0 ? bi.e0306b0fyx.getText().toString() : "-1";
 
 
         MainApp.fc.e0306c0a = bi.e0306c0ay.isChecked() ? "1"
                 : bi.e0306c0an.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306c0ayx = bi.e0306c0ayx.getText().toString();
+        MainApp.fc.e0306c0ayx = bi.e0306c0ayx.getText().toString().trim().length() > 0 ? bi.e0306c0ayx.getText().toString() : "-1";
 
         MainApp.fc.e0306c0f = bi.e0306c0fy.isChecked() ? "1"
                 : bi.e0306c0fn.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306c0fyx = bi.e0306c0fyx.getText().toString();
+        MainApp.fc.e0306c0fyx = bi.e0306c0fyx.getText().toString().trim().length() > 0 ? bi.e0306c0fyx.getText().toString() : "-1";
 
 
         MainApp.fc.e0306d0a = bi.e0306d0ay.isChecked() ? "1"
                 : bi.e0306d0an.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306d0ayx = bi.e0306d0ayx.getText().toString();
+        MainApp.fc.e0306d0ayx = bi.e0306d0ayx.getText().toString().trim().length() > 0 ? bi.e0306d0ayx.getText().toString() : "-1";
 
         MainApp.fc.e0306d0f = bi.e0306d0fy.isChecked() ? "1"
                 : bi.e0306d0fn.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306d0fyx = bi.e0306d0fyx.getText().toString();
+        MainApp.fc.e0306d0fyx = bi.e0306d0fyx.getText().toString().trim().length() > 0 ? bi.e0306d0fyx.getText().toString() : "-1";
 
 
+        
         MainApp.fc.e0306e0a = bi.e0306e0ay.isChecked() ? "1"
                 : bi.e0306e0an.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306e0ayx = bi.e0306e0ayx.getText().toString();
+        MainApp.fc.e0306e0ayx = bi.e0306e0ayx.getText().toString().trim().length() > 0 ? bi.e0306e0ayx.getText().toString() : "-1";
 
         MainApp.fc.e0306e0f = bi.e0306e0fy.isChecked() ? "1"
                 : bi.e0306e0fn.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306e0fyx = bi.e0306e0fyx.getText().toString();
+        MainApp.fc.e0306e0fyx = bi.e0306e0fyx.getText().toString().trim().length() > 0 ? bi.e0306e0fyx.getText().toString() : "-1";
 
 
+        
         MainApp.fc.e0306f0a = bi.e0306f0ay.isChecked() ? "1"
                 : bi.e0306f0an.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306f0ayx = bi.e0306f0ayx.getText().toString();
+        MainApp.fc.e0306f0ayx = bi.e0306f0ayx.getText().toString().trim().length() > 0 ? bi.e0306f0ayx.getText().toString() : "-1";
 
         MainApp.fc.e0306f0f = bi.e0306f0fy.isChecked() ? "1"
                 : bi.e0306f0fn.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306f0fyx = bi.e0306f0fyx.getText().toString();
+        MainApp.fc.e0306f0fyx = bi.e0306f0fyx.getText().toString().trim().length() > 0 ? bi.e0306f0fyx.getText().toString() : "-1";
 
 
+        
         MainApp.fc.e0306g0a = bi.e0306g0ay.isChecked() ? "1"
                 : bi.e0306g0an.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306g0ayx = bi.e0306g0ayx.getText().toString();
+        MainApp.fc.e0306g0ayx = bi.e0306g0ayx.getText().toString().trim().length() > 0 ? bi.e0306g0ayx.getText().toString() : "-1";
 
         MainApp.fc.e0306g0f = bi.e0306g0fy.isChecked() ? "1"
                 : bi.e0306g0fn.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306g0fyx = bi.e0306g0fyx.getText().toString();
+        MainApp.fc.e0306g0fyx = bi.e0306g0fyx.getText().toString().trim().length() > 0 ? bi.e0306g0fyx.getText().toString() : "-1";
 
 
+        
         MainApp.fc.e0306h0a = bi.e0306h0ay.isChecked() ? "1"
                 : bi.e0306h0an.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306h0ayx = bi.e0306h0ayx.getText().toString();
+        MainApp.fc.e0306h0ayx = bi.e0306h0ayx.getText().toString().trim().length() > 0 ? bi.e0306h0ayx.getText().toString() : "-1";
 
         MainApp.fc.e0306h0f = bi.e0306h0fy.isChecked() ? "1"
                 : bi.e0306h0fn.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306h0fyx = bi.e0306h0fyx.getText().toString();
+        MainApp.fc.e0306h0fyx = bi.e0306h0fyx.getText().toString().trim().length() > 0 ? bi.e0306h0fyx.getText().toString() : "-1";
 
 
+        
         MainApp.fc.e0306i0a = bi.e0306i0ay.isChecked() ? "1"
                 : bi.e0306i0an.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306i0ayx = bi.e0306i0ayx.getText().toString();
+        MainApp.fc.e0306i0ayx = bi.e0306i0ayx.getText().toString().trim().length() > 0 ? bi.e0306i0ayx.getText().toString() : "-1";
 
         MainApp.fc.e0306i0f = bi.e0306i0fy.isChecked() ? "1"
                 : bi.e0306i0fn.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306i0fyx = bi.e0306i0fyx.getText().toString();
+        MainApp.fc.e0306i0fyx = bi.e0306i0fyx.getText().toString().trim().length() > 0 ? bi.e0306i0fyx.getText().toString() : "-1";
 
 
+        
         MainApp.fc.e0306j0a = bi.e0306j0ay.isChecked() ? "1"
                 : bi.e0306j0an.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306j0ayx = bi.e0306j0ayx.getText().toString();
+        MainApp.fc.e0306j0ayx = bi.e0306j0ayx.getText().toString().trim().length() > 0 ? bi.e0306j0ayx.getText().toString() : "-1";
 
         MainApp.fc.e0306j0f = bi.e0306j0fy.isChecked() ? "1"
                 : bi.e0306j0fn.isChecked() ? "2"
                 : "-1";
-        MainApp.fc.e0306j0fyx = bi.e0306j0fyx.getText().toString();
+        MainApp.fc.e0306j0fyx = bi.e0306j0fyx.getText().toString().trim().length() > 0 ? bi.e0306j0fyx.getText().toString() : "-1";
 
     }
 
 
     private boolean formValidation() {
-
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
