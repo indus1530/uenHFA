@@ -1577,13 +1577,19 @@ public class FormsContract {
     public String k0202;
     public String k0203;
     public String k0204;
-
     public String k0401;
     public String k0402;
     public String k0403;
     public String k0404;
     public String k0405;
     public String k0406;
+
+    public String k0501;
+    public String k0502;
+    public String k0503;
+    public String k0504;
+    public String k0505;
+    public String k0506;
 
 
     public FormsContract() {
