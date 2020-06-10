@@ -1476,6 +1476,18 @@ public class FormsContract {
     public String j0901fe;
 
 
+    public String k0101a;
+    public String k0101b;
+    public String k0101c;
+    public String k0101xx;
+    public String k0102;
+    public String k0103;
+    public String k0104;
+    public String k0104aa;
+    public String k0104aaxx;
+    public String k0105;
+
+
     public FormsContract() {
     }
 
