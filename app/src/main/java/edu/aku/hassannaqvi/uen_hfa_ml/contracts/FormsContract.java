@@ -287,6 +287,7 @@ public class FormsContract {
     public String e0305c;
     public String e0305d;
     public String e0305e;
+    public String e0305exx;
     public String e0306;
     public String e0306a0a;
     public String e0306a0f;
