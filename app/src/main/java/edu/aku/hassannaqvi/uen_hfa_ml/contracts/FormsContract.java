@@ -233,7 +233,8 @@ public class FormsContract {
     public String e0104b;
     public String e0104c;
     public String e0104d;
-    public String e0103e;
+    public String e0104e;
+    public String e0104exx;
     public String e02;
     public String e0201;
     public String e0202;
@@ -251,6 +252,7 @@ public class FormsContract {
     public String e0204b;
     public String e0204c;
     public String e0204d;
+    public String e0204dxx;
     public String e03;
     public String e0301;
     public String e0302;
