@@ -54,8 +54,7 @@ public class FormsContract {
     private String synced = "";
     private String synced_date = "";
     private String appversion = "";
-    public String a14;
-    public String a17;
+
     public String modatitle;
     public String a01;
     public String a02;
@@ -70,8 +69,10 @@ public class FormsContract {
     public String a11;
     public String a12;
     public String a13;
+    public String a14;
     public String a15;
     public String a16;
+    public String a17;
     public String a18;
     public String a18xx;
     public String a19;
@@ -79,12 +80,14 @@ public class FormsContract {
     public String a20;
     public String a21;
     public String a22;
+
     public String modbtitle;
     public String b01;
     public String b02;
     public String b03;
     public String b04;
     public String b05;
+
     public String modctitle;
     public String c01;
     public String c01a;
@@ -109,6 +112,7 @@ public class FormsContract {
     public String c04d;
     public String c04b;
     public String c04c;
+
     public String moddtitle;
     public String d01;
     public String d0101;

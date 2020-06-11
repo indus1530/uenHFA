@@ -21,6 +21,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH16Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH2Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ1Activity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionK1Activity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
@@ -55,7 +56,8 @@ public class SectionMainActivity extends AppCompatActivity {
                 && !bi.form06.isEnabled()
                 && !bi.form07.isEnabled()
                 && !bi.form08.isEnabled()
-                && !bi.form09.isEnabled()) {
+                && !bi.form09.isEnabled()
+                && !bi.form10.isEnabled()) {
             finish();
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
             //MainApp.endActivity(this, SectionBActivity.class);
@@ -74,7 +76,8 @@ public class SectionMainActivity extends AppCompatActivity {
                 || bi.form06.isEnabled()
                 || bi.form07.isEnabled()
                 || bi.form08.isEnabled()
-                || bi.form09.isEnabled()) {
+                || bi.form09.isEnabled()
+                || bi.form10.isEnabled()) {
             finish();
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
             //MainApp.endActivity(this, EndingActivity.class).putExtra("complete", false);
@@ -115,6 +118,9 @@ public class SectionMainActivity extends AppCompatActivity {
                     break;
                 case R.id.form09:
                     oF = new Intent(SectionMainActivity.this, SectionJ1Activity.class);
+                    break;
+                case R.id.form10:
+                    oF = new Intent(SectionMainActivity.this, SectionK1Activity.class);
                     break;
             }
             startActivity(oF);

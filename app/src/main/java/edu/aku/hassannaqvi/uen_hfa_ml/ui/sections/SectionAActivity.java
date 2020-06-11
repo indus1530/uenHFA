@@ -12,8 +12,9 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
@@ -249,11 +250,10 @@ public class SectionAActivity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        //MainApp.fc = new FormsContract();
-       /* MainApp.fc.setA1(MainApp.userName);
-        MainApp.fc.setA3(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        MainApp.fc.a01 = MainApp.userName;
+        MainApp.fc.a03 = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
         MainApp.fc.setDeviceID(MainApp.appInfo.getDeviceID());
         MainApp.fc.setDevicetagID(MainApp.appInfo.getTagName());
         MainApp.fc.setAppversion(MainApp.appInfo.getAppVersion());
@@ -261,23 +261,23 @@ public class SectionAActivity extends AppCompatActivity {
 
         //MainApp.fc.setA6(String.valueOf(bi.a06.getSelectedItem()));
 
-        MainApp.fc.setA7(String.valueOf(bi.a07.getSelectedItem()));
+        MainApp.fc.a07 = String.valueOf(bi.a07.getSelectedItem());
 
-        MainApp.fc.setA8(String.valueOf(bi.a08.getSelectedItem()));
+        MainApp.fc.a08 = String.valueOf(bi.a08.getSelectedItem());
 
-        MainApp.fc.setA9(String.valueOf(bi.a09.getSelectedItem()));
+        MainApp.fc.a09 = String.valueOf(bi.a09.getSelectedItem());
 
-        MainApp.fc.setA10(bi.a10a.isChecked() ? "1"
+        MainApp.fc.a10 = bi.a10a.isChecked() ? "1"
                 : bi.a10b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        MainApp.fc.setA11(bi.a11a.isChecked() ? "1"
+        MainApp.fc.a11 = bi.a11a.isChecked() ? "1"
                 : bi.a11b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        MainApp.fc.setA12(String.valueOf(bi.a13.getSelectedItemPosition()));
+        MainApp.fc.a12 = String.valueOf(bi.a13.getSelectedItemPosition());
 
-        MainApp.fc.setA13(String.valueOf(bi.a13.getSelectedItem()));*/
+        MainApp.fc.a13 = String.valueOf(bi.a13.getSelectedItem());
 
     }
 
