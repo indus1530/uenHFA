@@ -16,22 +16,26 @@ public class FormsContract {
     public static final String PATH_FORMS = "Forms";
     private final String projectName = "UEN_HFA_ML2020";
 
-    public static String ONE = "1";
-    public static String TWO = "2";
-    public static String THREE = "3";
-    public static String FOUR = "4";
-    public static String FIVE = "5";
-    public static String SIX = "6";
-    public static String SEVEN = "7";
-    public static String EIGHT = "8";
-    public static String NINE = "9";
-    public static String TEN = "10";
-    public static String ELEVEN = "11";
-    public static String TWELVE = "12";
-    public static String THIRTEEN = "13";
-    public static String FOURTEEN = "14";
-    public static String FIFTEEN = "15";
-    public static String SIXTEEN = "16";
+    public static String one = "1";
+    public static String two = "2";
+    public static String three = "3";
+    public static String four = "4";
+    public static String five = "5";
+    public static String six = "6";
+    public static String seven = "7";
+    public static String eight = "8";
+    public static String nine = "9";
+    public static String ten = "10";
+    public static String eleven = "11";
+    public static String twelve = "12";
+    public static String thirteen = "13";
+    public static String fourteen = "14";
+    public static String fifteen = "15";
+    public static String sixteen = "16";
+    public static String nSix = "96";
+    public static String nSeven = "97";
+    public static String nEight = "98";
+    public static String nNine = "99";
 
 
 
@@ -673,26 +677,32 @@ public class FormsContract {
     public String modgtitle;
     public String g01;
     public String g0101;
+    public String g0101xx;
     public String g0102;
     public String g0102a;
     public String g0102b;
     public String g0103;
+    public String g0103xx;
     public String g0104;
     public String g0105ax;
     public String g0105bx;
     public String g0105cx;
     public String g0106;
+    public String g0106xx;
     public String g0107;
-    public String g0108;
+    public String g0107xx;
+
     public String g0108a;
     public String g0108b;
     public String g0108c;
+
     public String g0109;
     public String g0110ax;
     public String g0110bx;
     public String g0110cx;
     public String g0111;
     public String g01112;
+    public String g01112xx;
     public String g01113;
     public String g01114;
     public String g01115;
