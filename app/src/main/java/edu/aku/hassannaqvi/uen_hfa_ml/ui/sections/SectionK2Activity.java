@@ -5,16 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.validatorcrawler.aliazaz.Validator;
-
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import com.validatorcrawler.aliazaz.Validator;
+
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK2Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -76,33 +77,33 @@ public class SectionK2Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
         JSONObject json = new JSONObject();
 
-        json.put("k0201a", bi.k0201aa.isChecked() ? "1"
+        MainApp.fc.k0201a = bi.k0201aa.isChecked() ? "1"
                 : bi.k0201ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("k0201b", bi.k0201ba.isChecked() ? "1"
+        MainApp.fc.k0201b = bi.k0201ba.isChecked() ? "1"
                 : bi.k0201bb.isChecked() ? "2"
                 : bi.k0201bc.isChecked() ? "3"
-                : "-1");
+                : "-1";
 
-        json.put("k0202", bi.k0202a.isChecked() ? "1"
+        MainApp.fc.k0202 = bi.k0202a.isChecked() ? "1"
                 : bi.k0202b.isChecked() ? "2"
                 : bi.k0202c.isChecked() ? "3"
-                : "-1");
+                : "-1";
 
-        json.put("k0203", bi.k0203a.isChecked() ? "1"
+        MainApp.fc.k0203 = bi.k0203a.isChecked() ? "1"
                 : bi.k0203b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("k0204", bi.k0204a.isChecked() ? "1"
+        MainApp.fc.k0204 = bi.k0204a.isChecked() ? "1"
                 : bi.k0204b.isChecked() ? "2"
                 : bi.k0204c.isChecked() ? "3"
                 : bi.k0204d.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
     }
 
