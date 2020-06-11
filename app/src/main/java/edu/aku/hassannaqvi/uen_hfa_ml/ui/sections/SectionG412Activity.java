@@ -88,7 +88,6 @@ public class SectionG412Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
         if (updcount == 1) {
@@ -121,6 +120,7 @@ public class SectionG412Activity extends AppCompatActivity {
                 : bi.g0401120pn.isChecked() ? "2"
                 : "-1");
 
+
         json.put("g0401130a", bi.g0401130ay.isChecked() ? "1"
                 : bi.g0401130an.isChecked() ? "2"
                 : "-1");
@@ -136,6 +136,7 @@ public class SectionG412Activity extends AppCompatActivity {
         json.put("g0401130p", bi.g0401130py.isChecked() ? "1"
                 : bi.g0401130pn.isChecked() ? "2"
                 : "-1");
+
 
         json.put("g0401140a", bi.g0401140ay.isChecked() ? "1"
                 : bi.g0401140an.isChecked() ? "2"
@@ -153,6 +154,7 @@ public class SectionG412Activity extends AppCompatActivity {
                 : bi.g0401140pn.isChecked() ? "2"
                 : "-1");
 
+
         json.put("g0401150a", bi.g0401150ay.isChecked() ? "1"
                 : bi.g0401150an.isChecked() ? "2"
                 : "-1");
@@ -169,6 +171,7 @@ public class SectionG412Activity extends AppCompatActivity {
                 : bi.g0401150pn.isChecked() ? "2"
                 : "-1");
 
+
         json.put("g0401160a", bi.g0401160ay.isChecked() ? "1"
                 : bi.g0401160an.isChecked() ? "2"
                 : "-1");
@@ -184,6 +187,7 @@ public class SectionG412Activity extends AppCompatActivity {
         json.put("g0401160p", bi.g0401160py.isChecked() ? "1"
                 : bi.g0401160pn.isChecked() ? "2"
                 : "-1");
+
 
         json.put("g0401170a", bi.g0401170ay.isChecked() ? "1"
                 : bi.g0401170an.isChecked() ? "2"
