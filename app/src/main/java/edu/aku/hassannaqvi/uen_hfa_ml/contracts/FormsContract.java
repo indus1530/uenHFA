@@ -1890,6 +1890,37 @@ public class FormsContract {
     public String k0702b;
     public String k0702c;
 
+    public String k10;
+    public String k100;
+    public String k1001;
+    public String k1002;
+    public String k1003;
+    public String k1004;
+    public String k1005;
+    public String k1006;
+    public String k1007;
+    public String k1008;
+    public String k1009;
+    public String k1010;
+    public String k1011;
+    public String k101;
+    public String k1012;
+    public String k1013;
+    public String k1014;
+    public String k1015;
+    public String k11;
+    public String k1100;
+    public String k1101;
+    public String k1102;
+    public String k1103;
+    public String k1104;
+    public String k1105;
+    public String k1106;
+    public String k1107;
+    public String k1108;
+    public String k1109;
+    public String k1110;
+    public String k1111;
 
     public FormsContract() {
     }
