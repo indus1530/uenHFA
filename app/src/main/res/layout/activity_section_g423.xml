@@ -57,6 +57,7 @@
             </androidx.cardview.widget.CardView>
 
 
+
             <!-- g0403100a  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403100a"
@@ -98,6 +99,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403100a.equals(formsContract.one)}'
                             android:text="@string/g0403100ay" />
 
                         <RadioButton
@@ -105,6 +107,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403100a.equals(formsContract.two)}'
                             android:text="@string/g0403100an" />
 
                     </RadioGroup>
@@ -155,6 +158,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403100s.equals(formsContract.one)}'
                             android:text="@string/g0403100sy" />
 
                         <RadioButton
@@ -162,6 +166,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403100s.equals(formsContract.two)}'
                             android:text="@string/g0403100sn" />
 
                     </RadioGroup>
@@ -171,7 +176,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403100so  Title   -->
+            <!-- g0403100so Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403100so"
                 style="@style/cardView"
@@ -205,19 +210,21 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403100sd" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/g0403100sd"
                                 style="@style/EditTextNum"
                                 android:gravity="center"
+                                android:text='@{formsContract.g0403100sd}'
                                 android:hint="##"
                                 android:maxLength="2"
                                 app:maxValue="30"
@@ -226,19 +233,21 @@
 
                         </LinearLayout>
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403100sm" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/g0403100sm"
                                 style="@style/EditTextNum"
                                 android:gravity="center"
+                                android:text='@{formsContract.g0403100sm}'
                                 android:hint="##"
                                 android:maxLength="2"
                                 app:maxValue="11"
@@ -254,7 +263,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403100p  Radio   -->
+            <!-- g0403100p  Radio    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403100p"
                 style="@style/cardView">
@@ -295,6 +304,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403100p.equals(formsContract.one)}'
                             android:text="@string/g0403100py" />
 
                         <RadioButton
@@ -302,6 +312,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403100p.equals(formsContract.two)}'
                             android:text="@string/g0403100pn" />
 
                     </RadioGroup>
@@ -309,6 +320,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
 
             <!-- g0403110a  Radio   -->
@@ -352,6 +364,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403110a.equals(formsContract.one)}'
                             android:text="@string/g0403110ay" />
 
                         <RadioButton
@@ -359,6 +372,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403110a.equals(formsContract.two)}'
                             android:text="@string/g0403110an" />
 
                     </RadioGroup>
@@ -409,6 +423,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403110s.equals(formsContract.one)}'
                             android:text="@string/g0403110sy" />
 
                         <RadioButton
@@ -416,6 +431,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403110s.equals(formsContract.two)}'
                             android:text="@string/g0403110sn" />
 
                     </RadioGroup>
@@ -425,7 +441,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403110so  Title   -->
+            <!-- g0403110so Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403110so"
                 style="@style/cardView"
@@ -459,19 +475,21 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403110sd" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/g0403110sd"
                                 style="@style/EditTextNum"
                                 android:gravity="center"
+                                android:text='@{formsContract.g0403110sd}'
                                 android:hint="##"
                                 android:maxLength="2"
                                 app:maxValue="30"
@@ -480,19 +498,21 @@
 
                         </LinearLayout>
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403110sm" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/g0403110sm"
                                 style="@style/EditTextNum"
                                 android:gravity="center"
+                                android:text='@{formsContract.g0403110sm}'
                                 android:hint="##"
                                 android:maxLength="2"
                                 app:maxValue="11"
@@ -508,7 +528,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403110p  Radio   -->
+            <!-- g0403110p  Radio    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403110p"
                 style="@style/cardView">
@@ -549,6 +569,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403110p.equals(formsContract.one)}'
                             android:text="@string/g0403110py" />
 
                         <RadioButton
@@ -556,6 +577,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403110p.equals(formsContract.two)}'
                             android:text="@string/g0403110pn" />
 
                     </RadioGroup>
@@ -563,6 +585,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
 
             <!-- g0403120a  Radio   -->
@@ -606,6 +629,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403120a.equals(formsContract.one)}'
                             android:text="@string/g0403120ay" />
 
                         <RadioButton
@@ -613,6 +637,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403120a.equals(formsContract.two)}'
                             android:text="@string/g0403120an" />
 
                     </RadioGroup>
@@ -663,6 +688,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403120s.equals(formsContract.one)}'
                             android:text="@string/g0403120sy" />
 
                         <RadioButton
@@ -670,6 +696,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403120s.equals(formsContract.two)}'
                             android:text="@string/g0403120sn" />
 
                     </RadioGroup>
@@ -679,7 +706,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403120so  Title   -->
+            <!-- g0403120so Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403120so"
                 style="@style/cardView"
@@ -713,13 +740,14 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403120sd" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -728,11 +756,13 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403120sd}'
                                 app:maxValue="30"
                                 app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             style="@style/vlinearlayout"
@@ -740,7 +770,7 @@
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403120sm" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -749,6 +779,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403120sm}'
                                 app:maxValue="11"
                                 app:minValue="0"
                                 app:type="range" />
@@ -762,7 +793,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403120p  Radio   -->
+            <!-- g0403120p  Radio    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403120p"
                 style="@style/cardView">
@@ -803,6 +834,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403120p.equals(formsContract.one)}'
                             android:text="@string/g0403120py" />
 
                         <RadioButton
@@ -810,6 +842,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403120p.equals(formsContract.two)}'
                             android:text="@string/g0403120pn" />
 
                     </RadioGroup>
@@ -817,6 +850,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
 
             <!-- g0403130a  Radio   -->
@@ -860,6 +894,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403130a.equals(formsContract.one)}'
                             android:text="@string/g0403130ay" />
 
                         <RadioButton
@@ -867,6 +902,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403130a.equals(formsContract.two)}'
                             android:text="@string/g0403130an" />
 
                     </RadioGroup>
@@ -917,6 +953,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403130s.equals(formsContract.one)}'
                             android:text="@string/g0403130sy" />
 
                         <RadioButton
@@ -924,6 +961,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403130s.equals(formsContract.two)}'
                             android:text="@string/g0403130sn" />
 
                     </RadioGroup>
@@ -933,7 +971,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403130so  Title   -->
+            <!-- g0403130so Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403130so"
                 style="@style/cardView"
@@ -967,13 +1005,14 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403130sd" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -982,11 +1021,13 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403130sd}'
                                 app:maxValue="30"
                                 app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             style="@style/vlinearlayout"
@@ -994,7 +1035,7 @@
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403130sm" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -1003,6 +1044,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403130sm}'
                                 app:maxValue="11"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1016,7 +1058,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403130p  Radio   -->
+            <!-- g0403130p  Radio    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403130p"
                 style="@style/cardView">
@@ -1057,6 +1099,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403130p.equals(formsContract.one)}'
                             android:text="@string/g0403130py" />
 
                         <RadioButton
@@ -1064,6 +1107,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403130p.equals(formsContract.two)}'
                             android:text="@string/g0403130pn" />
 
                     </RadioGroup>
@@ -1071,6 +1115,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
 
             <!-- g0403140a  Radio   -->
@@ -1114,6 +1159,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403140a.equals(formsContract.one)}'
                             android:text="@string/g0403140ay" />
 
                         <RadioButton
@@ -1121,6 +1167,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403140a.equals(formsContract.two)}'
                             android:text="@string/g0403140an" />
 
                     </RadioGroup>
@@ -1171,6 +1218,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403140s.equals(formsContract.one)}'
                             android:text="@string/g0403140sy" />
 
                         <RadioButton
@@ -1178,6 +1226,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403140s.equals(formsContract.two)}'
                             android:text="@string/g0403140sn" />
 
                     </RadioGroup>
@@ -1187,7 +1236,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403140so  Title   -->
+            <!-- g0403140so Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403140so"
                 style="@style/cardView"
@@ -1221,13 +1270,14 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403140sd" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -1236,11 +1286,13 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403140sd}'
                                 app:maxValue="30"
                                 app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             style="@style/vlinearlayout"
@@ -1248,7 +1300,7 @@
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403140sm" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -1257,6 +1309,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403140sm}'
                                 app:maxValue="11"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1270,7 +1323,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403140p  Radio   -->
+            <!-- g0403140p  Radio    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403140p"
                 style="@style/cardView">
@@ -1311,6 +1364,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403140p.equals(formsContract.one)}'
                             android:text="@string/g0403140py" />
 
                         <RadioButton
@@ -1318,6 +1372,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403140p.equals(formsContract.two)}'
                             android:text="@string/g0403140pn" />
 
                     </RadioGroup>
@@ -1325,6 +1380,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
 
             <!-- g0403150a  Radio   -->
@@ -1368,6 +1424,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403150a.equals(formsContract.one)}'
                             android:text="@string/g0403150ay" />
 
                         <RadioButton
@@ -1375,6 +1432,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403150a.equals(formsContract.two)}'
                             android:text="@string/g0403150an" />
 
                     </RadioGroup>
@@ -1425,6 +1483,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403150s.equals(formsContract.one)}'
                             android:text="@string/g0403150sy" />
 
                         <RadioButton
@@ -1432,6 +1491,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403150s.equals(formsContract.two)}'
                             android:text="@string/g0403150sn" />
 
                     </RadioGroup>
@@ -1441,7 +1501,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403150so  Title   -->
+            <!-- g0403150so Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403150so"
                 style="@style/cardView"
@@ -1475,13 +1535,14 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403150sd" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -1490,11 +1551,13 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403150sd}'
                                 app:maxValue="30"
                                 app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             style="@style/vlinearlayout"
@@ -1502,7 +1565,7 @@
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403150sm" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -1511,6 +1574,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403150sm}'
                                 app:maxValue="11"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1524,7 +1588,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403150p  Radio   -->
+            <!-- g0403150p  Radio    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403150p"
                 style="@style/cardView">
@@ -1565,6 +1629,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403150p.equals(formsContract.one)}'
                             android:text="@string/g0403150py" />
 
                         <RadioButton
@@ -1572,6 +1637,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403150p.equals(formsContract.two)}'
                             android:text="@string/g0403150pn" />
 
                     </RadioGroup>
@@ -1579,6 +1645,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
 
             <!-- g0403160a  Radio   -->
@@ -1622,6 +1689,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403160a.equals(formsContract.one)}'
                             android:text="@string/g0403160ay" />
 
                         <RadioButton
@@ -1629,6 +1697,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403160a.equals(formsContract.two)}'
                             android:text="@string/g0403160an" />
 
                     </RadioGroup>
@@ -1679,6 +1748,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403160s.equals(formsContract.one)}'
                             android:text="@string/g0403160sy" />
 
                         <RadioButton
@@ -1686,6 +1756,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403160s.equals(formsContract.two)}'
                             android:text="@string/g0403160sn" />
 
                     </RadioGroup>
@@ -1695,7 +1766,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403160so  Title   -->
+            <!-- g0403160so Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403160so"
                 style="@style/cardView"
@@ -1729,13 +1800,14 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403160sd" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -1744,11 +1816,13 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403160sd}'
                                 app:maxValue="30"
                                 app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             style="@style/vlinearlayout"
@@ -1756,7 +1830,7 @@
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403160sm" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -1765,6 +1839,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403160sm}'
                                 app:maxValue="11"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1778,7 +1853,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403160p  Radio   -->
+            <!-- g0403160p  Radio    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403160p"
                 style="@style/cardView">
@@ -1819,6 +1894,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403160p.equals(formsContract.one)}'
                             android:text="@string/g0403160py" />
 
                         <RadioButton
@@ -1826,6 +1902,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403160p.equals(formsContract.two)}'
                             android:text="@string/g0403160pn" />
 
                     </RadioGroup>
@@ -1833,6 +1910,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
 
             <!-- g0403170a  Radio   -->
@@ -1876,6 +1954,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403170a.equals(formsContract.one)}'
                             android:text="@string/g0403170ay" />
 
                         <RadioButton
@@ -1883,6 +1962,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403170a.equals(formsContract.two)}'
                             android:text="@string/g0403170an" />
 
                     </RadioGroup>
@@ -1933,6 +2013,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403170s.equals(formsContract.one)}'
                             android:text="@string/g0403170sy" />
 
                         <RadioButton
@@ -1940,6 +2021,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403170s.equals(formsContract.two)}'
                             android:text="@string/g0403170sn" />
 
                     </RadioGroup>
@@ -1949,7 +2031,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403170so  Title   -->
+            <!-- g0403170so Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403170so"
                 style="@style/cardView"
@@ -1983,13 +2065,14 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403170sd" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -1998,11 +2081,13 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403170sd}'
                                 app:maxValue="30"
                                 app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             style="@style/vlinearlayout"
@@ -2010,7 +2095,7 @@
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403170sm" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -2019,6 +2104,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403170sm}'
                                 app:maxValue="11"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2032,7 +2118,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403170p  Radio   -->
+            <!-- g0403170p  Radio    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403170p"
                 style="@style/cardView">
@@ -2073,6 +2159,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403170p.equals(formsContract.one)}'
                             android:text="@string/g0403170py" />
 
                         <RadioButton
@@ -2080,6 +2167,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403170p.equals(formsContract.two)}'
                             android:text="@string/g0403170pn" />
 
                     </RadioGroup>
@@ -2130,6 +2218,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403180a.equals(formsContract.one)}'
                             android:text="@string/g0403180ay" />
 
                         <RadioButton
@@ -2137,6 +2226,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403180a.equals(formsContract.two)}'
                             android:text="@string/g0403180an" />
 
                     </RadioGroup>
@@ -2187,6 +2277,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403180s.equals(formsContract.one)}'
                             android:text="@string/g0403180sy" />
 
                         <RadioButton
@@ -2194,6 +2285,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403180s.equals(formsContract.two)}'
                             android:text="@string/g0403180sn" />
 
                     </RadioGroup>
@@ -2203,7 +2295,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403180so  Title   -->
+            <!-- g0403180so Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403180so"
                 style="@style/cardView"
@@ -2237,13 +2329,14 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403180sd" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -2252,11 +2345,13 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403180sd}'
                                 app:maxValue="30"
                                 app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             style="@style/vlinearlayout"
@@ -2264,7 +2359,7 @@
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403180sm" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -2273,6 +2368,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403180sm}'
                                 app:maxValue="11"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2286,7 +2382,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403180p  Radio   -->
+            <!-- g0403180p  Radio    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403180p"
                 style="@style/cardView">
@@ -2327,6 +2423,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403180p.equals(formsContract.one)}'
                             android:text="@string/g0403180py" />
 
                         <RadioButton
@@ -2334,6 +2431,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403180p.equals(formsContract.two)}'
                             android:text="@string/g0403180pn" />
 
                     </RadioGroup>
@@ -2384,6 +2482,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403190a.equals(formsContract.one)}'
                             android:text="@string/g0403190ay" />
 
                         <RadioButton
@@ -2391,6 +2490,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403190a.equals(formsContract.two)}'
                             android:text="@string/g0403190an" />
 
                     </RadioGroup>
@@ -2441,6 +2541,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403190s.equals(formsContract.one)}'
                             android:text="@string/g0403190sy" />
 
                         <RadioButton
@@ -2448,6 +2549,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403190s.equals(formsContract.two)}'
                             android:text="@string/g0403190sn" />
 
                     </RadioGroup>
@@ -2457,7 +2559,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403190so  Title   -->
+            <!-- g0403190so Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403190so"
                 style="@style/cardView"
@@ -2491,13 +2593,14 @@
 
                     <LinearLayout style="@style/hlinearlayout">
 
+
                         <LinearLayout
                             style="@style/vlinearlayout"
                             android:layout_width="0dp"
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403190sd" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -2506,11 +2609,13 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403190sd}'
                                 app:maxValue="30"
                                 app:minValue="0"
                                 app:type="range" />
 
                         </LinearLayout>
+
 
                         <LinearLayout
                             style="@style/vlinearlayout"
@@ -2518,7 +2623,7 @@
                             android:layout_weight="1">
 
                             <TextView
-                                style="@style/sub"
+                                style="@style/textviewh"
                                 android:text="@string/g0403190sm" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -2527,6 +2632,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.g0403190sm}'
                                 app:maxValue="11"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2540,7 +2646,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- g0403190p  Radio   -->
+            <!-- g0403190p  Radio    -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0403190p"
                 style="@style/cardView">
@@ -2581,6 +2687,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403190p.equals(formsContract.one)}'
                             android:text="@string/g0403190py" />
 
                         <RadioButton
@@ -2588,6 +2695,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked='@{formsContract.g0403190p.equals(formsContract.two)}'
                             android:text="@string/g0403190pn" />
 
                     </RadioGroup>
