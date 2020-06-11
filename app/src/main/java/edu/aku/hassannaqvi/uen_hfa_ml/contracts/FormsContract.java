@@ -712,6 +712,7 @@ public class FormsContract {
     public String g0201;
     public String g0202;
     public String g0203;
+    public String g0203x;
     public String g0204;
     public String g0205;
     public String g0206;
