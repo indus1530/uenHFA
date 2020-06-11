@@ -28,7 +28,6 @@ public class SectionG413Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g413);
         bi.setCallback(this);
-        setTitle(R.string.modgtitle);
         setupSkips();
     }
 
@@ -101,12 +100,10 @@ public class SectionG413Activity extends AppCompatActivity {
             }
         }));
 
-
     }
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
         if (updcount == 1) {
@@ -138,6 +135,7 @@ public class SectionG413Activity extends AppCompatActivity {
         json.put("g0401200p", bi.g0401200py.isChecked() ? "1"
                 : bi.g0401200pn.isChecked() ? "2"
                 : "-1");
+
 
         json.put("g0401210a", bi.g0401210ay.isChecked() ? "1"
                 : bi.g0401210an.isChecked() ? "2"

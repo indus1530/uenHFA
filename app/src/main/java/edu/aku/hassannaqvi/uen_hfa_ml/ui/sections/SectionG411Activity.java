@@ -113,6 +113,7 @@ public class SectionG411Activity extends AppCompatActivity {
 
     private void SaveDraft() {
 
+
         MainApp.fc.g040110a = bi.g040110ay.isChecked() ? "1"
                 : bi.g040110an.isChecked() ? "2"
                 : "-1";
