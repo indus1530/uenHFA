@@ -1370,12 +1370,18 @@ public class FormsContract {
     public String h0101a;
     public String h0101b;
     public String h0101c;
-    public String h02;
+    public String h0101aa;
+    public String h0101ab;
+    public String h0101ba;
+    public String h0101bb;
+    public String h0101ca;
+    public String h0101cb;
+
     public String h0201;
     public String h0202;
-    public String h0203;
     public String h0203a;
     public String h0203b;
+
     public String h03;
     public String h0301a0a;
     public String h0301a0b;

@@ -2,20 +2,15 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH1Binding;
 
 
@@ -112,11 +107,7 @@ public class SectionH1Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionH2Activity.class));
@@ -141,70 +132,26 @@ public class SectionH1Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
+        MainApp.fc.h0101a = bi.h0101a.getText().toString();
+        MainApp.fc.h0101b = bi.h0101b.getText().toString();
+        MainApp.fc.h0101c = bi.h0101c.getText().toString();
 
-        json.put("h0101a", bi.h0101a.getText().toString());
+        MainApp.fc.h0101aa = bi.h0101aa.getText().toString();
+        MainApp.fc.h0101ab = bi.h0101ab.getText().toString();
 
-        json.put("h0101b", bi.h0101b.getText().toString());
+        MainApp.fc.h0101ba = bi.h0101ba.getText().toString();
+        MainApp.fc.h0101bb = bi.h0101bb.getText().toString();
 
-        json.put("h0101c", bi.h0101c.getText().toString());
-
-        //json.put("h0101", bi.h0101.getText().toString());
-
-        json.put("h0101aa", bi.h0101aa.getText().toString());
-
-        json.put("h0101ab", bi.h0101ab.getText().toString());
-
-        json.put("h0101ba", bi.h0101ba.getText().toString());
-
-        json.put("h0101bb", bi.h0101bb.getText().toString());
-
-        json.put("h0101ca", bi.h0101ca.getText().toString());
-
-        json.put("h0101cb", bi.h0101cb.getText().toString());
+        MainApp.fc.h0101ca = bi.h0101ca.getText().toString();
+        MainApp.fc.h0101cb = bi.h0101cb.getText().toString();
 
     }
 
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
-    }
-
-
-    public void showTooltip(@NotNull View view) {
-        if (view.getId() != View.NO_ID) {
-            String package_name = getApplicationContext().getPackageName();
-
-            // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
-            String infoid = view.getResources().getResourceName(view.getId()).replace(package_name + ":id/q_", "");
-
-            // Question info text must be suffixed with _info e.g.: aa12a_info
-            int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
-
-            // Fetch info text from strings.xml
-            //String infoText = (String) getResources().getText(stringRes);
-
-            // Check if string resource exists to avoid crash on missing info string
-            if (stringRes != 0) {
-
-                // Fetch info text from strings.xml
-                String infoText = (String) getResources().getText(stringRes);
-
-                new AlertDialog.Builder(this)
-                        .setTitle("Info: " + infoid.toUpperCase())
-                        .setMessage(infoText)
-                        .setIcon(android.R.drawable.ic_dialog_info)
-                        .show();
-            } else {
-                Toast.makeText(this, "No information available on this question.", Toast.LENGTH_SHORT).show();
-            }
-
-        } else {
-            Toast.makeText(this, "No ID Associated with this question.", Toast.LENGTH_SHORT).show();
-
-        }
     }
 
 }

@@ -2,20 +2,15 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH2Binding;
 
 
@@ -28,65 +23,6 @@ public class SectionH2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h2);
         bi.setCallback(this);
-        //setTitle(R.string.sssec);
-        setupSkips();
-
-
-    }
-
-
-    private void setupSkips() {
-
-        /*bi.ss04.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss04b.getId()) {
-                Clear.clearAllFields(bi.ss05cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss05cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss07h.getId() || i == bi.ss07i.getId()) {
-                Clear.clearAllFields(bi.ss08cv, false);
-                Clear.clearAllFields(bi.ss09cv, false);
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss08cv, true);
-                Clear.clearAllFields(bi.ss09cv, true);
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss09.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss09b.getId()) {
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-
-            } else {
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-
-            }
-        }));*/
-
-
-        /*bi.ss11.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss11b.getId()) {
-                Clear.clearAllFields(bi.ss12cv, false);
-                Clear.clearAllFields(bi.ss13cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss12cv, true);
-                Clear.clearAllFields(bi.ss13cv, true);
-            }
-        }));*/
 
     }
 
@@ -110,7 +46,6 @@ public class SectionH2Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
         if (updcount == 1) {
@@ -123,78 +58,35 @@ public class SectionH2Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("h0201", bi.h0201a.isChecked() ? "1"
+        MainApp.fc.h0201 = bi.h0201a.isChecked() ? "1"
                 : bi.h0201b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0202", bi.h0202a.isChecked() ? "1"
+        MainApp.fc.h0201 = bi.h0202a.isChecked() ? "1"
                 : bi.h0202b.isChecked() ? "2"
                 : bi.h0202c.isChecked() ? "3"
-                : "-1");
+                : "-1";
 
-        json.put("h0203a", bi.h0203aa.isChecked() ? "1"
+        MainApp.fc.h0203a = bi.h0203aa.isChecked() ? "1"
                 : bi.h0203ab.isChecked() ? "2"
                 : bi.h0203ac.isChecked() ? "3"
                 : bi.h0203ad.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
-        json.put("h0203b", bi.h0203ba.isChecked() ? "1"
+        MainApp.fc.h0203b = bi.h0203ba.isChecked() ? "1"
                 : bi.h0203bb.isChecked() ? "2"
                 : bi.h0203bc.isChecked() ? "3"
                 : bi.h0203bd.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
     }
 
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
-
     }
 
-
-    @Override
-    public void onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
-    }
-
-
-    public void showTooltip(@NotNull View view) {
-        if (view.getId() != View.NO_ID) {
-            String package_name = getApplicationContext().getPackageName();
-
-            // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
-            String infoid = view.getResources().getResourceName(view.getId()).replace(package_name + ":id/q_", "");
-
-            // Question info text must be suffixed with _info e.g.: aa12a_info
-            int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
-
-            // Fetch info text from strings.xml
-            //String infoText = (String) getResources().getText(stringRes);
-
-            // Check if string resource exists to avoid crash on missing info string
-            if (stringRes != 0) {
-
-                // Fetch info text from strings.xml
-                String infoText = (String) getResources().getText(stringRes);
-
-                new AlertDialog.Builder(this)
-                        .setTitle("Info: " + infoid.toUpperCase())
-                        .setMessage(infoText)
-                        .setIcon(android.R.drawable.ic_dialog_info)
-                        .show();
-            } else {
-                Toast.makeText(this, "No information available on this question.", Toast.LENGTH_SHORT).show();
-            }
-
-        } else {
-            Toast.makeText(this, "No ID Associated with this question.", Toast.LENGTH_SHORT).show();
-
-        }
-    }
 
 }
