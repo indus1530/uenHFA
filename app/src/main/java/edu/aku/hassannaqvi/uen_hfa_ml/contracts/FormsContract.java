@@ -708,7 +708,7 @@ public class FormsContract {
     public String g01115;
     public String g01116;
     public String g01117;
-    public String g02;
+
     public String g0201;
     public String g0202;
     public String g0203;
@@ -718,15 +718,121 @@ public class FormsContract {
     public String g0206;
     public String g0207;
     public String g0208;
-    public String g03;
-    public String g0301;
-    public String g0301a;
-    public String g0301b;
-    public String g0301c;
-    public String g0302;
-    public String g0302a;
-    public String g0302b;
-    public String g0302c;
+
+    public String g0301aa;
+    public String g0301ab;
+
+    public String g0301ba;
+    public String g0301bb;
+
+    public String g0301ca;
+    public String g0301cb;
+
+    public String g0302a10r;
+    public String g0302a10i;
+    public String g0302a10d;
+    public String g0302a10b;
+
+    public String g0302a20r;
+    public String g0302a20i;
+    public String g0302a20d;
+    public String g0302a20b;
+
+    public String g0302a30r;
+    public String g0302a30i;
+    public String g0302a30d;
+    public String g0302a30b;
+
+    public String g0302a40r;
+    public String g0302a40i;
+    public String g0302a40d;
+    public String g0302a40b;
+
+    public String g0302a50r;
+    public String g0302a50i;
+    public String g0302a50d;
+    public String g0302a50b;
+
+    public String g0302a60r;
+    public String g0302a60i;
+    public String g0302a60d;
+    public String g0302a60b;
+
+    public String g0302a70r;
+    public String g0302a70i;
+    public String g0302a70d;
+    public String g0302a70b;
+
+    public String g0302b10r;
+    public String g0302b10i;
+    public String g0302b10d;
+    public String g0302b10b;
+
+    public String g0302b20r;
+    public String g0302b20i;
+    public String g0302b20d;
+    public String g0302b20b;
+
+    public String g0302b30r;
+    public String g0302b30i;
+    public String g0302b30d;
+    public String g0302b30b;
+
+    public String g0302b40r;
+    public String g0302b40i;
+    public String g0302b40d;
+    public String g0302b40b;
+
+    public String g0302b50r;
+    public String g0302b50i;
+    public String g0302b50d;
+    public String g0302b50b;
+
+    public String g0302b60r;
+    public String g0302b60i;
+    public String g0302b60d;
+    public String g0302b60b;
+
+    public String g0302b70r;
+    public String g0302b70i;
+    public String g0302b70d;
+    public String g0302b70b;
+
+    public String g0302c10r;
+    public String g0302c10i;
+    public String g0302c10d;
+    public String g0302c10b;
+
+    public String g0302c20r;
+    public String g0302c20i;
+    public String g0302c20d;
+    public String g0302c20b;
+
+    public String g0302c30r;
+    public String g0302c30i;
+    public String g0302c30d;
+    public String g0302c30b;
+
+    public String g0302c40r;
+    public String g0302c40i;
+    public String g0302c40d;
+    public String g0302c40b;
+
+    public String g0302c50r;
+    public String g0302c50i;
+    public String g0302c50d;
+    public String g0302c50b;
+
+    public String g0302c60r;
+    public String g0302c60i;
+    public String g0302c60d;
+    public String g0302c60b;
+
+    public String g0302c70r;
+    public String g0302c70i;
+    public String g0302c70d;
+    public String g0302c70b;
+
     public String g04;
     public String g0401;
     public String g040110a;
