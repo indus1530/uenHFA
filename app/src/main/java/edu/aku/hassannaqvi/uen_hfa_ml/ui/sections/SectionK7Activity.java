@@ -5,16 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.validatorcrawler.aliazaz.Validator;
-
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import com.validatorcrawler.aliazaz.Validator;
+
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK7Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -76,33 +77,33 @@ public class SectionK7Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
         JSONObject json = new JSONObject();
 
-        json.put("k0701a", bi.k0701aa.isChecked() ? "11"
+        MainApp.fc.k0701a = bi.k0701aa.isChecked() ? "11"
                 : bi.k0701ab.isChecked() ? "12"
                 : bi.k0701ac.isChecked() ? "13"
-                : "-1");
+                : "-1";
 
-        json.put("k0701b", bi.k0701ba.isChecked() ? "21"
+        MainApp.fc.k0701b = bi.k0701ba.isChecked() ? "21"
                 : bi.k0701bb.isChecked() ? "22"
                 : bi.k0701bc.isChecked() ? "23"
-                : "-1");
+                : "-1";
 
-        json.put("k0701c", "-1");
+//        json.put("k0701c", "-1");
 
-        json.put("k0702a", bi.k0702aa.isChecked() ? "11"
+        MainApp.fc.k0702a = bi.k0702aa.isChecked() ? "11"
                 : bi.k0702ab.isChecked() ? "12"
                 : bi.k0702ac.isChecked() ? "13"
-                : "-1");
+                : "-1";
 
-        json.put("k0702b", bi.k0702ba.isChecked() ? "21"
+        MainApp.fc.k0702b = bi.k0702ba.isChecked() ? "21"
                 : bi.k0702bb.isChecked() ? "22"
                 : bi.k0702bc.isChecked() ? "23"
-                : "-1");
+                : "-1";
 
-        json.put("k0702c", "-1");
+//        json.put("k0702c", "-1");
 
         //json.put("6040402cx", bi .6040402 cx.getText().toString());
 
