@@ -5,17 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI3Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -52,24 +50,18 @@ public class SectionI3Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionI4Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SI, MainApp.fc.getsI());
         if (updcount == 1) {
@@ -82,60 +74,57 @@ public class SectionI3Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("i0301a", bi.i0301aa.isChecked() ? "1"
+        MainApp.fc.i0301a = bi.i0301aa.isChecked() ? "1"
                 : bi.i0301ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0301b", bi.i0301ba.isChecked() ? "1"
+        MainApp.fc.i0301b = bi.i0301ba.isChecked() ? "1"
                 : bi.i0301bb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0301c", bi.i0301ca.isChecked() ? "1"
+        MainApp.fc.i0301c = bi.i0301ca.isChecked() ? "1"
                 : bi.i0301cb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0301d", bi.i0301da.isChecked() ? "1"
+        MainApp.fc.i0301d = bi.i0301da.isChecked() ? "1"
                 : bi.i0301db.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0301e", bi.i0301ea.isChecked() ? "1"
+        MainApp.fc.i0301e = bi.i0301ea.isChecked() ? "1"
                 : bi.i0301eb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0301f", bi.i0301fa.isChecked() ? "1"
+        MainApp.fc.i0301f = bi.i0301fa.isChecked() ? "1"
                 : bi.i0301fb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0301g", bi.i0301ga.isChecked() ? "1"
+        MainApp.fc.i0301g = bi.i0301ga.isChecked() ? "1"
                 : bi.i0301gb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0301h", bi.i0301ha.isChecked() ? "1"
+        MainApp.fc.i0301h = bi.i0301ha.isChecked() ? "1"
                 : bi.i0301hb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0301i", bi.i0301ia.isChecked() ? "1"
+        MainApp.fc.i0301i = bi.i0301ia.isChecked() ? "1"
                 : bi.i0301ib.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0301j", bi.i0301ja.isChecked() ? "1"
+        MainApp.fc.i0301j = bi.i0301ja.isChecked() ? "1"
                 : bi.i0301jb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0301k", bi.i0301ka.isChecked() ? "1"
+        MainApp.fc.i0301k = bi.i0301ka.isChecked() ? "1"
                 : bi.i0301kb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
     }
 
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
-
     }
 
 
