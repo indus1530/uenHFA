@@ -5,18 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH6Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -51,18 +49,13 @@ public class SectionH6Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionH7Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
@@ -81,32 +74,30 @@ public class SectionH6Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("h0601", bi.h0601a.isChecked() ? "1"
+        MainApp.fc.h0601 = bi.h0601a.isChecked() ? "1"
                 : bi.h0601b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0601aa", bi.h0601aa.getText().toString().trim().length() > 0 ? bi.h0601aa.getText().toString() : "-1");
+        MainApp.fc.h0601aa = bi.h0601aa.getText().toString().trim().length() > 0 ? bi.h0601aa.getText().toString() : "-1";
 
 
-        json.put("h0602", bi.h0602a.isChecked() ? "1"
+        MainApp.fc.h0602 = bi.h0602a.isChecked() ? "1"
                 : bi.h0602b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0603a", bi.h0603aa.isChecked() ? "1"
+        MainApp.fc.h0603a = bi.h0603aa.isChecked() ? "1"
                 : bi.h0603ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0603b", bi.h0603ba.isChecked() ? "1"
+        MainApp.fc.h0603b = bi.h0603ba.isChecked() ? "1"
                 : bi.h0603bb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0603c", bi.h0603ca.isChecked() ? "1"
+        MainApp.fc.h0603c = bi.h0603ca.isChecked() ? "1"
                 : bi.h0603cb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
     }
 

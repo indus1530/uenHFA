@@ -5,17 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH4Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -30,76 +28,14 @@ public class SectionH4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h4);
         bi.setCallback(this);
-        //setTitle(R.string.sssec);
-        setupSkips();
 
-
-    }
-
-
-    private void setupSkips() {
-
-        /*bi.ss04.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss04b.getId()) {
-                Clear.clearAllFields(bi.ss05cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss05cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss07h.getId() || i == bi.ss07i.getId()) {
-                Clear.clearAllFields(bi.ss08cv, false);
-                Clear.clearAllFields(bi.ss09cv, false);
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss08cv, true);
-                Clear.clearAllFields(bi.ss09cv, true);
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss09.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss09b.getId()) {
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-
-            } else {
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-
-            }
-        }));*/
-
-
-        /*bi.ss11.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss11b.getId()) {
-                Clear.clearAllFields(bi.ss12cv, false);
-                Clear.clearAllFields(bi.ss13cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss12cv, true);
-                Clear.clearAllFields(bi.ss13cv, true);
-            }
-        }));*/
 
     }
 
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionH5Activity.class));
@@ -125,17 +61,15 @@ public class SectionH4Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("h0401", bi.h0401a.isChecked() ? "1"
+        MainApp.fc.h0401 = bi.h0401a.isChecked() ? "1"
                 : bi.h0401b.isChecked() ? "2"
                 : bi.h0401c.isChecked() ? "3"
                 : bi.h0401d.isChecked() ? "4"
                 : bi.h0401x.isChecked() ? "96"
-                : "-1");
-        json.put("h0401xx", bi.h0401xx.getText().toString());
+                : "-1";
+        MainApp.fc.h0401xx = bi.h0401xx.getText().toString().trim().length() > 0 ? bi.h0401xx.getText().toString() : "-1";
 
     }
 
