@@ -1,5 +1,4 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
 
@@ -17,11 +16,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false"
-        android:fillViewport="true"
-        android:scrollbarSize="10dip"
-        tools:context=".ui.Myactivity">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/GrpNameSectionK6"
@@ -102,7 +97,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060101a"
                         style="@style/vradiogroup">
@@ -138,7 +132,6 @@
 
                 <LinearLayout style="@style/vlinearlayout">
 
-
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -161,7 +154,6 @@
                             android:text="@string/Q_k060101b" />
 
                     </RelativeLayout>
-
 
                     <RadioGroup
                         android:id="@+id/k060101b"
@@ -196,7 +188,6 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
             <!-- k060102  Title   -->
             <androidx.cardview.widget.CardView
@@ -243,7 +234,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060102a"
                         style="@style/vradiogroup">
@@ -265,8 +255,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060102a.equals(formsContract.three)}"
                             android:text="@string/k060102ac" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060102b  Radio   -->
@@ -299,7 +292,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060102b"
                         style="@style/vradiogroup">
@@ -327,8 +319,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060102b.equals(formsContract.four)}"
                             android:text="@string/k060102c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060103  Title   -->
@@ -376,7 +371,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060103a"
                         style="@style/vradiogroup">
@@ -398,8 +392,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060103a.equals(formsContract.three)}"
                             android:text="@string/k060103ac" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060103b  Radio   -->
@@ -432,7 +429,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060103b"
                         style="@style/vradiogroup">
@@ -460,8 +456,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060103b.equals(formsContract.four)}"
                             android:text="@string/k060103c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060104  Title   -->
@@ -509,7 +508,6 @@
 
                     </RelativeLayout>  
 
-
                     <RadioGroup
                         android:id="@+id/k060104a"
                         style="@style/vradiogroup">
@@ -531,8 +529,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060104a.equals(formsContract.three)}"
                             android:text="@string/k060104ac" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060104b  Radio   -->
@@ -565,7 +566,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060104b"
                         style="@style/vradiogroup">
@@ -593,8 +593,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060104b.equals(formsContract.four)}"
                             android:text="@string/k060104c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060105  Title   -->
@@ -642,7 +645,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060105a"
                         style="@style/vradiogroup">
@@ -664,8 +666,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060105a.equals(formsContract.three)}"
                             android:text="@string/k060105ac" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060105b  Radio   -->
@@ -698,7 +703,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060105b"
                         style="@style/vradiogroup">
@@ -726,8 +730,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060105b.equals(formsContract.four)}"
                             android:text="@string/k060105c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k0602  Title   -->
@@ -790,7 +797,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060201a"
                         style="@style/vradiogroup">
@@ -812,8 +818,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060201a.equals(formsContract.three)}"
                             android:text="@string/k060201ac" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060201b  Radio   -->
@@ -846,7 +855,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060201b"
                         style="@style/vradiogroup">
@@ -874,8 +882,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060201b.equals(formsContract.four)}"
                             android:text="@string/k060201c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060202  Title   -->
@@ -896,8 +907,7 @@
             <!-- k060202a  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk060202a"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -945,8 +955,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060202a.equals(formsContract.three)}"
                             android:text="@string/k060202ac" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060202b  Radio   -->
@@ -979,7 +992,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060202b"
                         style="@style/vradiogroup">
@@ -1007,8 +1019,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060202b.equals(formsContract.four)}"
                             android:text="@string/k060202c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060203  Title   -->
@@ -1021,7 +1036,9 @@
                     <TextView
                         style="@style/sub"
                         android:text="@string/k060203" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060203a  Radio   -->
@@ -1054,7 +1071,6 @@
 
                     </RelativeLayout> 
 
-
                     <RadioGroup
                         android:id="@+id/k060203a"
                         style="@style/vradiogroup">
@@ -1076,8 +1092,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060203a.equals(formsContract.three)}"
                             android:text="@string/k060203ac" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060203b  Radio   -->
@@ -1110,7 +1129,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060203b"
                         style="@style/vradiogroup">
@@ -1138,8 +1156,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060203b.equals(formsContract.four)}"
                             android:text="@string/k060203c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060204  Title   -->
@@ -1187,8 +1208,6 @@
 
                     </RelativeLayout> 
 
-
-
                     <RadioGroup
                         android:id="@+id/k060204a"
                         style="@style/vradiogroup">
@@ -1210,8 +1229,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060204a.equals(formsContract.three)}"
                             android:text="@string/k060204ac" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060204b  Radio   -->
@@ -1272,8 +1294,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060204b.equals(formsContract.four)}"
                             android:text="@string/k060204c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060205  Title   -->
@@ -1342,8 +1367,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060205a.equals(formsContract.three)}"
                             android:text="@string/k060205ac" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060205b  Radio   -->
@@ -1376,7 +1404,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060205b"
                         style="@style/vradiogroup">
@@ -1404,8 +1431,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060205b.equals(formsContract.four)}"
                             android:text="@string/k060205c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060206  Title   -->
@@ -1427,7 +1457,6 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk060206a"
                 style="@style/cardView">
-
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -1454,7 +1483,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060206a"
                         style="@style/vradiogroup">
@@ -1476,8 +1504,11 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060206a.equals(formsContract.three)}"
                             android:text="@string/k060206ac" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k060206b  Radio   -->
@@ -1510,7 +1541,6 @@
 
                     </RelativeLayout>
 
-
                     <RadioGroup
                         android:id="@+id/k060206b"
                         style="@style/vradiogroup">
@@ -1538,9 +1568,13 @@
                             style="@style/radiobutton"
                             android:checked="@{formsContract.k060206b.equals(formsContract.four)}"
                             android:text="@string/k060206c" />
+
                     </RadioGroup>
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
+
 
             <!--EndButton LinearLayout-->
             <LinearLayout
