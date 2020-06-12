@@ -5,17 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI4Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 
@@ -31,46 +29,25 @@ public class SectionI4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_i4);
         bi.setCallback(this);
-        //setTitle(R.string.sssec);
-        setupSkips();
 
-
-    }
-
-
-    private void setupSkips() {
-
-        /*bi.ss04.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss04b.getId()) {
-                Clear.clearAllFields(bi.ss05cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss05cv, true);
-            }
-        }));*/
 
     }
 
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionMainActivity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SI, MainApp.fc.getsI());
         if (updcount == 1) {
@@ -83,51 +60,49 @@ public class SectionI4Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("i0401a", bi.i0401aa.isChecked() ? "1"
+        MainApp.fc.i0401a = bi.i0401aa.isChecked() ? "1"
                 : bi.i0401ab.isChecked() ? "2"
                 : bi.i0401ac.isChecked() ? "3"
                 : bi.i0401ad.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
-        json.put("i0401b", bi.i0401ba.isChecked() ? "1"
+        MainApp.fc.i0401b = bi.i0401ba.isChecked() ? "1"
                 : bi.i0401bb.isChecked() ? "2"
                 : bi.i0401bc.isChecked() ? "3"
                 : bi.i0401bd.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
-        json.put("i0401c", bi.i0401ca.isChecked() ? "1"
+        MainApp.fc.i0401c = bi.i0401ca.isChecked() ? "1"
                 : bi.i0401cb.isChecked() ? "2"
                 : bi.i0401cc.isChecked() ? "3"
                 : bi.i0401cd.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
-        json.put("i0401d", bi.i0401da.isChecked() ? "1"
+        MainApp.fc.i0401d = bi.i0401da.isChecked() ? "1"
                 : bi.i0401db.isChecked() ? "2"
                 : bi.i0401dc.isChecked() ? "3"
                 : bi.i0401dd.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
-        json.put("i0401e", bi.i0401ea.isChecked() ? "1"
+        MainApp.fc.i0401e = bi.i0401ea.isChecked() ? "1"
                 : bi.i0401eb.isChecked() ? "2"
                 : bi.i0401ec.isChecked() ? "3"
                 : bi.i0401ed.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
-        json.put("i0401f", bi.i0401fa.isChecked() ? "1"
+        MainApp.fc.i0401f = bi.i0401fa.isChecked() ? "1"
                 : bi.i0401fb.isChecked() ? "2"
                 : bi.i0401fc.isChecked() ? "3"
                 : bi.i0401fd.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
-        json.put("i0401g", bi.i0401ga.isChecked() ? "1"
+        MainApp.fc.i0401g = bi.i0401ga.isChecked() ? "1"
                 : bi.i0401gb.isChecked() ? "2"
                 : bi.i0401gc.isChecked() ? "3"
                 : bi.i0401gd.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
     }
 

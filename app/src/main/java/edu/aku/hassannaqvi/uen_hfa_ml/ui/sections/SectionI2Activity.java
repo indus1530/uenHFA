@@ -5,18 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI2Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -60,24 +58,18 @@ public class SectionI2Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionI4Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SI, MainApp.fc.getsI());
         if (updcount == 1) {
@@ -90,84 +82,82 @@ public class SectionI2Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("i0201a", bi.i0201aa.isChecked() ? "1"
+        MainApp.fc.i0201a = bi.i0201aa.isChecked() ? "1"
                 : bi.i0201ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201b", bi.i0201ba.isChecked() ? "1"
+        MainApp.fc.i0201b = bi.i0201ba.isChecked() ? "1"
                 : bi.i0201bb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201c", bi.i0201ca.isChecked() ? "1"
+        MainApp.fc.i0201c = bi.i0201ca.isChecked() ? "1"
                 : bi.i0201cb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201d", bi.i0201da.isChecked() ? "1"
+        MainApp.fc.i0201d = bi.i0201da.isChecked() ? "1"
                 : bi.i0201db.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201e", bi.i0201ea.isChecked() ? "1"
+        MainApp.fc.i0201e = bi.i0201ea.isChecked() ? "1"
                 : bi.i0201eb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201f", bi.i0201fa.isChecked() ? "1"
+        MainApp.fc.i0201f = bi.i0201fa.isChecked() ? "1"
                 : bi.i0201fb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201g", bi.i0201ga.isChecked() ? "1"
+        MainApp.fc.i0201g = bi.i0201ga.isChecked() ? "1"
                 : bi.i0201gb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201h", bi.i0201ha.isChecked() ? "1"
+        MainApp.fc.i0201h = bi.i0201ha.isChecked() ? "1"
                 : bi.i0201hb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201i", bi.i0201ia.isChecked() ? "1"
+        MainApp.fc.i0201i = bi.i0201ia.isChecked() ? "1"
                 : bi.i0201ib.isChecked() ? "2"
                 : bi.i0201ic.isChecked() ? "3"
-                : "-1");
+                : "-1";
 
-        json.put("i0201ja", bi.i0201ja.isChecked() ? "1" : "-1");
-        json.put("i0201jb", bi.i0201jb.isChecked() ? "2" : "-1");
-        json.put("i0201jc", bi.i0201jc.isChecked() ? "3" : "-1");
-        json.put("i0201jd", bi.i0201jd.isChecked() ? "4" : "-1");
-        json.put("i0201je", bi.i0201je.isChecked() ? "5" : "-1");
+        MainApp.fc.i0201ja = bi.i0201ja.isChecked() ? "1" : "-1";
+        MainApp.fc.i0201jb = bi.i0201jb.isChecked() ? "2" : "-1";
+        MainApp.fc.i0201jc = bi.i0201jc.isChecked() ? "3" : "-1";
+        MainApp.fc.i0201jd = bi.i0201jd.isChecked() ? "4" : "-1";
+        MainApp.fc.i0201je = bi.i0201je.isChecked() ? "5" : "-1";
 
-        json.put("i0201k", bi.i0201ka.isChecked() ? "1"
+        MainApp.fc.i0201k = bi.i0201ka.isChecked() ? "1"
                 : bi.i0201kb.isChecked() ? "2"
                 : bi.i0201kc.isChecked() ? "3"
-                : "-1");
+                : "-1";
 
-        json.put("i0201la", bi.i0201la.isChecked() ? "1" : "-1");
-        json.put("i0201lb", bi.i0201lb.isChecked() ? "2" : "-1");
-        json.put("i0201lc", bi.i0201lc.isChecked() ? "3" : "-1");
+        MainApp.fc.i0201la = bi.i0201la.isChecked() ? "1" : "-1";
+        MainApp.fc.i0201lb = bi.i0201lb.isChecked() ? "2" : "-1";
+        MainApp.fc.i0201lc = bi.i0201lc.isChecked() ? "3" : "-1";
 
-        json.put("i0201m", bi.i0201ma.isChecked() ? "1"
+        MainApp.fc.i0201m = bi.i0201ma.isChecked() ? "1"
                 : bi.i0201mb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201n", bi.i0201na.isChecked() ? "1"
+        MainApp.fc.i0201n = bi.i0201na.isChecked() ? "1"
                 : bi.i0201nb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201o", bi.i0201oa.isChecked() ? "1"
+        MainApp.fc.i0201o = bi.i0201oa.isChecked() ? "1"
                 : bi.i0201ob.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0201pa", bi.i0201pa.isChecked() ? "1" : "-1");
-        json.put("i0201pb", bi.i0201pb.isChecked() ? "2" : "-1");
-        json.put("i0201pc", bi.i0201pc.isChecked() ? "3" : "-1");
-        json.put("i0201pd", bi.i0201pd.isChecked() ? "4" : "-1");
-        json.put("i0201pe", bi.i0201pe.isChecked() ? "5" : "-1");
-        json.put("i0201pf", bi.i0201pf.isChecked() ? "6" : "-1");
+        MainApp.fc.i0201pa = bi.i0201pa.isChecked() ? "1" : "-1";
+        MainApp.fc.i0201pb = bi.i0201pb.isChecked() ? "2" : "-1";
+        MainApp.fc.i0201pc = bi.i0201pc.isChecked() ? "3" : "-1";
+        MainApp.fc.i0201pd = bi.i0201pd.isChecked() ? "4" : "-1";
+        MainApp.fc.i0201pe = bi.i0201pe.isChecked() ? "5" : "-1";
+        MainApp.fc.i0201pf = bi.i0201pf.isChecked() ? "6" : "-1";
 
-        json.put("i0201q", bi.i0201qa.isChecked() ? "1"
+        MainApp.fc.i0201q = bi.i0201qa.isChecked() ? "1"
                 : bi.i0201qb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
     }
 

@@ -1666,19 +1666,20 @@ public class FormsContract {
     public String h0701e;
     public String h0701f;
     public String h0701g;
-    public String modititle;
-    public String i01;
+
     public String i0101;
-    public String i0102;
+
     public String i0102a;
     public String i0102b;
+
     public String i0103;
     public String i0104;
     public String i0105;
-    public String i0106;
+    public String i0106a;
+    public String i0106b;
     public String i0107;
     public String i0108;
-    public String i02;
+
     public String i0201a;
     public String i0201b;
     public String i0201c;
@@ -1689,11 +1690,13 @@ public class FormsContract {
     public String i0201h;
     public String i0201i;
     public String i0201j;
+
     public String i0201ja;
     public String i0201jb;
     public String i0201jc;
     public String i0201jd;
     public String i0201je;
+
     public String i0201k;
     public String i0201l;
     public String i0201la;

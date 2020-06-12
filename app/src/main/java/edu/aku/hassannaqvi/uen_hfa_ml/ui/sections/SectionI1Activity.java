@@ -5,20 +5,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI1Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.validator.ValidatorClass;
 
@@ -53,11 +51,7 @@ public class SectionI1Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, bi.i0108b.isChecked() ? SectionI3Activity.class : SectionI2Activity.class));
@@ -82,41 +76,39 @@ public class SectionI1Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("i0101", bi.i0101a.isChecked() ? "1"
+        MainApp.fc.i0101 = bi.i0101a.isChecked() ? "1"
                 : bi.i0101b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0102a", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
-        json.put("i0102b", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
+        MainApp.fc.i0102a = new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime());
+        MainApp.fc.i0102b = new SimpleDateFormat("HH:mm").format(new Date().getTime());
 
-        json.put("i0103", bi.i0103a.isChecked() ? "1"
+        MainApp.fc.i0103 = bi.i0103a.isChecked() ? "1"
                 : bi.i0103b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0104", bi.i0104a.isChecked() ? "1"
+        MainApp.fc.i0104 = bi.i0104a.isChecked() ? "1"
                 : bi.i0104b.isChecked() ? "2"
                 : bi.i0104c.isChecked() ? "3"
                 : bi.i0104d.isChecked() ? "4"
-                : "-1");
+                : "-1";
 
-        json.put("i0105", bi.i0105a.isChecked() ? "1"
+        MainApp.fc.i0105 = bi.i0105a.isChecked() ? "1"
                 : bi.i0105b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0106a", bi.i0106a.getText().toString());
-        json.put("i0106b", bi.i0106b.getText().toString());
+        MainApp.fc.i0106a = bi.i0106a.getText().toString().trim().length() > 0 ? bi.i0106a.getText().toString() : "-1";
+        MainApp.fc.i0106b = bi.i0106b.getText().toString().trim().length() > 0 ? bi.i0106b.getText().toString() : "-1";
 
-        json.put("i0107", bi.i0107a.isChecked() ? "1"
+        MainApp.fc.i0107 = bi.i0107a.isChecked() ? "1"
                 : bi.i0107b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("i0108", bi.i0108a.isChecked() ? "1"
+        MainApp.fc.i0108 = bi.i0108a.isChecked() ? "1"
                 : bi.i0108b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
     }
 
