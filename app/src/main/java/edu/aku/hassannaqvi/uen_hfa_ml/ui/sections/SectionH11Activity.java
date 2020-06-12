@@ -5,18 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH11Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -48,24 +46,18 @@ public class SectionH11Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionH12Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
         if (updcount == 1) {
@@ -78,44 +70,41 @@ public class SectionH11Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("h1101", bi.h1101a.isChecked() ? "1"
+        MainApp.fc.h1101 = bi.h1101a.isChecked() ? "1"
                 : bi.h1101b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h1102", bi.h1102a.isChecked() ? "1"
+        MainApp.fc.h1102 = bi.h1102a.isChecked() ? "1"
                 : bi.h1102b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h1103", bi.h1103a.isChecked() ? "1"
+        MainApp.fc.h1103 = bi.h1103a.isChecked() ? "1"
                 : bi.h1103b.isChecked() ? "2"
                 : bi.h1103c.isChecked() ? "3"
                 : bi.h1103d.isChecked() ? "4"
                 : bi.h1103e.isChecked() ? "5"
                 : bi.h1103f.isChecked() ? "6"
-                : "-1");
+                : "-1";
 
-        json.put("h1104", bi.h1104a.isChecked() ? "1"
+        MainApp.fc.h1104 = bi.h1104a.isChecked() ? "1"
                 : bi.h1104b.isChecked() ? "2"
                 : bi.h1104c.isChecked() ? "3"
                 : bi.h1104d.isChecked() ? "4"
                 : bi.h1104e.isChecked() ? "5"
                 : bi.h1104f.isChecked() ? "6"
-                : "-1");
+                : "-1";
 
-        json.put("h1105", bi.h1105a.isChecked() ? "1"
+        MainApp.fc.h1105 = bi.h1105a.isChecked() ? "1"
                 : bi.h1105b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-//        json.put("h1106", bi.h1106.getText().toString());
+        MainApp.fc.h1106a = bi.h1106a.getText().toString().trim().length() > 0 ? bi.h1106a.getText().toString() : "-1";
 
-        json.put("h1106a", bi.h1106a.getText().toString());
-        json.put("h1107", bi.h1107a.isChecked() ? "1"
+        MainApp.fc.h1107 = bi.h1107a.isChecked() ? "1"
                 : bi.h1107b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
     }
 

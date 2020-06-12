@@ -1,7 +1,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
 
+    <data>
         <import type="android.view.View" />
 
         <variable
@@ -13,15 +13,18 @@
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH12Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:id="@+id/GrpNameSectionH12"
             style="@style/vlinearlayout">
 
-            <!-- h12  Title   -->
+
+            <!-- h12  SectionTitle   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh12"
                 style="@style/cardView">
@@ -35,6 +38,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- h1201  Radio   -->
             <androidx.cardview.widget.CardView
@@ -74,16 +78,18 @@
 
                         <RadioButton
                             android:id="@+id/h1201a"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1201.equals(formsContract.one)}"
                             android:text="@string/h1201a" />
 
                         <RadioButton
                             android:id="@+id/h1201b"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1201.equals(formsContract.two)}"
                             android:text="@string/h1201b" />
 
                     </RadioGroup>
@@ -97,6 +103,7 @@
                 android:id="@+id/fldGrpSech1201"
                 style="@style/vlinearlayout"
                 android:visibility='@{h1201b.checked? View.GONE : View.VISIBLE}'>
+
 
                 <!-- h1202  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -136,16 +143,18 @@
 
                             <RadioButton
                                 android:id="@+id/h1202a"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1202.equals(formsContract.one)}"
                                 android:text="@string/h1202a" />
 
                             <RadioButton
                                 android:id="@+id/h1202b"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1202.equals(formsContract.two)}"
                                 android:text="@string/h1202b" />
 
                         </RadioGroup>
@@ -154,7 +163,8 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- h1203  Radio   -->
+
+                <!-- h1203  SUB TextView   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVh1203"
                     style="@style/cardView">
@@ -168,6 +178,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- h1203a  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -207,16 +218,18 @@
 
                             <RadioButton
                                 android:id="@+id/h1203aa"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203a.equals(formsContract.one)}"
                                 android:text="@string/h1203aa" />
 
                             <RadioButton
                                 android:id="@+id/h1203ab"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203a.equals(formsContract.two)}"
                                 android:text="@string/h1203ab" />
 
                         </RadioGroup>
@@ -224,6 +237,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- h1203b  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -263,16 +277,18 @@
 
                             <RadioButton
                                 android:id="@+id/h1203ba"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203b.equals(formsContract.one)}"
                                 android:text="@string/h1203ba" />
 
                             <RadioButton
                                 android:id="@+id/h1203bb"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203b.equals(formsContract.two)}"
                                 android:text="@string/h1203bb" />
 
                         </RadioGroup>
@@ -280,6 +296,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- h1203c  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -319,16 +336,18 @@
 
                             <RadioButton
                                 android:id="@+id/h1203ca"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203c.equals(formsContract.one)}"
                                 android:text="@string/h1203ca" />
 
                             <RadioButton
                                 android:id="@+id/h1203cb"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203c.equals(formsContract.two)}"
                                 android:text="@string/h1203cb" />
 
                         </RadioGroup>
@@ -336,6 +355,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- h1203d  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -375,16 +395,18 @@
 
                             <RadioButton
                                 android:id="@+id/h1203da"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203d.equals(formsContract.one)}"
                                 android:text="@string/h1203da" />
 
                             <RadioButton
                                 android:id="@+id/h1203db"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203d.equals(formsContract.two)}"
                                 android:text="@string/h1203db" />
 
                         </RadioGroup>
@@ -392,6 +414,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- h1203e  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -431,16 +454,18 @@
 
                             <RadioButton
                                 android:id="@+id/h1203ea"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203e.equals(formsContract.one)}"
                                 android:text="@string/h1203ea" />
 
                             <RadioButton
                                 android:id="@+id/h1203eb"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203e.equals(formsContract.two)}"
                                 android:text="@string/h1203eb" />
 
                         </RadioGroup>
@@ -448,6 +473,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- h1203f  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -487,16 +513,18 @@
 
                             <RadioButton
                                 android:id="@+id/h1203fa"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203f.equals(formsContract.one)}"
                                 android:text="@string/h1203fa" />
 
                             <RadioButton
                                 android:id="@+id/h1203fb"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203f.equals(formsContract.two)}"
                                 android:text="@string/h1203fb" />
 
                         </RadioGroup>
@@ -504,6 +532,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- h1203g  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -543,16 +572,18 @@
 
                             <RadioButton
                                 android:id="@+id/h1203ga"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203g.equals(formsContract.one)}"
                                 android:text="@string/h1203ga" />
 
                             <RadioButton
                                 android:id="@+id/h1203gb"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="@{formsContract.h1203g.equals(formsContract.two)}"
                                 android:text="@string/h1203gb" />
 
                         </RadioGroup>
@@ -560,6 +591,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
             </LinearLayout>
 
@@ -587,6 +619,8 @@
 
         </LinearLayout>
 
+
     </ScrollView>
+
 
 </layout>
