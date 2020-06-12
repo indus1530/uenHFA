@@ -5,17 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH13Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -91,11 +89,7 @@ public class SectionH13Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionH14Activity.class));
@@ -108,7 +102,6 @@ public class SectionH13Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
         if (updcount == 1) {
@@ -121,25 +114,23 @@ public class SectionH13Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("h1301", bi.h1301a.isChecked() ? "1"
+        MainApp.fc.h1301 = bi.h1301a.isChecked() ? "1"
                 : bi.h1301b.isChecked() ? "2"
                 : bi.h1301c.isChecked() ? "3"
                 : bi.h1301d.isChecked() ? "4"
                 : bi.h1301e.isChecked() ? "5"
                 : bi.h1301f.isChecked() ? "6"
-                : "-1");
+                : "-1";
 
-        json.put("h1302", bi.h1302a.isChecked() ? "1"
+        MainApp.fc.h1302 = bi.h1302a.isChecked() ? "1"
                 : bi.h1302b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h1303", bi.h1303a.isChecked() ? "1"
+        MainApp.fc.h1303 = bi.h1303a.isChecked() ? "1"
                 : bi.h1303b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
     }
 
