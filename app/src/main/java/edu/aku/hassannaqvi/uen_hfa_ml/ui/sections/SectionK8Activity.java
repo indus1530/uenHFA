@@ -89,9 +89,9 @@ public class SectionK8Activity extends AppCompatActivity {
         MainApp.fc.k0801b = bi.k0801ba.isChecked() ? "21"
                 : bi.k0801bb.isChecked() ? "22"
                 : bi.k0801bc.isChecked() ? "23"
+                : bi.k0801c.isChecked() ? "3"
                 : "-1";
 
-//        json.put("k0801c", "-1");
 
         MainApp.fc.k0802a = bi.k0802aa.isChecked() ? "11"
                 : bi.k0802ab.isChecked() ? "12"
@@ -101,9 +101,9 @@ public class SectionK8Activity extends AppCompatActivity {
         MainApp.fc.k0802b = bi.k0802ba.isChecked() ? "21"
                 : bi.k0802bb.isChecked() ? "22"
                 : bi.k0802bc.isChecked() ? "23"
+                : bi.k0802c.isChecked() ? "3"
                 : "-1";
 
-//        json.put("k0802c", "-1");
 
         MainApp.fc.k0803a = bi.k0803aa.isChecked() ? "11"
                 : bi.k0803ab.isChecked() ? "12"
@@ -113,9 +113,9 @@ public class SectionK8Activity extends AppCompatActivity {
         MainApp.fc.k0803b = bi.k0803ba.isChecked() ? "21"
                 : bi.k0803bb.isChecked() ? "22"
                 : bi.k0803bc.isChecked() ? "23"
+                : bi.k0803c.isChecked() ? "3"
                 : "-1";
 
-//        json.put("k0803c", "-1");
 
         MainApp.fc.k0804a = bi.k0804aa.isChecked() ? "11"
                 : bi.k0804ab.isChecked() ? "12"
@@ -125,9 +125,9 @@ public class SectionK8Activity extends AppCompatActivity {
         MainApp.fc.k0804b = bi.k0804ba.isChecked() ? "21"
                 : bi.k0804bb.isChecked() ? "22"
                 : bi.k0804bc.isChecked() ? "23"
+                : bi.k0804c.isChecked() ? "3"
                 : "-1";
 
-//        json.put("k0804c", "-1");
 
         MainApp.fc.k0805a = bi.k0805aa.isChecked() ? "11"
                 : bi.k0805ab.isChecked() ? "12"
@@ -137,9 +137,9 @@ public class SectionK8Activity extends AppCompatActivity {
         MainApp.fc.k0805b = bi.k0805ba.isChecked() ? "21"
                 : bi.k0805bb.isChecked() ? "22"
                 : bi.k0805bc.isChecked() ? "23"
+                : bi.k0805c.isChecked() ? "3"
                 : "-1";
 
-//        json.put("k0805c", "-1");
 
         MainApp.fc.k0806a = bi.k0806aa.isChecked() ? "11"
                 : bi.k0806ab.isChecked() ? "12"
@@ -149,13 +149,8 @@ public class SectionK8Activity extends AppCompatActivity {
         MainApp.fc.k0806b = bi.k0806ba.isChecked() ? "21"
                 : bi.k0806bb.isChecked() ? "22"
                 : bi.k0806bc.isChecked() ? "23"
+                : bi.k0806c.isChecked() ? "3"
                 : "-1";
-
-//        json.put("k0806c", "-1");
-
-        // json.put("k0702c",  "-1");
-
-        //  json.put("6040402cx", bi.6040402cx.getText().toString());
 
     }
 

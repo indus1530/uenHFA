@@ -5,16 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.validatorcrawler.aliazaz.Validator;
-
-import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import com.validatorcrawler.aliazaz.Validator;
+
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK3Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -76,43 +77,31 @@ public class SectionK3Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
         JSONObject json = new JSONObject();
 
-        json.put("k0301", "-1");
+        MainApp.fc.k0301 = bi.k0301a.isChecked() ? "1"
+                : bi.k0301b.isChecked() ? "2"
+                : "-1";
 
-        json.put("k0301a", "-1");
+        MainApp.fc.k0302 = bi.k0302a.isChecked() ? "1"
+                : bi.k0302b.isChecked() ? "2"
+                : bi.k0302c.isChecked() ? "3"
+                : "-1";
 
-        json.put("k0301b", "-1");
+        MainApp.fc.k0303 = bi.k0303a.isChecked() ? "1"
+                : bi.k0303b.isChecked() ? "2"
+                : "-1";
 
-        json.put("k0302", "-1");
+        MainApp.fc.k0304 = bi.k0304a.isChecked() ? "1"
+                : bi.k0304b.isChecked() ? "2"
+                : "-1";
 
-        json.put("k0302a", "-1");
-
-        json.put("k0302b", "-1");
-
-        json.put("k0302c", "-1");
-
-        json.put("k0303", "-1");
-
-        json.put("k0303a", "-1");
-
-        json.put("k0303b", "-1");
-
-        json.put("k0304", "-1");
-
-        json.put("k0304a", "-1");
-
-        json.put("k0304b", "-1");
-
-        json.put("k0305", "-1");
-
-        json.put("k0305a", "-1");
-
-        json.put("k0305b", "-1");
-
-        json.put("k0305c", "-1");
+        MainApp.fc.k0305 = bi.k0305a.isChecked() ? "1"
+                : bi.k0305b.isChecked() ? "2"
+                : bi.k0305c.isChecked() ? "3"
+                : "-1";
 
     }
 
