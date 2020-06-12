@@ -1651,9 +1651,12 @@ public class FormsContract {
     public String h16;
     public String h1601;
     public String h1602;
+    public String h1602xx;
     public String h1603;
+    public String h1603xx;
     public String h1604;
     public String h1605;
+    public String h1605xx;
     public String h07;
     public String h0701;
     public String h0701a;
