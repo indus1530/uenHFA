@@ -5,17 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH7Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -124,40 +122,35 @@ public class SectionH7Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("h0701", "-1");
-
-        json.put("h0701a", bi.h0701aa.isChecked() ? "1"
+        MainApp.fc.h0701a = bi.h0701aa.isChecked() ? "1"
                 : bi.h0701ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0701b", bi.h0701ba.isChecked() ? "1"
+        MainApp.fc.h0701b = bi.h0701ba.isChecked() ? "1"
                 : bi.h0701bb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0701c", bi.h0701ca.isChecked() ? "1"
+        MainApp.fc.h0701c = bi.h0701ca.isChecked() ? "1"
                 : bi.h0701cb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0701d", bi.h0701da.isChecked() ? "1"
+        MainApp.fc.h0701d = bi.h0701da.isChecked() ? "1"
                 : bi.h0701db.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0701e", bi.h0701ea.isChecked() ? "1"
+        MainApp.fc.h0701e = bi.h0701ea.isChecked() ? "1"
                 : bi.h0701eb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0701f", bi.h0701fa.isChecked() ? "1"
+        MainApp.fc.h0701f = bi.h0701fa.isChecked() ? "1"
                 : bi.h0701fb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h0701g", bi.h0701ga.isChecked() ? "1"
+        MainApp.fc.h0701g = bi.h0701ga.isChecked() ? "1"
                 : bi.h0701gb.isChecked() ? "2"
-                : "-1");
-
+                : "-1";
     }
 
 

@@ -5,18 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH10Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -34,6 +32,7 @@ public class SectionH10Activity extends AppCompatActivity {
 
     }
 
+
     private void setupSkips() {
 
         bi.h1001.setOnCheckedChangeListener(((radioGroup, i) -> {
@@ -48,11 +47,7 @@ public class SectionH10Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionH11Activity.class));
@@ -78,23 +73,19 @@ public class SectionH10Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("h1001", bi.h1001a.isChecked() ? "1"
+        MainApp.fc.h1001 = bi.h1001a.isChecked() ? "1"
                 : bi.h1001b.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h1002", "-1");
-
-        json.put("h1002a", bi.h1002aa.isChecked() ? "1"
+        MainApp.fc.h1002a = bi.h1002aa.isChecked() ? "1"
                 : bi.h1002ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("h1002b", bi.h1002ba.isChecked() ? "1"
+        MainApp.fc.h1002b = bi.h1002ba.isChecked() ? "1"
                 : bi.h1002bb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
     }
 

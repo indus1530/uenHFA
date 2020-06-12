@@ -24,7 +24,7 @@
             style="@style/vlinearlayout">
 
 
-            <!-- h08  Title   -->
+            <!-- h08  SectionTitle   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh08"
                 style="@style/cardView">
@@ -81,6 +81,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h0801.equals(formsContract.one)}"
                             android:text="@string/h0801a" />
 
                         <RadioButton
@@ -88,6 +89,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h0801.equals(formsContract.two)}"
                             android:text="@string/h0801b" />
 
                     </RadioGroup>
@@ -138,6 +140,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h0802.equals(formsContract.one)}"
                             android:text="@string/h0802a" />
 
                         <RadioButton
@@ -145,6 +148,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h0802.equals(formsContract.two)}"
                             android:text="@string/h0802b" />
 
                     </RadioGroup>
