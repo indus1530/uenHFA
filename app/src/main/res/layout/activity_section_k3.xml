@@ -1,46 +1,42 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <data>
-
         <import type="android.view.View" />
+
+        <variable
+            name="formsContract"
+            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
 
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionK3Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fadeScrollbars="false"
-        android:fillViewport="true"
-        android:scrollbarSize="10dip"
-        tools:context=".ui.Myactivity">
+        android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:id="@+id/GrpNameSectionK3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            style="@style/vlinearlayout">
+
 
             <!-- k03  Title   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk03"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/cardView">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
+                        style="@style/textView3Head"
                         android:text="@string/k03" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k0301  Radio   -->
@@ -211,7 +207,9 @@
                         android:layout_height="56dp"
                         android:layout_marginTop="12dp"
                         android:text="@string/k0303a" />
+
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
 
             <!-- k0303b  Radio   -->

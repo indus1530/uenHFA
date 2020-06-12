@@ -5,17 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH5Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -94,11 +92,7 @@ public class SectionH5Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionH6Activity.class));
@@ -124,17 +118,14 @@ public class SectionH5Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
-
-        json.put("h0501", bi.h0501a.isChecked() ? "1"
+        MainApp.fc.h0501 = bi.h0501a.isChecked() ? "1"
                 : bi.h0501b.isChecked() ? "2"
                 : bi.h0501c.isChecked() ? "3"
                 : bi.h0501x.isChecked() ? "96"
-                : "-1");
-        json.put("h0501xx", bi.h0501xx.getText().toString());
-
+                : "-1";
+        MainApp.fc.h0501xx = bi.h0501xx.getText().toString().trim().length() > 0 ? bi.h0501xx.getText().toString() : "-1";
 
     }
 

@@ -1424,8 +1424,10 @@ public class FormsContract {
     public String h0301m0c;
     public String h04;
     public String h0401;
+    public String h0401xx;
     public String h05;
     public String h0501;
+    public String h0501xx;
     public String h06;
     public String h0601;
     public String h0601aa;
