@@ -89,9 +89,8 @@ public class SectionK7Activity extends AppCompatActivity {
         MainApp.fc.k0701b = bi.k0701ba.isChecked() ? "21"
                 : bi.k0701bb.isChecked() ? "22"
                 : bi.k0701bc.isChecked() ? "23"
+                : bi.k0701c.isChecked() ? "3"
                 : "-1";
-
-//        json.put("k0701c", "-1");
 
         MainApp.fc.k0702a = bi.k0702aa.isChecked() ? "11"
                 : bi.k0702ab.isChecked() ? "12"
@@ -101,9 +100,8 @@ public class SectionK7Activity extends AppCompatActivity {
         MainApp.fc.k0702b = bi.k0702ba.isChecked() ? "21"
                 : bi.k0702bb.isChecked() ? "22"
                 : bi.k0702bc.isChecked() ? "23"
+                : bi.k0702c.isChecked() ? "3"
                 : "-1";
-
-//        json.put("k0702c", "-1");
 
         //json.put("6040402cx", bi .6040402 cx.getText().toString());
 
