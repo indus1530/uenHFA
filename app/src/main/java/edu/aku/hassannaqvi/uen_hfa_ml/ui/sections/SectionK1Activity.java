@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -36,11 +37,17 @@ public class SectionK1Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        /*bi.i0201o.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.i0201ob.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVi0201p);
+        bi.k0101a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.k0101ab.getId()) {
+                Clear.clearAllFields(bi.fldGrpSecK101);
             }
-        }));*/
+        }));
+
+        bi.k0104.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.k0104b.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVk0104aa);
+            }
+        }));
 
     }
 
@@ -95,9 +102,9 @@ public class SectionK1Activity extends AppCompatActivity {
                 : bi.k0101ce.isChecked() ? "5"
                 : bi.k0101cf.isChecked() ? "6"
                 : bi.k0101cg.isChecked() ? "7"
-                : bi.k0101x.isChecked() ? "96"
+                : bi.k0101cx.isChecked() ? "96"
                 : "-1";
-        MainApp.fc.k0104aaxx = bi.k0104aaxx.getText().toString().trim().isEmpty() ? "-1" : bi.k0104aaxx.getText().toString();
+        MainApp.fc.k0101cxx = bi.k0101cxx.getText().toString().trim().isEmpty() ? "-1" : bi.k0101cxx.getText().toString();
 
         MainApp.fc.k0102 = bi.k0102a.isChecked() ? "1"
                 : bi.k0102b.isChecked() ? "2"

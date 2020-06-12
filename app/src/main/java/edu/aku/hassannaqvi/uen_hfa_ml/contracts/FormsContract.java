@@ -1949,6 +1949,7 @@ public class FormsContract {
     public String k0101cf;
     public String k0101cg;
     public String k0101cx;
+    public String k0101cxx;
     public String k0102;
     public String k0102a;
     public String k0102b;
@@ -1965,6 +1966,7 @@ public class FormsContract {
     public String k0104aac;
     public String k0104aad;
     public String k0104aax;
+    public String k0104aaxx;
     public String k0105;
     public String k0105a;
     public String k0105b;
