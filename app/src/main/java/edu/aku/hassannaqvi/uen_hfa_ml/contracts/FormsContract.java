@@ -1876,6 +1876,11 @@ public class FormsContract {
     public String k0104aa;
     public String k0104aaxx;
     public String k0105;
+    public String k0301;
+    public String k0302;
+    public String k0303;
+    public String k0304;
+    public String k0305;
     public String k0201a;
     public String k0201b;
     public String k0202;
