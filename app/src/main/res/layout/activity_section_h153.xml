@@ -57,6 +57,7 @@
             </androidx.cardview.widget.CardView>
 
 
+
             <!-- h1501q0a  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501q0a"
@@ -98,6 +99,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501q0a.equals(formsContract.one)}"
                             android:text="@string/h1501q0ay" />
 
                         <RadioButton
@@ -105,6 +107,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501q0a.equals(formsContract.two)}"
                             android:text="@string/h1501q0an" />
 
                     </RadioGroup>
@@ -155,6 +158,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501q0b.equals(formsContract.one)}"
                             android:text="@string/h1501q0by" />
 
                         <RadioButton
@@ -162,6 +166,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501q0b.equals(formsContract.two)}"
                             android:text="@string/h1501q0bn" />
 
                     </RadioGroup>
@@ -212,6 +217,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501q0c.equals(formsContract.one)}"
                             android:text="@string/h1501q0cy" />
 
                         <RadioButton
@@ -219,6 +225,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501q0c.equals(formsContract.two)}"
                             android:text="@string/h1501q0cn" />
 
                     </RadioGroup>
@@ -228,7 +235,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h1501q0d  Days&Month EditTexts   -->
+            <!-- h1501q0d  Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501q0d"
                 style="@style/cardView">
@@ -274,6 +281,7 @@
                                 android:id="@+id/h1501q0dy"
                                 style="@style/EditTextNum"
                                 android:gravity="center"
+                                android:text='@{formsContract.h1501q0dy}'
                                 android:hint="##"
                                 android:maxLength="2"
                                 app:maxValue="30"
@@ -295,6 +303,7 @@
                                 android:id="@+id/h1501q0dn"
                                 style="@style/EditTextNum"
                                 android:gravity="center"
+                                android:text='@{formsContract.h1501q0dn}'
                                 android:hint="#"
                                 android:maxLength="1"
                                 app:maxValue="6"
@@ -351,6 +360,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501r0a.equals(formsContract.one)}"
                             android:text="@string/h1501r0ay" />
 
                         <RadioButton
@@ -358,6 +368,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501r0a.equals(formsContract.two)}"
                             android:text="@string/h1501r0an" />
 
                     </RadioGroup>
@@ -408,6 +419,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501r0b.equals(formsContract.one)}"
                             android:text="@string/h1501r0by" />
 
                         <RadioButton
@@ -415,6 +427,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501r0b.equals(formsContract.two)}"
                             android:text="@string/h1501r0bn" />
 
                     </RadioGroup>
@@ -465,6 +478,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501r0c.equals(formsContract.one)}"
                             android:text="@string/h1501r0cy" />
 
                         <RadioButton
@@ -472,6 +486,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501r0c.equals(formsContract.two)}"
                             android:text="@string/h1501r0cn" />
 
                     </RadioGroup>
@@ -481,7 +496,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h1501r0d  Days&Month EditTexts   -->
+            <!-- h1501r0d  Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501r0d"
                 style="@style/cardView">
@@ -529,6 +544,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.h1501r0dy}'
                                 app:maxValue="30"
                                 app:minValue="1"
                                 app:type="range" />
@@ -550,6 +566,7 @@
                                 android:gravity="center"
                                 android:hint="#"
                                 android:maxLength="1"
+                                android:text='@{formsContract.h1501r0dn}'
                                 app:maxValue="6"
                                 app:minValue="0"
                                 app:type="range" />
@@ -604,6 +621,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501s0a.equals(formsContract.one)}"
                             android:text="@string/h1501s0ay" />
 
                         <RadioButton
@@ -611,6 +629,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501s0a.equals(formsContract.two)}"
                             android:text="@string/h1501s0an" />
 
                     </RadioGroup>
@@ -661,6 +680,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501s0b.equals(formsContract.one)}"
                             android:text="@string/h1501s0by" />
 
                         <RadioButton
@@ -668,6 +688,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501s0b.equals(formsContract.two)}"
                             android:text="@string/h1501s0bn" />
 
                     </RadioGroup>
@@ -718,6 +739,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501s0c.equals(formsContract.one)}"
                             android:text="@string/h1501s0cy" />
 
                         <RadioButton
@@ -725,6 +747,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501s0c.equals(formsContract.two)}"
                             android:text="@string/h1501s0cn" />
 
                     </RadioGroup>
@@ -734,7 +757,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h1501s0d  Days&Month EditTexts   -->
+            <!-- h1501s0d  Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501s0d"
                 style="@style/cardView">
@@ -782,6 +805,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.h1501s0dy}'
                                 app:maxValue="30"
                                 app:minValue="1"
                                 app:type="range" />
@@ -803,6 +827,7 @@
                                 android:gravity="center"
                                 android:hint="#"
                                 android:maxLength="1"
+                                android:text='@{formsContract.h1501s0dn}'
                                 app:maxValue="6"
                                 app:minValue="0"
                                 app:type="range" />
@@ -857,6 +882,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501t0a.equals(formsContract.one)}"
                             android:text="@string/h1501t0ay" />
 
                         <RadioButton
@@ -864,6 +890,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501t0a.equals(formsContract.two)}"
                             android:text="@string/h1501t0an" />
 
                     </RadioGroup>
@@ -914,6 +941,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501t0b.equals(formsContract.one)}"
                             android:text="@string/h1501t0by" />
 
                         <RadioButton
@@ -921,6 +949,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501t0b.equals(formsContract.two)}"
                             android:text="@string/h1501t0bn" />
 
                     </RadioGroup>
@@ -971,6 +1000,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501t0c.equals(formsContract.one)}"
                             android:text="@string/h1501t0cy" />
 
                         <RadioButton
@@ -978,6 +1008,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501t0c.equals(formsContract.two)}"
                             android:text="@string/h1501t0cn" />
 
                     </RadioGroup>
@@ -987,7 +1018,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h1501t0d  Days&Month EditTexts   -->
+            <!-- h1501t0d  Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501t0d"
                 style="@style/cardView">
@@ -1035,6 +1066,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.h1501t0dy}'
                                 app:maxValue="30"
                                 app:minValue="1"
                                 app:type="range" />
@@ -1056,6 +1088,7 @@
                                 android:gravity="center"
                                 android:hint="#"
                                 android:maxLength="1"
+                                android:text='@{formsContract.h1501t0dn}'
                                 app:maxValue="6"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1110,6 +1143,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501u0a.equals(formsContract.one)}"
                             android:text="@string/h1501u0ay" />
 
                         <RadioButton
@@ -1117,6 +1151,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501u0a.equals(formsContract.two)}"
                             android:text="@string/h1501u0an" />
 
                     </RadioGroup>
@@ -1167,6 +1202,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501u0b.equals(formsContract.one)}"
                             android:text="@string/h1501u0by" />
 
                         <RadioButton
@@ -1174,6 +1210,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501u0b.equals(formsContract.two)}"
                             android:text="@string/h1501u0bn" />
 
                     </RadioGroup>
@@ -1224,6 +1261,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501u0c.equals(formsContract.one)}"
                             android:text="@string/h1501u0cy" />
 
                         <RadioButton
@@ -1231,6 +1269,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501u0c.equals(formsContract.two)}"
                             android:text="@string/h1501u0cn" />
 
                     </RadioGroup>
@@ -1240,7 +1279,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h1501u0d  Days&Month EditTexts   -->
+            <!-- h1501u0d  Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501u0d"
                 style="@style/cardView">
@@ -1288,6 +1327,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.h1501u0dy}'
                                 app:maxValue="30"
                                 app:minValue="1"
                                 app:type="range" />
@@ -1309,6 +1349,7 @@
                                 android:gravity="center"
                                 android:hint="#"
                                 android:maxLength="1"
+                                android:text='@{formsContract.h1501u0dn}'
                                 app:maxValue="6"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1363,6 +1404,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501v0a.equals(formsContract.one)}"
                             android:text="@string/h1501v0ay" />
 
                         <RadioButton
@@ -1370,6 +1412,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501v0a.equals(formsContract.two)}"
                             android:text="@string/h1501v0an" />
 
                     </RadioGroup>
@@ -1420,6 +1463,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501v0b.equals(formsContract.one)}"
                             android:text="@string/h1501v0by" />
 
                         <RadioButton
@@ -1427,6 +1471,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501v0b.equals(formsContract.two)}"
                             android:text="@string/h1501v0bn" />
 
                     </RadioGroup>
@@ -1477,6 +1522,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501v0c.equals(formsContract.one)}"
                             android:text="@string/h1501v0cy" />
 
                         <RadioButton
@@ -1484,6 +1530,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501v0c.equals(formsContract.two)}"
                             android:text="@string/h1501v0cn" />
 
                     </RadioGroup>
@@ -1493,7 +1540,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h1501v0d  Days&Month EditTexts   -->
+            <!-- h1501v0d  Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501v0d"
                 style="@style/cardView">
@@ -1541,6 +1588,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.h1501v0dy}'
                                 app:maxValue="30"
                                 app:minValue="1"
                                 app:type="range" />
@@ -1562,6 +1610,7 @@
                                 android:gravity="center"
                                 android:hint="#"
                                 android:maxLength="1"
+                                android:text='@{formsContract.h1501v0dn}'
                                 app:maxValue="6"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1616,6 +1665,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501w0a.equals(formsContract.one)}"
                             android:text="@string/h1501w0ay" />
 
                         <RadioButton
@@ -1623,6 +1673,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501w0a.equals(formsContract.two)}"
                             android:text="@string/h1501w0an" />
 
                     </RadioGroup>
@@ -1673,6 +1724,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501w0b.equals(formsContract.one)}"
                             android:text="@string/h1501w0by" />
 
                         <RadioButton
@@ -1680,6 +1732,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501w0b.equals(formsContract.two)}"
                             android:text="@string/h1501w0bn" />
 
                     </RadioGroup>
@@ -1730,6 +1783,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501w0c.equals(formsContract.one)}"
                             android:text="@string/h1501w0cy" />
 
                         <RadioButton
@@ -1737,6 +1791,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501w0c.equals(formsContract.two)}"
                             android:text="@string/h1501w0cn" />
 
                     </RadioGroup>
@@ -1746,7 +1801,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h1501w0d  Days&Month EditTexts   -->
+            <!-- h1501w0d  Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501w0d"
                 style="@style/cardView">
@@ -1794,6 +1849,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.h1501w0dy}'
                                 app:maxValue="30"
                                 app:minValue="1"
                                 app:type="range" />
@@ -1815,6 +1871,7 @@
                                 android:gravity="center"
                                 android:hint="#"
                                 android:maxLength="1"
+                                android:text='@{formsContract.h1501w0dn}'
                                 app:maxValue="6"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1869,6 +1926,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501x0a.equals(formsContract.one)}"
                             android:text="@string/h1501x0ay" />
 
                         <RadioButton
@@ -1876,6 +1934,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501x0a.equals(formsContract.two)}"
                             android:text="@string/h1501x0an" />
 
                     </RadioGroup>
@@ -1926,6 +1985,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501x0b.equals(formsContract.one)}"
                             android:text="@string/h1501x0by" />
 
                         <RadioButton
@@ -1933,6 +1993,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501x0b.equals(formsContract.two)}"
                             android:text="@string/h1501x0bn" />
 
                     </RadioGroup>
@@ -1983,6 +2044,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501x0c.equals(formsContract.one)}"
                             android:text="@string/h1501x0cy" />
 
                         <RadioButton
@@ -1990,6 +2052,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501x0c.equals(formsContract.two)}"
                             android:text="@string/h1501x0cn" />
 
                     </RadioGroup>
@@ -1999,7 +2062,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h1501x0d  Days&Month EditTexts   -->
+            <!-- h1501x0d  Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501x0d"
                 style="@style/cardView">
@@ -2047,6 +2110,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.h1501x0dy}'
                                 app:maxValue="30"
                                 app:minValue="1"
                                 app:type="range" />
@@ -2068,6 +2132,7 @@
                                 android:gravity="center"
                                 android:hint="#"
                                 android:maxLength="1"
+                                android:text='@{formsContract.h1501x0dn}'
                                 app:maxValue="6"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2122,6 +2187,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501y0a.equals(formsContract.one)}"
                             android:text="@string/h1501y0ay" />
 
                         <RadioButton
@@ -2129,6 +2195,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501y0a.equals(formsContract.two)}"
                             android:text="@string/h1501y0an" />
 
                     </RadioGroup>
@@ -2179,6 +2246,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501y0b.equals(formsContract.one)}"
                             android:text="@string/h1501y0by" />
 
                         <RadioButton
@@ -2186,6 +2254,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501y0b.equals(formsContract.two)}"
                             android:text="@string/h1501y0bn" />
 
                     </RadioGroup>
@@ -2236,6 +2305,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501y0c.equals(formsContract.one)}"
                             android:text="@string/h1501y0cy" />
 
                         <RadioButton
@@ -2243,6 +2313,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501y0c.equals(formsContract.two)}"
                             android:text="@string/h1501y0cn" />
 
                     </RadioGroup>
@@ -2252,7 +2323,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h1501y0d  Days&Month EditTexts   -->
+            <!-- h1501y0d  Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501y0d"
                 style="@style/cardView">
@@ -2300,6 +2371,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.h1501y0dy}'
                                 app:maxValue="30"
                                 app:minValue="1"
                                 app:type="range" />
@@ -2321,6 +2393,7 @@
                                 android:gravity="center"
                                 android:hint="#"
                                 android:maxLength="1"
+                                android:text='@{formsContract.h1501y0dn}'
                                 app:maxValue="6"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2375,6 +2448,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501z0a.equals(formsContract.one)}"
                             android:text="@string/h1501z0ay" />
 
                         <RadioButton
@@ -2382,6 +2456,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501z0a.equals(formsContract.two)}"
                             android:text="@string/h1501z0an" />
 
                     </RadioGroup>
@@ -2432,6 +2507,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501z0b.equals(formsContract.one)}"
                             android:text="@string/h1501z0by" />
 
                         <RadioButton
@@ -2439,6 +2515,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501z0b.equals(formsContract.two)}"
                             android:text="@string/h1501z0bn" />
 
                     </RadioGroup>
@@ -2489,6 +2566,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501z0c.equals(formsContract.one)}"
                             android:text="@string/h1501z0cy" />
 
                         <RadioButton
@@ -2496,6 +2574,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.h1501z0c.equals(formsContract.two)}"
                             android:text="@string/h1501z0cn" />
 
                     </RadioGroup>
@@ -2505,7 +2584,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h1501z0d  Days&Month EditTexts   -->
+            <!-- h1501z0d  Days&Month EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVh1501z0d"
                 style="@style/cardView">
@@ -2553,6 +2632,7 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
+                                android:text='@{formsContract.h1501z0dy}'
                                 app:maxValue="30"
                                 app:minValue="1"
                                 app:type="range" />
@@ -2574,6 +2654,7 @@
                                 android:gravity="center"
                                 android:hint="#"
                                 android:maxLength="1"
+                                android:text='@{formsContract.h1501z0dn}'
                                 app:maxValue="6"
                                 app:minValue="0"
                                 app:type="range" />
