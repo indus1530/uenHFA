@@ -12,10 +12,9 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ2Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -74,7 +73,6 @@ public class SectionJ2Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SJ, MainApp.fc.getsJ());
         if (updcount == 1) {
@@ -87,49 +85,47 @@ public class SectionJ2Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
+        MainApp.fc.j0200a = bi.j0200a.getText().toString().trim().length() > 0 ? bi.j0200a.getText().toString() : "-1";
+        MainApp.fc.j0200b = bi.j0200b.getText().toString().trim().length() > 0 ? bi.j0200b.getText().toString() : "-1";
 
-        json.put("j0200a", bi.j0200a.getText().toString().trim().length() > 0 ? bi.j0200a.getText().toString() : "-1");
-        json.put("j0200b", bi.j0200b.getText().toString().trim().length() > 0 ? bi.j0200b.getText().toString() : "-1");
+        MainApp.fc.j0200c = bi.j0200ca.isChecked() ? "1"
+                : bi.j0200cb.isChecked() ? "2"
+                : "-1";
 
-        json.put("j0200aa", bi.j0200aaa.isChecked() ? "1"
-                : bi.j0200aab.isChecked() ? "2"
-                : "-1");
-
-        json.put("j0201a", bi.j0201aa.isChecked() ? "1"
+        MainApp.fc.j0201a = bi.j0201aa.isChecked() ? "1"
                 : bi.j0201ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0201b", bi.j0201ba.isChecked() ? "1"
+        MainApp.fc.j0201b = bi.j0201ba.isChecked() ? "1"
                 : bi.j0201bb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0201c", bi.j0201ca.isChecked() ? "1"
+        MainApp.fc.j0201c = bi.j0201ca.isChecked() ? "1"
                 : bi.j0201cb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0201d", bi.j0201da.isChecked() ? "1"
+        MainApp.fc.j0201d = bi.j0201da.isChecked() ? "1"
                 : bi.j0201db.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0201e", bi.j0201ea.isChecked() ? "1"
+        MainApp.fc.j0201e = bi.j0201ea.isChecked() ? "1"
                 : bi.j0201eb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0201f", bi.j0201fa.isChecked() ? "1"
+        MainApp.fc.j0201f = bi.j0201fa.isChecked() ? "1"
                 : bi.j0201fb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0201ga", bi.j0201ga.isChecked() ? "1" : "-1");
-        json.put("j0201gb", bi.j0201gb.isChecked() ? "2" : "-1");
-        json.put("j0201gc", bi.j0201gc.isChecked() ? "3" : "-1");
-        json.put("j0201gd", bi.j0201gd.isChecked() ? "4" : "-1");
-        json.put("j0201ge", bi.j0201ge.isChecked() ? "5" : "-1");
-        json.put("j0201gf", bi.j0201gf.isChecked() ? "6" : "-1");
-        json.put("j0201gx", bi.j0201gx.isChecked() ? "96" : "-1");
-        json.put("j0201gxx", bi.j0201gxx.getText().toString());
+        MainApp.fc.j0201ga = bi.j0201ga.isChecked() ? "1" : "-1";
+        MainApp.fc.j0201gb = bi.j0201gb.isChecked() ? "2" : "-1";
+        MainApp.fc.j0201gc = bi.j0201gc.isChecked() ? "3" : "-1";
+        MainApp.fc.j0201gd = bi.j0201gd.isChecked() ? "4" : "-1";
+        MainApp.fc.j0201ge = bi.j0201ge.isChecked() ? "5" : "-1";
+        MainApp.fc.j0201gf = bi.j0201gf.isChecked() ? "6" : "-1";
+        MainApp.fc.j0201gx = bi.j0201gx.isChecked() ? "96" : "-1";
+        MainApp.fc.j0201gxx = bi.j0201gxx.getText().toString().trim().length() > 0 ? bi.j0201gxx.getText().toString() : "-1";
 
     }
 
