@@ -237,6 +237,7 @@ public class FormsContract {
     public String d0603;
     public String d0604;
     public String d0605;
+
     public String d07;
     public String d0701;
     public String d0701xx;
@@ -249,6 +250,7 @@ public class FormsContract {
     public String d0704c;
     public String d0704d;
     public String d0704e;
+
     public String d08;
     public String d0801;
     public String d0801a0a;
@@ -281,6 +283,7 @@ public class FormsContract {
     public String d0801j0a;
     public String d0801j0f;
     public String d0801j0fq;
+
     public String modetitle;
     public String e01;
     public String e0101;

@@ -12,7 +12,6 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
@@ -49,18 +48,13 @@ public class SectionK6Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
                 SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionK7Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
@@ -79,8 +73,6 @@ public class SectionK6Activity extends AppCompatActivity {
 
 
     private void SaveDraft() {
-
-        JSONObject json = new JSONObject();
 
         MainApp.fc.k060101a = bi.k060101aa.isChecked() ? "11"
                 : bi.k060101ab.isChecked() ? "12"
