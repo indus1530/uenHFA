@@ -1760,9 +1760,9 @@ public class FormsContract {
     public String j0101mx;
     public String j0101mxx;
 
-    public String j0200;
-    public String j0200aa;
-    public String j0201;
+    public String j0200a;
+    public String j0200b;
+    public String j0200c;
     public String j0201a;
     public String j0201b;
     public String j0201c;
@@ -1777,10 +1777,11 @@ public class FormsContract {
     public String j0201ge;
     public String j0201gf;
     public String j0201gx;
-    public String j03;
-    public String j0300;
-    public String j0300aa;
-    public String j0i00;
+    public String j0201gxx;
+
+    public String j0300a;
+    public String j0300b;
+    public String j0300c;
     public String j0301a;
     public String j0301b;
     public String j0301c;
@@ -1803,7 +1804,6 @@ public class FormsContract {
     public String j0301t;
     public String j0301u;
     public String j0301v;
-    public String j0301w;
     public String j0301wa;
     public String j0301wb;
     public String j0301wc;
@@ -1811,10 +1811,11 @@ public class FormsContract {
     public String j0301we;
     public String j0301wf;
     public String j0301wx;
-    public String j04;
-    public String j0400;
-    public String j0400aa;
-    public String j0401;
+    public String j0301wxx;
+
+    public String j0400a;
+    public String j0400b;
+    public String j0400c;
     public String j0401a;
     public String j0401b;
     public String j0401c;
@@ -1827,7 +1828,6 @@ public class FormsContract {
     public String j0401j;
     public String j0401k;
     public String j0401l;
-    public String j0401m;
     public String j0401ma;
     public String j0401mb;
     public String j0401mc;
@@ -1835,10 +1835,11 @@ public class FormsContract {
     public String j0401me;
     public String j0401mf;
     public String j0401mx;
-    public String j05;
-    public String j0500;
-    public String j0500aa;
-    public String j0501;
+    public String j0401mxx;
+
+    public String j0500a;
+    public String j0500b;
+    public String j0500c;
     public String j0501a;
     public String j0501b;
     public String j0501c;
@@ -1852,7 +1853,6 @@ public class FormsContract {
     public String j0501k;
     public String j0501l;
     public String j0501m;
-    public String j0501n;
     public String j0501na;
     public String j0501nb;
     public String j0501nc;
@@ -1860,10 +1860,11 @@ public class FormsContract {
     public String j0501ne;
     public String j0501nf;
     public String j0501nx;
-    public String j06;
-    public String j0600;
-    public String j0600aa;
-    public String j0601;
+    public String j0501nxx;
+
+    public String j0600a;
+    public String j0600b;
+    public String j0600c;
     public String j0601a;
     public String j0601b;
     public String j0601c;
@@ -1876,7 +1877,6 @@ public class FormsContract {
     public String j0601j;
     public String j0601k;
     public String j0601l;
-    public String j0601m;
     public String j0601ma;
     public String j0601mb;
     public String j0601mc;
@@ -1884,10 +1884,11 @@ public class FormsContract {
     public String j0601me;
     public String j0601mf;
     public String j0601mx;
-    public String j07;
-    public String j0700;
-    public String j0700aa;
-    public String j0701;
+    public String j0601mxx;
+
+    public String j0700a;
+    public String j0700b;
+    public String j0700c;
     public String j0701a;
     public String j0701b;
     public String j0701c;
@@ -1902,10 +1903,11 @@ public class FormsContract {
     public String j0701ge;
     public String j0701gf;
     public String j0701gx;
-    public String j08;
-    public String j0800;
-    public String j0800aa;
-    public String j0801;
+    public String j0701gxx;
+
+    public String j0800a;
+    public String j0800b;
+    public String j0800c;
     public String j0801a;
     public String j0801b;
     public String j0801c;
@@ -1917,10 +1919,10 @@ public class FormsContract {
     public String j0801gb;
     public String j0801gc;
     public String j0801gd;
-    public String j09;
-    public String j0900;
-    public String j0900aa;
-    public String j0901;
+
+    public String j0900a;
+    public String j0900b;
+    public String j0900c;
     public String j0901a;
     public String j0901b;
     public String j0901c;

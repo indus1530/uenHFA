@@ -12,10 +12,9 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ7Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -48,24 +47,18 @@ public class SectionJ7Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
                 SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionJ8Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SJ, MainApp.fc.getsJ());
         if (updcount == 1) {
@@ -78,49 +71,47 @@ public class SectionJ7Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
+        MainApp.fc.j0700a = bi.j0700a.getText().toString().trim().length() > 0 ? bi.j0700a.getText().toString() : "-1";
+        MainApp.fc.j0700b = bi.j0700b.getText().toString().trim().length() > 0 ? bi.j0700b.getText().toString() : "-1";
 
-        json.put("j0700a", bi.j0700a.getText().toString().trim().length() > 0 ? bi.j0700a.getText().toString() : "-1");
-        json.put("j0700b", bi.j0700b.getText().toString().trim().length() > 0 ? bi.j0700b.getText().toString() : "-1");
+        MainApp.fc.j0700c = bi.j0700ca.isChecked() ? "1"
+                : bi.j0700cb.isChecked() ? "2"
+                : "-1";
 
-        json.put("j0700aa", bi.j0700aaa.isChecked() ? "1"
-                : bi.j0700aab.isChecked() ? "2"
-                : "-1");
-
-        json.put("j0701a", bi.j0701aa.isChecked() ? "1"
+        MainApp.fc.j0701a = bi.j0701aa.isChecked() ? "1"
                 : bi.j0701ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0701b", bi.j0701ba.isChecked() ? "1"
+        MainApp.fc.j0701b = bi.j0701ba.isChecked() ? "1"
                 : bi.j0701bb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0701c", bi.j0701ca.isChecked() ? "1"
+        MainApp.fc.j0701c = bi.j0701ca.isChecked() ? "1"
                 : bi.j0701cb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0701d", bi.j0701da.isChecked() ? "1"
+        MainApp.fc.j0701d = bi.j0701da.isChecked() ? "1"
                 : bi.j0701db.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0701e", bi.j0701ea.isChecked() ? "1"
+        MainApp.fc.j0701e = bi.j0701ea.isChecked() ? "1"
                 : bi.j0701eb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0701f", bi.j0701fa.isChecked() ? "1"
+        MainApp.fc.j0701f = bi.j0701fa.isChecked() ? "1"
                 : bi.j0701fb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0701ga", bi.j0701ga.isChecked() ? "1" : "-1");
-        json.put("j0701gb", bi.j0701gb.isChecked() ? "2" : "-1");
-        json.put("j0701gc", bi.j0701gc.isChecked() ? "3" : "-1");
-        json.put("j0701gd", bi.j0701gd.isChecked() ? "4" : "-1");
-        json.put("j0701ge", bi.j0701ge.isChecked() ? "5" : "-1");
-        json.put("j0701gf", bi.j0701gf.isChecked() ? "6" : "-1");
-        json.put("j0701gx", bi.j0701gx.isChecked() ? "96" : "-1");
-        json.put("j0701gxx", bi.j0701gxx.getText().toString());
+        MainApp.fc.j0701ga = bi.j0701ga.isChecked() ? "1" : "-1";
+        MainApp.fc.j0701gb = bi.j0701gb.isChecked() ? "2" : "-1";
+        MainApp.fc.j0701gc = bi.j0701gc.isChecked() ? "3" : "-1";
+        MainApp.fc.j0701gd = bi.j0701gd.isChecked() ? "4" : "-1";
+        MainApp.fc.j0701ge = bi.j0701ge.isChecked() ? "5" : "-1";
+        MainApp.fc.j0701gf = bi.j0701gf.isChecked() ? "6" : "-1";
+        MainApp.fc.j0701gx = bi.j0701gx.isChecked() ? "96" : "-1";
+        MainApp.fc.j0701gxx = bi.j0701gxx.getText().toString().trim().length() > 0 ? bi.j0701gxx.getText().toString() : "-1";
 
     }
 
@@ -171,4 +162,5 @@ public class SectionJ7Activity extends AppCompatActivity {
 
         }
     }
+
 }

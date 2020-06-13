@@ -12,10 +12,9 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ5Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
@@ -29,52 +28,24 @@ public class SectionJ5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_j5);
         bi.setCallback(this);
-        setupSkips();
-
-    }
-
-    private void setupSkips() {
-
-        /*bi.ss22.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss22b.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVss23, false);
-            } else {
-                Clear.clearAllFields(bi.fldGrpCVss23, true);
-            }
-        }));*/
-
-
-        /*bi.ss24.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss24b.getId()) {
-                Clear.clearAllFields(bi.ss25cvall, false);
-            } else {
-                Clear.clearAllFields(bi.ss25cvall, true);
-            }
-        }));*/
 
     }
 
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
                 SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionJ6Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SJ, MainApp.fc.getsJ());
         if (updcount == 1) {
@@ -87,85 +58,81 @@ public class SectionJ5Activity extends AppCompatActivity {
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
+        MainApp.fc.j0500a = bi.j0500a.getText().toString().trim().length() > 0 ? bi.j0500a.getText().toString() : "-1";
+        MainApp.fc.j0500b = bi.j0500b.getText().toString().trim().length() > 0 ? bi.j0500b.getText().toString() : "-1";
 
-        json.put("j0500a", bi.j0500a.getText().toString().trim().length() > 0 ? bi.j0500a.getText().toString() : "-1");
-        json.put("j0500b", bi.j0500b.getText().toString().trim().length() > 0 ? bi.j0500b.getText().toString() : "-1");
+        MainApp.fc.j0500c = bi.j0500ca.isChecked() ? "1"
+                : bi.j0500cb.isChecked() ? "2"
+                : "-1";
 
-        json.put("j0500aa", bi.j0500aaa.isChecked() ? "1"
-                : bi.j0500aab.isChecked() ? "2"
-                : "-1");
-
-        json.put("j0501a", bi.j0501aa.isChecked() ? "1"
+        MainApp.fc.j0501a = bi.j0501aa.isChecked() ? "1"
                 : bi.j0501ab.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501b", bi.j0501ba.isChecked() ? "1"
+        MainApp.fc.j0501b = bi.j0501ba.isChecked() ? "1"
                 : bi.j0501bb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501c", bi.j0501ca.isChecked() ? "1"
+        MainApp.fc.j0501c = bi.j0501ca.isChecked() ? "1"
                 : bi.j0501cb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501d", bi.j0501da.isChecked() ? "1"
+        MainApp.fc.j0501d = bi.j0501da.isChecked() ? "1"
                 : bi.j0501db.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501e", bi.j0501ea.isChecked() ? "1"
+        MainApp.fc.j0501e = bi.j0501ea.isChecked() ? "1"
                 : bi.j0501eb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501f", bi.j0501fa.isChecked() ? "1"
+        MainApp.fc.j0501f = bi.j0501fa.isChecked() ? "1"
                 : bi.j0501fb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501g", bi.j0501ga.isChecked() ? "1"
+        MainApp.fc.j0501g = bi.j0501ga.isChecked() ? "1"
                 : bi.j0501gb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501h", bi.j0501ha.isChecked() ? "1"
+        MainApp.fc.j0501h = bi.j0501ha.isChecked() ? "1"
                 : bi.j0501hb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501i", bi.j0501ia.isChecked() ? "1"
+        MainApp.fc.j0501i = bi.j0501ia.isChecked() ? "1"
                 : bi.j0501ib.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501j", bi.j0501ja.isChecked() ? "1"
+        MainApp.fc.j0501j = bi.j0501ja.isChecked() ? "1"
                 : bi.j0501jb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501k", bi.j0501ka.isChecked() ? "1"
+        MainApp.fc.j0501k = bi.j0501ka.isChecked() ? "1"
                 : bi.j0501kb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501l", bi.j0501la.isChecked() ? "1"
+        MainApp.fc.j0501l = bi.j0501la.isChecked() ? "1"
                 : bi.j0501lb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501m", bi.j0501ma.isChecked() ? "1"
+        MainApp.fc.j0501m = bi.j0501ma.isChecked() ? "1"
                 : bi.j0501mb.isChecked() ? "2"
-                : "-1");
+                : "-1";
 
-        json.put("j0501na", bi.j0501na.isChecked() ? "1" : "-1");
-        json.put("j0501nb", bi.j0501nb.isChecked() ? "2" : "-1");
-        json.put("j0501nc", bi.j0501nc.isChecked() ? "3" : "-1");
-        json.put("j0501nd", bi.j0501nd.isChecked() ? "4" : "-1");
-        json.put("j0501ne", bi.j0501ne.isChecked() ? "5" : "-1");
-        json.put("j0501nf", bi.j0501nf.isChecked() ? "6" : "-1");
-        json.put("j0501nx", bi.j0501nx.isChecked() ? "96" : "-1");
-        json.put("j0501nxx", bi.j0501nxx.getText().toString());
+        MainApp.fc.j0501na = bi.j0501na.isChecked() ? "1" : "-1";
+        MainApp.fc.j0501nb = bi.j0501nb.isChecked() ? "2" : "-1";
+        MainApp.fc.j0501nc = bi.j0501nc.isChecked() ? "3" : "-1";
+        MainApp.fc.j0501nd = bi.j0501nd.isChecked() ? "4" : "-1";
+        MainApp.fc.j0501ne = bi.j0501ne.isChecked() ? "5" : "-1";
+        MainApp.fc.j0501nf = bi.j0501nf.isChecked() ? "6" : "-1";
+        MainApp.fc.j0501nx = bi.j0501nx.isChecked() ? "96" : "-1";
+        MainApp.fc.j0501nxx = bi.j0501nxx.getText().toString().trim().length() > 0 ? bi.j0501nxx.getText().toString() : "-1";
 
     }
 
 
     private boolean formValidation() {
-
         return Validator.emptyCheckingContainer(this, bi.GrpNameSectionJ5);
-
     }
 
 
