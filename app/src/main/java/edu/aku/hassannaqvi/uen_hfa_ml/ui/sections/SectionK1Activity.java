@@ -13,7 +13,6 @@ import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
@@ -54,18 +53,13 @@ public class SectionK1Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionK2Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
@@ -84,8 +78,6 @@ public class SectionK1Activity extends AppCompatActivity {
 
 
     private void SaveDraft() {
-
-        JSONObject json = new JSONObject();
 
         MainApp.fc.k0101a = bi.k0101aa.isChecked() ? "1"
                 : bi.k0101ab.isChecked() ? "2"
@@ -143,7 +135,6 @@ public class SectionK1Activity extends AppCompatActivity {
     public void BtnEnd() {
         openEndActivity(this);
     }
-
 
 
     public void showTooltip(@NotNull View view) {

@@ -12,7 +12,6 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
@@ -78,8 +77,6 @@ public class SectionK3Activity extends AppCompatActivity {
 
 
     private void SaveDraft() {
-
-        JSONObject json = new JSONObject();
 
         MainApp.fc.k0301 = bi.k0301a.isChecked() ? "1"
                 : bi.k0301b.isChecked() ? "2"
