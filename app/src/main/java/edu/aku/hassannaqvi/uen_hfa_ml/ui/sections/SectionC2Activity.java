@@ -10,13 +10,9 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC2Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
@@ -62,8 +58,6 @@ public class SectionC2Activity extends AppCompatActivity {
     }
 
 
-
-
     /*private void addViewInPof15() {
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View rowView = inflater.inflate(R.layout.c200, null);
@@ -83,46 +77,44 @@ public class SectionC2Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
-     /*   int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, fc.getsC());
+        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, fc.getsC());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
         }*/
-        return false;
+        return true;
     }
 
 
-    private void SaveDraft() throws JSONException {
+    private void SaveDraft() {
 
-        JSONObject json = new JSONObject();
+        MainApp.fc.c021a = bi.c021a.getText().toString().trim().length() > 0 ? bi.c021a.getText().toString() : "-1";
 
-        json.put("c021a", bi.c021a.getText().toString().trim().length() > 0 ? bi.c021a.getText().toString() : "-1");
-
-        json.put("c021b", bi.c021ba.isChecked() ? "1"
+        MainApp.fc.c021b = bi.c021ba.isChecked() ? "1"
                 : bi.c021bb.isChecked() ? "2"
                 : bi.c021bc.isChecked() ? "3"
                 : bi.c021bd.isChecked() ? "4"
                 : bi.c021be.isChecked() ? "5"
-                : bi.c021bf.isChecked() ? "6"
-                : "-1");
-        json.put("c021bfx", bi.c021bfx.getText().toString().trim().length() > 0 ? bi.c021bfx.getText().toString() : "-1");
+                : bi.c021bf.isChecked() ? "96"
+                : "-1";
+        MainApp.fc.c021bfx = bi.c021bfx.getText().toString().trim().length() > 0 ? bi.c021bfx.getText().toString() : "-1";
 
-        json.put("c021c", bi.c021c.getText().toString().trim().length() > 0 ? bi.c021c.getText().toString() : "-1");
+        MainApp.fc.c021c = bi.c021c.getText().toString().trim().length() > 0 ? bi.c021c.getText().toString() : "-1";
 
-        json.put("c021d", bi.c021da.isChecked() ? "1"
+        MainApp.fc.c021d = bi.c021da.isChecked() ? "1"
                 : bi.c021db.isChecked() ? "2"
                 : bi.c021dc.isChecked() ? "3"
                 : bi.c021dd.isChecked() ? "4"
                 : bi.c021de.isChecked() ? "5"
                 : bi.c021df.isChecked() ? "6"
-                : bi.c021dg.isChecked() ? "6"
-                : "-1");
-        json.put("c021dgx", bi.c021dgx.getText().toString().trim().length() > 0 ? bi.c021dgx.getText().toString() : "-1");
+                : bi.c021dg.isChecked() ? "96"
+                : "-1";
+        MainApp.fc.c021dgx = bi.c021dgx.getText().toString().trim().length() > 0 ? bi.c021dgx.getText().toString() : "-1";
 
-        json.put("c021e", bi.c021e.getText().toString().trim().length() > 0 ? bi.c021e.getText().toString() : "-1");
+        MainApp.fc.c021e = bi.c021e.getText().toString().trim().length() > 0 ? bi.c021e.getText().toString() : "-1";
 
     }
 
@@ -133,13 +125,8 @@ public class SectionC2Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionMainActivity.class));
@@ -147,7 +134,6 @@ public class SectionC2Activity extends AppCompatActivity {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
         }
-
     }
 
 

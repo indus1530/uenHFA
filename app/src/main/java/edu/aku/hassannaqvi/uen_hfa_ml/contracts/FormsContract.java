@@ -88,19 +88,81 @@ public class FormsContract {
     public String b04;
     public String b05;
 
-    public String modctitle;
-    public String c01;
-    public String c01a;
-    public String c01b;
-    public String c01c;
-    public String c01d;
-    public String c01e;
-    public String c01f;
-    public String c01g;
-    public String c01h;
-    public String c01i;
-    public String c01j;
-    public String c01k;
+    public String c01aa;
+    public String c01ab;
+    public String c01ac;
+    public String c01ad;
+    public String c01ae;
+
+    public String c01ba;
+    public String c01bb;
+    public String c01bc;
+    public String c01bd;
+    public String c01be;
+
+    public String c01ca;
+    public String c01cb;
+    public String c01cc;
+    public String c01cd;
+    public String c01ce;
+
+    public String c01da;
+    public String c01db;
+    public String c01dc;
+    public String c01dd;
+    public String c01de;
+
+    public String c01ea;
+    public String c01eb;
+    public String c01ec;
+    public String c01ed;
+    public String c01ee;
+
+    public String c01fa;
+    public String c01fb;
+    public String c01fc;
+    public String c01fd;
+    public String c01fe;
+
+    public String c01ga;
+    public String c01gb;
+    public String c01gc;
+    public String c01gd;
+    public String c01ge;
+
+    public String c01ha;
+    public String c01hb;
+    public String c01hc;
+    public String c01hd;
+    public String c01he;
+
+    public String c01ia;
+    public String c01ib;
+    public String c01ic;
+    public String c01id;
+    public String c01ie;
+
+    public String c01ja;
+    public String c01jb;
+    public String c01jc;
+    public String c01jd;
+    public String c01je;
+
+    public String c01ka;
+    public String c01kb;
+    public String c01kc;
+    public String c01kd;
+    public String c01ke;
+
+
+    public String c021a;
+    public String c021b;
+    public String c021bfx;
+    public String c021c;
+    public String c021d;
+    public String c021dgx;
+    public String c021e;
+
     public String c02;
     public String c02a;
     public String c02d;

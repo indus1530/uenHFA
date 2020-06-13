@@ -5,7 +5,6 @@
     <data>
         <import type="android.view.View" />
 
-        <!-- Databinding Edit Mode -->
         <variable
             name="formsContract"
             type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
@@ -26,7 +25,7 @@
             style="@style/vlinearlayout">
 
 
-            <!-- c01  Title   -->
+            <!-- c01  SectionTitle   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01"
                 style="@style/cardView">
@@ -42,7 +41,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01a  Title   -->
+            <!-- c01a  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01a"
                 style="@style/cardView">
@@ -85,6 +84,7 @@
                             android:id="@+id/c01aa"
                             style="@style/EditTextNum"
                             android:gravity="center"
+                            android:text='@{formsContract.c01aa}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="##"
@@ -108,6 +108,7 @@
                             android:id="@+id/c01ab"
                             style="@style/EditTextNum"
                             android:gravity="center"
+                            android:text='@{formsContract.c01ab}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="##"
@@ -131,6 +132,7 @@
                             android:id="@+id/c01ac"
                             style="@style/EditTextNum"
                             android:gravity="center"
+                            android:text='@{formsContract.c01ac}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="##"
@@ -154,6 +156,7 @@
                             android:id="@+id/c01ad"
                             style="@style/EditTextNum"
                             android:gravity="center"
+                            android:text='@{formsContract.c01ad}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="##"
@@ -177,6 +180,7 @@
                             android:id="@+id/c01ae"
                             style="@style/EditTextNum"
                             android:gravity="center"
+                            android:text='@{formsContract.c01ae}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="##"
@@ -192,7 +196,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01b  Title   -->
+            <!-- c01b  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01b"
                 style="@style/cardView">
@@ -235,6 +239,7 @@
                             android:id="@+id/c01ba"
                             style="@style/EditTextNum"
                             android:gravity="center"
+                            android:text='@{formsContract.c01ba}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="##"
@@ -258,6 +263,7 @@
                             android:id="@+id/c01bb"
                             style="@style/EditTextNum"
                             android:gravity="center"
+                            android:text='@{formsContract.c01bb}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="##"
@@ -281,6 +287,7 @@
                             android:id="@+id/c01bc"
                             style="@style/EditTextNum"
                             android:gravity="center"
+                            android:text='@{formsContract.c01bc}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="##"
@@ -304,6 +311,7 @@
                             android:id="@+id/c01bd"
                             style="@style/EditTextNum"
                             android:gravity="center"
+                            android:text='@{formsContract.c01bd}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="##"
@@ -327,6 +335,7 @@
                             android:id="@+id/c01be"
                             style="@style/EditTextNum"
                             android:gravity="center"
+                            android:text='@{formsContract.c01be}'
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:hint="##"
@@ -342,7 +351,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01c  Title   -->
+            <!-- c01c  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01c"
                 style="@style/cardView">
@@ -384,11 +393,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ca"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ca}'
                             app:maxValue="99"
                             app:minValue="0"
                             app:type="range" />
@@ -407,11 +417,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01cb"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01cb}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -430,11 +441,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01cc"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01cc}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -453,11 +465,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01cd"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01cd}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -476,11 +489,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ce"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ce}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -492,7 +506,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01d  Title   -->
+            <!-- c01d  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01d"
                 style="@style/cardView">
@@ -534,11 +548,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01da"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01da}'
                             app:maxValue="99"
                             app:minValue="0"
                             app:type="range" />
@@ -557,11 +572,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01db"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01db}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -580,11 +596,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01dc"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01dc}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -603,11 +620,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01dd"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01dd}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -626,11 +644,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01de"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01de}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -642,7 +661,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01e  Title   -->
+            <!-- c01e  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01e"
                 style="@style/cardView">
@@ -684,11 +703,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ea"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ea}'
                             app:maxValue="99"
                             app:minValue="0"
                             app:type="range" />
@@ -707,11 +727,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01eb"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01eb}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -730,11 +751,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ec"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ec}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -753,11 +775,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ed"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ed}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -776,11 +799,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ee"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ee}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -792,7 +816,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01f  Title   -->
+            <!-- c01f  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01f"
                 style="@style/cardView">
@@ -834,11 +858,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01fa"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01fa}'
                             app:maxValue="99"
                             app:minValue="0"
                             app:type="range" />
@@ -857,11 +882,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01fb"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01fb}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -880,11 +906,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01fc"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01fc}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -903,11 +930,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01fd"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01fd}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -926,11 +954,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01fe"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01fe}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -942,7 +971,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01g  Title   -->
+            <!-- c01g  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01g"
                 style="@style/cardView">
@@ -984,11 +1013,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ga"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ga}'
                             app:maxValue="99"
                             app:minValue="0"
                             app:type="range" />
@@ -1007,11 +1037,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01gb"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01gb}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1030,11 +1061,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01gc"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01gc}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1053,11 +1085,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01gd"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01gd}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1076,11 +1109,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ge"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ge}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1092,7 +1126,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01h  Title   -->
+            <!-- c01h  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01h"
                 style="@style/cardView">
@@ -1134,11 +1168,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ha"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ha}'
                             app:maxValue="99"
                             app:minValue="0"
                             app:type="range" />
@@ -1157,11 +1192,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01hb"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01hb}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1180,11 +1216,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01hc"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01hc}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1203,11 +1240,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01hd"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01hd}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1226,11 +1264,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01he"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01he}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1242,7 +1281,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01i  Title   -->
+            <!-- c01i  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01i"
                 style="@style/cardView">
@@ -1284,11 +1323,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ia"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ia}'
                             app:maxValue="99"
                             app:minValue="0"
                             app:type="range" />
@@ -1307,11 +1347,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ib"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ib}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1330,11 +1371,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ic"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ic}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1353,11 +1395,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01id"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01id}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1376,11 +1419,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ie"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ie}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1392,7 +1436,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01j  Title   -->
+            <!-- c01j  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01j"
                 style="@style/cardView">
@@ -1434,11 +1478,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ja"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ja}'
                             app:maxValue="99"
                             app:minValue="0"
                             app:type="range" />
@@ -1457,11 +1502,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01jb"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01jb}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1480,11 +1526,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01jc"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01jc}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1503,11 +1550,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01jd"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01jd}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1526,11 +1574,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01je"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01je}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1542,7 +1591,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- c01k  Title   -->
+            <!-- c01k  5-EditTexts   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVc01k"
                 style="@style/cardView">
@@ -1584,11 +1633,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ka"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ka}'
                             app:maxValue="99"
                             app:minValue="0"
                             app:type="range" />
@@ -1607,11 +1657,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01kb"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01kb}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1630,11 +1681,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01kc"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01kc}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1653,11 +1705,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01kd"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01kd}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
@@ -1676,11 +1729,12 @@
                         <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/c01ke"
                             style="@style/EditTextNum"
-                            android:gravity="center"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:hint="##"
                             android:maxLength="2"
+                            android:text='@{formsContract.c01ke}'
                             app:maxValue="0"
                             app:minValue="0"
                             app:type="range" />
