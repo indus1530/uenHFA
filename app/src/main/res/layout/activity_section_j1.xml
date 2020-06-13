@@ -22,9 +22,9 @@
         <LinearLayout
             android:id="@+id/GrpNameSectionJ1"
             style="@style/vlinearlayout">
-            
 
-            <!-- j01  Title   -->
+
+            <!-- j01  SectionTitle   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVj01"
                 style="@style/cardView">
@@ -40,7 +40,7 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- j0100  Radio   -->
+            <!-- j0100  Name&Designation EditText   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVj0100"
                 style="@style/cardView">
@@ -85,6 +85,7 @@
                                 android:id="@+id/j0100a"
                                 style="@style/EditTextAlpha"
                                 android:gravity="center"
+                                android:text='@{formsContract.j0100a}'
                                 android:hint="@string/j0100a"
                                 android:maxLength="15" />
 
@@ -103,6 +104,7 @@
                                 android:id="@+id/j0100b"
                                 style="@style/EditTextAlpha"
                                 android:gravity="center"
+                                android:text='@{formsContract.j0100b}'
                                 android:hint="@string/j0100b"
                                 android:maxLength="15" />
 
@@ -114,9 +116,10 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- j0100aa  Radio   -->
+
+            <!-- j0100c  Radio   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVj0100aa"
+                android:id="@+id/fldGrpCVj0100c"
                 style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
@@ -127,42 +130,44 @@
                         android:background="@drawable/bottom">
 
                         <TextView
-                            android:id="@+id/qtxt_j0100aa"
+                            android:id="@+id/qtxt_j0100c"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/q_j0100aa"
-                            android:text="@string/j0100aa" />
+                            android:layout_toEndOf="@id/q_j0100c"
+                            android:text="@string/j0100c" />
 
                         <TextView
-                            android:id="@+id/q_j0100aa"
+                            android:id="@+id/q_j0100c"
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/qtxt_j0100aa"
-                            android:layout_alignBottom="@id/qtxt_j0100aa"
-                            android:text="@string/Q_j0100aa" />
+                            android:layout_alignTop="@id/qtxt_j0100c"
+                            android:layout_alignBottom="@id/qtxt_j0100c"
+                            android:text="@string/Q_j0100c" />
 
                     </RelativeLayout>
 
                     <RadioGroup
-                        android:id="@+id/j0100aa"
+                        android:id="@+id/j0100c"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/j0100aaa"
+                            android:id="@+id/j0100ca"
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:text="@string/j0100aaa" />
+                            android:checked="@{formsContract.j0100c.equals(formsContract.one)}"
+                            android:text="@string/j0100ca" />
 
                         <RadioButton
-                            android:id="@+id/j0100aab"
+                            android:id="@+id/j0100cb"
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
-                            android:text="@string/j0100aab" />
+                            android:checked="@{formsContract.j0100c.equals(formsContract.two)}"
+                            android:text="@string/j0100cb" />
 
                     </RadioGroup>
 
@@ -170,7 +175,8 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- j0101  Title   -->
+
+            <!-- j0101  SUB TextView   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVj0101"
                 style="@style/cardView">
@@ -184,6 +190,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- j0101a  Radio   -->
             <androidx.cardview.widget.CardView
@@ -226,6 +233,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.j0101a.equals(formsContract.one)}"
                             android:text="@string/j0101aa" />
 
                         <RadioButton
@@ -233,6 +241,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.j0101a.equals(formsContract.two)}"
                             android:text="@string/j0101ab" />
 
                     </RadioGroup>
@@ -634,7 +643,8 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!-- j0101i  Radio   -->
+
+            <!-- j0101i  SUB TextView   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVj0101i"
                 style="@style/cardView">
@@ -642,14 +652,13 @@
                 <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="56dp"
-                        android:layout_marginTop="12dp"
+                        style="@style/sub"
                         android:text="@string/j0101i" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- j0101ia  Radio   -->
             <androidx.cardview.widget.CardView
@@ -707,6 +716,7 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!-- j0101ib  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVj0101ib"
@@ -762,6 +772,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- j0101j  Radio   -->
             <androidx.cardview.widget.CardView
@@ -819,6 +830,7 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!-- j0101k  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVj0101k"
@@ -874,6 +886,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- j0101l  Radio   -->
             <androidx.cardview.widget.CardView
@@ -931,6 +944,7 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!-- j0101m  CheckBox   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVj0101m"
@@ -969,36 +983,43 @@
                         <CheckBox
                             android:id="@+id/j0101ma"
                             style="@style/checkbox"
+                            android:checked="@{formsContract.j0101ma.equals(formsContract.one)}"
                             android:text="@string/j0101ma" />
 
                         <CheckBox
                             android:id="@+id/j0101mb"
                             style="@style/checkbox"
+                            android:checked="@{formsContract.j0101mb.equals(formsContract.two)}"
                             android:text="@string/j0101mb" />
 
                         <CheckBox
                             android:id="@+id/j0101mc"
                             style="@style/checkbox"
+                            android:checked="@{formsContract.j0101mc.equals(formsContract.three)}"
                             android:text="@string/j0101mc" />
 
                         <CheckBox
                             android:id="@+id/j0101md"
                             style="@style/checkbox"
+                            android:checked="@{formsContract.j0101md.equals(formsContract.four)}"
                             android:text="@string/j0101md" />
 
                         <CheckBox
                             android:id="@+id/j0101me"
                             style="@style/checkbox"
+                            android:checked="@{formsContract.j0101me.equals(formsContract.five)}"
                             android:text="@string/j0101me" />
 
                         <CheckBox
                             android:id="@+id/j0101mf"
                             style="@style/checkbox"
+                            android:checked="@{formsContract.j0101mf.equals(formsContract.six)}"
                             android:text="@string/j0101mf" />
 
                         <CheckBox
                             android:id="@+id/j0101mx"
                             style="@style/checkbox"
+                            android:checked="@{formsContract.j0101mx.equals(formsContract.nSix)}"
                             android:text="@string/j0101mx" />
 
                         <EditText
@@ -1006,7 +1027,7 @@
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
                             android:tag="j0101mx"
-                            android:text='@{j0101mx.checked? j0101mxx.getText().toString() : ""}'
+                            android:text='@{j0101mx.checked ? formsContract.j0101mxx.toString() : ""}'
                             android:visibility='@{j0101mx.checked? View.VISIBLE : View.GONE}' />
 
                     </LinearLayout>

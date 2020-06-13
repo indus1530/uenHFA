@@ -1733,11 +1733,11 @@ public class FormsContract {
     public String i0401e;
     public String i0401f;
     public String i0401g;
-    public String modjtitle;
-    public String j01;
-    public String j0100;
-    public String j0100aa;
-    public String j0101;
+
+
+    public String j0100a;
+    public String j0100b;
+    public String j0100c;
     public String j0101a;
     public String j0101b;
     public String j0101c;
@@ -1746,13 +1746,11 @@ public class FormsContract {
     public String j0101f;
     public String j0101g;
     public String j0101h;
-    public String j0101i;
     public String j0101ia;
     public String j0101ib;
     public String j0101j;
     public String j0101k;
     public String j0101l;
-    public String j0101m;
     public String j0101ma;
     public String j0101mb;
     public String j0101mc;
@@ -1760,7 +1758,8 @@ public class FormsContract {
     public String j0101me;
     public String j0101mf;
     public String j0101mx;
-    public String j02;
+    public String j0101mxx;
+
     public String j0200;
     public String j0200aa;
     public String j0201;
