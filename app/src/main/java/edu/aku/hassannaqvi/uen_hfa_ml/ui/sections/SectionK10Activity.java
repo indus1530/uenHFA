@@ -5,15 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK10Binding;
@@ -48,18 +46,13 @@ public class SectionK10Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            SaveDraft();
             if (UpdateDB()) {
                 finish();
                 startActivity(new Intent(this, SectionK11Activity.class));
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
         }
     }
 
@@ -78,8 +71,6 @@ public class SectionK10Activity extends AppCompatActivity {
 
 
     private void SaveDraft() {
-
-        JSONObject json = new JSONObject();
 
         MainApp.fc.k1001 = bi.k1001a.isChecked() ? "1"
                 : bi.k1001b.isChecked() ? "2"
@@ -155,8 +146,6 @@ public class SectionK10Activity extends AppCompatActivity {
                 : bi.k1015b.isChecked() ? "2"
                 : bi.k1015c.isChecked() ? "3"
                 : "-1";
-
-        //       json.put("k0905c", "-1");
 
     }
 
