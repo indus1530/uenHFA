@@ -4,14 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
-import org.json.JSONObject;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionBBinding;
@@ -65,7 +62,6 @@ public class SectionBActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
-
     }
 
 
@@ -83,8 +79,6 @@ public class SectionBActivity extends AppCompatActivity {
 
 
     private void SaveDraft() {
-
-        JSONObject json = new JSONObject();
 
         MainApp.fc.a14 = bi.a14a.isChecked() ? "1"
                 : bi.a14b.isChecked() ? "2"
@@ -129,6 +123,7 @@ public class SectionBActivity extends AppCompatActivity {
 
         MainApp.fc.a20 = bi.a20a.isChecked() ? "1"
                 : bi.a20b.isChecked() ? "2"
+                : bi.a20c.isChecked() ? "3"
                 : "-1";
 
         MainApp.fc.a21 = bi.a21.getText().toString().trim().isEmpty() ? "-1" : bi.a21.getText().toString();
