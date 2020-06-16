@@ -27,7 +27,7 @@ public class HFContract {
         return this;
     }
 
-    public HFContract HydrateUCs(Cursor cursor) {
+    public HFContract HydrateHF(Cursor cursor) {
         this.tehsil_code = cursor.getString(cursor.getColumnIndex(singleHF.COLUMN_TEHSIL_CODE));
         this.hf_type = cursor.getString(cursor.getColumnIndex(singleHF.COLUMN_HF_TYPE));
         this.hf_name = cursor.getString(cursor.getColumnIndex(singleHF.COLUMN_HF_NAME));

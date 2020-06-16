@@ -25,7 +25,7 @@ public class TehsilsContract {
         return this;
     }
 
-    public TehsilsContract HydrateTalukas(Cursor cursor) {
+    public TehsilsContract HydrateTehsils(Cursor cursor) {
         this.tehsilCode = cursor.getString(cursor.getColumnIndex(singleTehsil.COLUMN_TEHSIL_CODE));
         this.tehsilName = cursor.getString(cursor.getColumnIndex(singleTehsil.COLUMN_TEHSIL_NAME));
         this.districtcode = cursor.getString(cursor.getColumnIndex(singleTehsil.COLUMN_DISTRICT_CODE));

@@ -1,24 +1,31 @@
 package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.HFContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TehsilsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionABinding;
@@ -27,11 +34,11 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 public class SectionAActivity extends AppCompatActivity {
 
     ActivitySectionABinding bi;
-
+    private List<String> districtNames, tehsilNames, ucNames, hfNames;
+    private List<String> districtCodes, tehsilCodes, ucCodes, hfCodes;
     private DatabaseHelper db;
     private static final String TAG = SectionAActivity.class.getName();
     public static FormsContract fc;
-    private List<String> reportingMonth, districtNames, districtCodes, tehsilName, tehsilCode, UcNames, ucCode, hfName, hfCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,170 +48,86 @@ public class SectionAActivity extends AppCompatActivity {
         // Databinding Edit Mode (only in first activity for every contract)
         MainApp.fc = new FormsContract();
         bi.setFormsContract(MainApp.fc);
-
         bi.setCallback(this);
-
         db = MainApp.appInfo.getDbHelper();
-        //tempVisible(this);
+        initializingComponents();
+
 
     }
 
+    private void initializingComponents() {
+        db = new DatabaseHelper(this);
+        populateSpinner(this);
+    }
 
 
-
-    /*private void tempVisible(final Context context) {
-
+    public void populateSpinner(final Context context) {
+        // Spinner Drop down elements
         districtNames = new ArrayList<>();
         districtCodes = new ArrayList<>();
 
         districtNames.add("....");
         districtCodes.add("....");
-        Collection<District> districts;
-        try {
-            districts = (Collection<District>) new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getAllDistricts").execute().get();
 
-            if (districts != null) {
-                for (District d : districts) {
-                    districtNames.add(d.getDistrict_name());
-                    districtCodes.add(d.getDistrict_code());
-                }
-                // Creating adapter for spinner
-                ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(context,
-                        android.R.layout.simple_spinner_dropdown_item, districtNames);
+        Collection<DistrictContract> dc = db.getAllDistricts();
 
-                // Drop down layout style - list view with radio button
-                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                // attaching data adapter to spinner
-                bi.hfDistrict.setAdapter(dataAdapter);
-
-            } else {
-                Toast.makeText(this, "District not found!!", Toast.LENGTH_SHORT).show();
-            }
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
+        for (DistrictContract d : dc) {
+            districtNames.add(d.getDistrictName());
+            districtCodes.add(d.getDistrictCode());
         }
 
+        bi.a07.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, districtNames));
 
-        if (!type.equals(MainApp.DHMT)) {
-            bi.hfDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (position == 0) return;
-
-                    tehsilName = new ArrayList<>();
-                    tehsilCode = new ArrayList<>();
-                    tehsilName.add("....");
-                    tehsilCode.add("....");
-
-                    Collection<Tehsil> tehsils;
-                    try {
-                        tehsils =
-                                (Collection<Tehsil>)
-                                        new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getTehsil")
-                                                .execute(districtCodes.get(position)).get();
-
-                        if (tehsils.size() != 0) {
-                            for (Tehsil fp : tehsils) {
-                                tehsilName.add(fp.getTehsil_name());
-                                tehsilCode.add(fp.getTehsil_code());
-                            }
-                        }
-
-                        bi.hfTehsil.setAdapter(new ArrayAdapter<>(context,
-                                android.R.layout.simple_spinner_dropdown_item, tehsilName));
-
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-            bi.hfTehsil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (position == 0) return;
-
-                    hfName = new ArrayList<>();
-                    hfCode = new ArrayList<>();
-                    hfCode.add("....");
-                    hfName.add("....");
-
-                    Collection<FacilityProvider> hfp;
-                    try {
-                        hfp =
-                                *//*(Collection<FacilityProvider>)
-                                        new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getFacilityProvider")
-                                                .execute(tehsilName.get(position)).get();*//*
-
-
-                                (Collection<FacilityProvider>)
-                                        new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getFacilityProvider")
-                                                .execute("%" + tehsilCode.get(position) + "%", hf_type).get();
-
-                        if (hfp.size() != 0) {
-                            for (FacilityProvider fp : hfp) {
-                                hfName.add(fp.getHf_name());
-                                hfCode.add(fp.getHf_uen_code());
-
-                            }
-                        }
-
-                        bi.hfname.setAdapter(new ArrayAdapter<>(context,
-                                android.R.layout.simple_spinner_dropdown_item, hfName));
-
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-        }
-
-        reportingMonth = new ArrayList<>();
-        reportingMonth.add("....");
-        reportingMonth.add(mon.toUpperCase());
-        reportingMonth.add(DateUtils.getMonthsBack("MMM-yy", -1).toUpperCase());
-        reportingMonth.add(DateUtils.getMonthsBack("MMM-yy", -2).toUpperCase());
-        // Creating adapter for spinner
-        ArrayAdapter<String> monAdapter = new ArrayAdapter<>(context,
-                android.R.layout.simple_spinner_dropdown_item, reportingMonth);
-        // Drop down layout style - list view with radio button
-        monAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // attaching data adapter to spinner
-        bi.reportMonth.setAdapter(monAdapter);
-        bi.reportMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        bi.a07.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                setTitle(type.equals(MainApp.RSD) ? "DHIS Data-Validation Tools for Decision Making (" + bi.reportMonth.getSelectedItem() + ")"
-                        : type.equals(MainApp.DHMT) ? "Performance Evaluation of District Team Meetings (" + bi.reportMonth.getSelectedItem() + ")"
-                        : type.equals(MainApp.QOC) ? "Key Quality Indicator Tool for Health Facility (" + bi.reportMonth.getSelectedItem() + ")" : " ");
+                if (position == 0) return;
 
-                ClearClass.ClearAllFields(bi.llrsdInfo01, null);
-                ClearClass.ClearAllFields(bi.llrsdInfo02, null);
-                ClearClass.ClearAllFields(bi.llrsdInfo03, null);
-                ClearClass.ClearAllFields(bi.llrsdInfo04, null);
+                tehsilNames = new ArrayList<>();
+                tehsilCodes = new ArrayList<>();
 
+                tehsilNames.add("....");
+                tehsilCodes.add("....");
+
+                Collection<TehsilsContract> pc = db.getAllTehsils(districtCodes.get(position));
+                for (TehsilsContract p : pc) {
+                    tehsilNames.add(p.getTehsilName());
+                    tehsilCodes.add(p.getTehsilCode());
+                }
+
+                bi.a08.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, tehsilNames));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+
+            }
+        });
+
+
+        bi.a08.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position == 0) return;
+
+                ucNames = new ArrayList<>();
+                ucCodes = new ArrayList<>();
+
+                ucNames.add("....");
+                ucCodes.add("....");
+                Clear.clearAllFields(bi.fldGrpCVa10);
+
+                Collection<UCsContract> pc = db.getAllUCs(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
+                for (UCsContract p : pc) {
+                    ucCodes.add(p.getUc_code());
+                    ucNames.add(p.getUc_name());
+                }
+
+                bi.a09.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, ucNames));
             }
 
             @Override
@@ -214,23 +137,69 @@ public class SectionAActivity extends AppCompatActivity {
         });
 
 
-    }*/
+
+        /*bi.a09.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 0) return;
+                hfNames = new ArrayList<>();
+                hfCodes = new ArrayList<>();
+                hfNames.add("....");
+                hfCodes.add("....");
+
+                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "1");
+                for (HFContract p : pc) {
+                    hfCodes.add(p.getHf_code());
+                    hfNames.add(p.getHf_name());
+                }
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });*/
+
+
+        bi.a10.setOnCheckedChangeListener(((radioGroup, i) -> {
+
+            hfNames = new ArrayList<>();
+            hfCodes = new ArrayList<>();
+            hfNames.add("....");
+            hfCodes.add("....");
+            Clear.clearAllFields(bi.fldGrpCVa11);
+
+            if (i == bi.a10a.getId()) {
+                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "1");
+                for (HFContract p : pc) {
+                    hfCodes.add(p.getHf_code());
+                    hfNames.add(p.getHf_name());
+                }
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
+            } else {
+                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "2");
+                for (HFContract p : pc) {
+                    hfCodes.add(p.getHf_code());
+                    hfNames.add(p.getHf_name());
+                }
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
+
+            }
+        }));
+
+
+    }
 
 
     public void BtnContinue() {
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionMainActivity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-
+        if (!formValidation()) return;
+        SaveDraft();
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionMainActivity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -284,93 +253,6 @@ public class SectionAActivity extends AppCompatActivity {
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
-
-            /*Object getData = null;
-
-            try {
-                getData = new Collection<ge>(db, GetFncDAO.class.getName(), "getFncDao", "getPendingFormo") {}
-                        .execute(bi.a13.getSelectedItem().toString(),
-                                hfCode.get(bi.a13.getSelectedItemPosition())).get();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            *//*if (bi.pub.isChecked()) {
-                try {
-                    getData = new GetIndDBData(db, GetFncDAO.class.getName(), "getFncDao", "getPendingPublicForm")
-                            .execute(bi.reportMonth.getSelectedItem().toString(),
-                                    districtCodes.get(bi.hfDistrict.getSelectedItemPosition()),
-                                    hfCode.get(bi.hfname.getSelectedItemPosition())).get();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                try {
-                    getData = new GetIndDBData(db, GetFncDAO.class.getName(), "getFncDao", "getPendingPrivateForm")
-                            .execute(bi.reportMonth.getSelectedItem().toString(),
-                                    districtCodes.get(bi.hfDistrict.getSelectedItemPosition()),
-                                    hfCode.get(bi.hfname.getSelectedItemPosition())).get();
-                    //bi.hfName.getText().toString()).get();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }*//*
-
-            if (getData == null) {
-                fc = null;
-                return true;
-            }
-
-            if (((FormsContract) getData).getIstatus().equals("1")) {
-                Toast.makeText(this, "All Sections filled for this Facility", Toast.LENGTH_LONG).show();
-                return false;
-            }
-
-            fc = (FormsContract) getData;*/
-
-
     }
-
-
-    public void showTooltip(@NotNull View view) {
-        if (view.getId() != View.NO_ID) {
-            String package_name = getApplicationContext().getPackageName();
-
-            // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
-            String infoid = view.getResources().getResourceName(view.getId()).replace(package_name + ":id/q_", "");
-
-            // Question info text must be suffixed with _info e.g.: aa12a_info
-            int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
-
-            // Fetch info text from strings.xml
-            //String infoText = (String) getResources().getText(stringRes);
-
-            // Check if string resource exists to avoid crash on missing info string
-            if (stringRes != 0) {
-
-                // Fetch info text from strings.xml
-                String infoText = (String) getResources().getText(stringRes);
-
-                new AlertDialog.Builder(this)
-                        .setTitle("Info: " + infoid.toUpperCase())
-                        .setMessage(infoText)
-                        .setIcon(android.R.drawable.ic_dialog_info)
-                        .show();
-            } else {
-                Toast.makeText(this, "No information available on this question.", Toast.LENGTH_SHORT).show();
-            }
-
-        } else {
-            Toast.makeText(this, "No ID Associated with this question.", Toast.LENGTH_SHORT).show();
-
-        }
-    }
-
 
 }

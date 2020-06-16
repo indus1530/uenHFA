@@ -247,7 +247,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<TehsilsContract> getAllTalukas() {
+    public Collection<TehsilsContract> getAllTehsils() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -277,7 +277,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 TehsilsContract dc = new TehsilsContract();
-                allDC.add(dc.HydrateTalukas(c));
+                allDC.add(dc.HydrateTehsils(c));
             }
         } finally {
             if (c != null) {
@@ -291,7 +291,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<UCsContract> getAllUCs(String talukaCode) {
+    public Collection<TehsilsContract> getAllTehsils(String districtCode) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                TehsilsContract.singleTehsil.COLUMN_TEHSIL_CODE,
+                TehsilsContract.singleTehsil.COLUMN_TEHSIL_NAME,
+                TehsilsContract.singleTehsil.COLUMN_DISTRICT_CODE
+        };
+
+        String whereClause = TehsilsContract.singleTehsil.COLUMN_DISTRICT_CODE + "=?";
+        String[] whereArgs = new String[]{districtCode};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                TehsilsContract.singleTehsil.COLUMN_TEHSIL_NAME + " ASC";
+
+        Collection<TehsilsContract> allDC = new ArrayList<>();
+        try {
+            c = db.query(
+                    TehsilsContract.singleTehsil.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                TehsilsContract dc = new TehsilsContract();
+                allDC.add(dc.HydrateTehsils(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allDC;
+    }
+
+
+    public Collection<UCsContract> getAllUCs(String tehsilCode) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -301,7 +345,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         };
 
         String whereClause = UCsContract.singleUCs.COLUMN_TEHSIL_CODE + "=?";
-        String[] whereArgs = new String[]{talukaCode};
+        String[] whereArgs = new String[]{tehsilCode};
         String groupBy = null;
         String having = null;
 
@@ -332,6 +376,96 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allDC;
+    }
+
+
+    public Collection<HFContract> getAllHFs(String tehsilCode) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                HFContract.singleHF.COLUMN_TEHSIL_CODE,
+                HFContract.singleHF.COLUMN_HF_TYPE,
+                HFContract.singleHF.COLUMN_HF_CODE,
+                HFContract.singleHF.COLUMN_HF_NAME
+        };
+
+        String whereClause = HFContract.singleHF.COLUMN_TEHSIL_CODE + "=?";
+        String[] whereArgs = new String[]{tehsilCode};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                HFContract.singleHF.COLUMN_HF_NAME + " ASC";
+
+        Collection<HFContract> allHF = new ArrayList<>();
+        try {
+            c = db.query(
+                    HFContract.singleHF.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                HFContract hf = new HFContract();
+                allHF.add(hf.HydrateHF(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allHF;
+    }
+
+
+    public Collection<HFContract> getAllHFs(String tehsilCode, String hfType) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                HFContract.singleHF.COLUMN_TEHSIL_CODE,
+                HFContract.singleHF.COLUMN_HF_TYPE,
+                HFContract.singleHF.COLUMN_HF_CODE,
+                HFContract.singleHF.COLUMN_HF_NAME
+        };
+
+        String whereClause = HFContract.singleHF.COLUMN_TEHSIL_CODE + "=?" + " AND " + HFContract.singleHF.COLUMN_HF_TYPE + "=?";
+        String[] whereArgs = new String[]{tehsilCode, hfType};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                HFContract.singleHF.COLUMN_HF_NAME + " ASC";
+
+        Collection<HFContract> allHF = new ArrayList<>();
+        try {
+            c = db.query(
+                    HFContract.singleHF.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                HFContract hf = new HFContract();
+                allHF.add(hf.HydrateHF(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allHF;
     }
 
 
