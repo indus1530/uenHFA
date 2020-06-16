@@ -2,7 +2,8 @@ package edu.aku.hassannaqvi.uen_hfa_ml.utils;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TalukasContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.HFContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TehsilsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UsersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
@@ -49,8 +50,7 @@ public final class CreateTable {
     public static final String SQL_CREATE_USERS = "CREATE TABLE " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
-            + UsersContract.singleUser.ROW_PASSWORD + " TEXT,"
-            + UsersContract.singleUser.DIST_ID + " TEXT"
+            + UsersContract.singleUser.ROW_PASSWORD + " TEXT"
             + " );";
 
     public static final String SQL_CREATE_VERSIONAPP = "CREATE TABLE " + VersionAppContract.VersionAppTable.TABLE_NAME + " (" +
@@ -63,19 +63,27 @@ public final class CreateTable {
     public static final String SQL_CREATE_DISTRICTS = "CREATE TABLE " + DistrictContract.singleDistrict.TABLE_NAME + "("
             + DistrictContract.singleDistrict._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + DistrictContract.singleDistrict.COLUMN_DISTRICT_CODE + " TEXT,"
-            + DistrictContract.singleDistrict.COLUMN_DISTRICT + " TEXT );";
+            + DistrictContract.singleDistrict.COLUMN_DISTRICT_NAME + " TEXT );";
 
-    public static final String SQL_CREATE_TALUKAS = "CREATE TABLE " + TalukasContract.singleTalukas.TABLE_NAME + "("
-            + TalukasContract.singleTalukas._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + TalukasContract.singleTalukas.COLUMN_TALUKA_CODE + " TEXT,"
-            + TalukasContract.singleTalukas.COLUMN_TALUKA + " TEXT,"
-            + TalukasContract.singleTalukas.COLUMN_DISTRICT_CODE + " TEXT );";
+    public static final String SQL_CREATE_TEHSILS = "CREATE TABLE " + TehsilsContract.singleTehsil.TABLE_NAME + "("
+            + TehsilsContract.singleTehsil._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TehsilsContract.singleTehsil.COLUMN_TEHSIL_CODE + " TEXT,"
+            + TehsilsContract.singleTehsil.COLUMN_TEHSIL_NAME + " TEXT,"
+            + TehsilsContract.singleTehsil.COLUMN_DISTRICT_CODE + " TEXT );";
 
 
     public static final String SQL_CREATE_UCS = "CREATE TABLE " + UCsContract.singleUCs.TABLE_NAME + "("
             + UCsContract.singleUCs._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + UCsContract.singleUCs.COLUMN_UCCODE + " TEXT,"
-            + UCsContract.singleUCs.COLUMN_TALUKA_CODE + " TEXT,"
-            + UCsContract.singleUCs.COLUMN_UCS + " TEXT );";
+            + UCsContract.singleUCs.COLUMN_UC_CODE + " TEXT,"
+            + UCsContract.singleUCs.COLUMN_TEHSIL_CODE + " TEXT,"
+            + UCsContract.singleUCs.COLUMN_UC_NAME + " TEXT );";
+
+
+    public static final String SQL_CREATE_HF = "CREATE TABLE " + HFContract.singleHF.TABLE_NAME + "("
+            + HFContract.singleHF._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + HFContract.singleHF.COLUMN_HF_CODE + " TEXT,"
+            + HFContract.singleHF.COLUMN_TEHSIL_CODE + " TEXT,"
+            + HFContract.singleHF.COLUMN_HF_NAME + " TEXT,"
+            + HFContract.singleHF.COLUMN_HF_TYPE + " TEXT );";
 
 }
