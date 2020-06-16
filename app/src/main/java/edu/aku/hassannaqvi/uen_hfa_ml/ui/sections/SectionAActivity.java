@@ -138,30 +138,6 @@ public class SectionAActivity extends AppCompatActivity {
 
 
 
-        /*bi.a09.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0) return;
-                hfNames = new ArrayList<>();
-                hfCodes = new ArrayList<>();
-                hfNames.add("....");
-                hfCodes.add("....");
-
-                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "1");
-                for (HFContract p : pc) {
-                    hfCodes.add(p.getHf_code());
-                    hfNames.add(p.getHf_name());
-                }
-                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });*/
-
-
         bi.a10.setOnCheckedChangeListener(((radioGroup, i) -> {
 
             hfNames = new ArrayList<>();
@@ -187,6 +163,20 @@ public class SectionAActivity extends AppCompatActivity {
 
             }
         }));
+
+
+        bi.a13.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 0) return;
+                Toast.makeText(SectionAActivity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
 
     }
@@ -244,7 +234,9 @@ public class SectionAActivity extends AppCompatActivity {
                 : bi.a11b.isChecked() ? "2"
                 : "-1";
 
-        MainApp.fc.a12 = String.valueOf(bi.a13.getSelectedItemPosition());
+        MainApp.fc.a12 = hfCodes.get(bi.a13.getSelectedItemPosition());
+
+
 
         MainApp.fc.a13 = String.valueOf(bi.a13.getSelectedItem());
 
