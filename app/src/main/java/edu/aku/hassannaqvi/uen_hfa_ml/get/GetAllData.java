@@ -18,6 +18,10 @@ import java.net.URL;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.SyncListAdapter;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.HFContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TehsilsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UsersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -59,6 +63,18 @@ public class GetAllData extends AsyncTask<String, String, String> {
             case "VersionApp":
                 position = 1;
                 break;
+            case "Districts":
+                position = 2;
+                break;
+            case "Tehsils":
+                position = 3;
+                break;
+            case "UCs":
+                position = 4;
+                break;
+            case "HealthFacilities":
+                position = 5;
+                break;
         }
         list.get(position).settableName(syncClass);
     }
@@ -87,6 +103,18 @@ public class GetAllData extends AsyncTask<String, String, String> {
             case "VersionApp":
                 position = 1;
                 break;
+            case "Districts":
+                position = 2;
+                break;
+            case "Tehsils":
+                position = 3;
+                break;
+            case "UCs":
+                position = 4;
+                break;
+            case "HealthFacilities":
+                position = 5;
+                break;
         }
         list.get(position).setstatus("Syncing");
         list.get(position).setstatusID(2);
@@ -110,8 +138,24 @@ public class GetAllData extends AsyncTask<String, String, String> {
                     url = new URL(MainApp._UPDATE_URL + VersionAppContract.VersionAppTable._URI);
                     position = 1;
                     break;
+                case "Districts":
+                    url = new URL(MainApp._HOST_URL + DistrictContract.singleDistrict._URI);
+                    position = 2;
+                    break;
+                case "Tehsils":
+                    url = new URL(MainApp._HOST_URL + TehsilsContract.singleTehsil._URI);
+                    position = 3;
+                    break;
+                case "UCs":
+                    url = new URL(MainApp._HOST_URL + UCsContract.singleUCs._URI);
+                    position = 4;
+                    break;
+                case "HealthFacilities":
+                    url = new URL(MainApp._HOST_URL + HFContract.singleHF._URI);
+                    position = 5;
+                    break;
             }
-
+            Log.d(TAG, "doInBackground: " + url);
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setReadTimeout(100000 /* milliseconds */);
             urlConnection.setConnectTimeout(150000 /* milliseconds */);
@@ -212,6 +256,22 @@ public class GetAllData extends AsyncTask<String, String, String> {
                         case "VersionApp":
                             db.syncVersionApp(jsonArray);
                             position = 1;
+                            break;
+                        case "Districts":
+                            position = 2;
+                            db.syncDistricts(jsonArray);
+                            break;
+                        case "Tehsils":
+                            position = 3;
+                            db.syncTehsils(jsonArray);
+                            break;
+                        case "UCs":
+                            position = 4;
+                            db.syncUCs(jsonArray);
+                            break;
+                        case "HealthFacilities":
+                            db.syncHF(jsonArray);
+                            position = 5;
                             break;
                     }
 

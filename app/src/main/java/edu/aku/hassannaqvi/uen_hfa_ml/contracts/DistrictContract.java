@@ -11,7 +11,7 @@ public class DistrictContract {
 
     private static final String TAG = "District_CONTRACT";
     String districtCode;
-    String district;
+    String districtName;
 
     public DistrictContract() {
         // Default Constructor
@@ -19,13 +19,13 @@ public class DistrictContract {
 
     public DistrictContract Sync(JSONObject jsonObject) throws JSONException {
         this.districtCode = jsonObject.getString(singleDistrict.COLUMN_DISTRICT_CODE);
-        this.district = jsonObject.getString(singleDistrict.COLUMN_DISTRICT);
+        this.districtName = jsonObject.getString(singleDistrict.COLUMN_DISTRICT_NAME);
         return this;
     }
 
     public DistrictContract HydrateDistrict(Cursor cursor) {
         this.districtCode = cursor.getString(cursor.getColumnIndex(singleDistrict.COLUMN_DISTRICT_CODE));
-        this.district = cursor.getString(cursor.getColumnIndex(singleDistrict.COLUMN_DISTRICT));
+        this.districtName = cursor.getString(cursor.getColumnIndex(singleDistrict.COLUMN_DISTRICT_NAME));
         return this;
     }
 
@@ -37,29 +37,29 @@ public class DistrictContract {
         this.districtCode = districtCode;
     }
 
-    public String getDistrict() {
-        return district;
+    public String getDistrictName() {
+        return districtName;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
     }
 
     public JSONObject toJSONObject() throws JSONException {
 
         JSONObject json = new JSONObject();
         json.put(singleDistrict.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
-        json.put(singleDistrict.COLUMN_DISTRICT, this.district == null ? JSONObject.NULL : this.district);
+        json.put(singleDistrict.COLUMN_DISTRICT_NAME, this.districtName == null ? JSONObject.NULL : this.districtName);
         return json;
     }
 
 
     public static abstract class singleDistrict implements BaseColumns {
 
-        public static final String TABLE_NAME = "district";
+        public static final String TABLE_NAME = "districts";
         public static final String COLUMN_DISTRICT_CODE = "district_code";
-        public static final String COLUMN_DISTRICT = "district_name";
+        public static final String COLUMN_DISTRICT_NAME = "district_name";
 
-        public static final String _URI = "district.php";
+        public static final String _URI = "districts.php";
     }
 }

@@ -64,8 +64,7 @@
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:checked="@{formsContract.a14.equals(formsContract.one)}"
-                            android:text="@string/a14a"
-                            />
+                            android:text="@string/a14a" />
 
                         <RadioButton
                             android:id="@+id/a14b"
@@ -368,7 +367,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVa19"
                 style="@style/cardView"
-                android:visibility='@{a18b.checked ? View.VISIBLE : View.GONE}'>
+                android:visibility="@{a18b.checked ? View.VISIBLE : View.GONE}">
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -780,6 +779,7 @@
                 android:id="@+id/fldGrpS01"
                 style="@style/vlinearlayout"
                 android:visibility="@{b02a.checked ? View.VISIBLE : View.GONE}">
+
 
                 <!-- b03  Input-Numeric   -->
                 <androidx.cardview.widget.CardView

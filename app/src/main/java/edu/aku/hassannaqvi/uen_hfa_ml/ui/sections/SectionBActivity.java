@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.validatorcrawler.aliazaz.Clear;
-import com.validatorcrawler.aliazaz.Validator;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import com.validatorcrawler.aliazaz.Validator;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionBBinding;
@@ -32,23 +32,23 @@ public class SectionBActivity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        bi.a18.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.a18.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i != bi.a18b.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVa19);
             }
         }));
 
-        /*bi.b01.setOnCheckedChangeListener(((radioGroup, i) -> {
+        *//*bi.b01.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.b01b.getId()) {
                 Clear.clearAllFields(bi.fldGrpS01);
             }
-        }));*/
+        }));*//*
 
         bi.b02.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.b02b.getId()) {
                 Clear.clearAllFields(bi.fldGrpS01);
             }
-        }));
+        }));*/
 
     }
 

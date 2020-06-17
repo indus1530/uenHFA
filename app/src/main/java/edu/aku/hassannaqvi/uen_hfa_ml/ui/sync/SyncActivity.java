@@ -237,7 +237,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
     public void processFinish(boolean flag) {
         if (flag) {
             MainApp.appInfo.updateTagName(SyncActivity.this);
-            new SyncData(SyncActivity.this, MainApp.DIST_ID).execute(sync_flag);
+            new SyncData(SyncActivity.this, MainApp.DIST_ID).execute();
         }
     }
 
@@ -255,7 +255,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
         protected String doInBackground(Boolean... booleans) {
             runOnUiThread(() -> {
 
-                if (booleans[0]) {
+
 //                  getting Users!!
                     if (listActivityCreated) {
                         model = new SyncModel();
@@ -272,26 +272,38 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     }
                     new GetAllData(mContext, "VersionApp", syncListAdapter, list).execute();
 
-//                    Getting Enumblocks
+//                    Getting Districts
                     if (listActivityCreated) {
                         model = new SyncModel();
                         model.setstatusID(0);
                         list.add(model);
                     }
-                    new GetAllData(mContext, "EnumBlock", syncListAdapter, list).execute();
-                    bi.noItem.setVisibility(View.GONE);
+                new GetAllData(mContext, "Districts", syncListAdapter, list).execute();
 
-                } else {
-
-//                   getting BL Random
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
-                    new GetAllData(mContext, "BLRandom", syncListAdapter, list).execute(distID);
-
+//                    Getting Tehsils
+                if (listActivityCreated) {
+                    model = new SyncModel();
+                    model.setstatusID(0);
+                    list.add(model);
                 }
+                new GetAllData(mContext, "Tehsils", syncListAdapter, list).execute();
+
+//                    Getting UCs
+                    if (listActivityCreated) {
+                        model = new SyncModel();
+                        model.setstatusID(0);
+                        list.add(model);
+                    }
+                new GetAllData(mContext, "UCs", syncListAdapter, list).execute();
+
+//                    Getting HealthFacilities
+                if (listActivityCreated) {
+                    model = new SyncModel();
+                    model.setstatusID(0);
+                    list.add(model);
+                }
+                new GetAllData(mContext, "HealthFacilities", syncListAdapter, list).execute();
+                bi.noItem.setVisibility(View.GONE);
 
                 listActivityCreated = false;
             });
