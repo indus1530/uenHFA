@@ -551,6 +551,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return false;
     }
 
+
+    public boolean CheckHF(String hfCode) throws SQLException {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor mCursor = db.rawQuery("SELECT * FROM " + FormsTable.TABLE_NAME + " WHERE " + FormsTable.COLUMN_A12 + "=? AND " + FormsTable.COLUMN_ISTATUS + "=1", new String[]{hfCode});
+        if (mCursor != null) {
+
+            /*if (mCursor.moveToFirst()) {
+                    MainApp.DIST_ID = mCursor.getString(mCursor.getColumnIndex(UsersContract.singleUser.DIST_ID));
+                }*/
+            return mCursor.getCount() > 0;
+        }
+        return false;
+    }
+
+
+    public boolean CheckHF(String hfCode, String status) throws SQLException {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor mCursor = db.rawQuery("SELECT * FROM " + FormsTable.TABLE_NAME + " WHERE " + FormsTable.COLUMN_A12 + "=? AND " + FormsTable.COLUMN_ISTATUS + "=?", new String[]{hfCode, status});
+        if (mCursor != null) {
+
+            /*if (mCursor.moveToFirst()) {
+                    MainApp.DIST_ID = mCursor.getString(mCursor.getColumnIndex(UsersContract.singleUser.DIST_ID));
+                }*/
+            return mCursor.getCount() > 0;
+        }
+        return false;
+    }
+
+
     public Long addForm(FormsContract fc) {
 
         // Gets the data repository in write mode

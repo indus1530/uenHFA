@@ -48,7 +48,8 @@ public class SectionMainActivity extends AppCompatActivity {
 
     public void BtnContinue() {
 
-        if (!bi.form01.isEnabled()
+        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+        /*if (!bi.form01.isEnabled()
                 && !bi.form02.isEnabled()
                 && !bi.form03.isEnabled()
                 && !bi.form04.isEnabled()
@@ -63,7 +64,7 @@ public class SectionMainActivity extends AppCompatActivity {
             //MainApp.endActivity(this, SectionBActivity.class);
         } else {
             Toast.makeText(this, "Sections still in Pending!", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
 

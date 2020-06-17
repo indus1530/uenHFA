@@ -212,13 +212,13 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
 
                     tvmessage.setBackgroundColor(Color.parseColor("#2ecc71"));
                     if (c4 != null) {
-                        tvmessage.setText("Queru Executed successfully.Number of rows returned :" + c4.getCount());
+                        tvmessage.setText("Query Executed successfully.Number of rows returned :" + c4.getCount());
                         if (c4.getCount() > 0) {
                             indexInfo.maincursor = c4;
                             refreshTable(1);
                         }
                     } else {
-                        tvmessage.setText("Queru Executed successfully");
+                        tvmessage.setText("Query Executed successfully");
                         refreshTable(1);
                     }
 
@@ -237,7 +237,7 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
         // a query which returns a cursor with the list of tables in the database.We use this cursor to populate spinner in the first row
         alc = dbm.getData(Query);
 
-        //the first cursor has reults of the query
+        //the first cursor has results of the query
         final Cursor c = alc.get(0);
 
         //the second cursor has error messages

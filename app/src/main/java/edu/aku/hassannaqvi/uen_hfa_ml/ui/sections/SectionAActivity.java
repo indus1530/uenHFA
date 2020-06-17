@@ -137,9 +137,8 @@ public class SectionAActivity extends AppCompatActivity {
         });
 
 
-
         bi.a10.setOnCheckedChangeListener(((radioGroup, i) -> {
-
+            if (!formValidation()) return;
             hfNames = new ArrayList<>();
             hfCodes = new ArrayList<>();
             hfNames.add("....");
@@ -237,14 +236,21 @@ public class SectionAActivity extends AppCompatActivity {
         MainApp.fc.a12 = hfCodes.get(bi.a13.getSelectedItemPosition());
 
 
-
         MainApp.fc.a13 = String.valueOf(bi.a13.getSelectedItem());
 
     }
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        if (!Validator.emptyCheckingContainer(this, bi.GrpName)) {
+            return false;
+        }
+
+        if (db.CheckHF(String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), String.valueOf(MainApp.fc.getIstatus().equals("1")))) {
+            Toast.makeText(this, "Facility already filled for this Month", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
 }
