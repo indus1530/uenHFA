@@ -17,8 +17,11 @@ import com.validatorcrawler.aliazaz.Validator;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
@@ -39,6 +42,9 @@ public class SectionAActivity extends AppCompatActivity {
     private DatabaseHelper db;
     private static final String TAG = SectionAActivity.class.getName();
     public static FormsContract fc;
+
+    private List<String> hfNamesPrv, hfNamesPub;
+    private Map<String, String> hfMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +127,19 @@ public class SectionAActivity extends AppCompatActivity {
                 ucCodes.add("....");
                 Clear.clearAllFields(bi.fldGrpCVa10);
 
+                //For HF
+                hfNamesPrv = new ArrayList<String>() {
+                    {
+                        add("....");
+                    }
+                };
+                hfNamesPub = new ArrayList<String>() {
+                    {
+                        add("....");
+                    }
+                };
+                hfMap = new HashMap<>();
+
                 Collection<UCsContract> pc = db.getAllUCs(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
                 for (UCsContract p : pc) {
                     ucCodes.add(p.getUc_code());
@@ -128,6 +147,26 @@ public class SectionAActivity extends AppCompatActivity {
                 }
 
                 bi.a09.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, ucNames));
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, Collections.emptyList()));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        bi.a09.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) return;
+                if (hfMap.size() > 0) return;
+                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
+                for (HFContract p : pc) {
+                    if (p.getHf_type().equals("1")) hfNamesPub.add(p.getHf_name());
+                    else hfNamesPrv.add(p.getHf_name());
+                    hfMap.put(p.getHf_name(), p.getHf_code());
+                }
             }
 
             @Override
@@ -138,27 +177,27 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         bi.a10.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (!formValidation()) return;
-            hfNames = new ArrayList<>();
-            hfCodes = new ArrayList<>();
-            hfNames.add("....");
-            hfCodes.add("....");
+//            if (!formValidation()) return;
+//            hfNames = new ArrayList<>();
+//            hfCodes = new ArrayList<>();
+//            hfNames.add("....");
+//            hfCodes.add("....");
             Clear.clearAllFields(bi.fldGrpCVa11);
 
             if (i == bi.a10a.getId()) {
-                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "1");
-                for (HFContract p : pc) {
-                    hfCodes.add(p.getHf_code());
-                    hfNames.add(p.getHf_name());
-                }
-                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
-            } else {
-                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "2");
-                for (HFContract p : pc) {
-                    hfCodes.add(p.getHf_code());
-                    hfNames.add(p.getHf_name());
-                }
-                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
+//                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "1");
+//                for (HFContract p : pc) {
+//                    hfCodes.add(p.getHf_code());
+//                    hfNames.add(p.getHf_name());
+//                }
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNamesPub));
+            } else if (i == bi.a10b.getId()) {
+//                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "2");
+//                for (HFContract p : pc) {
+//                    hfCodes.add(p.getHf_code());
+//                    hfNames.add(p.getHf_name());
+//                }
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNamesPrv));
 
             }
         }));
@@ -168,7 +207,7 @@ public class SectionAActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) return;
-                Toast.makeText(SectionAActivity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(SectionAActivity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
             }
 
             @Override
