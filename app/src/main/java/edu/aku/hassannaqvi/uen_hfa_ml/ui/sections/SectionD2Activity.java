@@ -36,15 +36,11 @@ public class SectionD2Activity extends AppCompatActivity {
     private void setupSkips() {
 
         bi.d0201.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i != bi.d0201a.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVd0203);
-            }
         }));
 
         bi.d0202.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i != bi.d0202a.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVd0203);
-            }
         }));
 
     }
