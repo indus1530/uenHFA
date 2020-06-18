@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
@@ -24,7 +25,7 @@ public class SectionBActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_b);
 
         // Databinding Edit Mode
-        bi.setFormsContract(MainApp.fc);
+        //bi.setFormsContract(MainApp.fc);
         bi.setCallback(this);
         setupSkips();
     }
@@ -32,23 +33,23 @@ public class SectionBActivity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        /*bi.a18.setOnCheckedChangeListener(((radioGroup, i) -> {
+        bi.a18.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i != bi.a18b.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVa19);
             }
         }));
 
-        *//*bi.b01.setOnCheckedChangeListener(((radioGroup, i) -> {
+        bi.b01.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.b01b.getId()) {
                 Clear.clearAllFields(bi.fldGrpS01);
             }
-        }));*//*
+        }));
 
         bi.b02.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.b02b.getId()) {
                 Clear.clearAllFields(bi.fldGrpS01);
             }
-        }));*/
+        }));
 
     }
 

@@ -137,8 +137,25 @@ public class SectionAActivity extends AppCompatActivity {
         });
 
 
+        bi.a09.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if (i == 0) return;
+                Clear.clearAllFields(bi.fldGrpCVa10);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
         bi.a10.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (!formValidation()) return;
+
+            if (!Validator.emptyCheckingContainer(this, bi.fldGrpCVa07)) return;
+            if (!Validator.emptyCheckingContainer(this, bi.fldGrpCVa08)) return;
+
             hfNames = new ArrayList<>();
             hfCodes = new ArrayList<>();
             hfNames.add("....");
@@ -168,7 +185,7 @@ public class SectionAActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) return;
-                Toast.makeText(SectionAActivity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
+                Toast.makeText(SectionAActivity.this, "HF CODE: " + hfCodes.get(bi.a13.getSelectedItemPosition()), Toast.LENGTH_SHORT).show();
             }
 
             @Override
