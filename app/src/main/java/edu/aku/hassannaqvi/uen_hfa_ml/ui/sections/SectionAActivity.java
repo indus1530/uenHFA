@@ -47,7 +47,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         // Databinding Edit Mode (only in first activity for every contract)
         MainApp.fc = new FormsContract();
-        bi.setFormsContract(MainApp.fc);
+        //bi.setFormsContract(MainApp.fc);
         bi.setCallback(this);
         db = MainApp.appInfo.getDbHelper();
         initializingComponents();

@@ -5,9 +5,9 @@
 
         <import type="android.view.View" />
 
-        <variable
+        <!--<variable
             name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
+            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
 
         <variable
             name="callback"
@@ -77,22 +77,19 @@
                             android:id="@+id/h0101a"
                             style="@style/textviewh"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text='@{formsContract.h0101a}' />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:id="@+id/h0101b"
                             style="@style/textviewh"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text='@{formsContract.h0101b}' />
+                            android:layout_weight="1" />
 
                         <TextView
                             android:id="@+id/h0101c"
                             style="@style/textviewh"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:text='@{formsContract.h0101c}' />
+                            android:layout_weight="1" />
 
                     </LinearLayout>
 
@@ -146,7 +143,6 @@
                                 android:id="@+id/h0101aa"
                                 style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:text='@{formsContract.h0101aa}'
                                 android:hint="@string/month" />
 
                         </LinearLayout>
@@ -164,7 +160,6 @@
                                 android:id="@+id/h0101ab"
                                 style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:text='@{formsContract.h0101ab}'
                                 android:hint="@string/year" />
 
                         </LinearLayout>
@@ -221,7 +216,6 @@
                                 android:id="@+id/h0101ba"
                                 style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:text='@{formsContract.h0101ba}'
                                 android:hint="@string/month" />
 
                         </LinearLayout>
@@ -239,7 +233,6 @@
                                 android:id="@+id/h0101bb"
                                 style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:text='@{formsContract.h0101bb}'
                                 android:hint="@string/year" />
 
                         </LinearLayout>
@@ -296,7 +289,6 @@
                                 android:id="@+id/h0101ca"
                                 style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:text='@{formsContract.h0101ca}'
                                 android:hint="@string/month" />
 
                         </LinearLayout>
@@ -314,7 +306,6 @@
                                 android:id="@+id/h0101cb"
                                 style="@style/EditTextAlpha"
                                 android:gravity="center"
-                                android:text='@{formsContract.h0101cb}'
                                 android:hint="@string/year" />
 
                         </LinearLayout>
