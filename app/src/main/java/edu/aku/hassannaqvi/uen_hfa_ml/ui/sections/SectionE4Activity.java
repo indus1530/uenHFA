@@ -34,18 +34,38 @@ public class SectionE4Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-
         bi.e0401.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.e0401b.getId()) {
                 Clear.clearAllFields(bi.fldGrpSece401);
             }
         }));
 
+
+        bi.e0407a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpSece407);
+        }));
+
+        bi.e0407b.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpSece407);
+        }));
+
+        bi.e0407c.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpSece407);
+        }));
+
+        bi.e0407d.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpSece407);
+        }));
+
+
+        bi.e0411.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpSece411);
+        }));
+
     }
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SE, fc.getsE());
         if (updcount == 1) {
