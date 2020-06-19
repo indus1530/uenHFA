@@ -105,7 +105,7 @@ public class SectionC1Activity extends AppCompatActivity {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
         }*/
-        return false;
+        return true;
     }
 
 
