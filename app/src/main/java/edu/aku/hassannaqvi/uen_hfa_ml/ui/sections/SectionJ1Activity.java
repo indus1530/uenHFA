@@ -2,16 +2,12 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
-
-import org.jetbrains.annotations.NotNull;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
@@ -30,17 +26,14 @@ public class SectionJ1Activity extends AppCompatActivity {
     }
 
 
-
-
     public void BtnContinue() {
-        if (formValidation()) {
-            SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionJ2Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+        if (!formValidation()) return;
+        SaveDraft();
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionJ2Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -135,38 +128,5 @@ public class SectionJ1Activity extends AppCompatActivity {
         return Validator.emptyCheckingContainer(this, bi.GrpNameSectionJ1);
 
     }
-
-
-    public void showTooltip(@NotNull View view) {
-        if (view.getId() != View.NO_ID) {
-            String package_name = getApplicationContext().getPackageName();
-
-            // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
-            String infoid = view.getResources().getResourceName(view.getId()).replace(package_name + ":id/q_", "");
-
-            // Question info text must be suffixed with _info e.g.: aa12a_info
-            int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
-
-            // Check if string resource exists to avoid crash on missing info string
-            if (stringRes != 0) {
-
-                // Fetch info text from strings.xml
-                String infoText = (String) getResources().getText(stringRes);
-
-                new AlertDialog.Builder(this)
-                        .setTitle("Info: " + infoid.toUpperCase())
-                        .setMessage(infoText)
-                        .setIcon(android.R.drawable.ic_dialog_info)
-                        .show();
-            } else {
-                Toast.makeText(this, "No information available on this question.", Toast.LENGTH_SHORT).show();
-            }
-
-        } else {
-            Toast.makeText(this, "No ID Associated with this question.", Toast.LENGTH_SHORT).show();
-
-        }
-    }
-
 
 }
