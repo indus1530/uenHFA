@@ -50,20 +50,32 @@ public class SectionAActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_a);
-
-        // Databinding Edit Mode (only in first activity for every contract)
-        MainApp.fc = new FormsContract();
-        bi.setFormsContract(MainApp.fc);
         bi.setCallback(this);
-        db = MainApp.appInfo.getDbHelper();
+        //bi.setFormsContract(MainApp.fc);
         initializingComponents();
-
-
+        initializeHF();
     }
 
     private void initializingComponents() {
-        db = new DatabaseHelper(this);
+        // Databinding Edit Mode (only in first activity for every contract)
+        MainApp.fc = new FormsContract();
+        db = MainApp.appInfo.getDbHelper();
         populateSpinner(this);
+    }
+
+    private void initializeHF() {
+        //For HF
+        hfNamesPrv = new ArrayList<String>() {
+            {
+                add("....");
+            }
+        };
+        hfNamesPub = new ArrayList<String>() {
+            {
+                add("....");
+            }
+        };
+        hfMap = new HashMap<>();
     }
 
 
@@ -128,17 +140,7 @@ public class SectionAActivity extends AppCompatActivity {
                 Clear.clearAllFields(bi.fldGrpCVa10);
 
                 //For HF
-                hfNamesPrv = new ArrayList<String>() {
-                    {
-                        add("....");
-                    }
-                };
-                hfNamesPub = new ArrayList<String>() {
-                    {
-                        add("....");
-                    }
-                };
-                hfMap = new HashMap<>();
+                initializeHF();
 
                 Collection<UCsContract> pc = db.getAllUCs(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
                 for (UCsContract p : pc) {
@@ -159,6 +161,9 @@ public class SectionAActivity extends AppCompatActivity {
         bi.a09.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                Clear.clearAllFields(bi.fldGrpCVa10);
+
                 if (position == 0) return;
                 if (hfMap.size() > 0) return;
                 Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
@@ -177,28 +182,11 @@ public class SectionAActivity extends AppCompatActivity {
 
 
         bi.a10.setOnCheckedChangeListener(((radioGroup, i) -> {
-//            if (!formValidation()) return;
-//            hfNames = new ArrayList<>();
-//            hfCodes = new ArrayList<>();
-//            hfNames.add("....");
-//            hfCodes.add("....");
             Clear.clearAllFields(bi.fldGrpCVa11);
-
             if (i == bi.a10a.getId()) {
-//                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "1");
-//                for (HFContract p : pc) {
-//                    hfCodes.add(p.getHf_code());
-//                    hfNames.add(p.getHf_name());
-//                }
                 bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNamesPub));
             } else if (i == bi.a10b.getId()) {
-//                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "2");
-//                for (HFContract p : pc) {
-//                    hfCodes.add(p.getHf_code());
-//                    hfNames.add(p.getHf_name());
-//                }
                 bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNamesPrv));
-
             }
         }));
 
@@ -284,9 +272,8 @@ public class SectionAActivity extends AppCompatActivity {
         if (!Validator.emptyCheckingContainer(this, bi.GrpName)) {
             return false;
         }
-
-        if (db.CheckHF(String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), String.valueOf(MainApp.fc.getIstatus().equals("1")))) {
-            Toast.makeText(this, "Facility already filled for this Month", Toast.LENGTH_LONG).show();
+        if (db.CheckHF(String.valueOf(hfMap.get(bi.a13.getSelectedItem().toString())))) {
+            Toast.makeText(this, "Facility already filled", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
