@@ -37,8 +37,8 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 public class SectionAActivity extends AppCompatActivity {
 
     ActivitySectionABinding bi;
-    private List<String> districtNames, tehsilNames, ucNames, hfNames;
-    private List<String> districtCodes, tehsilCodes, ucCodes, hfCodes;
+    private List<String> districtNames, tehsilNames, ucNames;
+    private List<String> districtCodes, tehsilCodes, ucCodes;
     private DatabaseHelper db;
     private static final String TAG = SectionAActivity.class.getName();
     public static FormsContract fc;
@@ -77,7 +77,6 @@ public class SectionAActivity extends AppCompatActivity {
         };
         hfMap = new HashMap<>();
     }
-
 
     public void populateSpinner(final Context context) {
         // Spinner Drop down elements
@@ -124,7 +123,6 @@ public class SectionAActivity extends AppCompatActivity {
 
             }
         });
-
 
         bi.a08.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -180,7 +178,6 @@ public class SectionAActivity extends AppCompatActivity {
             }
         });
 
-
         bi.a10.setOnCheckedChangeListener(((radioGroup, i) -> {
             Clear.clearAllFields(bi.fldGrpCVa11);
             if (i == bi.a10a.getId()) {
@@ -189,7 +186,6 @@ public class SectionAActivity extends AppCompatActivity {
                 bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNamesPrv));
             }
         }));
-
 
         bi.a13.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -204,9 +200,7 @@ public class SectionAActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
 
     public void BtnContinue() {
         if (!formValidation()) return;
@@ -218,7 +212,6 @@ public class SectionAActivity extends AppCompatActivity {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private boolean UpdateDB() {
         long updcount = db.addForm(MainApp.fc);
@@ -236,35 +229,24 @@ public class SectionAActivity extends AppCompatActivity {
 
 
     private void SaveDraft() {
-
         MainApp.fc.a01 = MainApp.userName;
         MainApp.fc.a03 = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
         MainApp.fc.setDeviceID(MainApp.appInfo.getDeviceID());
         MainApp.fc.setDevicetagID(MainApp.appInfo.getTagName());
         MainApp.fc.setAppversion(MainApp.appInfo.getAppVersion());
         MainApp.setGPS(this); // Set GPS
-
         //MainApp.fc.setA6(String.valueOf(bi.a06.getSelectedItem()));
-
-        MainApp.fc.a07 = String.valueOf(bi.a07.getSelectedItem());
-
-        MainApp.fc.a08 = String.valueOf(bi.a08.getSelectedItem());
-
-        MainApp.fc.a09 = String.valueOf(bi.a09.getSelectedItem());
-
+        MainApp.fc.a07 = bi.a07.getSelectedItem().toString();
+        MainApp.fc.a08 = bi.a08.getSelectedItem().toString();
+        MainApp.fc.a09 = bi.a09.getSelectedItem().toString();
         MainApp.fc.a10 = bi.a10a.isChecked() ? "1"
                 : bi.a10b.isChecked() ? "2"
                 : "-1";
-
         MainApp.fc.a11 = bi.a11a.isChecked() ? "1"
                 : bi.a11b.isChecked() ? "2"
                 : "-1";
-
-        MainApp.fc.a12 = hfCodes.get(bi.a13.getSelectedItemPosition());
-
-
-        MainApp.fc.a13 = String.valueOf(bi.a13.getSelectedItem());
-
+        MainApp.fc.a12 = hfMap.get(bi.a13.getSelectedItem().toString());
+        MainApp.fc.a13 = bi.a13.getSelectedItem().toString();
     }
 
 
