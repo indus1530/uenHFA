@@ -202,8 +202,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
     public Collection<DistrictContract> getAllDistricts() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -555,7 +553,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean CheckHF(String hfCode) throws SQLException {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor mCursor = db.rawQuery("SELECT * FROM " + FormsTable.TABLE_NAME + " WHERE " + FormsTable.COLUMN_A12 + "=? AND " + FormsTable.COLUMN_ISTATUS + "=1", new String[]{hfCode});
+        Cursor mCursor = db.rawQuery("SELECT * FROM " + FormsTable.TABLE_NAME + " WHERE " + FormsTable.COLUMN_A12 + "=? AND " + FormsTable.COLUMN_ISTATUS + "=?", new String[]{hfCode, "1"});
         if (mCursor != null) {
 
             /*if (mCursor.moveToFirst()) {

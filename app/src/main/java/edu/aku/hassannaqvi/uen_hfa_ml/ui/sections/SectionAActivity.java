@@ -17,8 +17,11 @@ import com.validatorcrawler.aliazaz.Validator;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
@@ -40,24 +43,39 @@ public class SectionAActivity extends AppCompatActivity {
     private static final String TAG = SectionAActivity.class.getName();
     public static FormsContract fc;
 
+    private List<String> hfNamesPrv, hfNamesPub;
+    private Map<String, String> hfMap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_a);
-
-        // Databinding Edit Mode (only in first activity for every contract)
-        MainApp.fc = new FormsContract();
-        //bi.setFormsContract(MainApp.fc);
         bi.setCallback(this);
-        db = MainApp.appInfo.getDbHelper();
+        //bi.setFormsContract(MainApp.fc);
         initializingComponents();
-
-
+        initializeHF();
     }
 
     private void initializingComponents() {
-        db = new DatabaseHelper(this);
+        // Databinding Edit Mode (only in first activity for every contract)
+        MainApp.fc = new FormsContract();
+        db = MainApp.appInfo.getDbHelper();
         populateSpinner(this);
+    }
+
+    private void initializeHF() {
+        //For HF
+        hfNamesPrv = new ArrayList<String>() {
+            {
+                add("....");
+            }
+        };
+        hfNamesPub = new ArrayList<String>() {
+            {
+                add("....");
+            }
+        };
+        hfMap = new HashMap<>();
     }
 
 
@@ -121,6 +139,9 @@ public class SectionAActivity extends AppCompatActivity {
                 ucCodes.add("....");
                 Clear.clearAllFields(bi.fldGrpCVa10);
 
+                //For HF
+                initializeHF();
+
                 Collection<UCsContract> pc = db.getAllUCs(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
                 for (UCsContract p : pc) {
                     ucCodes.add(p.getUc_code());
@@ -128,6 +149,29 @@ public class SectionAActivity extends AppCompatActivity {
                 }
 
                 bi.a09.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, ucNames));
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, Collections.emptyList()));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        bi.a09.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                Clear.clearAllFields(bi.fldGrpCVa10);
+
+                if (position == 0) return;
+                if (hfMap.size() > 0) return;
+                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
+                for (HFContract p : pc) {
+                    if (p.getHf_type().equals("1")) hfNamesPub.add(p.getHf_name());
+                    else hfNamesPrv.add(p.getHf_name());
+                    hfMap.put(p.getHf_name(), p.getHf_code());
+                }
             }
 
             @Override
@@ -137,46 +181,12 @@ public class SectionAActivity extends AppCompatActivity {
         });
 
 
-        bi.a09.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0) return;
-                Clear.clearAllFields(bi.fldGrpCVa10);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-
         bi.a10.setOnCheckedChangeListener(((radioGroup, i) -> {
-
-            if (!Validator.emptyCheckingContainer(this, bi.fldGrpCVa07)) return;
-            if (!Validator.emptyCheckingContainer(this, bi.fldGrpCVa08)) return;
-
-            hfNames = new ArrayList<>();
-            hfCodes = new ArrayList<>();
-            hfNames.add("....");
-            hfCodes.add("....");
             Clear.clearAllFields(bi.fldGrpCVa11);
-
             if (i == bi.a10a.getId()) {
-                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "1");
-                for (HFContract p : pc) {
-                    hfCodes.add(p.getHf_code());
-                    hfNames.add(p.getHf_name());
-                }
-                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
-            } else {
-                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "2");
-                for (HFContract p : pc) {
-                    hfCodes.add(p.getHf_code());
-                    hfNames.add(p.getHf_name());
-                }
-                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
-
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNamesPub));
+            } else if (i == bi.a10b.getId()) {
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNamesPrv));
             }
         }));
 
@@ -185,7 +195,7 @@ public class SectionAActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) return;
-                Toast.makeText(SectionAActivity.this, "HF CODE: " + hfCodes.get(bi.a13.getSelectedItemPosition()), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(SectionAActivity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -262,9 +272,8 @@ public class SectionAActivity extends AppCompatActivity {
         if (!Validator.emptyCheckingContainer(this, bi.GrpName)) {
             return false;
         }
-
-        if (db.CheckHF(String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), String.valueOf(MainApp.fc.getIstatus().equals("1")))) {
-            Toast.makeText(this, "Facility already filled for this Month", Toast.LENGTH_LONG).show();
+        if (db.CheckHF(String.valueOf(hfMap.get(bi.a13.getSelectedItem().toString())))) {
+            Toast.makeText(this, "Facility already filled", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;
