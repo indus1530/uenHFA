@@ -435,31 +435,37 @@
 
                     <RadioGroup
                         android:id="@+id/k0104aa"
-                        style="@style/vradiogroup">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                         <RadioButton
                             android:id="@+id/k0104aaa"
-                            style="@style/radiobutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="@string/k0104aaa" />
 
                         <RadioButton
                             android:id="@+id/k0104aab"
-                            style="@style/radiobutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="@string/k0104aab" />
 
                         <RadioButton
                             android:id="@+id/k0104aac"
-                            style="@style/radiobutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="@string/k0104aac" />
 
                         <RadioButton
                             android:id="@+id/k0104aad"
-                            style="@style/radiobutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="@string/k0104aad" />
 
                         <RadioButton
                             android:id="@+id/k0104aax"
-                            style="@style/radiobutton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="@string/other" />
 
                         <EditText
@@ -467,7 +473,8 @@
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
                             android:tag="k0104aax"
-                            android:visibility='@{k0104aax.checked? View.VISIBLE : View.GONE}' />
+                            android:text='@{k0104aax.checked ? k0104aaxx.getText().toString() : "" }'
+                            android:visibility='@{k0104aax.checked ? View.VISIBLE : View.GONE}' />
 
                     </RadioGroup>
 
