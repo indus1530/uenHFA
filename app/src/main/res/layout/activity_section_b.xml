@@ -350,6 +350,7 @@
                             android:id="@+id/a18xx"
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
+                            android:tag="a18x"
                             android:text='@{a18x.checked ? a18xx.getText().toString() : ""}'
                             android:visibility='@{a18x.checked? View.VISIBLE : View.GONE}' />
 
@@ -448,6 +449,7 @@
                             android:id="@+id/a19xx"
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
+                            android:tag="a19x"
                             android:text='@{a19x.checked ? a19xx.getText().toString() : ""}'
                             android:visibility='@{a19x.checked ? View.VISIBLE : View.GONE}' />
 

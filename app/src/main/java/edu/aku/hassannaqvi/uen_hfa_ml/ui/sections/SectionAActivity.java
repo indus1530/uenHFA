@@ -227,7 +227,6 @@ public class SectionAActivity extends AppCompatActivity {
 
     }
 
-
     private void SaveDraft() {
         MainApp.fc.a01 = MainApp.userName;
         MainApp.fc.a03 = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
