@@ -234,7 +234,6 @@ public class SectionAActivity extends AppCompatActivity {
 
     }
 
-
     private void SaveDraft() {
 
         MainApp.fc.a01 = MainApp.userName;
@@ -260,7 +259,7 @@ public class SectionAActivity extends AppCompatActivity {
                 : bi.a11b.isChecked() ? "2"
                 : "-1";
 
-        MainApp.fc.a12 = hfCodes.get(bi.a13.getSelectedItemPosition());
+        MainApp.fc.a12 = String.valueOf(bi.a13.getSelectedItemPosition());
 
 
         MainApp.fc.a13 = String.valueOf(bi.a13.getSelectedItem());
