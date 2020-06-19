@@ -26,7 +26,6 @@ public class SectionG415Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g415);
         bi.setCallback(this);
-        setTitle(R.string.modgtitle);
         setupSkips();
     }
 
@@ -67,7 +66,6 @@ public class SectionG415Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
         if (updcount == 1) {
@@ -81,7 +79,6 @@ public class SectionG415Activity extends AppCompatActivity {
 
 
     private void SaveDraft() {
-
 
         MainApp.fc.g0401400a = bi.g0401400ay.isChecked() ? "1"
                 : bi.g0401400an.isChecked() ? "2"
@@ -171,16 +168,14 @@ public class SectionG415Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
-            SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionG421Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+        if (!formValidation()) return;
+        SaveDraft();
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionG421Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
-
     }
 
 
