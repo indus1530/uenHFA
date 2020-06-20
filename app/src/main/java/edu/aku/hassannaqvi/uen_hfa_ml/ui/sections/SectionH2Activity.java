@@ -28,19 +28,13 @@ public class SectionH2Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionH3Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-
+        if (!formValidation()) return;
+        SaveDraft();
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionH3Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -64,7 +58,7 @@ public class SectionH2Activity extends AppCompatActivity {
                 : bi.h0201b.isChecked() ? "2"
                 : "-1";
 
-        MainApp.fc.h0201 = bi.h0202a.isChecked() ? "1"
+        MainApp.fc.h0202 = bi.h0202a.isChecked() ? "1"
                 : bi.h0202b.isChecked() ? "2"
                 : bi.h0202c.isChecked() ? "3"
                 : "-1";

@@ -14,13 +14,16 @@
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionK1Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <LinearLayout
             android:id="@+id/GrpNameSectionK1"
             style="@style/vlinearlayout">
+
 
             <!-- k01  Title   -->
             <androidx.cardview.widget.CardView
@@ -36,6 +39,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- k0101a  Radio   -->
             <androidx.cardview.widget.CardView
@@ -93,10 +97,12 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <LinearLayout
                 android:id="@+id/fldGrpSecK101"
                 style="@style/vlinearlayout"
                 android:visibility='@{k0101ab.checked ? View.GONE : View.VISIBLE}'>
+
 
                 <!-- k0101b  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -153,6 +159,7 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- k0101c  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -233,15 +240,15 @@
                             <RadioButton
                                 android:id="@+id/k0101cx"
                                 style="@style/radiobutton"
-                                android:checked="@{formsContract.k0101c.equals(formsContract.eight)}"
-                                android:text="@string/other" />
+                                android:checked="@{formsContract.k0101c.equals(formsContract.nSix)}"
+                                android:text="@string/k0101cx" />
 
                             <EditText
                                 android:id="@+id/k0101cxx"
                                 style="@style/EditTextAlpha"
                                 android:hint="@string/specify"
-                                android:tag="k0101x"
-                                android:text='@{formsContract.k0101cxx.isEmpty ? (k0101cx.checked ? k0101cx.getText().toString() : "") : formsContract.k0101cx }'
+                                android:tag="k0101cx"
+                                android:text='@{k0101cx.checked ? formsContract.k0101cxx.toString() : ""}'
                                 android:visibility='@{k0101cx.checked? View.VISIBLE : View.GONE}' />
 
                         </RadioGroup>
@@ -251,6 +258,7 @@
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
+
 
             <!-- k0102  Radio   -->
             <androidx.cardview.widget.CardView
@@ -310,6 +318,7 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!-- k0103  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0103"
@@ -366,6 +375,7 @@
 
             </androidx.cardview.widget.CardView>
 
+
             <!-- k0104  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk0104"
@@ -421,6 +431,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- k0104aa  Radio   -->
             <androidx.cardview.widget.CardView
@@ -484,15 +495,15 @@
                         <RadioButton
                             android:id="@+id/k0104aax"
                             style="@style/radiobutton"
-                            android:checked="@{formsContract.k0104aa.equals(formsContract.eight)}"
-                            android:text="@string/other" />
+                            android:checked="@{formsContract.k0104aa.equals(formsContract.nSix)}"
+                            android:text="@string/k0104aax" />
 
                         <EditText
                             android:id="@+id/k0104aaxx"
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
                             android:tag="k0104aax"
-                            android:text='@{formsContract.k0104aaxx.isEmpty ? (k0104aax.checked ? k0104aaxx.getText().toString() : "") : formsContract.k0104aaxx }'
+                            android:text='@{k0104aax.checked ? formsContract.k0104aaxx.toString() : ""}'
                             android:visibility='@{k0104aax.checked? View.VISIBLE : View.GONE}' />
 
                     </RadioGroup>
@@ -500,6 +511,7 @@
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <!-- k0105  Radio   -->
             <androidx.cardview.widget.CardView

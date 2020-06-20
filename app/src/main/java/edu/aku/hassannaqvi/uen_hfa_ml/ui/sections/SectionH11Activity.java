@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH11Binding;
@@ -100,7 +101,7 @@ public class SectionH11Activity extends AppCompatActivity {
                 : bi.h1105b.isChecked() ? "2"
                 : "-1";
 
-        MainApp.fc.h1106a = bi.h1106a.getText().toString().trim().length() > 0 ? bi.h1106a.getText().toString() : "-1";
+        MainApp.fc.h1106 = bi.h1106.getText().toString().trim().length() > 0 ? bi.h1106.getText().toString() : "-1";
 
         MainApp.fc.h1107 = bi.h1107a.isChecked() ? "1"
                 : bi.h1107b.isChecked() ? "2"

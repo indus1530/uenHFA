@@ -17,8 +17,11 @@ import com.validatorcrawler.aliazaz.Validator;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
@@ -34,32 +37,46 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 public class SectionAActivity extends AppCompatActivity {
 
     ActivitySectionABinding bi;
-    private List<String> districtNames, tehsilNames, ucNames, hfNames;
-    private List<String> districtCodes, tehsilCodes, ucCodes, hfCodes;
+    private List<String> districtNames, tehsilNames, ucNames;
+    private List<String> districtCodes, tehsilCodes, ucCodes;
     private DatabaseHelper db;
     private static final String TAG = SectionAActivity.class.getName();
     public static FormsContract fc;
+
+    private List<String> hfNamesPrv, hfNamesPub;
+    private Map<String, String> hfMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_a);
-
-        // Databinding Edit Mode (only in first activity for every contract)
-        MainApp.fc = new FormsContract();
-        bi.setFormsContract(MainApp.fc);
         bi.setCallback(this);
-        db = MainApp.appInfo.getDbHelper();
+        //bi.setFormsContract(MainApp.fc);
         initializingComponents();
-
-
+        initializeHF();
     }
 
     private void initializingComponents() {
-        db = new DatabaseHelper(this);
+        // Databinding Edit Mode (only in first activity for every contract)
+        MainApp.fc = new FormsContract();
+        db = MainApp.appInfo.getDbHelper();
         populateSpinner(this);
     }
 
+    private void initializeHF() {
+        //For HF
+        hfNamesPrv = new ArrayList<String>() {
+            {
+                add("....");
+            }
+        };
+        hfNamesPub = new ArrayList<String>() {
+            {
+                add("....");
+            }
+        };
+        hfMap = new HashMap<>();
+    }
 
     public void populateSpinner(final Context context) {
         // Spinner Drop down elements
@@ -107,7 +124,6 @@ public class SectionAActivity extends AppCompatActivity {
             }
         });
 
-
         bi.a08.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -121,6 +137,9 @@ public class SectionAActivity extends AppCompatActivity {
                 ucCodes.add("....");
                 Clear.clearAllFields(bi.fldGrpCVa10);
 
+                //For HF
+                initializeHF();
+
                 Collection<UCsContract> pc = db.getAllUCs(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
                 for (UCsContract p : pc) {
                     ucCodes.add(p.getUc_code());
@@ -128,6 +147,7 @@ public class SectionAActivity extends AppCompatActivity {
                 }
 
                 bi.a09.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, ucNames));
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, Collections.emptyList()));
             }
 
             @Override
@@ -136,39 +156,42 @@ public class SectionAActivity extends AppCompatActivity {
             }
         });
 
+        bi.a09.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-        bi.a10.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (!formValidation()) return;
-            hfNames = new ArrayList<>();
-            hfCodes = new ArrayList<>();
-            hfNames.add("....");
-            hfCodes.add("....");
-            Clear.clearAllFields(bi.fldGrpCVa11);
+                Clear.clearAllFields(bi.fldGrpCVa10);
 
-            if (i == bi.a10a.getId()) {
-                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "1");
+                if (position == 0) return;
+                if (hfMap.size() > 0) return;
+                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
                 for (HFContract p : pc) {
-                    hfCodes.add(p.getHf_code());
-                    hfNames.add(p.getHf_name());
+                    if (p.getHf_type().equals("1")) hfNamesPub.add(p.getHf_name());
+                    else hfNamesPrv.add(p.getHf_name());
+                    hfMap.put(p.getHf_name(), p.getHf_code());
                 }
-                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
-            } else {
-                Collection<HFContract> pc = db.getAllHFs(tehsilCodes.get(bi.a08.getSelectedItemPosition()), "2");
-                for (HFContract p : pc) {
-                    hfCodes.add(p.getHf_code());
-                    hfNames.add(p.getHf_name());
-                }
-                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNames));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        }));
+        });
 
+        bi.a10.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpCVa11);
+            if (i == bi.a10a.getId()) {
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNamesPub));
+            } else if (i == bi.a10b.getId()) {
+                bi.a13.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, hfNamesPrv));
+            }
+        }));
 
         bi.a13.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) return;
-                Toast.makeText(SectionAActivity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(SectionAActivity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -177,9 +200,7 @@ public class SectionAActivity extends AppCompatActivity {
             }
         });
 
-
     }
-
 
     public void BtnContinue() {
         if (!formValidation()) return;
@@ -192,13 +213,12 @@ public class SectionAActivity extends AppCompatActivity {
         }
     }
 
-
     private boolean UpdateDB() {
         long updcount = db.addForm(MainApp.fc);
-        MainApp.fc.set_ID(String.valueOf(updcount));
+        MainApp.fc._id = String.valueOf(updcount);
         if (updcount > 0) {
-            MainApp.fc.set_UID(MainApp.fc.getDeviceID() + MainApp.fc.get_ID());
-            db.updatesFormColumn(FormsContract.FormsTable.COLUMN_UID, MainApp.fc.get_UID());
+            MainApp.fc.uid = MainApp.fc.deviceID + MainApp.fc._id;
+            db.updatesFormColumn(FormsContract.FormsTable.COLUMN_UID, MainApp.fc.uid);
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -207,37 +227,25 @@ public class SectionAActivity extends AppCompatActivity {
 
     }
 
-
     private void SaveDraft() {
-
         MainApp.fc.a01 = MainApp.userName;
         MainApp.fc.a03 = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
-        MainApp.fc.setDeviceID(MainApp.appInfo.getDeviceID());
-        MainApp.fc.setDevicetagID(MainApp.appInfo.getTagName());
-        MainApp.fc.setAppversion(MainApp.appInfo.getAppVersion());
+        MainApp.fc.deviceID = MainApp.appInfo.getDeviceID();
+        MainApp.fc.devicetagID = MainApp.appInfo.getTagName();
+        MainApp.fc.appversion = MainApp.appInfo.getAppVersion();
         MainApp.setGPS(this); // Set GPS
-
         //MainApp.fc.setA6(String.valueOf(bi.a06.getSelectedItem()));
-
-        MainApp.fc.a07 = String.valueOf(bi.a07.getSelectedItem());
-
-        MainApp.fc.a08 = String.valueOf(bi.a08.getSelectedItem());
-
-        MainApp.fc.a09 = String.valueOf(bi.a09.getSelectedItem());
-
+        MainApp.fc.a07 = bi.a07.getSelectedItem().toString();
+        MainApp.fc.a08 = bi.a08.getSelectedItem().toString();
+        MainApp.fc.a09 = bi.a09.getSelectedItem().toString();
         MainApp.fc.a10 = bi.a10a.isChecked() ? "1"
                 : bi.a10b.isChecked() ? "2"
                 : "-1";
-
         MainApp.fc.a11 = bi.a11a.isChecked() ? "1"
                 : bi.a11b.isChecked() ? "2"
                 : "-1";
-
-        MainApp.fc.a12 = hfCodes.get(bi.a13.getSelectedItemPosition());
-
-
-        MainApp.fc.a13 = String.valueOf(bi.a13.getSelectedItem());
-
+        MainApp.fc.a12 = hfMap.get(bi.a13.getSelectedItem().toString());
+        MainApp.fc.a13 = bi.a13.getSelectedItem().toString();
     }
 
 
@@ -245,9 +253,8 @@ public class SectionAActivity extends AppCompatActivity {
         if (!Validator.emptyCheckingContainer(this, bi.GrpName)) {
             return false;
         }
-
-        if (db.CheckHF(String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), String.valueOf(MainApp.fc.getIstatus().equals("1")))) {
-            Toast.makeText(this, "Facility already filled for this Month", Toast.LENGTH_LONG).show();
+        if (db.CheckHF(String.valueOf(hfMap.get(bi.a13.getSelectedItem().toString())))) {
+            Toast.makeText(this, "Facility already filled", Toast.LENGTH_LONG).show();
             return false;
         }
         return true;

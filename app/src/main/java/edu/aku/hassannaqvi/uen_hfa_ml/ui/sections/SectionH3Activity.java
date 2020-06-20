@@ -154,16 +154,16 @@ public class SectionH3Activity extends AppCompatActivity {
                 : "-1";
 
 
-        MainApp.fc.h03011h0a = bi.h03011h0ay.isChecked() ? "1"
-                : bi.h03011h0an.isChecked() ? "2"
+        MainApp.fc.h0301h0a = bi.h0301h0ay.isChecked() ? "1"
+                : bi.h0301h0an.isChecked() ? "2"
                 : "-1";
 
-        MainApp.fc.h03011h0b = bi.h03011h0by.isChecked() ? "1"
-                : bi.h03011h0bn.isChecked() ? "2"
+        MainApp.fc.h0301h0b = bi.h0301h0by.isChecked() ? "1"
+                : bi.h0301h0bn.isChecked() ? "2"
                 : "-1";
 
-        MainApp.fc.h03011h0c = bi.h03011h0cy.isChecked() ? "1"
-                : bi.h03011h0cn.isChecked() ? "2"
+        MainApp.fc.h0301h0c = bi.h0301h0cy.isChecked() ? "1"
+                : bi.h0301h0cn.isChecked() ? "2"
                 : "-1";
 
 

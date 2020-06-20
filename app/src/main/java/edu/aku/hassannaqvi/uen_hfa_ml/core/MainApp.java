@@ -38,13 +38,12 @@ public class MainApp extends Application {
     public static final String TAG = "AppMain";
 
     /*VCOE1 LIVE SERVER*/
-    /*public static final String _IP = "vcoe1.aku.edu"; // .Net server
-    public static final String _HOST_URL = "https://" + MainApp._IP + "/uen_qoc/api/"; // .VOC server*/
+    public static final String _IP = "vcoe1.aku.edu"; // .Net server
+    public static final String _HOST_URL = "https://" + MainApp._IP + "/uen_qoc/api/"; // .VOC server
 
     /*F38158 TEST SERVER*/
-    public static final String _IP = "f38158";// .TEST server
-    public static final Integer _PORT = 80; // Port - with colon (:)
-    public static final String _HOST_URL = "http://" + MainApp._IP + "/uen_qoc/api/"; // .TEST server
+    /*public static final String _IP = "f38158";// .TEST server
+    public static final String _HOST_URL = "http://" + MainApp._IP + "/uen_qoc/api/"; // .TEST server*/
 
     public static final String _SERVER_URL = "sync.php";
 
@@ -136,11 +135,11 @@ public class MainApp extends Application {
 
             String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(GPSPref.getString("Time", "0"))).toString();
 
-            MainApp.fc.setGpsLat(GPSPref.getString("Latitude", "0"));
-            MainApp.fc.setGpsLng(GPSPref.getString("Longitude", "0"));
-            MainApp.fc.setGpsAcc(GPSPref.getString("Accuracy", "0"));
+            MainApp.fc.gpsLat = GPSPref.getString("Latitude", "0");
+            MainApp.fc.gpsLng = GPSPref.getString("Longitude", "0");
+            MainApp.fc.gpsAcc = GPSPref.getString("Accuracy", "0");
 //            MainApp.fc.setGpsTime(GPSPref.getString(date, "0")); // Timestamp is converted to date above
-            MainApp.fc.setGpsDT(date); // Timestamp is converted to date above
+            MainApp.fc.gpsDT = date; // Timestamp is converted to date above
 
         } catch (Exception e) {
             Log.e("GPS", "setGPS: " + e.getMessage());
