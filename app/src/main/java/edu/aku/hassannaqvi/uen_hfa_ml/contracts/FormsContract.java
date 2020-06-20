@@ -56,7 +56,9 @@ public class FormsContract {
     public String synced_date;
     public String appversion;
     public String a01;  //Quality Assurance Officer Name
-    public String a03;
+    public String a03d; //Day
+    public String a03m; //Month
+    public String a03y; //Year
     public String a07;
     public String a08;
     public String a09;
@@ -1748,7 +1750,9 @@ public class FormsContract {
         this.formdate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
         this.serialno = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SERIALNO));
         this.a01 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A01));
-        this.a03 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A03));
+        this.a03d = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A03D));
+        this.a03m = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A03M));
+        this.a03y = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A03Y));
         this.a07 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A07));
         this.a08 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A08));
         this.a09 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A09));
@@ -3452,7 +3456,9 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_FORMDATE, this.formdate == null ? JSONObject.NULL : this.formdate);
         json.put(FormsTable.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
         json.put(FormsTable.COLUMN_A01, this.a01 == null ? JSONObject.NULL : this.a01);
-        json.put(FormsTable.COLUMN_A03, this.a03 == null ? JSONObject.NULL : this.a03);
+        json.put(FormsTable.COLUMN_A03D, this.a03d == null ? JSONObject.NULL : this.a03d);
+        json.put(FormsTable.COLUMN_A03M, this.a03m == null ? JSONObject.NULL : this.a03m);
+        json.put(FormsTable.COLUMN_A03Y, this.a03y == null ? JSONObject.NULL : this.a03y);
         json.put(FormsTable.COLUMN_A07, this.a07 == null ? JSONObject.NULL : this.a07);
         json.put(FormsTable.COLUMN_A08, this.a08 == null ? JSONObject.NULL : this.a08);
         json.put(FormsTable.COLUMN_A09, this.a09 == null ? JSONObject.NULL : this.a09);
@@ -5157,7 +5163,9 @@ public class FormsContract {
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_SERIALNO = "serialno";
         public static final String COLUMN_A01 = "a01";
-        public static final String COLUMN_A03 = "a03";
+        public static final String COLUMN_A03D = "a03d";
+        public static final String COLUMN_A03M = "a03m";
+        public static final String COLUMN_A03Y = "a03y";
         public static final String COLUMN_A07 = "a07";
         public static final String COLUMN_A08 = "a08";
         public static final String COLUMN_A09 = "a09";

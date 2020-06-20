@@ -242,12 +242,15 @@ public class SectionAActivity extends AppCompatActivity {
 
     private void SaveDraft() {
         MainApp.fc.a01 = MainApp.userName;
-        MainApp.fc.a03 = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
+        MainApp.fc.a03d = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
         MainApp.fc.deviceID = MainApp.appInfo.getDeviceID();
         MainApp.fc.devicetagID = MainApp.appInfo.getTagName();
         MainApp.fc.appversion = MainApp.appInfo.getAppVersion();
         MainApp.setGPS(this); // Set GPS
-        //MainApp.fc.setA6(String.valueOf(bi.a06.getSelectedItem()));
+
+        MainApp.fc.a03d = bi.a03d.getText().toString().trim().isEmpty() ? "-1" : bi.a03d.getText().toString();
+        MainApp.fc.a03m = bi.a03m.getText().toString().trim().isEmpty() ? "-1" : bi.a03m.getText().toString();
+        MainApp.fc.a03y = bi.a03y.getText().toString().trim().isEmpty() ? "-1" : bi.a03y.getText().toString();
         MainApp.fc.a07 = bi.a07.getSelectedItem().toString();
         MainApp.fc.a08 = bi.a08.getSelectedItem().toString();
         MainApp.fc.a09 = bi.a09.getSelectedItem().toString();

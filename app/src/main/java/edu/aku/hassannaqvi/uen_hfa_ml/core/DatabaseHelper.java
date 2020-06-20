@@ -593,7 +593,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_FORMDATE, fc.formdate);
         values.put(FormsTable.COLUMN_SERIALNO, fc.serialno);
         values.put(FormsTable.COLUMN_A01, fc.a01);
-        values.put(FormsTable.COLUMN_A03, fc.a03);
+        values.put(FormsTable.COLUMN_A03D, fc.a03d);
+        values.put(FormsTable.COLUMN_A03M, fc.a03m);
+        values.put(FormsTable.COLUMN_A03Y, fc.a03y);
         values.put(FormsTable.COLUMN_A07, fc.a07);
         values.put(FormsTable.COLUMN_A08, fc.a08);
         values.put(FormsTable.COLUMN_A09, fc.a09);
@@ -2339,7 +2341,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
                 FormsTable.COLUMN_A01,
-                FormsTable.COLUMN_A03,
+                FormsTable.COLUMN_A03D,
+                FormsTable.COLUMN_A03M,
+                FormsTable.COLUMN_A03Y,
                 FormsTable.COLUMN_A07,
                 FormsTable.COLUMN_A08,
                 FormsTable.COLUMN_A09,
@@ -2399,7 +2403,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
                 FormsTable.COLUMN_A01,
-                FormsTable.COLUMN_A03,
+                FormsTable.COLUMN_A03D,
+                FormsTable.COLUMN_A03M,
+                FormsTable.COLUMN_A03Y,
                 FormsTable.COLUMN_A07,
                 FormsTable.COLUMN_A08,
                 FormsTable.COLUMN_A09,
@@ -2459,7 +2465,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
                 FormsTable.COLUMN_A01,
-                FormsTable.COLUMN_A03,
+                FormsTable.COLUMN_A03D,
+                FormsTable.COLUMN_A03M,
+                FormsTable.COLUMN_A03Y,
                 FormsTable.COLUMN_A07,
                 FormsTable.COLUMN_A08,
                 FormsTable.COLUMN_A09,
@@ -2522,12 +2530,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 FormsTable._ID,
-                FormsTable.COLUMN_A03,
+                FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_SYNCED,
 
         };
-        String whereClause = FormsTable.COLUMN_A03 + " Like ? ";
+        String whereClause = FormsTable.COLUMN_FORMDATE + " Like ? ";
         String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
         String groupBy = null;
         String having = null;
@@ -2549,7 +2557,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 FormsContract fc = new FormsContract();
                 fc._id = c.getString(c.getColumnIndex(FormsTable.COLUMN_ID));
-                fc.a03 = c.getString(c.getColumnIndex(FormsTable.COLUMN_A03));
+                fc.formdate = c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMDATE));
                 fc.istatus = c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS));
                 fc.synced = c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED));
                 allFC.add(fc);

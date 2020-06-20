@@ -1,8 +1,11 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="formsContract"
             type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
@@ -23,7 +26,111 @@
             style="@style/vlinearlayout">
 
 
+            <!-- a03  Visit Date Manually   -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fldGrpCVa03"
+                style="@style/cardView">
 
+                <LinearLayout style="@style/vlinearlayout">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bottom">
+
+                        <TextView
+                            android:id="@+id/qtxt_a03"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/q_a03"
+                            android:text="@string/a03" />
+
+                        <TextView
+                            android:id="@+id/q_a03"
+                            style="@style/quesNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignTop="@id/qtxt_a03"
+                            android:layout_alignBottom="@id/qtxt_a03"
+                            android:text="@string/Q_a03" />
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout style="@style/hlinearlayout">
+
+
+                        <LinearLayout
+                            style="@style/vlinearlayout"
+                            android:layout_width="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                style="@style/textviewh"
+                                android:text="@string/days" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/a03d"
+                                style="@style/EditTextNum"
+                                android:gravity="center"
+                                android:hint="##"
+                                android:maxLength="2"
+                                app:maxValue="30"
+                                app:minValue="1"
+                                app:type="range" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            style="@style/vlinearlayout"
+                            android:layout_width="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                style="@style/textviewh"
+                                android:text="@string/month" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/a03m"
+                                style="@style/EditTextNum"
+                                android:gravity="center"
+                                android:hint="##"
+                                android:maxLength="2"
+                                app:maxValue="12"
+                                app:minValue="1"
+                                app:type="range" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            style="@style/vlinearlayout"
+                            android:layout_width="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                style="@style/textviewh"
+                                android:text="@string/year" />
+
+                            <com.edittextpicker.aliazaz.EditTextPicker
+                                android:id="@+id/a03y"
+                                style="@style/EditTextNum"
+                                android:gravity="center"
+                                android:hint="####"
+                                android:maxLength="4"
+                                app:maxValue="2021"
+                                app:minValue="2019"
+                                app:type="range" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
 
 
             <!-- a07  SpinnerDistrict   -->
@@ -259,7 +366,7 @@
                             android:text="@string/a11b" />
 
                     </RadioGroup>
-                    
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
