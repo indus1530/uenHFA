@@ -46,14 +46,13 @@ public class EndingActivity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-        if (formValidation()) {
-            SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, MainActivity.class));
-            } else {
-                Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
-            }
+        if (!formValidation()) return;
+        SaveDraft();
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
+        } else {
+            Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -71,7 +70,6 @@ public class EndingActivity extends AppCompatActivity {
 
 
     public boolean UpdateDB() {
-
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updateEnding();
         if (updcount == 1) {
@@ -80,7 +78,6 @@ public class EndingActivity extends AppCompatActivity {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
         }
-
     }
 
 
