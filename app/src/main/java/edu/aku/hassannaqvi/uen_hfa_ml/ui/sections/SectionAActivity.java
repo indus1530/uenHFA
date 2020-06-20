@@ -140,6 +140,19 @@ public class SectionAActivity extends AppCompatActivity {
                 //For HF
                 initializeHF();
 
+                //For HF
+                hfNamesPrv = new ArrayList<String>() {
+                    {
+                        add("....");
+                    }
+                };
+                hfNamesPub = new ArrayList<String>() {
+                    {
+                        add("....");
+                    }
+                };
+                hfMap = new HashMap<>();
+
                 Collection<UCsContract> pc = db.getAllUCs(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
                 for (UCsContract p : pc) {
                     ucCodes.add(p.getUc_code());
@@ -191,7 +204,7 @@ public class SectionAActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i == 0) return;
-//                Toast.makeText(SectionAActivity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
+               Toast.makeText(SectionAActivity.this, hfMap.get(bi.a13.getSelectedItem().toString()), Toast.LENGTH_SHORT).show();
             }
 
             @Override

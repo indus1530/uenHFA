@@ -307,10 +307,6 @@
             android:label="@string/modktitle"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.sections.SectionK1Activity"
-            android:label="@string/modktitle"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.sections.SectionK2Activity"
             android:label="@string/modktitle"
             android:screenOrientation="portrait" />
@@ -371,13 +367,7 @@
         <activity
             android:name=".ui.other.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
         <activity
             android:name=".core.AndroidDatabaseManager"
             android:parentActivityName=".ui.other.MainActivity"
