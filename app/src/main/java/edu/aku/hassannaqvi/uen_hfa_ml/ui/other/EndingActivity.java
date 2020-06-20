@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Validator;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
@@ -59,13 +60,13 @@ public class EndingActivity extends AppCompatActivity {
 
     private void SaveDraft() {
 
-        MainApp.fc.setIstatus(bi.istatusa.isChecked() ? "1"
+        MainApp.fc.istatus = bi.istatusa.isChecked() ? "1"
                 : bi.istatusb.isChecked() ? "2"
                 : bi.istatus96.isChecked() ? "96"
-                : "0");
+                : "-1";
 
-        MainApp.fc.setIstatus88x(bi.istatus96x.getText().toString());
-        MainApp.fc.setEndingdatetime(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        MainApp.fc.istatus88x = bi.istatus96x.getText().toString().trim().isEmpty() ? "-1" : bi.istatus96x.getText().toString();
+        MainApp.fc.endingdatetime = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     }
 
 
