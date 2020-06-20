@@ -66,6 +66,8 @@ class SectionC2Activity : AppCompatActivity() {
         });
 
     }*/
+
+
     private fun UpdateDB(): Boolean {
         /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, fc.getsC());
@@ -115,14 +117,13 @@ class SectionC2Activity : AppCompatActivity() {
     }
 
     private fun routingNextActivity(activity: Class<*>) {
-        if (formValidation()) {
-            SaveDraft()
-            if (UpdateDB()) {
-                finish()
-                startActivity(Intent(this, activity))
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show()
-            }
+        if (!formValidation()) return
+        SaveDraft()
+        if (UpdateDB()) {
+            finish()
+            startActivity(Intent(this, activity))
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show()
         }
     }
 
