@@ -312,8 +312,8 @@ public class MainActivity extends AppCompatActivity {
             rSumText += "--------------------------------------------------\r\n";
 
             for (FormsContract fc : todaysForms) {
-                if (fc.getIstatus() != null) {
-                    switch (fc.getIstatus()) {
+                if (fc.istatus != null) {
+                    switch (fc.istatus) {
                         case "1":
                             iStatus = "Complete";
                             break;
@@ -333,13 +333,13 @@ public class MainActivity extends AppCompatActivity {
                     iStatus = "N/A";
                 }
 
-                rSumText += fc.getLuid();
+                rSumText += fc.uid;
                 rSumText += "\t\t\t\t\t";
 
                 rSumText += iStatus;
                 rSumText += "\t\t\t\t\t";
 
-                rSumText += (fc.getSynced() == null ? "Not Synced" : "Synced");
+                rSumText += (fc.synced == null ? "Not Synced" : "Synced");
                 rSumText += "\r\n";
                 rSumText += "--------------------------------------------------\r\n";
             }

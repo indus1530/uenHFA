@@ -38,8 +38,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
                 .inflate(edu.aku.hassannaqvi.uen_hfa_ml.R.layout.forms_list, parent, false);
         // set the view's size, margins, paddings and layout parameters
 
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -50,7 +49,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
         holder.date.setText(fc.get(position).a03d);
         String iStatus = "Status  Unknown";
         int iColor = 0;
-        switch (fc.get(position).getIstatus()) {
+        switch (fc.get(position).istatus) {
             case "1":
                 iStatus = "Complete";
                 iColor = Color.GREEN;
