@@ -4,9 +4,9 @@
     <data>
         <import type="android.view.View" />
 
-        <variable
+        <!--<variable
             name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
+            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
 
         <variable
             name="callback"
@@ -78,28 +78,24 @@
                             android:id="@+id/h0501a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.h0501.equals(formsContract.one)}"
                             android:text="@string/h0501a" />
 
                         <RadioButton
                             android:id="@+id/h0501b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.h0501.equals(formsContract.two)}"
                             android:text="@string/h0501b" />
 
                         <RadioButton
                             android:id="@+id/h0501c"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.h0501.equals(formsContract.three)}"
                             android:text="@string/h0501c" />
 
                         <RadioButton
                             android:id="@+id/h0501x"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.h0501.equals(formsContract.nSix)}"
                             android:text="@string/other" />
 
                         <EditText
@@ -107,8 +103,8 @@
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
                             android:tag="h0501x"
-                            android:text='@{h0501x.checked? formsContract.h0501xx.toString() : ""}'
-                            android:visibility='@{h0501x.checked? View.VISIBLE : View.GONE}' />
+                            android:text='@{h0501x.checked ? h0501xx.getText().toString() : ""}'
+                            android:visibility='@{h0501x.checked ? View.VISIBLE : View.GONE}' />
 
                     </RadioGroup>
 

@@ -116,7 +116,6 @@ public class SectionG413Activity extends AppCompatActivity {
 
     private void SaveDraft() {
 
-
         MainApp.fc.g0401200a = bi.g0401200ay.isChecked() ? "1"
                 : bi.g0401200an.isChecked() ? "2"
                 : "-1";
@@ -285,17 +284,14 @@ public class SectionG413Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
-            SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionG414Activity.class));
-
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+        if (!formValidation()) return;
+        SaveDraft();
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionG414Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
-
     }
 
 

@@ -35,7 +35,56 @@ public class SectionMainActivity extends AppCompatActivity {
         bi.setCallback(this);
 
 
+        //TODO
+        /*if (!fc.getsB().isEmpty()) {
+            bi.form01.setEnabled(false);
+            bi.form01.setBackgroundResource(R.color.dullWhite);
+        }
 
+        if (!fc.getsC().equals("")) {
+            bi.form02.setEnabled(false);
+            bi.form02.setBackgroundResource(R.color.dullWhite);
+        }
+
+        if (!fc.getsD().equals("")) {
+            bi.form03.setEnabled(false);
+            bi.form03.setBackgroundResource(R.color.dullWhite);
+        }
+
+        if (!fc.getsE().equals("")) {
+            bi.form04.setEnabled(false);
+            bi.form04.setBackgroundResource(R.color.dullWhite);
+        }
+
+        if (!fc.getsF().equals("")) {
+            bi.form05.setEnabled(false);
+            bi.form05.setBackgroundResource(R.color.dullWhite);
+        }
+
+        if (!fc.getsG().equals("")) {
+            bi.form06.setEnabled(false);
+            bi.form06.setBackgroundResource(R.color.dullWhite);
+        }
+
+        if (!fc.getsH().equals("")) {
+            bi.form07.setEnabled(false);
+            bi.form07.setBackgroundResource(R.color.dullWhite);
+        }
+
+        if (!fc.getsI().equals("")) {
+            bi.form08.setEnabled(false);
+            bi.form08.setBackgroundResource(R.color.dullWhite);
+        }
+
+        if (!fc.getsJ().equals("")) {
+            bi.form09.setEnabled(false);
+            bi.form09.setBackgroundResource(R.color.dullWhite);
+        }
+
+        if (!fc.getsK().equals("")) {
+            bi.form09.setEnabled(false);
+            bi.form09.setBackgroundResource(R.color.dullWhite);
+        }*/
 
 
     }

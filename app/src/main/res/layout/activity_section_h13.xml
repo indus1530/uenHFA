@@ -4,9 +4,9 @@
     <data>
         <import type="android.view.View" />
 
-        <variable
+        <!--<variable
             name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
+            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
 
         <variable
             name="callback"
@@ -79,42 +79,36 @@
                             android:id="@+id/h1301a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.h1301.equals(formsContract.one)}"
                             android:text="@string/h1301a" />
 
                         <RadioButton
                             android:id="@+id/h1301b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.h1301.equals(formsContract.two)}"
                             android:text="@string/h1301b" />
 
                         <RadioButton
                             android:id="@+id/h1301c"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.h1301.equals(formsContract.three)}"
                             android:text="@string/h1301c" />
 
                         <RadioButton
                             android:id="@+id/h1301d"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.h1301.equals(formsContract.four)}"
                             android:text="@string/h1301d" />
 
                         <RadioButton
                             android:id="@+id/h1301e"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.h1301.equals(formsContract.five)}"
                             android:text="@string/h1301e" />
 
                         <RadioButton
                             android:id="@+id/h1301f"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.h1301.equals(formsContract.six)}"
                             android:text="@string/h1301f" />
 
                     </RadioGroup>
@@ -165,7 +159,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:checked="@{formsContract.h1302.equals(formsContract.one)}"
                             android:text="@string/h1302a" />
 
                         <RadioButton
@@ -173,7 +166,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:checked="@{formsContract.h1302.equals(formsContract.two)}"
                             android:text="@string/h1302b" />
 
                     </RadioGroup>
@@ -224,7 +216,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:checked="@{formsContract.h1303.equals(formsContract.one)}"
                             android:text="@string/h1303a" />
 
                         <RadioButton
@@ -232,7 +223,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:checked="@{formsContract.h1303.equals(formsContract.two)}"
                             android:text="@string/h1303b" />
 
                     </RadioGroup>

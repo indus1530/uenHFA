@@ -5,14 +5,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH152Binding;
@@ -58,19 +59,192 @@ public class SectionH152Activity extends AppCompatActivity {
             }
         }));
 
+
+        bi.h1501j0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501j0ay.getId()) {
+                bi.fldGrpCVh1501j0b.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501j0c.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501j0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501j0b);
+                Clear.clearAllFields(bi.fldGrpCVh1501j0c);
+                Clear.clearAllFields(bi.fldGrpCVh1501j0d);
+                bi.fldGrpCVh1501j0b.setVisibility(View.GONE);
+                bi.fldGrpCVh1501j0c.setVisibility(View.GONE);
+                bi.fldGrpCVh1501j0d.setVisibility(View.GONE);
+            }
+        }));
+
+        bi.h1501j0c.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501j0cy.getId()) {
+                bi.fldGrpCVh1501j0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501j0d);
+                bi.fldGrpCVh1501j0d.setVisibility(View.GONE);
+            }
+        }));
+
+
+        bi.h1501k0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501k0ay.getId()) {
+                bi.fldGrpCVh1501k0b.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501k0c.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501k0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501k0b);
+                Clear.clearAllFields(bi.fldGrpCVh1501k0c);
+                Clear.clearAllFields(bi.fldGrpCVh1501k0d);
+                bi.fldGrpCVh1501k0b.setVisibility(View.GONE);
+                bi.fldGrpCVh1501k0c.setVisibility(View.GONE);
+                bi.fldGrpCVh1501k0d.setVisibility(View.GONE);
+            }
+        }));
+
+        bi.h1501k0c.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501k0cy.getId()) {
+                bi.fldGrpCVh1501k0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501k0d);
+                bi.fldGrpCVh1501k0d.setVisibility(View.GONE);
+            }
+        }));
+
+
+        bi.h1501l0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501l0ay.getId()) {
+                bi.fldGrpCVh1501l0b.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501l0c.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501l0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501l0b);
+                Clear.clearAllFields(bi.fldGrpCVh1501l0c);
+                Clear.clearAllFields(bi.fldGrpCVh1501l0d);
+                bi.fldGrpCVh1501l0b.setVisibility(View.GONE);
+                bi.fldGrpCVh1501l0c.setVisibility(View.GONE);
+                bi.fldGrpCVh1501l0d.setVisibility(View.GONE);
+            }
+        }));
+
+        bi.h1501l0c.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501l0cy.getId()) {
+                bi.fldGrpCVh1501l0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501l0d);
+                bi.fldGrpCVh1501l0d.setVisibility(View.GONE);
+            }
+        }));
+
+
+        bi.h1501m0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501m0ay.getId()) {
+                bi.fldGrpCVh1501m0b.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501m0c.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501m0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501m0b);
+                Clear.clearAllFields(bi.fldGrpCVh1501m0c);
+                Clear.clearAllFields(bi.fldGrpCVh1501m0d);
+                bi.fldGrpCVh1501m0b.setVisibility(View.GONE);
+                bi.fldGrpCVh1501m0c.setVisibility(View.GONE);
+                bi.fldGrpCVh1501m0d.setVisibility(View.GONE);
+            }
+        }));
+
+        bi.h1501m0c.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501m0cy.getId()) {
+                bi.fldGrpCVh1501m0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501m0d);
+                bi.fldGrpCVh1501m0d.setVisibility(View.GONE);
+            }
+        }));
+
+
+        bi.h1501n0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501n0ay.getId()) {
+                bi.fldGrpCVh1501n0b.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501n0c.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501n0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501n0b);
+                Clear.clearAllFields(bi.fldGrpCVh1501n0c);
+                Clear.clearAllFields(bi.fldGrpCVh1501n0d);
+                bi.fldGrpCVh1501n0b.setVisibility(View.GONE);
+                bi.fldGrpCVh1501n0c.setVisibility(View.GONE);
+                bi.fldGrpCVh1501n0d.setVisibility(View.GONE);
+            }
+        }));
+
+        bi.h1501n0c.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501n0cy.getId()) {
+                bi.fldGrpCVh1501n0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501n0d);
+                bi.fldGrpCVh1501n0d.setVisibility(View.GONE);
+            }
+        }));
+
+
+        bi.h1501o0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501o0ay.getId()) {
+                bi.fldGrpCVh1501o0b.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501o0c.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501o0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501o0b);
+                Clear.clearAllFields(bi.fldGrpCVh1501o0c);
+                Clear.clearAllFields(bi.fldGrpCVh1501o0d);
+                bi.fldGrpCVh1501o0b.setVisibility(View.GONE);
+                bi.fldGrpCVh1501o0c.setVisibility(View.GONE);
+                bi.fldGrpCVh1501o0d.setVisibility(View.GONE);
+            }
+        }));
+
+        bi.h1501o0c.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501o0cy.getId()) {
+                bi.fldGrpCVh1501o0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501o0d);
+                bi.fldGrpCVh1501o0d.setVisibility(View.GONE);
+            }
+        }));
+
+
+        bi.h1501p0a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501p0ay.getId()) {
+                bi.fldGrpCVh1501p0b.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501p0c.setVisibility(View.VISIBLE);
+                bi.fldGrpCVh1501p0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501p0b);
+                Clear.clearAllFields(bi.fldGrpCVh1501p0c);
+                Clear.clearAllFields(bi.fldGrpCVh1501p0d);
+                bi.fldGrpCVh1501p0b.setVisibility(View.GONE);
+                bi.fldGrpCVh1501p0c.setVisibility(View.GONE);
+                bi.fldGrpCVh1501p0d.setVisibility(View.GONE);
+            }
+        }));
+
+        bi.h1501p0c.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1501p0cy.getId()) {
+                bi.fldGrpCVh1501p0d.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVh1501p0d);
+                bi.fldGrpCVh1501p0d.setVisibility(View.GONE);
+            }
+        }));
+
     }
 
 
     public void BtnContinue() {
-        if (formValidation()) {
-            SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionH153Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-
+        if (!formValidation()) return;
+        SaveDraft();
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionH153Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -4,9 +4,9 @@
 
         <import type="android.view.View" />
 
-        <variable
+        <!--<variable
             name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
+            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
 
         <variable
             name="callback"
@@ -79,7 +79,6 @@
                         <RadioButton
                             android:id="@+id/d0201a"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.d0201.equals(formsContract.one)}"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:text="@string/d0201a" />
@@ -87,7 +86,6 @@
                         <RadioButton
                             android:id="@+id/d0201b"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.d0201.equals(formsContract.two)}"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:text="@string/d0201b" />
@@ -138,7 +136,6 @@
                         <RadioButton
                             android:id="@+id/d0202a"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.d0202.equals(formsContract.one)}"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:text="@string/d0202a" />
@@ -146,7 +143,6 @@
                         <RadioButton
                             android:id="@+id/d0202b"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.d0202.equals(formsContract.two)}"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:text="@string/d0202b" />
@@ -198,7 +194,6 @@
                         <RadioButton
                             android:id="@+id/d0203a"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.d0203.equals(formsContract.one)}"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:text="@string/d0203a" />
@@ -206,7 +201,6 @@
                         <RadioButton
                             android:id="@+id/d0203b"
                             android:layout_height="wrap_content"
-                            android:checked="@{formsContract.d0203.equals(formsContract.two)}"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:text="@string/d0203b" />
