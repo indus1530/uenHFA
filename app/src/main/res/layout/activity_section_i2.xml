@@ -5,9 +5,9 @@
     <data>
         <import type="android.view.View" />
 
-        <!--<variable
+        <variable
             name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
+            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />
 
         <variable
             name="callback"
@@ -84,6 +84,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201a.equals(formsContract.one)}"
                             android:text="@string/i0201aa" />
 
                         <RadioButton
@@ -91,6 +92,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201a.equals(formsContract.two)}"
                             android:text="@string/i0201ab" />
 
                     </RadioGroup>
@@ -141,6 +143,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201b.equals(formsContract.one)}"
                             android:text="@string/i0201ba" />
 
                         <RadioButton
@@ -148,6 +151,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1.1"
+                            android:checked="@{formsContract.i0201b.equals(formsContract.two)}"
                             android:text="@string/i0201bb" />
 
                     </RadioGroup>
@@ -198,6 +202,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201c.equals(formsContract.one)}"
                             android:text="@string/i0201ca" />
 
                         <RadioButton
@@ -205,6 +210,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201c.equals(formsContract.two)}"
                             android:text="@string/i0201cb" />
 
                     </RadioGroup>
@@ -255,6 +261,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201d.equals(formsContract.one)}"
                             android:text="@string/i0201da" />
 
                         <RadioButton
@@ -262,6 +269,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201d.equals(formsContract.two)}"
                             android:text="@string/i0201db" />
 
                     </RadioGroup>
@@ -312,6 +320,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201e.equals(formsContract.one)}"
                             android:text="@string/i0201ea" />
 
                         <RadioButton
@@ -319,6 +328,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201e.equals(formsContract.two)}"
                             android:text="@string/i0201eb" />
 
                     </RadioGroup>
@@ -369,6 +379,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201f.equals(formsContract.one)}"
                             android:text="@string/i0201fa" />
 
                         <RadioButton
@@ -376,6 +387,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201f.equals(formsContract.two)}"
                             android:text="@string/i0201fb" />
 
                     </RadioGroup>
@@ -426,6 +438,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201g.equals(formsContract.one)}"
                             android:text="@string/i0201ga" />
 
                         <RadioButton
@@ -433,6 +446,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201g.equals(formsContract.two)}"
                             android:text="@string/i0201gb" />
 
                     </RadioGroup>
@@ -483,6 +497,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201h.equals(formsContract.one)}"
                             android:text="@string/i0201ha" />
 
                         <RadioButton
@@ -490,6 +505,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201h.equals(formsContract.two)}"
                             android:text="@string/i0201hb" />
 
                     </RadioGroup>
@@ -538,18 +554,21 @@
                             android:id="@+id/i0201ia"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201i.equals(formsContract.one)}"
                             android:text="@string/i0201ia" />
 
                         <RadioButton
                             android:id="@+id/i0201ib"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201i.equals(formsContract.two)}"
                             android:text="@string/i0201ib" />
 
                         <RadioButton
                             android:id="@+id/i0201ic"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201i.equals(formsContract.three)}"
                             android:text="@string/i0201ic" />
 
                     </RadioGroup>
@@ -598,24 +617,28 @@
                             android:id="@+id/i0201ja"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201ja.equals(formsContract.one)}"
                             android:text="@string/i0201ja" />
 
                         <CheckBox
                             android:id="@+id/i0201jb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201jb.equals(formsContract.two)}"
                             android:text="@string/i0201jb" />
 
                         <CheckBox
                             android:id="@+id/i0201jc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201jc.equals(formsContract.three)}"
                             android:text="@string/i0201jc" />
 
                         <CheckBox
                             android:id="@+id/i0201jd"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201jd.equals(formsContract.four)}"
                             android:text="@string/i0201jd" />
 
                     </LinearLayout>
@@ -624,6 +647,7 @@
                         android:id="@+id/i0201je"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:checked="@{formsContract.i0201je.equals(formsContract.five)}"
                         android:tag="-1"
                         android:text="@string/i0201je" />
 
@@ -671,18 +695,21 @@
                             android:id="@+id/i0201ka"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201k.equals(formsContract.one)}"
                             android:text="@string/i0201ka" />
 
                         <RadioButton
                             android:id="@+id/i0201kb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201k.equals(formsContract.two)}"
                             android:text="@string/i0201kb" />
 
                         <RadioButton
                             android:id="@+id/i0201kc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201k.equals(formsContract.three)}"
                             android:text="@string/i0201kc" />
 
                     </RadioGroup>
@@ -731,18 +758,21 @@
                             android:id="@+id/i0201la"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201la.equals(formsContract.one)}"
                             android:text="@string/i0201la" />
 
                         <CheckBox
                             android:id="@+id/i0201lb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201lb.equals(formsContract.two)}"
                             android:text="@string/i0201lb" />
 
                         <CheckBox
                             android:id="@+id/i0201lc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201lc.equals(formsContract.three)}"
                             android:text="@string/i0201lc" />
 
                     </LinearLayout>
@@ -793,6 +823,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201m.equals(formsContract.one)}"
                             android:text="@string/i0201ma" />
 
                         <RadioButton
@@ -800,6 +831,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201m.equals(formsContract.two)}"
                             android:text="@string/i0201mb" />
 
                     </RadioGroup>
@@ -850,6 +882,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201n.equals(formsContract.one)}"
                             android:text="@string/i0201na" />
 
                         <RadioButton
@@ -857,6 +890,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201n.equals(formsContract.two)}"
                             android:text="@string/i0201nb" />
 
                     </RadioGroup>
@@ -907,6 +941,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201o.equals(formsContract.one)}"
                             android:text="@string/i0201oa" />
 
                         <RadioButton
@@ -914,6 +949,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201o.equals(formsContract.two)}"
                             android:text="@string/i0201ob" />
 
                     </RadioGroup>
@@ -963,36 +999,42 @@
                             android:id="@+id/i0201pa"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201pa.equals(formsContract.one)}"
                             android:text="@string/i0201pa" />
 
                         <CheckBox
                             android:id="@+id/i0201pb"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201pb.equals(formsContract.two)}"
                             android:text="@string/i0201pb" />
 
                         <CheckBox
                             android:id="@+id/i0201pc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201pc.equals(formsContract.three)}"
                             android:text="@string/i0201pc" />
 
                         <CheckBox
                             android:id="@+id/i0201pd"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201pd.equals(formsContract.four)}"
                             android:text="@string/i0201pd" />
 
                         <CheckBox
                             android:id="@+id/i0201pe"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201pe.equals(formsContract.five)}"
                             android:text="@string/i0201pe" />
 
                         <CheckBox
                             android:id="@+id/i0201pf"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:checked="@{formsContract.i0201pf.equals(formsContract.six)}"
                             android:text="@string/i0201pf" />
 
                     </LinearLayout>
@@ -1043,6 +1085,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201q.equals(formsContract.one)}"
                             android:text="@string/i0201qa" />
 
                         <RadioButton
@@ -1050,6 +1093,7 @@
                             android:layout_height="wrap_content"
                             android:layout_width="0dp"
                             android:layout_weight="1"
+                            android:checked="@{formsContract.i0201q.equals(formsContract.two)}"
                             android:text="@string/i0201qb" />
 
                     </RadioGroup>
