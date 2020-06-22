@@ -13,6 +13,7 @@
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionC2Activity" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -428,13 +429,13 @@
                     <Button
                         android:id="@+id/btn_End"
                         style="@style/btnEnd"
-                        android:onClick="@{() -> callback.BtnEnd()}"
+                        android:onClick="@{() -> callback.btnEnd()}"
                         android:text="End" />
 
                     <Button
                         android:id="@+id/btn_Continue"
                         style="@style/btnNext"
-                        android:onClick="@{() -> callback.BtnContinue()}"
+                        android:onClick="@{() -> callback.btnContinue()}"
                         android:text="Save" />
 
                 </LinearLayout>

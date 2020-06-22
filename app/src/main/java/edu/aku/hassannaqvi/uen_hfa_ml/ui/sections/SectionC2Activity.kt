@@ -106,25 +106,28 @@ class SectionC2Activity : AppCompatActivity() {
         MainApp.fc.c021e = bi.c021e.getText().toString().trim().length() > 0 ? bi.c021e.getText().toString() : "-1";*/
     }
 
+
     private fun formValidation(): Boolean {
         return Validator.emptyCheckingContainer(this, bi.GrpName)
     }
+
 
     fun btnContinue(v: View) {
         routingNextActivity(MainActivity::class.java)
     }
 
+
     private fun routingNextActivity(activity: Class<*>) {
-        if (formValidation()) {
-            SaveDraft()
-            if (UpdateDB()) {
-                finish()
-                startActivity(Intent(this, activity))
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show()
-            }
+        if (!formValidation()) return
+        SaveDraft()
+        if (UpdateDB()) {
+            finish()
+            startActivity(Intent(this, activity))
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     fun btnAddMore(v: View) {
 
@@ -163,11 +166,15 @@ class SectionC2Activity : AppCompatActivity() {
 
     }
 
+
     fun btnEnd(v: View) {
         openEndActivity(this)
     }
 
+
     override fun onBackPressed() {
         Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show()
     }
+
+
 }
