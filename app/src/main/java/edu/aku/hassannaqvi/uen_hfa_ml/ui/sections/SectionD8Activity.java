@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD8Binding;
@@ -28,124 +29,6 @@ public class SectionD8Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_d8);
         bi.setCallback(this);
-        setupSkips();
-
-    }
-
-
-    private void setupSkips() {
-
-        /*bi.d0801a0a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.d0801a0an.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVd0801a0fq);
-            }
-        }));*/
-
-        /*bi.d0801b0a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.d0801b0an.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVd0801b0fq);
-            }
-        }));
-
-        bi.d0801c0a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.d0801c0an.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVd0801c0fq);
-            }
-        }));
-
-        bi.d0801d0a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.d0801d0an.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVd0801d0fq);
-            }
-        }));
-
-        bi.d0801e0a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.d0801e0an.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVd0801e0fq);
-            }
-        }));
-
-        bi.d0801f0a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.d0801f0an.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVd0801f0fq);
-            }
-        }));
-
-        bi.d0801g0a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.d0801g0an.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVd0801g0fq);
-            }
-        }));
-
-        bi.d0801h0a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.d0801h0an.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVd0801h0fq);
-            }
-        }));
-
-        bi.d0801i0a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.d0801i0an.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVd0801i0fq);
-            }
-        }));
-
-        bi.d0801j0a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.d0801j0an.getId()) {
-                Clear.clearAllFields(bi.fldGrpCVd0801j0fq);
-            }
-        }));*/
-
-        /*bi.cb01a.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                if ((bi.cb01a.getText()).hashCode() == s.hashCode()) {
-                    if (bi.cb01a.getText().toString().trim().length() > 0 && Integer.parseInt(bi.cb01a.getText().toString()) == 77) {
-                        bi.cb01b.setEnabled(true);
-                    } else {
-                        bi.cb01b.setEnabled(false);
-                        bi.cb01b.setText("");
-                    }
-                }
-
-            }
-        });
-
-
-        bi.cb02a.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                if ((bi.cb02a.getText()).hashCode() == s.hashCode()) {
-                    if (bi.cb02a.getText().toString().trim().length() > 0 && Integer.parseInt(bi.cb02a.getText().toString()) == 77) {
-                        bi.cb02b.setEnabled(true);
-                    } else {
-                        bi.cb02b.setEnabled(false);
-                        bi.cb02b.setText(null);
-                    }
-                }
-
-            }
-        });*/
 
     }
 
@@ -225,16 +108,14 @@ public class SectionD8Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
-            SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionMainActivity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+        if (!formValidation()) return;
+        SaveDraft();
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionMainActivity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
-
     }
 
 
