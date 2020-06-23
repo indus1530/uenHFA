@@ -991,7 +991,8 @@
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
                             android:maxLength="20"
-                            android:text='@{e0409x.checked ? e0409xx.getText().toString() : "" }'
+                            android:tag="e0409x"
+                            android:text='@{e0409x.checked ? formsContract.e0409xx.toString() : "" }'
                             android:visibility='@{e0409x.checked ? View.VISIBLE : View.GONE }' />
 
                     </LinearLayout>
