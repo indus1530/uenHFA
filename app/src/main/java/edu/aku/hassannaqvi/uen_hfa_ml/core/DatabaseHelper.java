@@ -588,20 +588,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(FormsTable.COLUMN_PROJECT_NAME, fc.getProjectName());
-       /* values.put(FormsTable.COLUMN_UID, fc.UID());
-        values.put(FormsTable.COLUMN_A1, fc.A1());
-        values.put(FormsTable.COLUMN_A3, fc.A3());
-        values.put(FormsTable.COLUMN_A4, fc.A4());
-        values.put(FormsTable.COLUMN_A5, fc.A5());
-        values.put(FormsTable.COLUMN_A6, fc.A6());
-        values.put(FormsTable.COLUMN_A7, fc.A7());
-        values.put(FormsTable.COLUMN_A8, fc.A8());
-        values.put(FormsTable.COLUMN_A9, fc.A9());
-        values.put(FormsTable.COLUMN_A10, fc.A10());
-        values.put(FormsTable.COLUMN_A11, fc.A11());
-        values.put(FormsTable.COLUMN_A12, fc.A12());
-        values.put(FormsTable.COLUMN_A13, fc.A13());
-        values.put(FormsTable.COLUMN_LUID, fc.Luid());*/
+        values.put(FormsTable.COLUMN_UID, fc.get_UID());
+        values.put(FormsTable.COLUMN_FORMDATE, fc.getFormdate());
+        values.put(FormsTable.COLUMN_SERIALNO, fc.getSerialno());
+        values.put(FormsTable.COLUMN_A01, fc.getA01());
+        values.put(FormsTable.COLUMN_A03D, fc.getA03d());
+        values.put(FormsTable.COLUMN_A03M, fc.getA03m());
+        values.put(FormsTable.COLUMN_A03Y, fc.getA03y());
+        values.put(FormsTable.COLUMN_A07, fc.getA07());
+        values.put(FormsTable.COLUMN_A08, fc.getA08());
+        values.put(FormsTable.COLUMN_A09, fc.getA09());
+        values.put(FormsTable.COLUMN_A10, fc.getA10());
+        values.put(FormsTable.COLUMN_A11, fc.getA11());
+        values.put(FormsTable.COLUMN_A12, fc.getA12());
+        values.put(FormsTable.COLUMN_A13, fc.getA13());
+        values.put(FormsTable.COLUMN_SB, fc.getsB());
+        values.put(FormsTable.COLUMN_SC, fc.getsC());
+        values.put(FormsTable.COLUMN_SD, fc.getsD());
+        values.put(FormsTable.COLUMN_SE, fc.getsE());
+        values.put(FormsTable.COLUMN_SF, fc.getsF());
+        values.put(FormsTable.COLUMN_SG, fc.getsG());
+        values.put(FormsTable.COLUMN_SH, fc.getsH());
+        values.put(FormsTable.COLUMN_SI, fc.getsI());
+        values.put(FormsTable.COLUMN_SJ, fc.getsJ());
+        values.put(FormsTable.COLUMN_SK, fc.getsK());
         values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus());
         values.put(FormsTable.COLUMN_ISTATUS88x, fc.getIstatus88x());
         values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingdatetime());
@@ -629,13 +639,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         String[] columns = {
-                FormsTable.COLUMN_LUID,
+                FormsTable.COLUMN_UID,
                 FormsTable.COLUMN_ISTATUS,
 
         };
 
 // Which row to update, based on the ID
-        String selection = FormsTable.COLUMN_LUID + " = ? AND "
+        String selection = FormsTable.COLUMN_UID + " = ? AND "
                 + FormsTable.COLUMN_ISTATUS + " = ?";
         String[] selectionArgs = new String[]{studyId, "1"};
 
@@ -650,7 +660,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     null);                   // The sort order
 
             while (c.moveToNext()) {
-                allFC.setLuid(c.getString(c.getColumnIndex(FormsTable.COLUMN_LUID)));
+                allFC.set_UID(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
                 allFC.setIstatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
             }
         } finally {
@@ -684,6 +694,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 whereArgs);
     }
 
+
     public int updateFormID() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -702,24 +713,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return count;
     }
 
+
     public Collection<FormsContract> getAllForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
-                FormsTable.COLUMN_A1,
-                FormsTable.COLUMN_A3,
-                FormsTable.COLUMN_A4,
-                FormsTable.COLUMN_A5,
-                FormsTable.COLUMN_A6,
-                FormsTable.COLUMN_A7,
-                FormsTable.COLUMN_A8,
-                FormsTable.COLUMN_A9,
+                FormsTable.COLUMN_UUID,
+                FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_SERIALNO,
+                FormsTable.COLUMN_A01,
+                FormsTable.COLUMN_A03D,
+                FormsTable.COLUMN_A03M,
+                FormsTable.COLUMN_A03Y,
+                FormsTable.COLUMN_A07,
+                FormsTable.COLUMN_A08,
+                FormsTable.COLUMN_A09,
                 FormsTable.COLUMN_A10,
                 FormsTable.COLUMN_A11,
                 FormsTable.COLUMN_A12,
                 FormsTable.COLUMN_A13,
+                FormsTable.COLUMN_SB,
+                FormsTable.COLUMN_SC,
+                FormsTable.COLUMN_SD,
+                FormsTable.COLUMN_SE,
+                FormsTable.COLUMN_SF,
+                FormsTable.COLUMN_SG,
+                FormsTable.COLUMN_SH,
+                FormsTable.COLUMN_SI,
+                FormsTable.COLUMN_SJ,
+                FormsTable.COLUMN_SK,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
@@ -763,6 +787,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return allFC;
     }
+
 
 
     public Collection<FormsContract> checkFormExist() {
@@ -771,18 +796,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
-                FormsTable.COLUMN_A1,
-                FormsTable.COLUMN_A3,
-                FormsTable.COLUMN_A4,
-                FormsTable.COLUMN_A5,
-                FormsTable.COLUMN_A6,
-                FormsTable.COLUMN_A7,
-                FormsTable.COLUMN_A8,
-                FormsTable.COLUMN_A9,
+                FormsTable.COLUMN_UUID,
+                FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_SERIALNO,
+                FormsTable.COLUMN_A01,
+                FormsTable.COLUMN_A03D,
+                FormsTable.COLUMN_A03M,
+                FormsTable.COLUMN_A03Y,
+                FormsTable.COLUMN_A07,
+                FormsTable.COLUMN_A08,
+                FormsTable.COLUMN_A09,
                 FormsTable.COLUMN_A10,
                 FormsTable.COLUMN_A11,
                 FormsTable.COLUMN_A12,
                 FormsTable.COLUMN_A13,
+                FormsTable.COLUMN_SB,
+                FormsTable.COLUMN_SC,
+                FormsTable.COLUMN_SD,
+                FormsTable.COLUMN_SE,
+                FormsTable.COLUMN_SF,
+                FormsTable.COLUMN_SG,
+                FormsTable.COLUMN_SH,
+                FormsTable.COLUMN_SI,
+                FormsTable.COLUMN_SJ,
+                FormsTable.COLUMN_SK,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
@@ -827,27 +864,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
+
     public Collection<FormsContract> getUnsyncedForms() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
-                FormsTable.COLUMN_A1,
-                FormsTable.COLUMN_A3,
-                FormsTable.COLUMN_A4,
-                FormsTable.COLUMN_A5,
-                FormsTable.COLUMN_A6,
-                FormsTable.COLUMN_A7,
-                FormsTable.COLUMN_A8,
-                FormsTable.COLUMN_A9,
+                FormsTable.COLUMN_UUID,
+                FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_SERIALNO,
+                FormsTable.COLUMN_A01,
+                FormsTable.COLUMN_A03D,
+                FormsTable.COLUMN_A03M,
+                FormsTable.COLUMN_A03Y,
+                FormsTable.COLUMN_A07,
+                FormsTable.COLUMN_A08,
+                FormsTable.COLUMN_A09,
                 FormsTable.COLUMN_A10,
                 FormsTable.COLUMN_A11,
                 FormsTable.COLUMN_A12,
                 FormsTable.COLUMN_A13,
+                FormsTable.COLUMN_SB,
+                FormsTable.COLUMN_SC,
+                FormsTable.COLUMN_SD,
+                FormsTable.COLUMN_SE,
+                FormsTable.COLUMN_SF,
+                FormsTable.COLUMN_SG,
+                FormsTable.COLUMN_SH,
+                FormsTable.COLUMN_SI,
+                FormsTable.COLUMN_SJ,
+                FormsTable.COLUMN_SK,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_ISTATUS88x,
-                FormsTable.COLUMN_LUID,
                 FormsTable.COLUMN_ENDINGDATETIME,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
@@ -901,13 +950,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 FormsTable._ID,
-                FormsTable.COLUMN_LUID,
-                FormsTable.COLUMN_A3,
+                FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_SYNCED,
 
         };
-        String whereClause = FormsTable.COLUMN_A3 + " Like ? ";
+        String whereClause = FormsTable.COLUMN_FORMDATE + " Like ? ";
         String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
         String groupBy = null;
         String having = null;
@@ -929,7 +977,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 FormsContract fc = new FormsContract();
                 fc.set_ID(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
-                fc.setLuid(c.getString(c.getColumnIndex(FormsTable.COLUMN_LUID)));
 /*
                 fc.setA3(c.getString(c.getColumnIndex(FormsTable.COLUMN_A3)));
 */

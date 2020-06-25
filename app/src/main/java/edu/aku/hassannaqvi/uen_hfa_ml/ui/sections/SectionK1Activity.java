@@ -13,8 +13,12 @@ import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK1Binding;
 
@@ -52,42 +56,46 @@ public class SectionK1Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
+        if (!formValidation()) return;
+        try {
             SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionK2Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionK2Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
 
     private boolean UpdateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SK, MainApp.fc.getsK());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.k0101a = bi.k0101aa.isChecked() ? "1"
+        JSONObject json = new JSONObject();
+
+        json.put("k0101a", bi.k0101aa.isChecked() ? "1"
                 : bi.k0101ab.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.k0101b = bi.k0101ba.isChecked() ? "1"
+        json.put("k0101b", bi.k0101ba.isChecked() ? "1"
                 : bi.k0101bb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.k0101c = bi.k0101ca.isChecked() ? "1"
+        json.put("k0101c", bi.k0101ca.isChecked() ? "1"
                 : bi.k0101cb.isChecked() ? "2"
                 : bi.k0101cc.isChecked() ? "3"
                 : bi.k0101cd.isChecked() ? "4"
@@ -95,34 +103,36 @@ public class SectionK1Activity extends AppCompatActivity {
                 : bi.k0101cf.isChecked() ? "6"
                 : bi.k0101cg.isChecked() ? "7"
                 : bi.k0101cx.isChecked() ? "96"
-                : "-1";
-        MainApp.fc.k0101cxx = bi.k0101cxx.getText().toString().trim().isEmpty() ? "-1" : bi.k0101cxx.getText().toString();
+                : "-1");
+        json.put("k0101cxx", bi.k0101cxx.getText().toString().trim().isEmpty() ? "-1" : bi.k0101cxx.getText().toString());
 
-        MainApp.fc.k0102 = bi.k0102a.isChecked() ? "1"
+        json.put("k0102", bi.k0102a.isChecked() ? "1"
                 : bi.k0102b.isChecked() ? "2"
                 : bi.k0102c.isChecked() ? "3"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.k0103 = bi.k0103a.isChecked() ? "1"
+        json.put("k0103", bi.k0103a.isChecked() ? "1"
                 : bi.k0103b.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.k0104 = bi.k0104a.isChecked() ? "1"
+        json.put("k0104", bi.k0104a.isChecked() ? "1"
                 : bi.k0104b.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.k0104aa = bi.k0104aaa.isChecked() ? "1"
+        json.put("k0104aa", bi.k0104aaa.isChecked() ? "1"
                 : bi.k0104aab.isChecked() ? "2"
                 : bi.k0104aac.isChecked() ? "3"
                 : bi.k0104aad.isChecked() ? "4"
                 : bi.k0104aax.isChecked() ? "96"
-                : "-1";
-        MainApp.fc.k0104aaxx = bi.k0104aaxx.getText().toString().trim().isEmpty() ? "-1" : bi.k0104aaxx.getText().toString();
+                : "-1");
+        json.put("k0104aaxx", bi.k0104aaxx.getText().toString().trim().isEmpty() ? "-1" : bi.k0104aaxx.getText().toString());
 
-        MainApp.fc.k0105 = bi.k0105a.isChecked() ? "1"
+        json.put("k0105", bi.k0105a.isChecked() ? "1"
                 : bi.k0105b.isChecked() ? "2"
                 : bi.k0105c.isChecked() ? "3"
-                : "-1";
+                : "-1");
+
+        MainApp.fc.setsK(String.valueOf(json));
 
     }
 

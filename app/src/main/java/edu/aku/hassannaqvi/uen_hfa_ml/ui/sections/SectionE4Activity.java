@@ -14,8 +14,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionE4Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionE4Activity extends AppCompatActivity {
@@ -66,21 +71,21 @@ public class SectionE4Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SE, fc.getsE());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
+
         json.put("e0401", bi.e0401a.isChecked() ? "1"
                 : bi.e0401b.isChecked() ? "2"
                 : "-1");
@@ -88,8 +93,6 @@ public class SectionE4Activity extends AppCompatActivity {
         json.put("e0402", bi.e0402a.isChecked() ? "1"
                 : bi.e0402b.isChecked() ? "2"
                 : "-1");
-
-        json.put("e0403", "-1");
 
         json.put("e0403a", bi.e0403aa.isChecked() ? "1"
                 : bi.e0403ab.isChecked() ? "2"
@@ -126,8 +129,6 @@ public class SectionE4Activity extends AppCompatActivity {
                 : bi.e0406c.isChecked() ? "3"
                 : "-1");
 
-        json.put("e0407", "-1");
-
         json.put("e0407a", bi.e0407aa.isChecked() ? "1"
                 : bi.e0407ab.isChecked() ? "2"
                 : bi.e0407ac.isChecked() ? "3"
@@ -158,9 +159,7 @@ public class SectionE4Activity extends AppCompatActivity {
                 : bi.e0409x.isChecked() ? "96"
                 : "-1");
 
-        json.put("e0409xx", bi.e0409xx.getText().toString().trim().length() > 0 ? bi.e0409xx.getText().toString() : "-1");
-
-        //json.put("e0410", "-1");
+        json.put("e0409xx", bi.e0409xx.getText().toString().trim().isEmpty() ? "-1" : bi.e0409xx.getText().toString());
 
         json.put("e0410a", bi.e0410aa.isChecked() ? "1"
                 : bi.e0410ab.isChecked() ? "2"
@@ -224,6 +223,15 @@ public class SectionE4Activity extends AppCompatActivity {
                 : bi.e0416d.isChecked() ? "4"
                 : "-1");
 
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsE()), json);
+
+            fc.setsE(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -233,27 +241,25 @@ public class SectionE4Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionE5Activity.class));
-
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+        if (!formValidation()) return;
+        try {
+            SaveDraft();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionE5Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+        }
     }
+
 
     public void BtnEnd() {
         openEndActivity(this);
     }
+
 
     @Override
     public void onBackPressed() {

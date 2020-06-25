@@ -12,11 +12,17 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD4Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionD4Activity extends AppCompatActivity {
@@ -33,45 +39,55 @@ public class SectionD4Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-       /* DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SD, fc.getsD());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-
-        }*/
-        return true;
+            return false;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.d0401 = bi.d0401a.isChecked() ? "1"
+        JSONObject json = new JSONObject();
+
+        json.put("d0401", bi.d0401a.isChecked() ? "1"
                 : bi.d0401b.isChecked() ? "2"
                 : bi.d0401c.isChecked() ? "3"
                 : bi.d0401d.isChecked() ? "4"
                 : bi.d0401e.isChecked() ? "5"
                 : bi.d0401f.isChecked() ? "6"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.d0402 = bi.d0402a.isChecked() ? "1"
+        json.put("d0402", bi.d0402a.isChecked() ? "1"
                 : bi.d0402b.isChecked() ? "2"
                 : bi.d0402c.isChecked() ? "3"
                 : bi.d0402d.isChecked() ? "4"
                 : bi.d0402e.isChecked() ? "5"
                 : bi.d0402f.isChecked() ? "6"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.d0403 = bi.d0403a.isChecked() ? "1"
+        json.put("d0403", bi.d0403a.isChecked() ? "1"
                 : bi.d0403b.isChecked() ? "2"
                 : bi.d0403c.isChecked() ? "3"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.d0404 = bi.d0404a.isChecked() ? "1"
+        json.put("d0404", bi.d0404a.isChecked() ? "1"
                 : bi.d0404b.isChecked() ? "2"
                 : bi.d0404c.isChecked() ? "3"
-                : "-1";
+                : "-1");
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsD()), json);
+
+            fc.setsD(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -82,17 +98,18 @@ public class SectionD4Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-
-        if (formValidation()) {
+        if (!formValidation()) return;
+        try {
             SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionD5Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionD5Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+        }
     }
 
 

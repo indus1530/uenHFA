@@ -333,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
                     iStatus = "N/A";
                 }
 
-                rSumText += fc.getLuid();
+                /*rSumText += fc.getLuid();*/
                 rSumText += "\t\t\t\t\t";
 
                 rSumText += iStatus;

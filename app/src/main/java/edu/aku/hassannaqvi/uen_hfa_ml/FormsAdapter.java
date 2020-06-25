@@ -47,7 +47,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.date.setText(fc.get(position).a03);
+        holder.date.setText(fc.get(position).getFormdate());
         String iStatus = "Status  Unknown";
         int iColor = 0;
         switch (fc.get(position).getIstatus()) {

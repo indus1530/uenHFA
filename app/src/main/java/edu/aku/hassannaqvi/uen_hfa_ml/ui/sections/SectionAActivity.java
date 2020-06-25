@@ -40,7 +40,6 @@ public class SectionAActivity extends AppCompatActivity {
     private List<String> districtNames, tehsilNames, ucNames;
     private List<String> districtCodes, tehsilCodes, ucCodes;
     private DatabaseHelper db;
-    private static final String TAG = SectionAActivity.class.getName();
     public static FormsContract fc;
 
     private List<String> hfNamesPrv, hfNamesPub;
@@ -228,36 +227,48 @@ public class SectionAActivity extends AppCompatActivity {
     }
 
     private void SaveDraft() {
-        MainApp.fc.a01 = MainApp.userName;
-        MainApp.fc.a03 = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
+
+        MainApp.fc = new FormsContract();
+
+        MainApp.fc.setFormdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+
+        MainApp.fc.setA01(MainApp.userName);
+
         MainApp.fc.setDeviceID(MainApp.appInfo.getDeviceID());
+
         MainApp.fc.setDevicetagID(MainApp.appInfo.getTagName());
+
         MainApp.fc.setAppversion(MainApp.appInfo.getAppVersion());
-        MainApp.setGPS(this); // Set GPS
-        //MainApp.fc.setA6(String.valueOf(bi.a06.getSelectedItem()));
-        MainApp.fc.a07 = bi.a07.getSelectedItem().toString();
-        MainApp.fc.a08 = bi.a08.getSelectedItem().toString();
-        MainApp.fc.a09 = bi.a09.getSelectedItem().toString();
-        MainApp.fc.a10 = bi.a10a.isChecked() ? "1"
+
+        MainApp.fc.setA03d(bi.a03d.getText().toString().trim().isEmpty() ? "-1" : bi.a03d.getText().toString());
+        MainApp.fc.setA03m(bi.a03m.getText().toString().trim().isEmpty() ? "-1" : bi.a03m.getText().toString());
+        MainApp.fc.setA03y(bi.a03y.getText().toString().trim().isEmpty() ? "-1" : bi.a03y.getText().toString());
+
+        MainApp.fc.setA07(bi.a07.getSelectedItem().toString());
+        MainApp.fc.setA08(bi.a08.getSelectedItem().toString());
+        MainApp.fc.setA09(bi.a09.getSelectedItem().toString());
+
+        MainApp.fc.setA10(bi.a10a.isChecked() ? "1"
                 : bi.a10b.isChecked() ? "2"
-                : "-1";
-        MainApp.fc.a11 = bi.a11a.isChecked() ? "1"
+                : "-1");
+
+        MainApp.fc.setA11(bi.a11a.isChecked() ? "1"
                 : bi.a11b.isChecked() ? "2"
-                : "-1";
-        MainApp.fc.a12 = hfMap.get(bi.a13.getSelectedItem().toString());
-        MainApp.fc.a13 = bi.a13.getSelectedItem().toString();
+                : "-1");
+
+        MainApp.fc.setA12(hfMap.get(bi.a13.getSelectedItem().toString()));
+        MainApp.fc.setA13(bi.a13.getSelectedItem().toString());
+
+        MainApp.setGPS(this); // Set GPS
     }
 
 
     private boolean formValidation() {
-        if (!Validator.emptyCheckingContainer(this, bi.GrpName)) {
-            return false;
-        }
-        if (db.CheckHF(String.valueOf(hfMap.get(bi.a13.getSelectedItem().toString())))) {
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        /*if (db.CheckHF(String.valueOf(hfMap.get(bi.a13.getSelectedItem().toString())))) {
             Toast.makeText(this, "Facility already filled", Toast.LENGTH_LONG).show();
             return false;
-        }
-        return true;
+        }*/
     }
 
 }

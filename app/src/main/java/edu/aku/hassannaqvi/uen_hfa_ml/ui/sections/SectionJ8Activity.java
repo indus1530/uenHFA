@@ -12,10 +12,15 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ8Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -33,68 +38,80 @@ public class SectionJ8Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
-                SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionJ9Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+        if (!formValidation()) return;
+        try {
+            SaveDraft();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionJ9Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
-
     private boolean UpdateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SJ, MainApp.fc.getsJ());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.j0800a = bi.j0800a.getText().toString().trim().length() > 0 ? bi.j0800a.getText().toString() : "-1";
-        MainApp.fc.j0800b = bi.j0800b.getText().toString().trim().length() > 0 ? bi.j0800b.getText().toString() : "-1";
+        JSONObject json = new JSONObject();
 
-        MainApp.fc.j0800c = bi.j0800ca.isChecked() ? "1"
+        json.put("j0800a", bi.j0800a.getText().toString().trim().length() > 0 ? bi.j0800a.getText().toString() : "-1");
+        json.put("j0800b", bi.j0800b.getText().toString().trim().length() > 0 ? bi.j0800b.getText().toString() : "-1");
+
+        json.put("j0800c", bi.j0800ca.isChecked() ? "1"
                 : bi.j0800cb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0801a = bi.j0801aa.isChecked() ? "1"
+        json.put("j0801a", bi.j0801aa.isChecked() ? "1"
                 : bi.j0801ab.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0801b = bi.j0801ba.isChecked() ? "1"
+        json.put("j0801b", bi.j0801ba.isChecked() ? "1"
                 : bi.j0801bb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0801c = bi.j0801ca.isChecked() ? "1"
+        json.put("j0801c", bi.j0801ca.isChecked() ? "1"
                 : bi.j0801cb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0801d = bi.j0801da.isChecked() ? "1"
+        json.put("j0801d", bi.j0801da.isChecked() ? "1"
                 : bi.j0801db.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0801e = bi.j0801ea.isChecked() ? "1"
+        json.put("j0801e", bi.j0801ea.isChecked() ? "1"
                 : bi.j0801eb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0801f = bi.j0801fa.isChecked() ? "1"
+        json.put("j0801f", bi.j0801fa.isChecked() ? "1"
                 : bi.j0801fb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0801ga = bi.j0801ga.isChecked() ? "1" : "-1";
-        MainApp.fc.j0801gb = bi.j0801gb.isChecked() ? "2" : "-1";
-        MainApp.fc.j0801gc = bi.j0801gc.isChecked() ? "3" : "-1";
-        MainApp.fc.j0801gd = bi.j0801gd.isChecked() ? "4" : "-1";
+        json.put("j0801ga", bi.j0801ga.isChecked() ? "1" : "-1");
+        json.put("j0801gb", bi.j0801gb.isChecked() ? "2" : "-1");
+        json.put("j0801gc", bi.j0801gc.isChecked() ? "3" : "-1");
+        json.put("j0801gd", bi.j0801gd.isChecked() ? "4" : "-1");
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsJ()), json);
+
+            MainApp.fc.setsJ(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 

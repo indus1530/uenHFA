@@ -10,10 +10,17 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionE2Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionE2Activity extends AppCompatActivity {
@@ -25,7 +32,6 @@ public class SectionE2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e2);
         bi.setCallback(this);
-        setTitle(R.string.chsec);
         setupSkips();
     }
 
@@ -47,75 +53,84 @@ public class SectionE2Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SE, fc.getsE());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.e0201 = bi.e0201a.isChecked() ? "1"
+        JSONObject json = new JSONObject();
+
+        json.put("e0201", bi.e0201a.isChecked() ? "1"
                 : bi.e0201b.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.e0202a = bi.e0202aa.isChecked() ? "1"
+        json.put("e0202a", bi.e0202aa.isChecked() ? "1"
                 : bi.e0202ab.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.e0202b = bi.e0202ba.isChecked() ? "1"
+        json.put("e0202b", bi.e0202ba.isChecked() ? "1"
                 : bi.e0202bb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.e0202c = bi.e0202ca.isChecked() ? "1"
+        json.put("e0202c", bi.e0202ca.isChecked() ? "1"
                 : bi.e0202cb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.e0202d = bi.e0202da.isChecked() ? "1"
+        json.put("e0202d", bi.e0202da.isChecked() ? "1"
                 : bi.e0202db.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.e0202e = bi.e0202ea.isChecked() ? "1"
+        json.put("e0202e", bi.e0202ea.isChecked() ? "1"
                 : bi.e0202eb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.e0202f = bi.e0202fa.isChecked() ? "1"
+        json.put("e0202f", bi.e0202fa.isChecked() ? "1"
                 : bi.e0202fb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.e0203a = bi.e0203aa.isChecked() ? "1"
+        json.put("e0203a", bi.e0203aa.isChecked() ? "1"
                 : bi.e0203ab.isChecked() ? "2"
                 : bi.e0203ac.isChecked() ? "3"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.e0203b = bi.e0203ba.isChecked() ? "1"
+        json.put("e0203b", bi.e0203ba.isChecked() ? "1"
                 : bi.e0203bb.isChecked() ? "2"
                 : bi.e0203bc.isChecked() ? "3"
-                : "-1";
+                : "-1");
 
-
-        MainApp.fc.e0204a = bi.e0204aa.isChecked() ? "1"
+        json.put("e0204a", bi.e0204aa.isChecked() ? "1"
                 : bi.e0204ab.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.e0204b = bi.e0204b.getText().toString().trim().length() > 0 ? bi.e0204b.getText().toString() : "-1";
+        json.put("e0204b", bi.e0204b.getText().toString().trim().isEmpty() ? "-1" : bi.e0204b.getText().toString());
 
-        MainApp.fc.e0204c = bi.e0204ca.isChecked() ? "1"
+        json.put("e0204c", bi.e0204ca.isChecked() ? "1"
                 : bi.e0204cb.isChecked() ? "2"
                 : bi.e0204cc.isChecked() ? "3"
                 : bi.e0204cd.isChecked() ? "4"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.e0204d = bi.e0204da.isChecked() ? "1"
+        json.put("e0204d", bi.e0204da.isChecked() ? "1"
                 : bi.e0204dx.isChecked() ? "96"
-                : "-1";
-        MainApp.fc.e0204dxx = bi.e0204dxx.getText().toString().trim().length() > 0 ? bi.e0204dxx.getText().toString() : "-1";
+                : "-1");
+        json.put("e0204dxx", bi.e0204dxx.getText().toString().trim().isEmpty() ? "-1" : bi.e0204dxx.getText().toString());
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsE()), json);
+
+            fc.setsE(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -127,7 +142,11 @@ public class SectionE2Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (!formValidation()) return;
-        SaveDraft();
+        try {
+            SaveDraft();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         if (UpdateDB()) {
             finish();
             startActivity(new Intent(this, SectionE31Activity.class));

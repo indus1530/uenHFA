@@ -5,17 +5,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.validatorcrawler.aliazaz.Validator;
-
-import org.jetbrains.annotations.NotNull;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import com.validatorcrawler.aliazaz.Validator;
+
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH4Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 
@@ -34,49 +41,59 @@ public class SectionH4Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
+        if (!formValidation()) return;
+        try {
             SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionH5Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionH5Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
 
     private boolean UpdateDB() {
-
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.h0401 = bi.h0401a.isChecked() ? "1"
+        JSONObject json = new JSONObject();
+
+        json.put("h0401", bi.h0401a.isChecked() ? "1"
                 : bi.h0401b.isChecked() ? "2"
                 : bi.h0401c.isChecked() ? "3"
                 : bi.h0401d.isChecked() ? "4"
                 : bi.h0401x.isChecked() ? "96"
-                : "-1";
-        MainApp.fc.h0401xx = bi.h0401xx.getText().toString().trim().length() > 0 ? bi.h0401xx.getText().toString() : "-1";
+                : "-1");
+        json.put("h0401xx", bi.h0401xx.getText().toString().trim().isEmpty() ? "-1" : bi.h0401xx.getText().toString());
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
+
+            fc.setsH(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
-
     }
 
 

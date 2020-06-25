@@ -9,7 +9,12 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH1Binding;
 
@@ -106,46 +111,51 @@ public class SectionH1Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
+        if (!formValidation()) return;
+        try {
             SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionH2Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionH2Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
 
     private boolean UpdateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.h0101a = bi.h0101a.getText().toString();
-        MainApp.fc.h0101b = bi.h0101b.getText().toString();
-        MainApp.fc.h0101c = bi.h0101c.getText().toString();
+        JSONObject json = new JSONObject();
 
-        MainApp.fc.h0101aa = bi.h0101aa.getText().toString();
-        MainApp.fc.h0101ab = bi.h0101ab.getText().toString();
+        json.put("h0101a", bi.h0101a.getText().toString().trim().isEmpty() ? "-1" : bi.h0101a.getText().toString());
+        json.put("h0101b", bi.h0101b.getText().toString().trim().isEmpty() ? "-1" : bi.h0101b.getText().toString());
+        json.put("h0101c", bi.h0101c.getText().toString().trim().isEmpty() ? "-1" : bi.h0101c.getText().toString());
 
-        MainApp.fc.h0101ba = bi.h0101ba.getText().toString();
-        MainApp.fc.h0101bb = bi.h0101bb.getText().toString();
+        json.put("h0101aa", bi.h0101aa.getText().toString().trim().isEmpty() ? "-1" : bi.h0101aa.getText().toString());
+        json.put("h0101ab", bi.h0101ab.getText().toString().trim().isEmpty() ? "-1" : bi.h0101ab.getText().toString());
 
-        MainApp.fc.h0101ca = bi.h0101ca.getText().toString();
-        MainApp.fc.h0101cb = bi.h0101cb.getText().toString();
+        json.put("h0101ba", bi.h0101ba.getText().toString().trim().isEmpty() ? "-1" : bi.h0101ba.getText().toString());
+        json.put("h0101bb", bi.h0101bb.getText().toString().trim().isEmpty() ? "-1" : bi.h0101bb.getText().toString());
+
+        json.put("h0101ca", bi.h0101ca.getText().toString().trim().isEmpty() ? "-1" : bi.h0101ca.getText().toString());
+        json.put("h0101cb", bi.h0101cb.getText().toString().trim().isEmpty() ? "-1" : bi.h0101cb.getText().toString());
+
+        MainApp.fc.setsH(String.valueOf(json));
 
     }
 

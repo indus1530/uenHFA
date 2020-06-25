@@ -5,17 +5,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.validatorcrawler.aliazaz.Validator;
-
-import org.jetbrains.annotations.NotNull;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import com.validatorcrawler.aliazaz.Validator;
+
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH5Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 
@@ -28,104 +35,59 @@ public class SectionH5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h5);
         bi.setCallback(this);
-        setupSkips();
 
-
-    }
-
-
-    private void setupSkips() {
-
-        /*bi.ss04.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss04b.getId()) {
-                Clear.clearAllFields(bi.ss05cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss05cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss07h.getId() || i == bi.ss07i.getId()) {
-                Clear.clearAllFields(bi.ss08cv, false);
-                Clear.clearAllFields(bi.ss09cv, false);
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss08cv, true);
-                Clear.clearAllFields(bi.ss09cv, true);
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss09.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss09b.getId()) {
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-
-            } else {
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-
-            }
-        }));*/
-
-
-        /*bi.ss11.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss11b.getId()) {
-                Clear.clearAllFields(bi.ss12cv, false);
-                Clear.clearAllFields(bi.ss13cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss12cv, true);
-                Clear.clearAllFields(bi.ss13cv, true);
-            }
-        }));*/
 
     }
 
 
     public void BtnContinue() {
-        if (formValidation()) {
+        if (!formValidation()) return;
+        try {
             SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionH6Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionH6Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
 
     private boolean UpdateDB() {
-
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.h0501 = bi.h0501a.isChecked() ? "1"
+        JSONObject json = new JSONObject();
+
+        json.put("h0501", bi.h0501a.isChecked() ? "1"
                 : bi.h0501b.isChecked() ? "2"
                 : bi.h0501c.isChecked() ? "3"
                 : bi.h0501x.isChecked() ? "96"
-                : "-1";
-        MainApp.fc.h0501xx = bi.h0501xx.getText().toString().trim().length() > 0 ? bi.h0501xx.getText().toString() : "-1";
+                : "-1");
+
+        json.put("h0501xx", bi.h0501xx.getText().toString().trim().isEmpty() ? "-1" : bi.h0501xx.getText().toString());
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
+
+            fc.setsH(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 

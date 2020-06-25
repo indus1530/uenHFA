@@ -35,56 +35,55 @@ public class SectionMainActivity extends AppCompatActivity {
         bi.setCallback(this);
 
 
-        //TODO
-        /*if (!fc.getsB().isEmpty()) {
+        if (!fc.getsB().isEmpty()) {
             bi.form01.setEnabled(false);
             bi.form01.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsC().equals("")) {
+        if (!fc.getsC().isEmpty()) {
             bi.form02.setEnabled(false);
             bi.form02.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsD().equals("")) {
+        if (!fc.getsD().isEmpty()) {
             bi.form03.setEnabled(false);
             bi.form03.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsE().equals("")) {
+        if (!fc.getsE().isEmpty()) {
             bi.form04.setEnabled(false);
             bi.form04.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsF().equals("")) {
+        if (!fc.getsF().isEmpty()) {
             bi.form05.setEnabled(false);
             bi.form05.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsG().equals("")) {
+        if (!fc.getsG().isEmpty()) {
             bi.form06.setEnabled(false);
             bi.form06.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsH().equals("")) {
+        if (!fc.getsH().isEmpty()) {
             bi.form07.setEnabled(false);
             bi.form07.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsI().equals("")) {
+        if (!fc.getsI().isEmpty()) {
             bi.form08.setEnabled(false);
             bi.form08.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsJ().equals("")) {
+        if (!fc.getsJ().isEmpty()) {
             bi.form09.setEnabled(false);
             bi.form09.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsK().equals("")) {
-            bi.form09.setEnabled(false);
-            bi.form09.setBackgroundResource(R.color.dullWhite);
-        }*/
+        if (!fc.getsK().isEmpty()) {
+            bi.form10.setEnabled(false);
+            bi.form10.setBackgroundResource(R.color.dullWhite);
+        }
 
 
     }
@@ -96,9 +95,7 @@ public class SectionMainActivity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-        /*if (!bi.form01.isEnabled()
+        if (!bi.form01.isEnabled()
                 && !bi.form02.isEnabled()
                 && !bi.form03.isEnabled()
                 && !bi.form04.isEnabled()
@@ -113,7 +110,7 @@ public class SectionMainActivity extends AppCompatActivity {
             //MainApp.endActivity(this, SectionBActivity.class);
         } else {
             Toast.makeText(this, "Sections still in Pending!", Toast.LENGTH_SHORT).show();
-        }*/
+        }
     }
 
 
@@ -161,7 +158,7 @@ public class SectionMainActivity extends AppCompatActivity {
                     oF = new Intent(SectionMainActivity.this, SectionG1Activity.class);
                     break;
                 case R.id.form07:
-                    oF = new Intent(SectionMainActivity.this, fc.a10.equals("2") ? SectionH16Activity.class : SectionH2Activity.class);
+                    oF = new Intent(SectionMainActivity.this, fc.getA10().equals("2") ? SectionH16Activity.class : SectionH2Activity.class);
                     break;
                 case R.id.form08:
                     oF = new Intent(SectionMainActivity.this, SectionI1Activity.class);

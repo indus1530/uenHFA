@@ -12,8 +12,12 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionD1Binding;
 
@@ -35,42 +39,46 @@ public class SectionD1Activity extends AppCompatActivity {
     }
 
     private boolean UpdateDB() {
-        /* DatabaseHelper db = MainApp.appInfo.getDbHelper();
-       int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SD, fc.getsD());
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SD, MainApp.fc.getsD());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-
-        }*/
-        return true;
+            return false;
+        }
     }
 
-    private void SaveDraft() {
 
-        MainApp.fc.d0101 = bi.d0101a.isChecked() ? "1"
+    private void SaveDraft() throws JSONException {
+
+        JSONObject json = new JSONObject();
+
+        json.put("d0101", bi.d0101a.isChecked() ? "1"
                 : bi.d0101b.isChecked() ? "2"
-                : "-1";
-
-        MainApp.fc.d0102 = bi.d0102a.isChecked() ? "1"
+                : "-1");
+        json.put("d0102", bi.d0102a.isChecked() ? "1"
                 : bi.d0102b.isChecked() ? "2"
-                : "-1";
+                : "-1");
+
+        MainApp.fc.setsD(String.valueOf(json));
 
     }
 
 
     public void BtnContinue() {
-
-        if (formValidation()) {
-                SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionD2Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+        if (!formValidation()) return;
+        try {
+            SaveDraft();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionD2Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+        }
     }
 
 

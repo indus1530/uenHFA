@@ -1,28 +1,26 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <data>
-
         <import type="android.view.View" />
-
-        <!-- Databinding Edit Mode -->
-        <!--<variable
-            name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
 
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionK9Activity" />
     </data>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:id="@+id/GrpNameSectionK9"
             style="@style/vlinearlayout">
 
-            <!-- k08  Title   -->
+
+        <!-- k08  Title   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVk08"
                 style="@style/cardView">

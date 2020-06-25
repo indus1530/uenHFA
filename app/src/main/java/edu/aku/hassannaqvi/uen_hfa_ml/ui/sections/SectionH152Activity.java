@@ -13,11 +13,17 @@ import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH152Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionH152Activity extends AppCompatActivity {
@@ -239,7 +245,11 @@ public class SectionH152Activity extends AppCompatActivity {
 
     public void BtnContinue() {
         if (!formValidation()) return;
-        SaveDraft();
+        try {
+            SaveDraft();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         if (UpdateDB()) {
             finish();
             startActivity(new Intent(this, SectionH153Activity.class));
@@ -250,148 +260,165 @@ public class SectionH152Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, fc.getsH());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
+
+        JSONObject json = new JSONObject();
 
 
-        MainApp.fc.h1501i0a = bi.h1501i0ay.isChecked() ? "1"
+        json.put("h1501i0a", bi.h1501i0ay.isChecked() ? "1"
                 : bi.h1501i0an.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501i0b = bi.h1501i0by.isChecked() ? "1"
+        json.put("h1501i0b", bi.h1501i0by.isChecked() ? "1"
                 : bi.h1501i0bn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501i0c = bi.h1501i0cy.isChecked() ? "1"
+        json.put("h1501i0c", bi.h1501i0cy.isChecked() ? "1"
                 : bi.h1501i0cn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501i0dy = bi.h1501i0dy.getText().toString().trim().length() > 0 ? bi.h1501i0dy.getText().toString() : "-1";
-        MainApp.fc.h1501i0dn = bi.h1501i0dn.getText().toString().trim().length() > 0 ? bi.h1501i0dn.getText().toString() : "-1";
+        json.put("h1501i0dy", bi.h1501i0dy.getText().toString());
+
+        json.put("h1501i0dn", bi.h1501i0dn.getText().toString());
 
 
-        MainApp.fc.h1501j0a = bi.h1501j0ay.isChecked() ? "1"
+        json.put("h1501j0a", bi.h1501j0ay.isChecked() ? "1"
                 : bi.h1501j0an.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501j0b = bi.h1501j0by.isChecked() ? "1"
+        json.put("h1501j0b", bi.h1501j0by.isChecked() ? "1"
                 : bi.h1501j0bn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501j0c = bi.h1501j0cy.isChecked() ? "1"
+        json.put("h1501j0c", bi.h1501j0cy.isChecked() ? "1"
                 : bi.h1501j0cn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501j0dy = bi.h1501j0dy.getText().toString().trim().length() > 0 ? bi.h1501j0dy.getText().toString() : "-1";
-        MainApp.fc.h1501j0dn = bi.h1501j0dn.getText().toString().trim().length() > 0 ? bi.h1501j0dn.getText().toString() : "-1";
+        json.put("h1501j0dy", bi.h1501j0dy.getText().toString());
+
+        json.put("h1501j0dn", bi.h1501j0dn.getText().toString());
 
 
-        MainApp.fc.h1501k0a = bi.h1501k0ay.isChecked() ? "1"
+        json.put("h1501k0a", bi.h1501k0ay.isChecked() ? "1"
                 : bi.h1501k0an.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501k0b = bi.h1501k0by.isChecked() ? "1"
+        json.put("h1501k0b", bi.h1501k0by.isChecked() ? "1"
                 : bi.h1501k0bn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501k0c = bi.h1501k0cy.isChecked() ? "1"
+        json.put("h1501k0c", bi.h1501k0cy.isChecked() ? "1"
                 : bi.h1501k0cn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501k0dy = bi.h1501k0dy.getText().toString().trim().length() > 0 ? bi.h1501k0dy.getText().toString() : "-1";
-        MainApp.fc.h1501k0dn = bi.h1501k0dn.getText().toString().trim().length() > 0 ? bi.h1501k0dn.getText().toString() : "-1";
+        json.put("h1501k0dy", bi.h1501k0dy.getText().toString());
+
+        json.put("h1501k0dn", bi.h1501k0dn.getText().toString());
 
 
-        MainApp.fc.h1501l0a = bi.h1501l0ay.isChecked() ? "1"
+        json.put("h1501l0a", bi.h1501l0ay.isChecked() ? "1"
                 : bi.h1501l0an.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501l0b = bi.h1501l0by.isChecked() ? "1"
+        json.put("h1501l0b", bi.h1501l0by.isChecked() ? "1"
                 : bi.h1501l0bn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501l0c = bi.h1501l0cy.isChecked() ? "1"
+        json.put("h1501l0c", bi.h1501l0cy.isChecked() ? "1"
                 : bi.h1501l0cn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501l0dy = bi.h1501l0dy.getText().toString().trim().length() > 0 ? bi.h1501l0dy.getText().toString() : "-1";
-        MainApp.fc.h1501l0dn = bi.h1501l0dn.getText().toString().trim().length() > 0 ? bi.h1501l0dn.getText().toString() : "-1";
+        json.put("h1501l0dy", bi.h1501l0dy.getText().toString());
+
+        json.put("h1501l0dn", bi.h1501l0dn.getText().toString());
 
 
-        MainApp.fc.h1501m0a = bi.h1501m0ay.isChecked() ? "1"
+        json.put("h1501m0a", bi.h1501m0ay.isChecked() ? "1"
                 : bi.h1501m0an.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501m0b = bi.h1501m0by.isChecked() ? "1"
+        json.put("h1501m0b", bi.h1501m0by.isChecked() ? "1"
                 : bi.h1501m0bn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501m0c = bi.h1501m0cy.isChecked() ? "1"
+        json.put("h1501m0c", bi.h1501m0cy.isChecked() ? "1"
                 : bi.h1501m0cn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501m0dy = bi.h1501m0dy.getText().toString().trim().length() > 0 ? bi.h1501m0dy.getText().toString() : "-1";
-        MainApp.fc.h1501m0dn = bi.h1501m0dn.getText().toString().trim().length() > 0 ? bi.h1501m0dn.getText().toString() : "-1";
+        json.put("h1501m0dy", bi.h1501m0dy.getText().toString());
+
+        json.put("h1501m0dn", bi.h1501m0dn.getText().toString());
 
 
-        MainApp.fc.h1501n0a = bi.h1501n0ay.isChecked() ? "1"
+        json.put("h1501n0a", bi.h1501n0ay.isChecked() ? "1"
                 : bi.h1501n0an.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501n0b = bi.h1501n0by.isChecked() ? "1"
+        json.put("h1501n0b", bi.h1501n0by.isChecked() ? "1"
                 : bi.h1501n0bn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501n0c = bi.h1501n0cy.isChecked() ? "1"
+        json.put("h1501n0c", bi.h1501n0cy.isChecked() ? "1"
                 : bi.h1501n0cn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501n0dy = bi.h1501n0dy.getText().toString().trim().length() > 0 ? bi.h1501n0dy.getText().toString() : "-1";
-        MainApp.fc.h1501n0dn = bi.h1501n0dn.getText().toString().trim().length() > 0 ? bi.h1501n0dn.getText().toString() : "-1";
+        json.put("h1501n0dy", bi.h1501n0dy.getText().toString());
+
+        json.put("h1501n0dn", bi.h1501n0dn.getText().toString());
 
 
-        MainApp.fc.h1501o0a = bi.h1501o0ay.isChecked() ? "1"
+        json.put("h1501o0a", bi.h1501o0ay.isChecked() ? "1"
                 : bi.h1501o0an.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501o0b = bi.h1501o0by.isChecked() ? "1"
+        json.put("h1501o0b", bi.h1501o0by.isChecked() ? "1"
                 : bi.h1501o0bn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501o0c = bi.h1501o0cy.isChecked() ? "1"
+        json.put("h1501o0c", bi.h1501o0cy.isChecked() ? "1"
                 : bi.h1501o0cn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501o0dy = bi.h1501o0dy.getText().toString().trim().length() > 0 ? bi.h1501o0dy.getText().toString() : "-1";
-        MainApp.fc.h1501o0dn = bi.h1501o0dn.getText().toString().trim().length() > 0 ? bi.h1501o0dn.getText().toString() : "-1";
+        json.put("h1501o0dy", bi.h1501o0dy.getText().toString());
+
+        json.put("h1501o0dn", bi.h1501o0dn.getText().toString());
 
 
-        MainApp.fc.h1501p0a = bi.h1501p0ay.isChecked() ? "1"
+        json.put("h1501p0a", bi.h1501p0ay.isChecked() ? "1"
                 : bi.h1501p0an.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501p0b = bi.h1501p0by.isChecked() ? "1"
+        json.put("h1501p0b", bi.h1501p0by.isChecked() ? "1"
                 : bi.h1501p0bn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501p0c = bi.h1501p0cy.isChecked() ? "1"
+        json.put("h1501p0c", bi.h1501p0cy.isChecked() ? "1"
                 : bi.h1501p0cn.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1501p0dy = bi.h1501p0dy.getText().toString().trim().length() > 0 ? bi.h1501p0dy.getText().toString() : "-1";
-        MainApp.fc.h1501p0dn = bi.h1501p0dn.getText().toString().trim().length() > 0 ? bi.h1501p0dn.getText().toString() : "-1";
+        json.put("h1501p0dy", bi.h1501p0dy.getText().toString());
+
+        json.put("h1501p0dn", bi.h1501p0dn.getText().toString());
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
+
+            fc.setsH(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
 
     }

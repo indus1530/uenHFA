@@ -20,20 +20,31 @@ public final class CreateTable {
             + FormsContract.FormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + FormsContract.FormsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + FormsContract.FormsTable.COLUMN_UID + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_A1 + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_A3 + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_A4 + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_A5 + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_A6 + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_A7 + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_A8 + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_A9 + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_UUID + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_FORMDATE + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SERIALNO + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_A01 + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_A03D + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_A03M + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_A03Y + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_A07 + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_A08 + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_A09 + " TEXT,"
             + FormsContract.FormsTable.COLUMN_A10 + " TEXT,"
             + FormsContract.FormsTable.COLUMN_A11 + " TEXT,"
             + FormsContract.FormsTable.COLUMN_A12 + " TEXT,"
             + FormsContract.FormsTable.COLUMN_A13 + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SB + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SC + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SD + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SE + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SF + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SG + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SH + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SI + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SJ + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SK + " TEXT,"
             + FormsContract.FormsTable.COLUMN_APPVERSION + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_LUID + " TEXT,"
             + FormsContract.FormsTable.COLUMN_ISTATUS + " TEXT,"
             + FormsContract.FormsTable.COLUMN_ISTATUS88x + " TEXT,"
             + FormsContract.FormsTable.COLUMN_ENDINGDATETIME + " TEXT,"
@@ -47,11 +58,13 @@ public final class CreateTable {
             + FormsContract.FormsTable.COLUMN_SYNCED_DATE + " TEXT"
             + " );";
 
+
     public static final String SQL_CREATE_USERS = "CREATE TABLE " + UsersContract.singleUser.TABLE_NAME + "("
             + UsersContract.singleUser._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + UsersContract.singleUser.ROW_USERNAME + " TEXT,"
             + UsersContract.singleUser.ROW_PASSWORD + " TEXT"
             + " );";
+
 
     public static final String SQL_CREATE_VERSIONAPP = "CREATE TABLE " + VersionAppContract.VersionAppTable.TABLE_NAME + " (" +
             VersionAppContract.VersionAppTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -60,10 +73,12 @@ public final class CreateTable {
             VersionAppContract.VersionAppTable.COLUMN_PATH_NAME + " TEXT " +
             ");";
 
+
     public static final String SQL_CREATE_DISTRICTS = "CREATE TABLE " + DistrictContract.singleDistrict.TABLE_NAME + "("
             + DistrictContract.singleDistrict._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + DistrictContract.singleDistrict.COLUMN_DISTRICT_CODE + " TEXT,"
             + DistrictContract.singleDistrict.COLUMN_DISTRICT_NAME + " TEXT );";
+
 
     public static final String SQL_CREATE_TEHSILS = "CREATE TABLE " + TehsilsContract.singleTehsil.TABLE_NAME + "("
             + TehsilsContract.singleTehsil._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"

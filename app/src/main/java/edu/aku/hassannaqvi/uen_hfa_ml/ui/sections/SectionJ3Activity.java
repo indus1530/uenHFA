@@ -12,10 +12,15 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ3Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -33,145 +38,149 @@ public class SectionJ3Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionJ4Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-
+        if (!formValidation()) return;
+        try {
+            SaveDraft();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionJ4Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
 
     private boolean UpdateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SJ, MainApp.fc.getsJ());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.j0300a = bi.j0300a.getText().toString().trim().length() > 0 ? bi.j0300a.getText().toString() : "-1";
-        MainApp.fc.j0300b = bi.j0300b.getText().toString().trim().length() > 0 ? bi.j0300b.getText().toString() : "-1";
+        JSONObject json = new JSONObject();
 
-        MainApp.fc.j0300c = bi.j0300ca.isChecked() ? "1"
+        json.put("j0300a", bi.j0300a.getText().toString().trim().length() > 0 ? bi.j0300a.getText().toString() : "-1");
+        json.put("j0300b", bi.j0300b.getText().toString().trim().length() > 0 ? bi.j0300b.getText().toString() : "-1");
+
+        json.put("j0300c", bi.j0300ca.isChecked() ? "1"
                 : bi.j0300cb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301a = bi.j0301aa.isChecked() ? "1"
+        json.put("j0301a", bi.j0301aa.isChecked() ? "1"
                 : bi.j0301ab.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301b = bi.j0301ba.isChecked() ? "1"
+        json.put("j0301b", bi.j0301ba.isChecked() ? "1"
                 : bi.j0301bb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301c = bi.j0301ca.isChecked() ? "1"
+        json.put("j0301c", bi.j0301ca.isChecked() ? "1"
                 : bi.j0301cb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301d = bi.j0301da.isChecked() ? "1"
+        json.put("j0301d", bi.j0301da.isChecked() ? "1"
                 : bi.j0301db.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301e = bi.j0301ea.isChecked() ? "1"
+        json.put("j0301e", bi.j0301ea.isChecked() ? "1"
                 : bi.j0301eb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301f = bi.j0301fa.isChecked() ? "1"
+        json.put("j0301f", bi.j0301fa.isChecked() ? "1"
                 : bi.j0301fb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301g = bi.j0301ga.isChecked() ? "1"
+        json.put("j0301g", bi.j0301ga.isChecked() ? "1"
                 : bi.j0301gb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301h = bi.j0301ha.isChecked() ? "1"
+        json.put("j0301h", bi.j0301ha.isChecked() ? "1"
                 : bi.j0301hb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301i = bi.j0301ia.isChecked() ? "1"
+        json.put("j0301i", bi.j0301ia.isChecked() ? "1"
                 : bi.j0301ib.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301m = bi.j0301ma.isChecked() ? "1"
-                : bi.j0301mb.isChecked() ? "2"
-                : "-1";
-
-        MainApp.fc.j0301j = bi.j0301ja.isChecked() ? "1"
+        json.put("j0301j", bi.j0301ja.isChecked() ? "1"
                 : bi.j0301jb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301k = bi.j0301ka.isChecked() ? "1"
+        json.put("j0301k", bi.j0301ka.isChecked() ? "1"
                 : bi.j0301kb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301l = bi.j0301la.isChecked() ? "1"
+        json.put("j0301l", bi.j0301la.isChecked() ? "1"
                 : bi.j0301lb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301m = bi.j0301ma.isChecked() ? "1"
+        json.put("j0301m", bi.j0301ma.isChecked() ? "1"
                 : bi.j0301mb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301n = bi.j0301na.isChecked() ? "1"
+        json.put("j0301n", bi.j0301na.isChecked() ? "1"
                 : bi.j0301nb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301o = bi.j0301oa.isChecked() ? "1"
+        json.put("j0301o", bi.j0301oa.isChecked() ? "1"
                 : bi.j0301ob.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301p = bi.j0301pa.isChecked() ? "1"
+        json.put("j0301p", bi.j0301pa.isChecked() ? "1"
                 : bi.j0301pb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301q = bi.j0301qa.isChecked() ? "1"
+        json.put("j0301q", bi.j0301qa.isChecked() ? "1"
                 : bi.j0301qb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301r = bi.j0301ra.isChecked() ? "1"
+        json.put("j0301r", bi.j0301ra.isChecked() ? "1"
                 : bi.j0301rb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301s = bi.j0301sa.isChecked() ? "1"
+        json.put("j0301s", bi.j0301sa.isChecked() ? "1"
                 : bi.j0301sb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301t = bi.j0301ta.isChecked() ? "1"
+        json.put("j0301t", bi.j0301ta.isChecked() ? "1"
                 : bi.j0301tb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301u = bi.j0301ua.isChecked() ? "1"
+        json.put("j0301u", bi.j0301ua.isChecked() ? "1"
                 : bi.j0301ub.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301v = bi.j0301va.isChecked() ? "1"
+        json.put("j0301v", bi.j0301va.isChecked() ? "1"
                 : bi.j0301vb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.j0301wa = bi.j0301wa.isChecked() ? "1" : "-1";
-        MainApp.fc.j0301wb = bi.j0301wb.isChecked() ? "2" : "-1";
-        MainApp.fc.j0301wc = bi.j0301wc.isChecked() ? "3" : "-1";
-        MainApp.fc.j0301wd = bi.j0301wd.isChecked() ? "4" : "-1";
-        MainApp.fc.j0301we = bi.j0301we.isChecked() ? "5" : "-1";
-        MainApp.fc.j0301wf = bi.j0301wf.isChecked() ? "6" : "-1";
-        MainApp.fc.j0301wx = bi.j0301wx.isChecked() ? "96" : "-1";
-        MainApp.fc.j0301wxx = bi.j0301wxx.getText().toString().trim().length() > 0 ? bi.j0301wxx.getText().toString() : "-1";
+        json.put("j0301wa", bi.j0301wa.isChecked() ? "1" : "-1");
+        json.put("j0301wb", bi.j0301wb.isChecked() ? "2" : "-1");
+        json.put("j0301wc", bi.j0301wc.isChecked() ? "3" : "-1");
+        json.put("j0301wd", bi.j0301wd.isChecked() ? "4" : "-1");
+        json.put("j0301we", bi.j0301we.isChecked() ? "5" : "-1");
+        json.put("j0301wf", bi.j0301wf.isChecked() ? "6" : "-1");
+        json.put("j0301wx", bi.j0301wx.isChecked() ? "96" : "-1");
+        json.put("j0301wxx", bi.j0301wxx.getText().toString());
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsJ()), json);
+
+            MainApp.fc.setsJ(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 

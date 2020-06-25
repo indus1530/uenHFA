@@ -5,17 +5,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.validatorcrawler.aliazaz.Validator;
-
-import org.jetbrains.annotations.NotNull;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import com.validatorcrawler.aliazaz.Validator;
+
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH7Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 
@@ -28,70 +35,12 @@ public class SectionH7Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h7);
         bi.setCallback(this);
-        setupSkips();
-
-
-    }
-
-
-    private void setupSkips() {
-
-        /*bi.ss04.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss04b.getId()) {
-                Clear.clearAllFields(bi.ss05cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss05cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss07.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss07h.getId() || i == bi.ss07i.getId()) {
-                Clear.clearAllFields(bi.ss08cv, false);
-                Clear.clearAllFields(bi.ss09cv, false);
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss08cv, true);
-                Clear.clearAllFields(bi.ss09cv, true);
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-            }
-        }));*/
-
-
-        /*bi.ss09.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss09b.getId()) {
-                Clear.clearAllFields(bi.ss10cv, false);
-                Clear.clearAllFields(bi.ss11cv, false);
-                Clear.clearAllFields(bi.ss12cv, false);
-
-            } else {
-                Clear.clearAllFields(bi.ss10cv, true);
-                Clear.clearAllFields(bi.ss11cv, true);
-                Clear.clearAllFields(bi.ss12cv, true);
-
-            }
-        }));*/
-
-
-        /*bi.ss11.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.ss11b.getId()) {
-                Clear.clearAllFields(bi.ss12cv, false);
-                Clear.clearAllFields(bi.ss13cv, false);
-            } else {
-                Clear.clearAllFields(bi.ss12cv, true);
-                Clear.clearAllFields(bi.ss13cv, true);
-            }
-        }));*/
 
     }
 
 
     public void BtnContinue() {
-        if (formValidation()) {
+        if (!formValidation()) return;
             try {
                 SaveDraft();
             } catch (Exception e) {
@@ -103,54 +52,62 @@ public class SectionH7Activity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
             }
-
-        }
     }
 
 
     private boolean UpdateDB() {
-
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.h0701a = bi.h0701aa.isChecked() ? "1"
+        JSONObject json = new JSONObject();
+
+        json.put("h0701a", bi.h0701aa.isChecked() ? "1"
                 : bi.h0701ab.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h0701b = bi.h0701ba.isChecked() ? "1"
+        json.put("h0701b", bi.h0701ba.isChecked() ? "1"
                 : bi.h0701bb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h0701c = bi.h0701ca.isChecked() ? "1"
+        json.put("h0701c", bi.h0701ca.isChecked() ? "1"
                 : bi.h0701cb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h0701d = bi.h0701da.isChecked() ? "1"
+        json.put("h0701d", bi.h0701da.isChecked() ? "1"
                 : bi.h0701db.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h0701e = bi.h0701ea.isChecked() ? "1"
+        json.put("h0701e", bi.h0701ea.isChecked() ? "1"
                 : bi.h0701eb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h0701f = bi.h0701fa.isChecked() ? "1"
+        json.put("h0701f", bi.h0701fa.isChecked() ? "1"
                 : bi.h0701fb.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h0701g = bi.h0701ga.isChecked() ? "1"
+        json.put("h0701g", bi.h0701ga.isChecked() ? "1"
                 : bi.h0701gb.isChecked() ? "2"
-                : "-1";
+                : "-1");
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
+
+            fc.setsH(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 
 

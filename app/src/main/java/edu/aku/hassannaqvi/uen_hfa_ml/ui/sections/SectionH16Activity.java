@@ -5,15 +5,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH16Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
@@ -31,8 +36,8 @@ public class SectionH16Activity extends AppCompatActivity {
 
     }
 
-    private void setupSkips() {
 
+    private void setupSkips() {
         bi.h1601.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (i == bi.h1601a.getId() || i == bi.h1601b.getId()) {
                 Clear.clearAllFields(bi.fldGrpSech1601);
@@ -44,76 +49,75 @@ public class SectionH16Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
-            try {
-                SaveDraft();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionMainActivity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
-
+        if (!formValidation()) return;
+        try {
+            SaveDraft();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionMainActivity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
 
     private boolean UpdateDB() {
-
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.h1601 = bi.h1601a.isChecked() ? "1"
+        JSONObject json = new JSONObject();
+
+        json.put("h1601", bi.h1601a.isChecked() ? "1"
                 : bi.h1601b.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1602 = bi.h1602a.isChecked() ? "1"
+        json.put("h1602", bi.h1602a.isChecked() ? "1"
                 : bi.h1602b.isChecked() ? "2"
                 : bi.h1602c.isChecked() ? "3"
                 : bi.h1602x.isChecked() ? "96"
-                : "-1";
-        MainApp.fc.h1602xx = bi.h1602xx.getText().toString().trim().length() > 0 ? bi.h1602xx.getText().toString() : "-1";
+                : "-1");
+        json.put("h1602xx", bi.h1602xx.getText().toString().trim().isEmpty() ? "-1" : bi.h1602xx.getText().toString());
 
-        MainApp.fc.h1603 = bi.h1603a.isChecked() ? "1"
+        json.put("h1603", bi.h1603a.isChecked() ? "1"
                 : bi.h1603b.isChecked() ? "2"
                 : bi.h1603c.isChecked() ? "3"
                 : bi.h1603x.isChecked() ? "96"
-                : "-1";
-        MainApp.fc.h1603xx = bi.h1603xx.getText().toString().trim().length() > 0 ? bi.h1603xx.getText().toString() : "-1";
+                : "-1");
+        json.put("h1603xx", bi.h1603xx.getText().toString().trim().isEmpty() ? "-1" : bi.h1603xx.getText().toString());
 
-        MainApp.fc.h1604 = bi.h1604a.isChecked() ? "1"
+        json.put("h1604", bi.h1604a.isChecked() ? "1"
                 : bi.h1604b.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.h1605 = bi.h1605a.isChecked() ? "1"
+        json.put("h1605", bi.h1605a.isChecked() ? "1"
                 : bi.h1605b.isChecked() ? "2"
                 : bi.h1605c.isChecked() ? "3"
                 : bi.h1605d.isChecked() ? "4"
                 : bi.h1605e.isChecked() ? "5"
                 : bi.h1605x.isChecked() ? "96"
-                : "-1";
-        MainApp.fc.h1605xx = bi.h1605xx.getText().toString().trim().length() > 0 ? bi.h1605xx.getText().toString() : "-1";
+                : "-1");
+        json.put("h1605xx", bi.h1605xx.getText().toString().trim().isEmpty() ? "-1" : bi.h1605xx.getText().toString());
+
+        MainApp.fc.setsH(String.valueOf(json));
 
     }
 
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH16);
-
     }
 
 

@@ -5,17 +5,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK2Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
@@ -50,56 +56,69 @@ public class SectionK2Activity extends AppCompatActivity {
 
 
     public void BtnContinue() {
-        if (formValidation()) {
+        if (!formValidation()) return;
+        try {
             SaveDraft();
-            if (UpdateDB()) {
-                finish();
-                startActivity(new Intent(this, SectionK3Activity.class));
-            } else {
-                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
-            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            finish();
+            startActivity(new Intent(this, SectionK3Activity.class));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
 
 
     private boolean UpdateDB() {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
+        DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SK, MainApp.fc.getsK());
         if (updcount == 1) {
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
-        return true;
+        }
     }
 
 
-    private void SaveDraft() {
+    private void SaveDraft() throws JSONException {
 
-        MainApp.fc.k0201a = bi.k0201aa.isChecked() ? "1"
+        JSONObject json = new JSONObject();
+
+        json.put("k0201a", bi.k0201aa.isChecked() ? "1"
                 : bi.k0201ab.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.k0201b = bi.k0201ba.isChecked() ? "1"
+        json.put("k0201b", bi.k0201ba.isChecked() ? "1"
                 : bi.k0201bb.isChecked() ? "2"
                 : bi.k0201bc.isChecked() ? "3"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.k0202 = bi.k0202a.isChecked() ? "1"
+        json.put("k0202", bi.k0202a.isChecked() ? "1"
                 : bi.k0202b.isChecked() ? "2"
                 : bi.k0202c.isChecked() ? "3"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.k0203 = bi.k0203a.isChecked() ? "1"
+        json.put("k0203", bi.k0203a.isChecked() ? "1"
                 : bi.k0203b.isChecked() ? "2"
-                : "-1";
+                : "-1");
 
-        MainApp.fc.k0204 = bi.k0204a.isChecked() ? "1"
+        json.put("k0204", bi.k0204a.isChecked() ? "1"
                 : bi.k0204b.isChecked() ? "2"
                 : bi.k0204c.isChecked() ? "3"
                 : bi.k0204d.isChecked() ? "4"
-                : "-1";
+                : "-1");
+
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsK()), json);
+
+            MainApp.fc.setsK(String.valueOf(json_merge));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
