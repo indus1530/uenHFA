@@ -34,13 +34,14 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionABinding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+
 public class SectionAActivity extends AppCompatActivity {
 
     ActivitySectionABinding bi;
     private List<String> districtNames, tehsilNames, ucNames;
     private List<String> districtCodes, tehsilCodes, ucCodes;
     private DatabaseHelper db;
-    public static FormsContract fc;
 
     private List<String> hfNamesPrv, hfNamesPub;
     private Map<String, String> hfMap;
@@ -57,7 +58,7 @@ public class SectionAActivity extends AppCompatActivity {
 
     private void initializingComponents() {
         // Databinding Edit Mode (only in first activity for every contract)
-        MainApp.fc = new FormsContract();
+        fc = new FormsContract();
         db = MainApp.appInfo.getDbHelper();
         populateSpinner(this);
     }
@@ -213,11 +214,11 @@ public class SectionAActivity extends AppCompatActivity {
     }
 
     private boolean UpdateDB() {
-        long updcount = db.addForm(MainApp.fc);
-        MainApp.fc.set_ID(String.valueOf(updcount));
+        long updcount = db.addForm(fc);
+        fc.set_ID(String.valueOf(updcount));
         if (updcount > 0) {
-            MainApp.fc.set_UID(MainApp.fc.getDeviceID() + MainApp.fc.get_ID());
-            db.updatesFormColumn(FormsContract.FormsTable.COLUMN_UID, MainApp.fc.get_UID());
+            fc.set_UID(fc.getDeviceID() + fc.get_ID());
+            db.updatesFormColumn(FormsContract.FormsTable.COLUMN_UID, fc.get_UID());
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -228,36 +229,38 @@ public class SectionAActivity extends AppCompatActivity {
 
     private void SaveDraft() {
 
-        MainApp.fc = new FormsContract();
+        if (fc != null) return;
 
-        MainApp.fc.setFormdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        fc = new FormsContract();
 
-        MainApp.fc.setA01(MainApp.userName);
+        fc.setFormdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
 
-        MainApp.fc.setDeviceID(MainApp.appInfo.getDeviceID());
+        fc.setA01(MainApp.userName);
 
-        MainApp.fc.setDevicetagID(MainApp.appInfo.getTagName());
+        fc.setDeviceID(MainApp.appInfo.getDeviceID());
 
-        MainApp.fc.setAppversion(MainApp.appInfo.getAppVersion());
+        fc.setDevicetagID(MainApp.appInfo.getTagName());
 
-        MainApp.fc.setA03d(bi.a03d.getText().toString().trim().isEmpty() ? "-1" : bi.a03d.getText().toString());
-        MainApp.fc.setA03m(bi.a03m.getText().toString().trim().isEmpty() ? "-1" : bi.a03m.getText().toString());
-        MainApp.fc.setA03y(bi.a03y.getText().toString().trim().isEmpty() ? "-1" : bi.a03y.getText().toString());
+        fc.setAppversion(MainApp.appInfo.getAppVersion());
 
-        MainApp.fc.setA07(bi.a07.getSelectedItem().toString());
-        MainApp.fc.setA08(bi.a08.getSelectedItem().toString());
-        MainApp.fc.setA09(bi.a09.getSelectedItem().toString());
+        fc.setA03d(bi.a03d.getText().toString().trim().isEmpty() ? "-1" : bi.a03d.getText().toString());
+        fc.setA03m(bi.a03m.getText().toString().trim().isEmpty() ? "-1" : bi.a03m.getText().toString());
+        fc.setA03y(bi.a03y.getText().toString().trim().isEmpty() ? "-1" : bi.a03y.getText().toString());
 
-        MainApp.fc.setA10(bi.a10a.isChecked() ? "1"
+        fc.setA07(districtCodes.get(bi.a07.getSelectedItemPosition()));
+        fc.setA08(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
+        fc.setA09(ucCodes.get(bi.a09.getSelectedItemPosition()));
+
+        fc.setA10(bi.a10a.isChecked() ? "1"
                 : bi.a10b.isChecked() ? "2"
                 : "-1");
 
-        MainApp.fc.setA11(bi.a11a.isChecked() ? "1"
+        fc.setA11(bi.a11a.isChecked() ? "1"
                 : bi.a11b.isChecked() ? "2"
                 : "-1");
 
-        MainApp.fc.setA12(hfMap.get(bi.a13.getSelectedItem().toString()));
-        MainApp.fc.setA13(bi.a13.getSelectedItem().toString());
+        fc.setA12(hfMap.get(bi.a13.getSelectedItem().toString()));
+        fc.setA13(bi.a13.getSelectedItem().toString());
 
         MainApp.setGPS(this); // Set GPS
     }
@@ -267,7 +270,8 @@ public class SectionAActivity extends AppCompatActivity {
         if (!Validator.emptyCheckingContainer(this, bi.GrpName)) {
             return false;
         }
-        if (db.CheckHF(String.valueOf(hfMap.get(bi.a13.getSelectedItem().toString())))) {
+        fc = db.CheckHF(String.valueOf(hfMap.get(bi.a13.getSelectedItem().toString())), "1");
+        if (fc != null) {
             Toast.makeText(this, "Facility already filled", Toast.LENGTH_LONG).show();
             return false;
         }

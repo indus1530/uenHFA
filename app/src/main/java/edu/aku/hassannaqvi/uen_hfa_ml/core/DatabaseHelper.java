@@ -565,18 +565,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean CheckHF(String hfCode, String status) throws SQLException {
+    public FormsContract CheckHF(String hfCode, String status) throws SQLException {
         SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor mCursor = db.rawQuery("SELECT * FROM " + FormsTable.TABLE_NAME + " WHERE " + FormsTable.COLUMN_A12 + "=? AND " + FormsTable.COLUMN_ISTATUS + "=?", new String[]{hfCode, status});
+        FormsContract form = null;
+        Cursor mCursor = db.rawQuery("SELECT * FROM " + FormsTable.TABLE_NAME + " WHERE " + FormsTable.COLUMN_A12 + "=? AND " + FormsTable.COLUMN_ISTATUS + " != ?", new String[]{hfCode, status});
         if (mCursor != null) {
 
-            /*if (mCursor.moveToFirst()) {
-                    MainApp.DIST_ID = mCursor.getString(mCursor.getColumnIndex(UsersContract.singleUser.DIST_ID));
-                }*/
-            return mCursor.getCount() > 0;
+
+            if (mCursor.moveToFirst()) {
+                form = new FormsContract().hydrate(mCursor);
+            }
         }
-        return false;
+        return form;
     }
 
 
@@ -775,7 +775,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 FormsContract fc = new FormsContract();
-                allFC.add(fc.Hydrate(c));
+                allFC.add(fc.hydrate(c));
             }
         } finally {
             if (c != null) {
@@ -787,7 +787,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return allFC;
     }
-
 
 
     public Collection<FormsContract> checkFormExist() {
@@ -851,7 +850,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 FormsContract fc = new FormsContract();
-                allFC.add(fc.Hydrate(c));
+                allFC.add(fc.hydrate(c));
             }
         } finally {
             if (c != null) {
@@ -931,7 +930,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 FormsContract fc = new FormsContract();
-                allFC.add(fc.Hydrate(c));
+                allFC.add(fc.hydrate(c));
             }
         } finally {
             if (c != null) {

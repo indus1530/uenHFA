@@ -15,6 +15,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC2Binding
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.MainActivity
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.openEndActivity
+import org.json.JSONObject
 import ru.whalemare.sheetmenu.ActionItem
 import ru.whalemare.sheetmenu.SheetMenu
 import ru.whalemare.sheetmenu.layout.GridLayoutProvider
@@ -84,9 +85,11 @@ class SectionC2Activity : AppCompatActivity() {
 
     private fun saveDraft() {
 
-        /*MainApp.fc.c021a = if (bi.c021a.text.toString().trim().isEmpty()) "-1" else bi.c021a.text.toString()
+        val json = JSONObject()
 
-        MainApp.fc.c021b = when {
+        json.put("c021a", if (bi.c021a.text.toString().trim().isEmpty()) "-1" else bi.c021a.text.toString())
+
+        json.put("c021b", when {
             bi.c021ba.isChecked -> "1"
             bi.c021bb.isChecked -> "2"
             bi.c021bc.isChecked -> "3"
@@ -94,12 +97,12 @@ class SectionC2Activity : AppCompatActivity() {
             bi.c021be.isChecked -> "5"
             bi.c021bf.isChecked -> "96"
             else -> "-1"
-        }
-        MainApp.fc.c021bfx = if (bi.c021bfx.text.toString().trim().isEmpty()) "-1" else bi.c021bfx.text.toString()
+        })
+        json.put("c021bfx", if (bi.c021bfx.text.toString().trim().isEmpty()) "-1" else bi.c021bfx.text.toString())
 
-        MainApp.fc.c021c = if (bi.c021c.text.toString().trim().isEmpty()) "-1" else bi.c021c.text.toString()
+        json.put("c021c", if (bi.c021c.text.toString().trim().isEmpty()) "-1" else bi.c021c.text.toString())
 
-        MainApp.fc.c021d = when {
+        json.put("c021d", when {
             bi.c021da.isChecked -> "1"
             bi.c021db.isChecked -> "2"
             bi.c021dc.isChecked -> "3"
@@ -108,10 +111,10 @@ class SectionC2Activity : AppCompatActivity() {
             bi.c021df.isChecked -> "6"
             bi.c021dg.isChecked -> "96"
             else -> "-1"
-        }
-        MainApp.fc.c021dgx = if (bi.c021dgx.text.toString().trim().isEmpty()) "-1" else bi.c021dgx.text.toString()
+        })
+        json.put("c021dgx ", if (bi.c021dgx.text.toString().trim().isEmpty()) "-1" else bi.c021dgx.text.toString())
 
-        MainApp.fc.c021e = if (bi.c021e.text.toString().trim().isEmpty()) "-1" else bi.c021e.text.toString()*/
+        json.put("c021e", if (bi.c021e.text.toString().trim().isEmpty()) "-1" else bi.c021e.text.toString())
     }
 
 
