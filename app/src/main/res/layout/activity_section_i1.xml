@@ -158,7 +158,8 @@
             <!-- i0104  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVi0104"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility='@{i0103b.checked ? View.VISIBLE : View.GONE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
