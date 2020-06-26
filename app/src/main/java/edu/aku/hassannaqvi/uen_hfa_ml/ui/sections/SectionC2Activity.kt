@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.validatorcrawler.aliazaz.Validator
 import edu.aku.hassannaqvi.uen_hfa_ml.R
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC2Binding
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.MainActivity
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity
@@ -69,15 +72,14 @@ class SectionC2Activity : AppCompatActivity() {
 
 
     private fun UpdateDB(): Boolean {
-        /*DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, fc.getsC());
+        val db = MainApp.appInfo.dbHelper
+        val updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, fc.getsC())
         if (updcount == 1) {
-            return true;
+            return true
         } else {
-            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
-            return false;
-        }*/
-        return true
+            Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show()
+            return false
+        }
     }
 
     private fun saveDraft() {

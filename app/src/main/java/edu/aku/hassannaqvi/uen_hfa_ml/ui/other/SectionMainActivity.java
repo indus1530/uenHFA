@@ -35,52 +35,52 @@ public class SectionMainActivity extends AppCompatActivity {
         bi.setCallback(this);
 
 
-        if (!fc.getsB().isEmpty()) {
+        if (fc.getsB() != null) {
             bi.form01.setEnabled(false);
             bi.form01.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsC().isEmpty()) {
+        if (fc.getsC() != null) {
             bi.form02.setEnabled(false);
             bi.form02.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsD().isEmpty()) {
+        if (fc.getsD() != null) {
             bi.form03.setEnabled(false);
             bi.form03.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsE().isEmpty()) {
+        if (fc.getsE() != null) {
             bi.form04.setEnabled(false);
             bi.form04.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsF().isEmpty()) {
+        if (fc.getsF() != null) {
             bi.form05.setEnabled(false);
             bi.form05.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsG().isEmpty()) {
+        if (fc.getsG() != null) {
             bi.form06.setEnabled(false);
             bi.form06.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsH().isEmpty()) {
+        if (fc.getsH() != null) {
             bi.form07.setEnabled(false);
             bi.form07.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsI().isEmpty()) {
+        if (fc.getsI() != null) {
             bi.form08.setEnabled(false);
             bi.form08.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsJ().isEmpty()) {
+        if (fc.getsJ() != null) {
             bi.form09.setEnabled(false);
             bi.form09.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (!fc.getsK().isEmpty()) {
+        if (fc.getsK() != null) {
             bi.form10.setEnabled(false);
             bi.form10.setBackgroundResource(R.color.dullWhite);
         }
