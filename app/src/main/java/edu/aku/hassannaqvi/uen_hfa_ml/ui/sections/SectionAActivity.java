@@ -240,6 +240,7 @@ public class SectionAActivity extends AppCompatActivity {
         fc.setFormdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
 
         fc.setUserName(MainApp.userName);
+
         fc.setA01(MainApp.userName);
 
         fc.setDeviceID(MainApp.appInfo.getDeviceID());

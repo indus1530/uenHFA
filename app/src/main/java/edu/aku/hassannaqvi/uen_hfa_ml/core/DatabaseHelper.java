@@ -597,6 +597,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(FormsTable.COLUMN_PROJECT_NAME, fc.getProjectName());
         values.put(FormsTable.COLUMN_UID, fc.get_UID());
+        values.put(FormsTable.COLUMN_USERNAME, fc.getUserName());
         values.put(FormsTable.COLUMN_FORMDATE, fc.getFormdate());
         values.put(FormsTable.COLUMN_DISTRICT_CODE, fc.getDistrictCode());
         values.put(FormsTable.COLUMN_DISTRICT_TYPE, fc.getDistrictType());
