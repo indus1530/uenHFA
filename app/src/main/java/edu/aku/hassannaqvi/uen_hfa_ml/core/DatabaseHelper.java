@@ -1186,14 +1186,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //Generic update TSCColumn
-    public int updatesTSCColumn(String column, String value) {
+    public int updatesTSCColumn(TrainedStaffContract tsc, String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(column, value);
 
         String selection = TrainedStaffContract.SingleTSC._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(MainApp.tsc.get_ID())};
+        String[] selectionArgs = {String.valueOf(tsc.get_ID())};
 
         return db.update(TrainedStaffContract.SingleTSC.TABLE_NAME,
                 values,

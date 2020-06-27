@@ -8,11 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.validatorcrawler.aliazaz.Validator
 import edu.aku.hassannaqvi.uen_hfa_ml.R
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TrainedStaffContract
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp
-import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc
-import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.tsc
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC2Binding
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.MainActivity
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity
@@ -26,7 +23,7 @@ import java.util.*
 
 class SectionC2Activity : AppCompatActivity() {
     lateinit var bi: ActivitySectionC2Binding
-    var pofpa15List: List<View>? = null
+    lateinit var tsc: TrainedStaffContract
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,13 +75,17 @@ class SectionC2Activity : AppCompatActivity() {
 
     private fun UpdateDB(): Boolean {
         val db = MainApp.appInfo.dbHelper
-        val updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, fc.getsC())
-        if (updcount == 1) {
-            return true
+        val updcount = db.addTSC(tsc)
+        tsc._ID = updcount.toString()
+        return if (updcount > 0) {
+            tsc._UID = tsc.deviceID + tsc._ID
+            db.updatesTSCColumn(tsc, TrainedStaffContract.SingleTSC.COLUMN_UID, tsc._UID)
+            true
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show()
-            return false
+            false
         }
+
     }
 
     private fun saveDraft() {
@@ -130,7 +131,7 @@ class SectionC2Activity : AppCompatActivity() {
 
         json.put("c021e", if (bi.c021e.text.toString().trim().isEmpty()) "-1" else bi.c021e.text.toString())
 
-        MainApp.tsc.setsC2(json.toString())
+        tsc.setsC2(json.toString())
 
     }
 
