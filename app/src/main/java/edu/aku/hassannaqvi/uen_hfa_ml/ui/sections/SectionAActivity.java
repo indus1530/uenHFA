@@ -270,10 +270,16 @@ public class SectionAActivity extends AppCompatActivity {
         if (!Validator.emptyCheckingContainer(this, bi.GrpName)) {
             return false;
         }
+
+        if (db.CheckHF(String.valueOf(hfMap.get(bi.a13.getSelectedItem().toString())))) {
+            Toast.makeText(this, "Facility Already filled ", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
         fc = db.CheckHF(String.valueOf(hfMap.get(bi.a13.getSelectedItem().toString())), "1");
         if (fc != null) {
-            Toast.makeText(this, "Facility already filled", Toast.LENGTH_LONG).show();
-            return false;
+            Toast.makeText(this, "Partially filled Facility ", Toast.LENGTH_LONG).show();
+            return true;
         }
         return true;
     }

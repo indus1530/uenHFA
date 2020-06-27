@@ -40,9 +40,7 @@ public class FormsContract {
 
     private String _ID = "";
     private String _UID = "";
-    private String uuid = "";
     private String formdate = "";
-    private String serialno = "";
     private String istatus = ""; // Interview Status
     private String istatus88x = ""; // Interview Status
     private String endingdatetime = "";
@@ -55,6 +53,12 @@ public class FormsContract {
     private String synced = "";
     private String synced_date = "";
     private String appversion = "";
+    private String districtCode = "";
+    private String districtType = "";
+    private String tehsilCode = "";
+    private String ucCode = "";
+    private String hfCode = "";
+    private String hfName = "";
     private String a01;
     private String a03d;
     private String a03m;
@@ -94,9 +98,13 @@ public class FormsContract {
     public FormsContract Sync(JSONObject jsonObject) throws JSONException {
         this._ID = jsonObject.getString(FormsTable.COLUMN_ID);
         this._UID = jsonObject.getString(FormsTable.COLUMN_UID);
-        this.uuid = jsonObject.getString(FormsTable.COLUMN_UUID);
         this.formdate = jsonObject.getString(FormsTable.COLUMN_FORMDATE);
-        this.serialno = jsonObject.getString(FormsTable.COLUMN_SERIALNO);
+        this.districtCode = jsonObject.getString(FormsTable.COLUMN_DISTRICT_CODE);
+        this.districtType = jsonObject.getString(FormsTable.COLUMN_DISTRICT_TYPE);
+        this.tehsilCode = jsonObject.getString(FormsTable.COLUMN_TEHSIL_CODE);
+        this.ucCode = jsonObject.getString(FormsTable.COLUMN_UC_CODE);
+        this.hfCode = jsonObject.getString(FormsTable.COLUMN_HF_CODE);
+        this.hfName = jsonObject.getString(FormsTable.COLUMN_HF_NAME);
         this.a01 = jsonObject.getString(FormsTable.COLUMN_A01);
         this.a03d = jsonObject.getString(FormsTable.COLUMN_A03D);
         this.a03m = jsonObject.getString(FormsTable.COLUMN_A03M);
@@ -140,9 +148,13 @@ public class FormsContract {
     public FormsContract hydrate(Cursor cursor) {
         this._ID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
-        this.uuid = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UUID));
         this.formdate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
-        this.serialno = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SERIALNO));
+        this.districtCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DISTRICT_CODE));
+        this.districtType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DISTRICT_TYPE));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_TEHSIL_CODE));
+        this.ucCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UC_CODE));
+        this.hfCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_HF_CODE));
+        this.hfName = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_HF_NAME));
         this.a01 = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A01));
         this.a03d = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A03D));
         this.a03m = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_A03M));
@@ -185,9 +197,13 @@ public class FormsContract {
 
         json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
-        json.put(FormsTable.COLUMN_UUID, this.uuid == null ? JSONObject.NULL : this.uuid);
         json.put(FormsTable.COLUMN_FORMDATE, this.formdate == null ? JSONObject.NULL : this.formdate);
-        json.put(FormsTable.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
+        json.put(FormsTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
+        json.put(FormsTable.COLUMN_DISTRICT_TYPE, this.districtType == null ? JSONObject.NULL : this.districtType);
+        json.put(FormsTable.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
+        json.put(FormsTable.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
+        json.put(FormsTable.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
+        json.put(FormsTable.COLUMN_HF_NAME, this.hfName == null ? JSONObject.NULL : this.hfName);
         json.put(FormsTable.COLUMN_A01, this.a01 == null ? JSONObject.NULL : this.a01);
         json.put(FormsTable.COLUMN_A03D, this.a03d == null ? JSONObject.NULL : this.a03d);
         json.put(FormsTable.COLUMN_A03M, this.a03m == null ? JSONObject.NULL : this.a03m);
@@ -256,12 +272,57 @@ public class FormsContract {
     }
 
 
-    public String getSerialno() {
-        return serialno;
+    public String getDistrictCode() {
+        return districtCode;
     }
 
-    public void setSerialno(String serialno) {
-        this.serialno = serialno;
+    public void setDistrictCode(String districtCode) {
+        this.districtCode = districtCode;
+    }
+
+
+    public String getDistrictType() {
+        return districtType;
+    }
+
+    public void setDistrictType(String districtType) {
+        this.districtType = districtType;
+    }
+
+
+    public String getTehsilCode() {
+        return tehsilCode;
+    }
+
+    public void setTehsilCode(String tehsilCode) {
+        this.tehsilCode = tehsilCode;
+    }
+
+
+    public String getUcCode() {
+        return ucCode;
+    }
+
+    public void setUcCode(String ucCode) {
+        this.ucCode = ucCode;
+    }
+
+
+    public String getHfCode() {
+        return hfCode;
+    }
+
+    public void setHfCode(String hfCode) {
+        this.hfCode = hfCode;
+    }
+
+
+    public String getHfName() {
+        return hfName;
+    }
+
+    public void setHfName(String hfName) {
+        this.hfName = hfName;
     }
 
 
@@ -560,9 +621,13 @@ public class FormsContract {
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
-        public static final String COLUMN_UUID = "uuid";
         public static final String COLUMN_FORMDATE = "formdate";
-        public static final String COLUMN_SERIALNO = "serialno";
+        public static final String COLUMN_DISTRICT_CODE = "districtCode";
+        public static final String COLUMN_DISTRICT_TYPE = "districtType";
+        public static final String COLUMN_TEHSIL_CODE = "tehsilCode";
+        public static final String COLUMN_UC_CODE = "ucCode";
+        public static final String COLUMN_HF_CODE = "hfCode";
+        public static final String COLUMN_HF_NAME = "hfName";
         public static final String COLUMN_A01 = "a01";
         public static final String COLUMN_A03D = "a03d";
         public static final String COLUMN_A03M = "a03m";

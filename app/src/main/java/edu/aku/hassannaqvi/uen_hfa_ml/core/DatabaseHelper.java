@@ -21,7 +21,9 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.HFContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TehsilsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TrainedStaffContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UsersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
@@ -31,7 +33,9 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_VERSION;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_DISTRICTS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_HF;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_PSCONTRACT;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_TEHSILS;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_TSCONTRACT;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_UCS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_VERSIONAPP;
@@ -60,6 +64,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
+        db.execSQL(SQL_CREATE_TSCONTRACT);
+        db.execSQL(SQL_CREATE_PSCONTRACT);
         db.execSQL(SQL_CREATE_VERSIONAPP);
         db.execSQL(SQL_CREATE_DISTRICTS);
         db.execSQL(SQL_CREATE_TEHSILS);
@@ -113,6 +119,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                 values.put(DistrictContract.singleDistrict.COLUMN_DISTRICT_CODE, Vc.getDistrictCode());
                 values.put(DistrictContract.singleDistrict.COLUMN_DISTRICT_NAME, Vc.getDistrictName());
+                values.put(DistrictContract.singleDistrict.COLUMN_DISTRICT_TYPE, Vc.getDistrictType());
 
                 db.insert(DistrictContract.singleDistrict.TABLE_NAME, null, values);
             }
@@ -207,7 +214,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c = null;
         String[] columns = {
                 DistrictContract.singleDistrict.COLUMN_DISTRICT_CODE,
-                DistrictContract.singleDistrict.COLUMN_DISTRICT_NAME
+                DistrictContract.singleDistrict.COLUMN_DISTRICT_NAME,
+                DistrictContract.singleDistrict.COLUMN_DISTRICT_TYPE
         };
 
         String whereClause = null;
@@ -590,7 +598,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_PROJECT_NAME, fc.getProjectName());
         values.put(FormsTable.COLUMN_UID, fc.get_UID());
         values.put(FormsTable.COLUMN_FORMDATE, fc.getFormdate());
-        values.put(FormsTable.COLUMN_SERIALNO, fc.getSerialno());
+        values.put(FormsTable.COLUMN_DISTRICT_CODE, fc.getDistrictCode());
+        values.put(FormsTable.COLUMN_DISTRICT_TYPE, fc.getDistrictType());
+        values.put(FormsTable.COLUMN_TEHSIL_CODE, fc.getTehsilCode());
+        values.put(FormsTable.COLUMN_UC_CODE, fc.getUcCode());
+        values.put(FormsTable.COLUMN_HF_CODE, fc.getHfCode());
+        values.put(FormsTable.COLUMN_HF_NAME, fc.getHfName());
         values.put(FormsTable.COLUMN_A01, fc.getA01());
         values.put(FormsTable.COLUMN_A03D, fc.getA03d());
         values.put(FormsTable.COLUMN_A03M, fc.getA03m());
@@ -622,6 +635,75 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_DEVICETAGID, fc.getDevicetagID());
         values.put(FormsTable.COLUMN_DEVICEID, fc.getDeviceID());
         values.put(FormsTable.COLUMN_APPVERSION, fc.getAppversion());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                FormsTable.TABLE_NAME,
+                FormsTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
+    public Long addTSC(TrainedStaffContract tsc) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_UID, tsc.get_UID());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_UUID, tsc.get_UUID());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_FORMDATE, tsc.getFormDate());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_SERIALNO, tsc.getSerialno());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_DISTRICTID, tsc.getDistrictID());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_TEHSILID, tsc.getTehsilID());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_UCID, tsc.getUcID());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_HFID, tsc.getHfID());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_SC2, tsc.getsC2());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_DEVICEID, tsc.getDeviceID());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_DEVICETAGID, tsc.getDevicetagID());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_STATUS, tsc.getStatus());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_SYNCED, tsc.getSynced());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_SYNCED_DATE, tsc.getSynced_date());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_APPVERSION, tsc.getAppversion());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                FormsTable.TABLE_NAME,
+                FormsTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
+    public Long addPSC(PatientSatisfactionContract psc) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_UID, psc.get_UID());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_UUID, psc.get_UUID());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_FORMDATE, psc.getFormDate());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SERIALNO, psc.getSerialno());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_DISTRICTID, psc.getDistrictID());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_TEHSILID, psc.getTehsilID());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_UCID, psc.getUcID());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_HFID, psc.getHfID());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SI1, psc.getsI1());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SI2, psc.getsI2());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SI3, psc.getsI3());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SI4, psc.getsI4());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_DEVICEID, psc.getDeviceID());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_DEVICETAGID, psc.getDevicetagID());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_STATUS, psc.getStatus());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED, psc.getSynced());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED_DATE, psc.getSynced_date());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_APPVERSION, psc.getAppversion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -720,9 +802,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
-                FormsTable.COLUMN_UUID,
                 FormsTable.COLUMN_FORMDATE,
-                FormsTable.COLUMN_SERIALNO,
+                FormsTable.COLUMN_DISTRICT_CODE,
+                FormsTable.COLUMN_DISTRICT_TYPE,
+                FormsTable.COLUMN_TEHSIL_CODE,
+                FormsTable.COLUMN_UC_CODE,
+                FormsTable.COLUMN_HF_CODE,
+                FormsTable.COLUMN_HF_NAME,
                 FormsTable.COLUMN_A01,
                 FormsTable.COLUMN_A03D,
                 FormsTable.COLUMN_A03M,
@@ -795,9 +881,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
-                FormsTable.COLUMN_UUID,
                 FormsTable.COLUMN_FORMDATE,
-                FormsTable.COLUMN_SERIALNO,
+                FormsTable.COLUMN_DISTRICT_CODE,
+                FormsTable.COLUMN_DISTRICT_TYPE,
+                FormsTable.COLUMN_TEHSIL_CODE,
+                FormsTable.COLUMN_UC_CODE,
+                FormsTable.COLUMN_HF_CODE,
+                FormsTable.COLUMN_HF_NAME,
                 FormsTable.COLUMN_A01,
                 FormsTable.COLUMN_A03D,
                 FormsTable.COLUMN_A03M,
@@ -870,9 +960,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
-                FormsTable.COLUMN_UUID,
                 FormsTable.COLUMN_FORMDATE,
-                FormsTable.COLUMN_SERIALNO,
+                FormsTable.COLUMN_DISTRICT_CODE,
+                FormsTable.COLUMN_DISTRICT_TYPE,
+                FormsTable.COLUMN_TEHSIL_CODE,
+                FormsTable.COLUMN_UC_CODE,
+                FormsTable.COLUMN_HF_CODE,
+                FormsTable.COLUMN_HF_CODE,
                 FormsTable.COLUMN_A01,
                 FormsTable.COLUMN_A03D,
                 FormsTable.COLUMN_A03M,
@@ -1081,6 +1175,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(MainApp.fc.get_ID())};
 
         return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+
+    //Generic update TSCColumn
+    public int updatesTSCColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = TrainedStaffContract.SingleTSC._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.tsc.get_ID())};
+
+        return db.update(TrainedStaffContract.SingleTSC.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+
+    //Generic update PSCColumn
+    public int updatesPSCColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = PatientSatisfactionContract.SinglePSC._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.psc.get_ID())};
+
+        return db.update(PatientSatisfactionContract.SinglePSC.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);

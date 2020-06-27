@@ -9,8 +9,10 @@ import androidx.databinding.DataBindingUtil
 import com.validatorcrawler.aliazaz.Validator
 import edu.aku.hassannaqvi.uen_hfa_ml.R
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TrainedStaffContract
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.tsc
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC2Binding
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.MainActivity
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity
@@ -19,6 +21,8 @@ import org.json.JSONObject
 import ru.whalemare.sheetmenu.ActionItem
 import ru.whalemare.sheetmenu.SheetMenu
 import ru.whalemare.sheetmenu.layout.GridLayoutProvider
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SectionC2Activity : AppCompatActivity() {
     lateinit var bi: ActivitySectionC2Binding
@@ -85,6 +89,16 @@ class SectionC2Activity : AppCompatActivity() {
 
     private fun saveDraft() {
 
+        tsc = TrainedStaffContract()
+
+        tsc.formDate = SimpleDateFormat("dd-MM-yy HH:mm").format(Date().time)
+
+        tsc.deviceID = MainApp.appInfo.deviceID
+
+        tsc.devicetagID = MainApp.appInfo.tagName
+
+        tsc.appversion = MainApp.appInfo.appVersion
+
         val json = JSONObject()
 
         json.put("c021a", if (bi.c021a.text.toString().trim().isEmpty()) "-1" else bi.c021a.text.toString())
@@ -115,6 +129,9 @@ class SectionC2Activity : AppCompatActivity() {
         json.put("c021dgx ", if (bi.c021dgx.text.toString().trim().isEmpty()) "-1" else bi.c021dgx.text.toString())
 
         json.put("c021e", if (bi.c021e.text.toString().trim().isEmpty()) "-1" else bi.c021e.text.toString())
+
+        MainApp.tsc.setsC2(json.toString())
+
     }
 
 

@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,13 +41,29 @@ public class SectionBActivity extends AppCompatActivity {
 
     private void setupSkips() {
 
+        if (fc.getA10().equals("1")) {
+            bi.a17h.setVisibility(View.GONE);
+            bi.a17i.setVisibility(View.GONE);
+            bi.a17j.setVisibility(View.GONE);
+        }
+
+        if (fc.getA10().equals("2")) {
+            bi.a17a.setVisibility(View.GONE);
+            bi.a17b.setVisibility(View.GONE);
+            bi.a17c.setVisibility(View.GONE);
+            bi.a17d.setVisibility(View.GONE);
+            bi.a17e.setVisibility(View.GONE);
+            bi.a17f.setVisibility(View.GONE);
+            bi.a17g.setVisibility(View.GONE);
+        }
+
         bi.a18.setOnCheckedChangeListener(((radioGroup, i) -> {
-                Clear.clearAllFields(bi.fldGrpCVa19);
+            Clear.clearAllFields(bi.fldGrpCVa19);
         }));
 
 
         bi.b02.setOnCheckedChangeListener(((radioGroup, i) -> {
-                Clear.clearAllFields(bi.fldGrpS01);
+            Clear.clearAllFields(bi.fldGrpS01);
         }));
 
     }
