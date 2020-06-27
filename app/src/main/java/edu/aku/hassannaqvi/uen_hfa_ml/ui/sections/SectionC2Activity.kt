@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.validatorcrawler.aliazaz.Validator
+import edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.Companion.TRAINED_STAFF_SERIAL
 import edu.aku.hassannaqvi.uen_hfa_ml.R
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TrainedStaffContract
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp
@@ -24,12 +25,15 @@ import java.util.*
 class SectionC2Activity : AppCompatActivity() {
     lateinit var bi: ActivitySectionC2Binding
     lateinit var tsc: TrainedStaffContract
+    var serial = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_c2)
         bi.callback = this
         setupSkips()
+
+        serial = intent.getIntExtra(TRAINED_STAFF_SERIAL, 1)
     }
 
     private fun setupSkips() {
@@ -91,14 +95,16 @@ class SectionC2Activity : AppCompatActivity() {
     private fun saveDraft() {
 
         tsc = TrainedStaffContract()
-
         tsc.formDate = SimpleDateFormat("dd-MM-yy HH:mm").format(Date().time)
-
         tsc.deviceID = MainApp.appInfo.deviceID
-
         tsc.devicetagID = MainApp.appInfo.tagName
-
         tsc.appversion = MainApp.appInfo.appVersion
+        tsc._UUID = MainApp.fc._UID
+        tsc.districtCode = MainApp.fc.districtCode
+        tsc.tehsilCode = MainApp.fc.tehsilCode
+        tsc.ucCode = MainApp.fc.ucCode
+        tsc.hfCode = MainApp.fc.hfCode
+        tsc.serialno = serial.toString()
 
         val json = JSONObject()
 
@@ -151,7 +157,7 @@ class SectionC2Activity : AppCompatActivity() {
         saveDraft()
         if (UpdateDB()) {
             finish()
-            startActivity(Intent(this, activity))
+            startActivity(Intent(this, activity).putExtra(TRAINED_STAFF_SERIAL, serial + 1))
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show()
         }

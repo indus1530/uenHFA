@@ -24,10 +24,10 @@ public class TrainedStaffContract {
     private String synced_date = "";
     private String appversion = "";
     private String devicetagID = "";
-    private String districtID = "";
-    private String tehsilID = "";
-    private String ucID = "";
-    private String hfID = "";
+    private String districtCode = "";
+    private String tehsilCode = "";
+    private String ucCode = "";
+    private String hfCode = "";
     private String sC2;
 
 
@@ -41,10 +41,10 @@ public class TrainedStaffContract {
         this._UUID = jsonObject.getString(SingleTSC.COLUMN_UUID);
         this.formDate = jsonObject.getString(SingleTSC.COLUMN_FORMDATE);
         this.serialno = jsonObject.getString(SingleTSC.COLUMN_SERIALNO);
-        this.districtID = jsonObject.getString(SingleTSC.COLUMN_DISTRICTID);
-        this.tehsilID = jsonObject.getString(SingleTSC.COLUMN_TEHSILID);
-        this.ucID = jsonObject.getString(SingleTSC.COLUMN_UCID);
-        this.hfID = jsonObject.getString(SingleTSC.COLUMN_HFID);
+        this.districtCode = jsonObject.getString(SingleTSC.COLUMN_DISTRICT_CODE);
+        this.tehsilCode = jsonObject.getString(SingleTSC.COLUMN_TEHSIL_CODE);
+        this.ucCode = jsonObject.getString(SingleTSC.COLUMN_UC_CODE);
+        this.hfCode = jsonObject.getString(SingleTSC.COLUMN_HF_CODE);
         this.sC2 = jsonObject.getString(SingleTSC.COLUMN_SC2);
         this.deviceID = jsonObject.getString(SingleTSC.COLUMN_DEVICEID);
         this.devicetagID = jsonObject.getString(SingleTSC.COLUMN_DEVICETAGID);
@@ -64,10 +64,10 @@ public class TrainedStaffContract {
         this._UUID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_UUID));
         this.formDate = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_FORMDATE));
         this.serialno = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_SERIALNO));
-        this.districtID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_DISTRICTID));
-        this.tehsilID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_TEHSILID));
-        this.ucID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_UCID));
-        this.hfID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_HFID));
+        this.districtCode = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_DISTRICT_CODE));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_TEHSIL_CODE));
+        this.ucCode = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_UC_CODE));
+        this.hfCode = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_HF_CODE));
         this.sC2 = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_SC2));
         this.deviceID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_DEVICEID));
         this.devicetagID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_DEVICETAGID));
@@ -89,10 +89,10 @@ public class TrainedStaffContract {
         json.put(SingleTSC.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
         json.put(SingleTSC.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(SingleTSC.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
-        json.put(SingleTSC.COLUMN_DISTRICTID, this.districtID == null ? JSONObject.NULL : this.districtID);
-        json.put(SingleTSC.COLUMN_TEHSILID, this.tehsilID == null ? JSONObject.NULL : this.tehsilID);
-        json.put(SingleTSC.COLUMN_UCID, this.ucID == null ? JSONObject.NULL : this.ucID);
-        json.put(SingleTSC.COLUMN_HFID, this.hfID == null ? JSONObject.NULL : this.hfID);
+        json.put(SingleTSC.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
+        json.put(SingleTSC.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
+        json.put(SingleTSC.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
+        json.put(SingleTSC.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
         json.put(SingleTSC.COLUMN_SC2, this.sC2 == null ? JSONObject.NULL : this.sC2);
         json.put(SingleTSC.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
         json.put(SingleTSC.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
@@ -150,39 +150,39 @@ public class TrainedStaffContract {
     }
 
 
-    public String getDistrictID() {
-        return districtID;
+    public String getDistrictCode() {
+        return districtCode;
     }
 
-    public void setDistrictID(String districtID) {
-        this.districtID = districtID;
-    }
-
-
-    public String getTehsilID() {
-        return tehsilID;
-    }
-
-    public void setTehsilID(String tehsilID) {
-        this.tehsilID = tehsilID;
+    public void setDistrictCode(String districtCode) {
+        this.districtCode = districtCode;
     }
 
 
-    public String getUcID() {
-        return ucID;
+    public String getTehsilCode() {
+        return tehsilCode;
     }
 
-    public void setUcID(String ucID) {
-        this.ucID = ucID;
+    public void setTehsilCode(String tehsilCode) {
+        this.tehsilCode = tehsilCode;
     }
 
 
-    public String getHfID() {
-        return hfID;
+    public String getUcCode() {
+        return ucCode;
     }
 
-    public void setHfID(String hfID) {
-        this.hfID = hfID;
+    public void setUcCode(String ucCode) {
+        this.ucCode = ucCode;
+    }
+
+
+    public String getHfCode() {
+        return hfCode;
+    }
+
+    public void setHfCode(String hfCode) {
+        this.hfCode = hfCode;
     }
 
 
@@ -257,10 +257,10 @@ public class TrainedStaffContract {
         public static final String COLUMN_UUID = "_uuid";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_SERIALNO = "serialno";
-        public static final String COLUMN_DISTRICTID = "districtID";
-        public static final String COLUMN_TEHSILID = "tehsilID";
-        public static final String COLUMN_UCID = "ucID";
-        public static final String COLUMN_HFID = "hfID";
+        public static final String COLUMN_DISTRICT_CODE = "districtCode";
+        public static final String COLUMN_TEHSIL_CODE = "tehsilCode";
+        public static final String COLUMN_UC_CODE = "ucCode";
+        public static final String COLUMN_HF_CODE = "hfCode";
         public static final String COLUMN_SC2 = "sC2";
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_DEVICETAGID = "tagid";
