@@ -30,6 +30,9 @@ class CONSTANTS {
         //For C2
         const val TRAINED_STAFF_SERIAL = "trained_staff_serial"
 
+        //For I
+        const val SECTION_MAIN_CHECK_FOR_END = "section_main_check"
+
 
     }
 }

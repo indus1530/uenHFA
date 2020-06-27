@@ -21,6 +21,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI1Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.MainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.validator.ValidatorClass;
 
 
@@ -34,7 +35,13 @@ public class SectionI1Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_i1);
         bi.setCallback(this);
         setupSkips();
+        setupContent();
+    }
 
+    private void setupContent() {
+        bi.hfType.setText(MainApp.fc.getA10().equals("1") ? "PUBLIC HF" : "PRIVATE HF");
+        bi.maternalCount.setText(new StringBuilder("Maternal Entries: ").append(MainActivity.maternalCount));
+        bi.paedsCount.setText(new StringBuilder("Paeds Entries: ").append(MainActivity.paedsCount));
     }
 
 

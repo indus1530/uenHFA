@@ -13,13 +13,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivityEndingBinding;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.SECTION_MAIN_CHECK_FOR_END;
+
 public class EndingActivity extends AppCompatActivity {
 
     ActivityEndingBinding bi;
+    boolean sectionMainCheck;
 
 
     @Override
@@ -30,6 +34,7 @@ public class EndingActivity extends AppCompatActivity {
         bi.setCallback(this);
 
         boolean check = getIntent().getBooleanExtra("complete", false);
+        sectionMainCheck = getIntent().getBooleanExtra(SECTION_MAIN_CHECK_FOR_END, false);
 
         if (check) {
             bi.istatusa.setEnabled(true);
@@ -50,7 +55,7 @@ public class EndingActivity extends AppCompatActivity {
             SaveDraft();
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, sectionMainCheck ? SectionMainActivity.class : MainActivity.class));
             } else {
                 Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
             }
@@ -60,19 +65,26 @@ public class EndingActivity extends AppCompatActivity {
 
     private void SaveDraft() {
 
-        MainApp.fc.setIstatus(bi.istatusa.isChecked() ? "1"
-                : bi.istatusb.isChecked() ? "2"
-                : bi.istatus96.isChecked() ? "96"
-                : "0");
+        if (sectionMainCheck) {
+            MainApp.psc.setStatus(bi.istatusa.isChecked() ? "1"
+                    : bi.istatusb.isChecked() ? "2"
+                    : bi.istatus96.isChecked() ? "96"
+                    : "0");
+        } else {
+            MainApp.fc.setIstatus(bi.istatusa.isChecked() ? "1"
+                    : bi.istatusb.isChecked() ? "2"
+                    : bi.istatus96.isChecked() ? "96"
+                    : "0");
 
-        MainApp.fc.setIstatus88x(bi.istatus96x.getText().toString());
-        MainApp.fc.setEndingdatetime(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+            MainApp.fc.setIstatus88x(bi.istatus96x.getText().toString());
+            MainApp.fc.setEndingdatetime(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        }
     }
 
 
     public boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updateEnding();
+        int updcount = sectionMainCheck ? db.updatesPSCColumn(PatientSatisfactionContract.SinglePSC.COLUMN_STATUS, MainApp.psc.getStatus()) : db.updateEnding();
         if (updcount == 1) {
             return true;
         } else {
