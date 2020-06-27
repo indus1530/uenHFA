@@ -26,7 +26,6 @@ import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TrainedStaffContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 import kotlin.Pair;
 
@@ -78,7 +77,6 @@ public class MainApp extends Application {
     public static AppInfo appInfo;
     public static Boolean admin = false;
     public static FormsContract fc;
-    public static TrainedStaffContract tsc;
     public static PatientSatisfactionContract psc;
     public static String userName = "0000";
     public static int deathCount = 0;
