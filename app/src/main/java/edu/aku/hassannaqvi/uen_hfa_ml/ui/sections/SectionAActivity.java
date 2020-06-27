@@ -41,6 +41,7 @@ public class SectionAActivity extends AppCompatActivity {
     ActivitySectionABinding bi;
     private List<String> districtNames, tehsilNames, ucNames;
     private List<String> districtCodes, tehsilCodes, ucCodes;
+    private List<String> districtTypes;
     private DatabaseHelper db;
 
     private List<String> hfNamesPrv, hfNamesPub;
@@ -82,15 +83,18 @@ public class SectionAActivity extends AppCompatActivity {
         // Spinner Drop down elements
         districtNames = new ArrayList<>();
         districtCodes = new ArrayList<>();
+        districtTypes = new ArrayList<>();
 
         districtNames.add("....");
         districtCodes.add("....");
+        districtTypes.add("....");
 
         Collection<DistrictContract> dc = db.getAllDistricts();
 
         for (DistrictContract d : dc) {
             districtNames.add(d.getDistrictName());
             districtCodes.add(d.getDistrictCode());
+            districtTypes.add(d.getDistrictType());
         }
 
         bi.a07.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, districtNames));
@@ -235,6 +239,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         fc.setFormdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
 
+        fc.setUserName(MainApp.userName);
         fc.setA01(MainApp.userName);
 
         fc.setDeviceID(MainApp.appInfo.getDeviceID());
@@ -247,6 +252,13 @@ public class SectionAActivity extends AppCompatActivity {
         fc.setA03m(bi.a03m.getText().toString().trim().isEmpty() ? "-1" : bi.a03m.getText().toString());
         fc.setA03y(bi.a03y.getText().toString().trim().isEmpty() ? "-1" : bi.a03y.getText().toString());
 
+        fc.setDistrictCode(districtCodes.get(bi.a07.getSelectedItemPosition()));
+        fc.setDistrictType(districtTypes.get(bi.a07.getSelectedItemPosition()));
+
+        fc.setTehsilCode(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
+
+        fc.setUcCode(ucCodes.get(bi.a09.getSelectedItemPosition()));
+
         fc.setA07(districtCodes.get(bi.a07.getSelectedItemPosition()));
         fc.setA08(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
         fc.setA09(ucCodes.get(bi.a09.getSelectedItemPosition()));
@@ -258,6 +270,9 @@ public class SectionAActivity extends AppCompatActivity {
         fc.setA11(bi.a11a.isChecked() ? "1"
                 : bi.a11b.isChecked() ? "2"
                 : "-1");
+
+        fc.setHfCode(hfMap.get(bi.a13.getSelectedItem().toString()));
+        fc.setHfName(bi.a13.getSelectedItem().toString());
 
         fc.setA12(hfMap.get(bi.a13.getSelectedItem().toString()));
         fc.setA13(bi.a13.getSelectedItem().toString());

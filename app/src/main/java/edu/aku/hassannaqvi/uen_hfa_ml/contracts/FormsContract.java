@@ -40,6 +40,7 @@ public class FormsContract {
 
     private String _ID = "";
     private String _UID = "";
+    private String userName = "";
     private String formdate = "";
     private String istatus = ""; // Interview Status
     private String istatus88x = ""; // Interview Status
@@ -98,6 +99,7 @@ public class FormsContract {
     public FormsContract Sync(JSONObject jsonObject) throws JSONException {
         this._ID = jsonObject.getString(FormsTable.COLUMN_ID);
         this._UID = jsonObject.getString(FormsTable.COLUMN_UID);
+        this.userName = jsonObject.getString(FormsTable.COLUMN_USERNAME);
         this.formdate = jsonObject.getString(FormsTable.COLUMN_FORMDATE);
         this.districtCode = jsonObject.getString(FormsTable.COLUMN_DISTRICT_CODE);
         this.districtType = jsonObject.getString(FormsTable.COLUMN_DISTRICT_TYPE);
@@ -148,6 +150,7 @@ public class FormsContract {
     public FormsContract hydrate(Cursor cursor) {
         this._ID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
+        this.userName = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USERNAME));
         this.formdate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
         this.districtCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DISTRICT_CODE));
         this.districtType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DISTRICT_TYPE));
@@ -197,6 +200,7 @@ public class FormsContract {
 
         json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
+        json.put(FormsTable.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
         json.put(FormsTable.COLUMN_FORMDATE, this.formdate == null ? JSONObject.NULL : this.formdate);
         json.put(FormsTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
         json.put(FormsTable.COLUMN_DISTRICT_TYPE, this.districtType == null ? JSONObject.NULL : this.districtType);
@@ -260,6 +264,15 @@ public class FormsContract {
 
     public void set_UID(String _UID) {
         this._UID = _UID;
+    }
+
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
 
@@ -621,6 +634,7 @@ public class FormsContract {
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
+        public static final String COLUMN_USERNAME = "userName";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_DISTRICT_CODE = "districtCode";
         public static final String COLUMN_DISTRICT_TYPE = "districtType";

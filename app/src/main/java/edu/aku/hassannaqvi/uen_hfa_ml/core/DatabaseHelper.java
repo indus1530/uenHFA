@@ -802,6 +802,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_USERNAME,
                 FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_DISTRICT_CODE,
                 FormsTable.COLUMN_DISTRICT_TYPE,
@@ -881,6 +882,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_USERNAME,
                 FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_DISTRICT_CODE,
                 FormsTable.COLUMN_DISTRICT_TYPE,
@@ -960,13 +962,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = {
                 FormsTable._ID,
                 FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_USERNAME,
                 FormsTable.COLUMN_FORMDATE,
                 FormsTable.COLUMN_DISTRICT_CODE,
                 FormsTable.COLUMN_DISTRICT_TYPE,
                 FormsTable.COLUMN_TEHSIL_CODE,
                 FormsTable.COLUMN_UC_CODE,
                 FormsTable.COLUMN_HF_CODE,
-                FormsTable.COLUMN_HF_CODE,
+                FormsTable.COLUMN_HF_NAME,
                 FormsTable.COLUMN_A01,
                 FormsTable.COLUMN_A03D,
                 FormsTable.COLUMN_A03M,
