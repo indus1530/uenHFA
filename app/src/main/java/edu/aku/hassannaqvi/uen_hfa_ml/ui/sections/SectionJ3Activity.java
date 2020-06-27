@@ -46,7 +46,14 @@ public class SectionJ3Activity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            startActivity(new Intent(this, SectionJ4Activity.class));
+            Intent intent;
+
+            if (MainApp.fc.getA10().equals(2) && MainApp.fc.getDistrictType().equals(4)) {
+                intent = new Intent(this, SectionJ8Activity.class);
+            } else {
+                intent = new Intent(this, SectionJ4Activity.class);
+            }
+            startActivity(intent);
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
