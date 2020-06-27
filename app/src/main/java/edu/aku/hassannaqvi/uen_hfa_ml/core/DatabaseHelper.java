@@ -658,10 +658,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TrainedStaffContract.SingleTSC.COLUMN_UUID, tsc.get_UUID());
         values.put(TrainedStaffContract.SingleTSC.COLUMN_FORMDATE, tsc.getFormDate());
         values.put(TrainedStaffContract.SingleTSC.COLUMN_SERIALNO, tsc.getSerialno());
-        values.put(TrainedStaffContract.SingleTSC.COLUMN_DISTRICTID, tsc.getDistrictID());
-        values.put(TrainedStaffContract.SingleTSC.COLUMN_TEHSILID, tsc.getTehsilID());
-        values.put(TrainedStaffContract.SingleTSC.COLUMN_UCID, tsc.getUcID());
-        values.put(TrainedStaffContract.SingleTSC.COLUMN_HFID, tsc.getHfID());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_DISTRICT_CODE, tsc.getDistrictCode());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_TEHSIL_CODE, tsc.getTehsilCode());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_UC_CODE, tsc.getUcCode());
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_HF_CODE, tsc.getHfCode());
         values.put(TrainedStaffContract.SingleTSC.COLUMN_SC2, tsc.getsC2());
         values.put(TrainedStaffContract.SingleTSC.COLUMN_DEVICEID, tsc.getDeviceID());
         values.put(TrainedStaffContract.SingleTSC.COLUMN_DEVICETAGID, tsc.getDevicetagID());

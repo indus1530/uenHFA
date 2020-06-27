@@ -27,6 +27,9 @@ class CONSTANTS {
         //For CHC Section
         const val IM02FLAG = "im02_flag"
 
+        //For C2
+        const val TRAINED_STAFF_SERIAL = "trained_staff_serial"
+
 
     }
 }
