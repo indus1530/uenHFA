@@ -691,10 +691,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PatientSatisfactionContract.SinglePSC.COLUMN_UUID, psc.get_UUID());
         values.put(PatientSatisfactionContract.SinglePSC.COLUMN_FORMDATE, psc.getFormDate());
         values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SERIALNO, psc.getSerialno());
-        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_DISTRICTID, psc.getDistrictID());
-        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_TEHSILID, psc.getTehsilID());
-        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_UCID, psc.getUcID());
-        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_HFID, psc.getHfID());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_DISTRICT_CODE, psc.getDistrictCode());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_TEHSIL_CODE, psc.getTehsilCode());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_UC_CODE, psc.getUcCode());
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_HF_CODE, psc.getHfCode());
         values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SI1, psc.getsI1());
         values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SI2, psc.getsI2());
         values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SI3, psc.getsI3());

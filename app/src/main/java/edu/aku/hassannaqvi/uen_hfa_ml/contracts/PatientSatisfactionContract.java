@@ -20,10 +20,10 @@ public class PatientSatisfactionContract {
     private String serialno = "";
     private String deviceID = "";
     private String devicetagID = "";
-    private String districtID = "";
-    private String tehsilID = "";
-    private String ucID = "";
-    private String hfID = "";
+    private String districtCode = "";
+    private String tehsilCode = "";
+    private String ucCode = "";
+    private String hfCode = "";
     private String status = "";
     private String synced = "";
     private String synced_date = "";
@@ -44,10 +44,10 @@ public class PatientSatisfactionContract {
         this._UUID = jsonObject.getString(SinglePSC.COLUMN_UUID);
         this.formDate = jsonObject.getString(SinglePSC.COLUMN_FORMDATE);
         this.serialno = jsonObject.getString(SinglePSC.COLUMN_SERIALNO);
-        this.districtID = jsonObject.getString(SinglePSC.COLUMN_DISTRICTID);
-        this.tehsilID = jsonObject.getString(SinglePSC.COLUMN_TEHSILID);
-        this.ucID = jsonObject.getString(SinglePSC.COLUMN_UCID);
-        this.hfID = jsonObject.getString(SinglePSC.COLUMN_HFID);
+        this.districtCode = jsonObject.getString(SinglePSC.COLUMN_DISTRICT_CODE);
+        this.tehsilCode = jsonObject.getString(SinglePSC.COLUMN_TEHSIL_CODE);
+        this.ucCode = jsonObject.getString(SinglePSC.COLUMN_UC_CODE);
+        this.hfCode = jsonObject.getString(SinglePSC.COLUMN_HF_CODE);
         this.sI1 = jsonObject.getString(SinglePSC.COLUMN_SI1);
         this.sI2 = jsonObject.getString(SinglePSC.COLUMN_SI2);
         this.sI3 = jsonObject.getString(SinglePSC.COLUMN_SI3);
@@ -70,10 +70,10 @@ public class PatientSatisfactionContract {
         this._UUID = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_UUID));
         this.formDate = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_FORMDATE));
         this.serialno = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SERIALNO));
-        this.districtID = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_DISTRICTID));
-        this.tehsilID = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_TEHSILID));
-        this.ucID = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_UCID));
-        this.hfID = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_HFID));
+        this.districtCode = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_DISTRICT_CODE));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_TEHSIL_CODE));
+        this.ucCode = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_UC_CODE));
+        this.hfCode = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_HF_CODE));
         this.sI1 = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SI1));
         this.sI2 = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SI2));
         this.sI3 = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SI3));
@@ -98,10 +98,10 @@ public class PatientSatisfactionContract {
         json.put(SinglePSC.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
         json.put(SinglePSC.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
         json.put(SinglePSC.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
-        json.put(SinglePSC.COLUMN_DISTRICTID, this.districtID == null ? JSONObject.NULL : this.districtID);
-        json.put(SinglePSC.COLUMN_TEHSILID, this.tehsilID == null ? JSONObject.NULL : this.tehsilID);
-        json.put(SinglePSC.COLUMN_UCID, this.ucID == null ? JSONObject.NULL : this.ucID);
-        json.put(SinglePSC.COLUMN_HFID, this.hfID == null ? JSONObject.NULL : this.hfID);
+        json.put(SinglePSC.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
+        json.put(SinglePSC.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
+        json.put(SinglePSC.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
+        json.put(SinglePSC.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
         json.put(SinglePSC.COLUMN_SI1, this.sI1 == null ? JSONObject.NULL : this.sI1);
         json.put(SinglePSC.COLUMN_SI2, this.sI2 == null ? JSONObject.NULL : this.sI2);
         json.put(SinglePSC.COLUMN_SI3, this.sI3 == null ? JSONObject.NULL : this.sI3);
@@ -162,39 +162,39 @@ public class PatientSatisfactionContract {
     }
 
 
-    public String getDistrictID() {
-        return districtID;
+    public String getDistrictCode() {
+        return districtCode;
     }
 
-    public void setDistrictID(String districtID) {
-        this.districtID = districtID;
-    }
-
-
-    public String getTehsilID() {
-        return tehsilID;
-    }
-
-    public void setTehsilID(String tehsilID) {
-        this.tehsilID = tehsilID;
+    public void setDistrictCode(String districtCode) {
+        this.districtCode = districtCode;
     }
 
 
-    public String getUcID() {
-        return ucID;
+    public String getTehsilCode() {
+        return tehsilCode;
     }
 
-    public void setUcID(String ucID) {
-        this.ucID = ucID;
+    public void setTehsilCode(String tehsilCode) {
+        this.tehsilCode = tehsilCode;
     }
 
 
-    public String getHfID() {
-        return hfID;
+    public String getUcCode() {
+        return ucCode;
     }
 
-    public void setHfID(String hfID) {
-        this.hfID = hfID;
+    public void setUcCode(String ucCode) {
+        this.ucCode = ucCode;
+    }
+
+
+    public String getHfCode() {
+        return hfCode;
+    }
+
+    public void setHfCode(String hfCode) {
+        this.hfCode = hfCode;
     }
 
 
@@ -296,10 +296,10 @@ public class PatientSatisfactionContract {
         public static final String COLUMN_UUID = "_uuid";
         public static final String COLUMN_FORMDATE = "formdate";
         public static final String COLUMN_SERIALNO = "serialno";
-        public static final String COLUMN_DISTRICTID = "districtID";
-        public static final String COLUMN_TEHSILID = "tehsilID";
-        public static final String COLUMN_UCID = "ucID";
-        public static final String COLUMN_HFID = "hfID";
+        public static final String COLUMN_DISTRICT_CODE = "districtCode";
+        public static final String COLUMN_TEHSIL_CODE = "tehsilCode";
+        public static final String COLUMN_UC_CODE = "ucCode";
+        public static final String COLUMN_HF_CODE = "hfCode";
         public static final String COLUMN_SI1 = "sI1";
         public static final String COLUMN_SI2 = "sI2";
         public static final String COLUMN_SI3 = "sI3";
