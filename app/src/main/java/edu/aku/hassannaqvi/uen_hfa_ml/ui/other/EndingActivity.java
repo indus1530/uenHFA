@@ -17,6 +17,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivityEndingBinding;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI1Activity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.SECTION_MAIN_CHECK_FOR_END;
 
@@ -55,11 +56,20 @@ public class EndingActivity extends AppCompatActivity {
             SaveDraft();
             if (UpdateDB()) {
                 finish();
-                startActivity(new Intent(this, sectionMainCheck ? SectionMainActivity.class : MainActivity.class));
+                startActivity(new Intent(this, sectionMainCheck ? routingSelectionForChildEnding() : MainActivity.class));
             } else {
                 Toast.makeText(this, "Error in updating db!!", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private Class<?> routingSelectionForChildEnding() {
+        if (MainApp.fc.getA10().equals("1") && (SectionMainActivity.maternalCount + SectionMainActivity.paedsCount) == 6)
+            return MainActivity.class;
+        else if (MainApp.fc.getA10().equals("2") && (SectionMainActivity.maternalCount + SectionMainActivity.paedsCount) == 3)
+            return MainActivity.class;
+        else
+            return SectionI1Activity.class;
     }
 
 

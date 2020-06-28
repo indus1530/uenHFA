@@ -17,15 +17,21 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI1Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.MainActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.EndSectionActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.validator.ValidatorClass;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.SECTION_MAIN_CHECK_FOR_END;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.psc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.contextEndActivity;
 
-public class SectionI1Activity extends AppCompatActivity {
+
+public class SectionI1Activity extends AppCompatActivity implements EndSectionActivity {
 
     ActivitySectionI1Binding bi;
 
@@ -39,20 +45,19 @@ public class SectionI1Activity extends AppCompatActivity {
     }
 
     private void setupContent() {
-        bi.hfType.setText(MainApp.fc.getA10().equals("1") ? "PUBLIC HF" : "PRIVATE HF");
-        bi.maternalCount.setText(new StringBuilder("Maternal Entries: ").append(MainActivity.maternalCount));
-        bi.paedsCount.setText(new StringBuilder("Paeds Entries: ").append(MainActivity.paedsCount));
-    }
+        bi.hfType.setText(MainApp.fc.getA10().equals("1") ? getString(R.string.publicHF) : getString(R.string.privateHF));
+        bi.maternalCount.setText(new StringBuilder("Maternal Entries: ").append(SectionMainActivity.maternalCount));
+        bi.paedsCount.setText(new StringBuilder("Paeds Entries: ").append(SectionMainActivity.paedsCount));
 
+        if (MainApp.fc.getA10().equals("1")) {
+            if (SectionMainActivity.paedsCount == 3) bi.i0108a.setEnabled(false);
+            else if (SectionMainActivity.maternalCount == 3) bi.i0108b.setEnabled(false);
+        }
+    }
 
     private void setupSkips() {
-
-        bi.i0103.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpCVi0104);
-        }));
-
+        bi.i0103.setOnCheckedChangeListener(((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVi0104)));
     }
-
 
     public void BtnContinue() {
         if (!formValidation()) return;
@@ -64,6 +69,9 @@ public class SectionI1Activity extends AppCompatActivity {
         if (UpdateDB()) {
             finish();
 
+            if (bi.i0108a.isChecked()) SectionMainActivity.paedsCount++;
+            else if (bi.i0108b.isChecked()) SectionMainActivity.maternalCount++;
+
             startActivity(new Intent(this, bi.i0108b.isChecked() ? SectionI3Activity.class : SectionI2Activity.class));
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
@@ -71,10 +79,19 @@ public class SectionI1Activity extends AppCompatActivity {
     }
 
 
+    public void BtnEnd() {
+        if (!Validator.emptyCheckingContainer(this, bi.fldGrpEndForm)) return;
+        contextEndActivity(this);
+    }
+
+
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SI, MainApp.fc.getsI());
-        if (updcount == 1) {
+        long updcount = db.addPSC(psc);
+        psc.set_ID(String.valueOf(updcount));
+        if (updcount > 0) {
+            psc.set_UID(psc.getDeviceID() + psc.get_ID());
+            db.updatesPSCColumn(PatientSatisfactionContract.SinglePSC.COLUMN_UID, psc.get_UID());
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -84,6 +101,18 @@ public class SectionI1Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
+        psc = new PatientSatisfactionContract();
+        psc.setFormDate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        psc.setDeviceID(MainApp.appInfo.getDeviceID());
+        psc.setDevicetagID(MainApp.appInfo.getTagName());
+        psc.setAppversion(MainApp.appInfo.getAppVersion());
+        psc.set_UUID(MainApp.fc.get_UID());
+        psc.setDistrictCode(MainApp.fc.getDistrictCode());
+        psc.setTehsilCode(MainApp.fc.getTehsilCode());
+        psc.setUcCode(MainApp.fc.getUcCode());
+        psc.setHfCode(MainApp.fc.getHfCode());
+//        psc.serialno = serial.toString()
 
         JSONObject json = new JSONObject();
 
@@ -119,7 +148,7 @@ public class SectionI1Activity extends AppCompatActivity {
                 : bi.i0108b.isChecked() ? "2"
                 : "-1");
 
-        MainApp.fc.setsI(String.valueOf(json));
+        psc.setsI1(String.valueOf(json));
 
     }
 
@@ -135,6 +164,27 @@ public class SectionI1Activity extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+
+    @Override
+    public void endSecActivity(boolean flag) {
+        try {
+            SaveDraft();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        if (UpdateDB()) {
+            finish();
+
+            if (bi.i0108a.isChecked()) SectionMainActivity.paedsCount++;
+            else if (bi.i0108b.isChecked()) SectionMainActivity.maternalCount++;
+
+            startActivity(new Intent(this, EndingActivity.class).putExtra(SECTION_MAIN_CHECK_FOR_END, true)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        } else {
+            Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

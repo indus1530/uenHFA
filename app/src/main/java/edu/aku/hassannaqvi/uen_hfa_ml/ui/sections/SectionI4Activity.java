@@ -16,14 +16,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI4Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
-import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.psc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 
@@ -50,7 +49,8 @@ public class SectionI4Activity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            startActivity(new Intent(this, SectionMainActivity.class));
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
@@ -59,7 +59,7 @@ public class SectionI4Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SI, MainApp.fc.getsI());
+        int updcount = db.updatesPSCColumn(PatientSatisfactionContract.SinglePSC.COLUMN_SI4, psc.getsI4());
         if (updcount == 1) {
             return true;
         } else {
@@ -115,14 +115,8 @@ public class SectionI4Activity extends AppCompatActivity {
                 : bi.i0401gd.isChecked() ? "4"
                 : "-1");
 
-        try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsI()), json);
 
-            fc.setsI(String.valueOf(json_merge));
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        psc.setsI4(String.valueOf(json));
 
     }
 
@@ -133,7 +127,7 @@ public class SectionI4Activity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-        openEndActivity(this);
+        openEndActivity(this, true);
     }
 
 

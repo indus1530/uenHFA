@@ -28,6 +28,8 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 public class SectionMainActivity extends AppCompatActivity {
     ActivitySectionMainBinding bi;
 
+    public static int maternalCount = 0, paedsCount = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,34 +142,36 @@ public class SectionMainActivity extends AppCompatActivity {
         if (!MainApp.userName.equals("0000")) {
             switch (id) {
                 case R.id.form01:
-                    oF = new Intent(SectionMainActivity.this, SectionBActivity.class);
+                    oF = new Intent(this, SectionBActivity.class);
                     break;
                 case R.id.form02:
-                    oF = new Intent(SectionMainActivity.this, SectionC1Activity.class);
+                    oF = new Intent(this, SectionC1Activity.class);
                     break;
                 case R.id.form03:
-                    oF = new Intent(SectionMainActivity.this, SectionD1Activity.class);
+                    oF = new Intent(this, SectionD1Activity.class);
                     break;
                 case R.id.form04:
-                    oF = new Intent(SectionMainActivity.this, SectionE1Activity.class);
+                    oF = new Intent(this, SectionE1Activity.class);
                     break;
                 case R.id.form05:
-                    oF = new Intent(SectionMainActivity.this, SectionF1Activity.class);
+                    oF = new Intent(this, SectionF1Activity.class);
                     break;
                 case R.id.form06:
-                    oF = new Intent(SectionMainActivity.this, SectionG1Activity.class);
+                    oF = new Intent(this, SectionG1Activity.class);
                     break;
                 case R.id.form07:
-                    oF = new Intent(SectionMainActivity.this, fc.getA10().equals("2") ? SectionH16Activity.class : SectionH2Activity.class);
+                    oF = new Intent(this, fc.getA10().equals("2") ? SectionH16Activity.class : SectionH2Activity.class);
                     break;
                 case R.id.form08:
-                    oF = new Intent(SectionMainActivity.this, SectionI1Activity.class);
+                    maternalCount = 0;
+                    paedsCount = 0;
+                    oF = new Intent(this, SectionI1Activity.class);
                     break;
                 case R.id.form09:
-                    oF = new Intent(SectionMainActivity.this, SectionJ1Activity.class);
+                    oF = new Intent(this, SectionJ1Activity.class);
                     break;
                 case R.id.form10:
-                    oF = new Intent(SectionMainActivity.this, SectionK1Activity.class);
+                    oF = new Intent(this, SectionK1Activity.class);
                     break;
             }
             startActivity(oF);

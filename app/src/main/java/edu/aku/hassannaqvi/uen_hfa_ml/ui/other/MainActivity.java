@@ -75,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
     DatabaseHelper db;
     Long refID;
 
-    public static int maternalCount = 0, paedsCount = 0;
-
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
