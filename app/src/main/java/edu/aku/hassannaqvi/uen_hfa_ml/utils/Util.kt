@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS
 import edu.aku.hassannaqvi.uen_hfa_ml.R
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity
 import java.util.*
 
 private fun checkPermission(context: Context): IntArray {
@@ -57,6 +58,26 @@ fun openEndActivity(activity: Activity, childEndingActivity: Boolean = false) {
         val intent = Intent(activity, EndingActivity::class.java).putExtra("complete", false)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         if (childEndingActivity) intent.putExtra(CONSTANTS.SECTION_MAIN_CHECK_FOR_END, true)
+        activity.startActivity(intent)
+    }
+    dialog.findViewById<View>(R.id.btnNo).setOnClickListener { view: View? -> dialog.dismiss() }
+}
+
+fun openSectionMainActivity(activity: Activity) {
+    val dialog = Dialog(activity)
+    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+    dialog.setContentView(R.layout.item_dialog_2)
+    dialog.setCancelable(false)
+    val params = WindowManager.LayoutParams()
+    params.copyFrom(dialog.window!!.attributes)
+    params.width = WindowManager.LayoutParams.WRAP_CONTENT
+    params.height = WindowManager.LayoutParams.WRAP_CONTENT
+    dialog.show()
+    dialog.window!!.attributes = params
+    dialog.findViewById<View>(R.id.btnOk).setOnClickListener { view: View? ->
+        activity.finish()
+        val intent = Intent(activity, SectionMainActivity::class.java)
+                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         activity.startActivity(intent)
     }
     dialog.findViewById<View>(R.id.btnNo).setOnClickListener { view: View? -> dialog.dismiss() }
