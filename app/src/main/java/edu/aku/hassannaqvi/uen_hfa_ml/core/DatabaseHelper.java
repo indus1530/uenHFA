@@ -673,8 +673,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                FormsTable.TABLE_NAME,
-                FormsTable.COLUMN_NAME_NULLABLE,
+                TrainedStaffContract.SingleTSC.TABLE_NAME,
+                TrainedStaffContract.SingleTSC.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -709,8 +709,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                FormsTable.TABLE_NAME,
-                FormsTable.COLUMN_NAME_NULLABLE,
+                PatientSatisfactionContract.SinglePSC.TABLE_NAME,
+                PatientSatisfactionContract.SinglePSC.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }

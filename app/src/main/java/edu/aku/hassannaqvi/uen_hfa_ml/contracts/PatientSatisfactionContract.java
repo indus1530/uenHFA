@@ -291,6 +291,7 @@ public class PatientSatisfactionContract {
     public static abstract class SinglePSC implements BaseColumns {
 
         public static final String TABLE_NAME = "Isection";
+        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_UUID = "_uuid";
