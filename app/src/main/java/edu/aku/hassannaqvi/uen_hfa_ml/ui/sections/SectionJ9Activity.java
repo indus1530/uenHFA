@@ -119,7 +119,6 @@ public class SectionJ9Activity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-
         finish();
         startActivity(new Intent(this, SectionMainActivity.class));
         //openEndActivity(this);

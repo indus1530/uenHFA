@@ -18,6 +18,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionF2Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
@@ -222,7 +223,6 @@ public class SectionF2Activity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-
         finish();
         startActivity(new Intent(this, SectionMainActivity.class));
         //openEndActivity(this);
