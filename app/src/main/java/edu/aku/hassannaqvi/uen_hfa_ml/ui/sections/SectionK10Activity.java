@@ -19,8 +19,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK10Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
-
 public class SectionK10Activity extends AppCompatActivity {
 
     ActivitySectionK10Binding bi;
@@ -159,7 +157,10 @@ public class SectionK10Activity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-        openEndActivity(this);
+
+        finish();
+        startActivity(new Intent(this, SectionMainActivity.class));
+        //openEndActivity(this);
     }
 
 
