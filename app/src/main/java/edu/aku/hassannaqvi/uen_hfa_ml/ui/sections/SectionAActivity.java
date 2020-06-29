@@ -46,6 +46,7 @@ public class SectionAActivity extends AppCompatActivity {
 
     private List<String> hfNamesPrv, hfNamesPub;
     private Map<String, String> hfMap;
+    private boolean fcFlag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -218,6 +219,9 @@ public class SectionAActivity extends AppCompatActivity {
     }
 
     private boolean UpdateDB() {
+
+        if (!fc.get_ID().equals("")) return true;
+
         long updcount = db.addForm(fc);
         fc.set_ID(String.valueOf(updcount));
         if (updcount > 0) {
@@ -233,7 +237,7 @@ public class SectionAActivity extends AppCompatActivity {
 
     private void SaveDraft() {
 
-        if (fc != null) return;
+        if (!fc.get_ID().equals("")) return;
 
         fc = new FormsContract();
 
@@ -293,7 +297,7 @@ public class SectionAActivity extends AppCompatActivity {
         }
 
         fc = db.CheckHF(String.valueOf(hfMap.get(bi.a13.getSelectedItem().toString())), "1");
-        if (fc != null) {
+        if (fc == null) {
             Toast.makeText(this, "Partially filled Facility ", Toast.LENGTH_LONG).show();
             return true;
         }

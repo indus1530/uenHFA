@@ -578,8 +578,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         FormsContract form = null;
         Cursor mCursor = db.rawQuery("SELECT * FROM " + FormsTable.TABLE_NAME + " WHERE " + FormsTable.COLUMN_A12 + "=? AND " + FormsTable.COLUMN_ISTATUS + " != ?", new String[]{hfCode, status});
         if (mCursor != null) {
-
-
+            if (mCursor.getCount() == 0) return new FormsContract();
             if (mCursor.moveToFirst()) {
                 form = new FormsContract().hydrate(mCursor);
             }
