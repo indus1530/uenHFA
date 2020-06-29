@@ -65,9 +65,9 @@ public class EndingActivity extends AppCompatActivity {
 
     private Class<?> routingSelectionForChildEnding() {
         if (MainApp.fc.getA10().equals("1") && (SectionMainActivity.maternalCount + SectionMainActivity.paedsCount) == 6)
-            return MainActivity.class;
+            return SectionMainActivity.class;
         else if (MainApp.fc.getA10().equals("2") && (SectionMainActivity.maternalCount + SectionMainActivity.paedsCount) == 3)
-            return MainActivity.class;
+            return SectionMainActivity.class;
         else
             return SectionI1Activity.class;
     }
