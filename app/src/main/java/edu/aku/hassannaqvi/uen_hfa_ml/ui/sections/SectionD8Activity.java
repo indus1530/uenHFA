@@ -24,7 +24,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 public class SectionD8Activity extends AppCompatActivity {
 
@@ -214,7 +213,10 @@ public class SectionD8Activity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-        openEndActivity(this);
+
+        finish();
+        startActivity(new Intent(this, SectionMainActivity.class));
+        //openEndActivity(this);
     }
 
 

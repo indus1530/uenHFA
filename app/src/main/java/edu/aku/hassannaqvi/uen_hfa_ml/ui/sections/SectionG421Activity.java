@@ -21,7 +21,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG421Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 
 
 public class SectionG421Activity extends AppCompatActivity {
@@ -312,7 +311,10 @@ public class SectionG421Activity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-        openEndActivity(this);
+
+        finish();
+        startActivity(new Intent(this, SectionMainActivity.class));
+        //openEndActivity(this);
     }
 
 

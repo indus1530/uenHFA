@@ -35,7 +35,6 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon3;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon1;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon2;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon3;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
 import static java.lang.Float.parseFloat;
 
 public class SectionG3Activity extends AppCompatActivity {
@@ -353,7 +352,10 @@ public class SectionG3Activity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-        openEndActivity(this);
+
+        finish();
+        startActivity(new Intent(this, SectionMainActivity.class));
+        //openEndActivity(this);
     }
 
 
