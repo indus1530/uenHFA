@@ -2,11 +2,13 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -32,8 +34,64 @@ public class SectionG1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g1);
         bi.setCallback(this);
+        setupSkips();
         bi.g0105cx.setMinvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())));
         bi.g0105cx.setMaxvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())) + 2);
+
+    }
+
+
+    private void setupSkips() {
+
+        bi.g0102a.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpCVg0102b);
+        }));
+
+        bi.g0108a.setOnCheckedChangeListener(((radioGroup, i) -> {
+
+            if (i == bi.g0108aa.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg0108b);
+                Clear.clearAllFields(bi.fldGrpCVg0108c);
+                bi.fldGrpCVg0108b.setVisibility(View.GONE);
+                bi.fldGrpCVg0108c.setVisibility(View.GONE);
+            } else if (i == bi.g0108ab.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg0108b);
+                Clear.clearAllFields(bi.fldGrpCVg0108c);
+                bi.fldGrpCVg0108b.setVisibility(View.GONE);
+                bi.fldGrpCVg0108c.setVisibility(View.GONE);
+            }
+
+        }));
+
+        bi.g0108b.setOnCheckedChangeListener(((radioGroup, i) -> {
+
+            if (i == bi.g0108ba.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg0108a);
+                Clear.clearAllFields(bi.fldGrpCVg0108c);
+                bi.fldGrpCVg0108a.setVisibility(View.GONE);
+                bi.fldGrpCVg0108c.setVisibility(View.GONE);
+            } else if (i == bi.g0108bb.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg0108a);
+                Clear.clearAllFields(bi.fldGrpCVg0108c);
+                bi.fldGrpCVg0108a.setVisibility(View.GONE);
+                bi.fldGrpCVg0108c.setVisibility(View.GONE);
+            }
+        }));
+
+        bi.g0108c.setOnCheckedChangeListener(((radioGroup, i) -> {
+
+            if (i == bi.g0108ca.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg0108a);
+                Clear.clearAllFields(bi.fldGrpCVg0108b);
+                bi.fldGrpCVg0108a.setVisibility(View.GONE);
+                bi.fldGrpCVg0108b.setVisibility(View.GONE);
+            } else if (i == bi.g0108cb.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVg0108a);
+                Clear.clearAllFields(bi.fldGrpCVg0108b);
+                bi.fldGrpCVg0108a.setVisibility(View.GONE);
+                bi.fldGrpCVg0108b.setVisibility(View.GONE);
+            }
+        }));
 
     }
 
@@ -102,7 +160,6 @@ public class SectionG1Activity extends AppCompatActivity {
 
         json.put("g0107", bi.g0107a.isChecked() ? "1"
                 : bi.g0107b.isChecked() ? "2"
-                : bi.g0107c.isChecked() ? "3"
                 : bi.g0107x.isChecked() ? "96"
                 : "-1");
         json.put("g0107xx", bi.g0107xx.getText().toString().trim().length() > 0 ? bi.g0107xx.getText().toString() : "-1");

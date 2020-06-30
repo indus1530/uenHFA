@@ -30,8 +30,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG3Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon2;
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.getMon3;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon1;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon2;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon3;
@@ -48,10 +46,10 @@ public class SectionG3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g3);
         bi.setCallback(this);
-        setPreMonths();
+        //setPreMonths();
         setupTextWatchers();
 
-        String[] one = MainApp.getMon1().split("-");
+        /*String[] one = MainApp.getMon1().split("-");
         bi.g0301aa.setText(one[0]);
         bi.g0301ab.setText(one[1]);
 
@@ -61,7 +59,17 @@ public class SectionG3Activity extends AppCompatActivity {
 
         String[] three = getMon3().split("-");
         bi.g0301ca.setText(three[0]);
-        bi.g0301cb.setText(three[1]);
+        bi.g0301cb.setText(three[1]);*/
+
+        //30-June Changes
+        bi.g0301aa.setText("January");
+        bi.g0301ab.setText("2020");
+
+        bi.g0301aa.setText("February");
+        bi.g0301ab.setText("2020");
+
+        bi.g0301aa.setText("March");
+        bi.g0301ab.setText("2020");
 
     }
 

@@ -5,10 +5,6 @@
     <data>
         <import type="android.view.View" />
 
-        <!--<variable
-            name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionG1Activity" />
@@ -209,7 +205,8 @@
             <!-- g0102b  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg0102b"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility='@{g0102ab.checked ? View.VISIBLE : View.GONE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -645,24 +642,18 @@
                             android:text="@string/g0107b" />
 
                         <RadioButton
-                            android:id="@+id/g0107c"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/g0107c" />
-
-                        <RadioButton
                             android:id="@+id/g0107x"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/other" />
+                            android:text="@string/g0107x" />
 
                         <EditText
                             android:id="@+id/g0107xx"
                             style="@style/EditTextAlpha"
                             android:hint="@string/specify"
                             android:tag="g0107x"
-                            android:text='@{g0107x.checked? g0107xx.getText().toString() : ""}'
-                            android:visibility='@{g0107x.checked? View.VISIBLE : View.GONE}' />
+                            android:text='@{g0107x.checked ? g0107xx.getText().toString() : ""}'
+                            android:visibility='@{g0107x.checked ? View.VISIBLE : View.GONE}' />
 
                     </RadioGroup>
 
@@ -992,8 +983,8 @@
                                 android:gravity="center"
                                 android:hint="##"
                                 android:maxLength="2"
-                                app:maxValue="11"
-                                app:minValue="0"
+                                app:maxValue="12"
+                                app:minValue="1"
                                 app:type="range" />
 
                         </LinearLayout>
@@ -1011,10 +1002,10 @@
                                 android:id="@+id/g0110cx"
                                 style="@style/EditTextNum"
                                 android:gravity="center"
-                                android:hint="##"
-                                android:maxLength="2"
-                                app:maxValue="10"
-                                app:minValue="0"
+                                android:hint="####"
+                                android:maxLength="4"
+                                app:maxValue="2021"
+                                app:minValue="2020"
                                 app:type="range" />
 
                         </LinearLayout>

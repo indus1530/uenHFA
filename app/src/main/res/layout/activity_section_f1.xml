@@ -4,10 +4,6 @@
     <data>
         <import type="android.view.View" />
 
-        <!--<variable
-            name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionF1Activity" />
@@ -100,7 +96,8 @@
             <!-- f01001  Radio   -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVf01001"
-                style="@style/cardView">
+                style="@style/cardView"
+                android:visibility='@{f0100b.checked ? View.GONE : View.VISIBLE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -1120,7 +1117,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@id/q_f0106"
-                            android:text="@string/f0100" />
+                            android:text="@string/f0106" />
 
                         <TextView
                             android:id="@+id/q_f0106"
@@ -1335,7 +1332,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@id/q_f0107"
-                            android:text="@string/f0100" />
+                            android:text="@string/f0107" />
 
                         <TextView
                             android:id="@+id/q_f0107"
@@ -1392,7 +1389,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@id/q_f0108"
-                            android:text="@string/f0100" />
+                            android:text="@string/f0108" />
 
                         <TextView
                             android:id="@+id/q_f0108"
@@ -1449,7 +1446,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@id/q_f0109"
-                            android:text="@string/f0100" />
+                            android:text="@string/f0109" />
 
                         <TextView
                             android:id="@+id/q_f0109"
@@ -1506,7 +1503,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@id/q_f0110"
-                            android:text="@string/f0100" />
+                            android:text="@string/f0110" />
 
                         <TextView
                             android:id="@+id/q_f0110"
