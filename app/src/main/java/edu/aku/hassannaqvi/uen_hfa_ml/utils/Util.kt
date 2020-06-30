@@ -12,6 +12,7 @@ import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS
 import edu.aku.hassannaqvi.uen_hfa_ml.R
+import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity
 import java.util.*
@@ -63,7 +64,7 @@ fun openEndActivity(activity: Activity, childEndingActivity: Boolean = false) {
     dialog.findViewById<View>(R.id.btnNo).setOnClickListener { view: View? -> dialog.dismiss() }
 }
 
-fun openSectionMainActivity(activity: Activity) {
+fun openSectionMainActivity(activity: Activity, item: String) {
     val dialog = Dialog(activity)
     dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
     dialog.setContentView(R.layout.item_dialog_2)
@@ -75,6 +76,12 @@ fun openSectionMainActivity(activity: Activity) {
     dialog.show()
     dialog.window!!.attributes = params
     dialog.findViewById<View>(R.id.btnOk).setOnClickListener { view: View? ->
+
+        when (item) {
+            "B" -> MainApp.fc.setsB(null)
+            "C" -> MainApp.fc.setsC(null)
+        }
+
         activity.finish()
         val intent = Intent(activity, SectionMainActivity::class.java)
                 .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

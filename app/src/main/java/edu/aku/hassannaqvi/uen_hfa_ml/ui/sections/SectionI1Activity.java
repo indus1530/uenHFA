@@ -187,4 +187,9 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
         }
     }
 
+    @Override
+    public void onBackPressed() {
+
+        super.onBackPressed();
+    }
 }
