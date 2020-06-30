@@ -3,25 +3,23 @@
 
 
     <data>
-
         <import type="android.view.View" />
-
-        <!--<variable
-            name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
 
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI1Activity" />
     </data>
 
+
     <LinearLayout
         style="@style/linearlayout_view_wt_bound"
         android:orientation="vertical">
 
+
         <TextView
             style="@style/textView3Head"
             android:text="@string/i01" />
+
 
         <TextView
             android:id="@+id/hfType"
@@ -36,14 +34,15 @@
                 style="@style/textviewh"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:text="maternal" />
+                android:text="Maternal" />
 
             <TextView
                 android:id="@+id/paedsCount"
                 style="@style/textviewh"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:text="paaeds" />
+                android:text="Paeds" />
+
         </LinearLayout>
 
         <ScrollView

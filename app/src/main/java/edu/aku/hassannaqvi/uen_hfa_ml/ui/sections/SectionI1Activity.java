@@ -2,6 +2,9 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -44,6 +47,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
         setupContent();
     }
 
+
     private void setupContent() {
         bi.hfType.setText(MainApp.fc.getA10().equals("1") ? getString(R.string.publicHF) : getString(R.string.privateHF));
         bi.maternalCount.setText(new StringBuilder("Maternal Entries: ").append(SectionMainActivity.maternalCount));
@@ -55,9 +59,56 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
         }
     }
 
+
     private void setupSkips() {
         bi.i0103.setOnCheckedChangeListener(((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVi0104)));
+
+        bi.i0108.setOnCheckedChangeListener(((radioGroup, i) -> {
+
+            if (i == bi.i0108a.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVi0105);
+                bi.i0105a.setEnabled(true);
+                Clear.clearAllFields(bi.fldGrpCVi0106);
+                bi.i0106a.setMaxvalue(5);
+                bi.i0106a.setMinvalue(0);
+            } else if (i == bi.i0108b.getId()) {
+                Clear.clearAllFields(bi.fldGrpCVi0105);
+                bi.i0105a.setEnabled(false);
+                bi.i0105b.setChecked(true);
+                Clear.clearAllFields(bi.fldGrpCVi0106);
+                bi.i0106a.setMaxvalue(49);
+                bi.i0106a.setMinvalue(15);
+            }
+
+        }));
+
+
+        bi.i0106a.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (TextUtils.isEmpty(bi.i0106a.getText()))
+                    return;
+                if (bi.i0108a.isChecked() && Integer.parseInt(bi.i0106a.getText().toString()) == 49) {
+                    bi.i0106b.setMaxvalue(0);
+                }
+                if (bi.i0108b.isChecked() && Integer.parseInt(bi.i0106a.getText().toString()) == 5) {
+                    bi.i0106b.setMaxvalue(0);
+                }
+            }
+        });
+
+
     }
+
 
     public void BtnContinue() {
         if (!formValidation()) return;
@@ -77,6 +128,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
+
 
 
     public void BtnEnd() {
