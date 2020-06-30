@@ -105,6 +105,7 @@ class SectionC2Activity : AppCompatActivity() {
         tsc.ucCode = MainApp.fc.ucCode
         tsc.hfCode = MainApp.fc.hfCode
         tsc.serialno = serial.toString()
+        tsc.status = "1"
 
         val json = JSONObject()
 
@@ -180,19 +181,12 @@ class SectionC2Activity : AppCompatActivity() {
                                 "Next Section",
                                 getDrawable(R.drawable.ic_keyboard_arrow_right_black_24dp)
                         )
-                        ,
-                        ActionItem(
-                                2,
-                                "End Activity",
-                                getDrawable(R.drawable.ic_closed_caption_black_24dp)
-                        )
                 ),
                 onClick = { item: ActionItem ->
                     run {
                         when (item.id) {
                             0 -> routingNextActivity(this::class.java)
-                            1 -> routingNextActivity(SectionMainActivity::class.java)
-                            else -> openEndActivity(this)
+                            else -> startActivity(Intent(this@SectionC2Activity, SectionMainActivity::class.java))
                         }
                     }
 
@@ -203,9 +197,5 @@ class SectionC2Activity : AppCompatActivity() {
 
     fun btnEnd(v: View) {
         openEndActivity(this)
-    }
-
-    override fun onBackPressed() {
-        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show()
     }
 }
