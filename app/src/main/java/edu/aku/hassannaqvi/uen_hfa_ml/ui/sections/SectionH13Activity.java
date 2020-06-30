@@ -20,10 +20,10 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH13Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 public class SectionH13Activity extends AppCompatActivity {
 
@@ -104,10 +104,7 @@ public class SectionH13Activity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-
-        finish();
-        startActivity(new Intent(this, SectionMainActivity.class));
-        //openEndActivity(this);
+        openSectionMainActivity(this, "H");
     }
 
 

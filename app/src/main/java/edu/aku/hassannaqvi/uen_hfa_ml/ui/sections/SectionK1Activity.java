@@ -21,7 +21,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK1Binding;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 
 public class SectionK1Activity extends AppCompatActivity {
 
@@ -138,14 +137,6 @@ public class SectionK1Activity extends AppCompatActivity {
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpNameSectionK1);
-    }
-
-
-    public void BtnEnd() {
-
-        finish();
-        startActivity(new Intent(this, SectionMainActivity.class));
-        //openEndActivity(this);
     }
 
 

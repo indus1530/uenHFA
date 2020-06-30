@@ -20,7 +20,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK11Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 public class SectionK11Activity extends AppCompatActivity {
 
@@ -44,7 +44,7 @@ public class SectionK11Activity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            startActivity(new Intent(this, SectionK11Activity.class));
+            startActivity(new Intent(this, SectionMainActivity.class));
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
@@ -129,9 +129,7 @@ public class SectionK11Activity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-        finish();
-        startActivity(new Intent(this, SectionMainActivity.class));
-        openEndActivity(this);
+        openSectionMainActivity(this, "K");
     }
 
 

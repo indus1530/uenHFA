@@ -80,6 +80,14 @@ fun openSectionMainActivity(activity: Activity, item: String) {
         when (item) {
             "B" -> MainApp.fc.setsB(null)
             "C" -> MainApp.fc.setsC(null)
+            "D" -> MainApp.fc.setsD(null)
+            "E" -> MainApp.fc.setsE(null)
+            "F" -> MainApp.fc.setsF(null)
+            "G" -> MainApp.fc.setsG(null)
+            "H" -> MainApp.fc.setsH(null)
+            "I" -> MainApp.fc.setsI(null)
+            "J" -> MainApp.fc.setsJ(null)
+            "K" -> MainApp.fc.setsK(null)
         }
 
         activity.finish()

@@ -42,7 +42,7 @@ public class SectionMainActivity extends AppCompatActivity {
             bi.form01.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (fc.getsC() != null) {
+        if (MainApp.fc.getsC() != null) {
             bi.form02.setEnabled(false);
             bi.form02.setBackgroundResource(R.color.dullWhite);
         }
@@ -72,7 +72,7 @@ public class SectionMainActivity extends AppCompatActivity {
             bi.form07.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (fc.getsI() != null) {
+        if (MainApp.fc.getsI() != null) {
             bi.form08.setEnabled(false);
             bi.form08.setBackgroundResource(R.color.dullWhite);
         }

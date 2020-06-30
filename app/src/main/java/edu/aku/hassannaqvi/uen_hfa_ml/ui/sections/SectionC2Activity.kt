@@ -198,4 +198,10 @@ class SectionC2Activity : AppCompatActivity() {
     fun btnEnd(v: View) {
         openEndActivity(this)
     }
+
+
+    override fun onBackPressed() {
+        Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show()
+    }
+
 }
