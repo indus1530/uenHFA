@@ -93,7 +93,11 @@ public class TrainedStaffContract {
         json.put(SingleTSC.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
         json.put(SingleTSC.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
         json.put(SingleTSC.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
-        json.put(SingleTSC.COLUMN_SC2, this.sC2 == null ? JSONObject.NULL : this.sC2);
+
+        if (this.sC2 != null && !this.sC2.equals("")) {
+            json.put(SingleTSC.COLUMN_SC2, new JSONObject(this.sC2));
+        }
+
         json.put(SingleTSC.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
         json.put(SingleTSC.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
         json.put(SingleTSC.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);

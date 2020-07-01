@@ -1102,7 +1102,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 TrainedStaffContract.SingleTSC.COLUMN_APPVERSION,
         };
 
-        String whereClause = TrainedStaffContract.SingleTSC.COLUMN_SYNCED + " is null AND " + TrainedStaffContract.SingleTSC.COLUMN_STATUS + " =?";
+        String whereClause = "(" + TrainedStaffContract.SingleTSC.COLUMN_SYNCED + " is null or " + TrainedStaffContract.SingleTSC.COLUMN_SYNCED + " ='')  AND " + TrainedStaffContract.SingleTSC.COLUMN_STATUS + " =?";
 
         String[] whereArgs = new String[]{"1"};
 
@@ -1164,7 +1164,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PatientSatisfactionContract.SinglePSC.COLUMN_APPVERSION,
         };
 
-        String whereClause = PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED + " is null AND " + PatientSatisfactionContract.SinglePSC.COLUMN_STATUS + " =?";
+        String whereClause = "(" + PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED + " is null or " + PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED + " ='')  AND " + PatientSatisfactionContract.SinglePSC.COLUMN_STATUS + " =?";
 
         String[] whereArgs = new String[]{"1"};
 

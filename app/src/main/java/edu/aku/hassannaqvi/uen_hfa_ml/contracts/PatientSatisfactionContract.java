@@ -102,10 +102,23 @@ public class PatientSatisfactionContract {
         json.put(SinglePSC.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
         json.put(SinglePSC.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
         json.put(SinglePSC.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
-        json.put(SinglePSC.COLUMN_SI1, this.sI1 == null ? JSONObject.NULL : this.sI1);
-        json.put(SinglePSC.COLUMN_SI2, this.sI2 == null ? JSONObject.NULL : this.sI2);
-        json.put(SinglePSC.COLUMN_SI3, this.sI3 == null ? JSONObject.NULL : this.sI3);
-        json.put(SinglePSC.COLUMN_SI4, this.sI4 == null ? JSONObject.NULL : this.sI4);
+
+        if (this.sI1 != null && !this.sI1.equals("")) {
+            json.put(SinglePSC.COLUMN_SI1, new JSONObject(this.sI1));
+        }
+
+        if (this.sI2 != null && !this.sI2.equals("")) {
+            json.put(SinglePSC.COLUMN_SI2, new JSONObject(this.sI2));
+        }
+
+        if (this.sI3 != null && !this.sI3.equals("")) {
+            json.put(SinglePSC.COLUMN_SI3, new JSONObject(this.sI3));
+        }
+
+        if (this.sI4 != null && !this.sI4.equals("")) {
+            json.put(SinglePSC.COLUMN_SI4, new JSONObject(this.sI4));
+        }
+
         json.put(SinglePSC.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
         json.put(SinglePSC.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
         json.put(SinglePSC.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
