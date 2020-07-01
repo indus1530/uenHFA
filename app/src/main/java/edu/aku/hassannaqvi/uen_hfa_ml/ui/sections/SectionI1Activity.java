@@ -242,9 +242,13 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
         }
     }
 
+
     @Override
     public void onBackPressed() {
-
-        super.onBackPressed();
+        if (SectionMainActivity.maternalCount + SectionMainActivity.paedsCount > 0) {
+            Toast.makeText(getApplicationContext(), "Back Press Not Allowed", Toast.LENGTH_LONG).show();
+        } else super.onBackPressed();
     }
+
+
 }
