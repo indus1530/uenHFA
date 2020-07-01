@@ -31,7 +31,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.validator.ValidatorClass;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.SECTION_MAIN_CHECK_FOR_END;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.psc;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.contextEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivityI;
 
 
 public class SectionI1Activity extends AppCompatActivity implements EndSectionActivity {
@@ -132,8 +132,9 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
 
     public void BtnEnd() {
-        if (!Validator.emptyCheckingContainer(this, bi.fldGrpEndForm)) return;
-        contextEndActivity(this);
+        openSectionMainActivityI(this);
+        /*if (!Validator.emptyCheckingContainer(this, bi.fldGrpEndForm)) return;
+        contextEndActivity(this);*/
     }
 
 

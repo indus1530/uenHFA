@@ -186,7 +186,7 @@ class SectionC2Activity : AppCompatActivity() {
                     run {
                         when (item.id) {
                             0 -> routingNextActivity(this::class.java)
-                            else -> startActivity(Intent(this@SectionC2Activity, SectionMainActivity::class.java))
+                            else -> if (formValidation()) startActivity(Intent(this@SectionC2Activity, SectionMainActivity::class.java))
                         }
                     }
 

@@ -80,6 +80,7 @@ public class EndingActivity extends AppCompatActivity {
                     : bi.istatusb.isChecked() ? "2"
                     : bi.istatus96.isChecked() ? "96"
                     : "0");
+            MainApp.fc.setsI(String.valueOf(SectionMainActivity.maternalCount + SectionMainActivity.paedsCount));
         } else {
             MainApp.fc.setIstatus(bi.istatusa.isChecked() ? "1"
                     : bi.istatusb.isChecked() ? "2"
