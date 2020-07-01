@@ -22,7 +22,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI3Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.psc;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivityI;
 
 
 public class SectionI3Activity extends AppCompatActivity {
@@ -125,7 +125,8 @@ public class SectionI3Activity extends AppCompatActivity {
 
 
     public void BtnEnd() {
-        openEndActivity(this, true);
+        openSectionMainActivityI(this);
+        /*openEndActivity(this, true);*/
     }
 
 

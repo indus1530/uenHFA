@@ -31,7 +31,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.validator.ValidatorClass;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.SECTION_MAIN_CHECK_FOR_END;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.psc;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.contextEndActivity;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivityI;
 
 
 public class SectionI1Activity extends AppCompatActivity implements EndSectionActivity {
@@ -49,6 +49,9 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
 
     private void setupContent() {
+
+        psc = new PatientSatisfactionContract();
+
         bi.hfType.setText(MainApp.fc.getA10().equals("1") ? getString(R.string.publicHF) : getString(R.string.privateHF));
         bi.maternalCount.setText(new StringBuilder("Maternal Entries: ").append(SectionMainActivity.maternalCount));
         bi.paedsCount.setText(new StringBuilder("Paeds Entries: ").append(SectionMainActivity.paedsCount));
@@ -132,8 +135,9 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
 
     public void BtnEnd() {
-        if (!Validator.emptyCheckingContainer(this, bi.fldGrpEndForm)) return;
-        contextEndActivity(this);
+        /*if (!Validator.emptyCheckingContainer(this, bi.fldGrpEndForm)) return;
+        contextEndActivity(this);*/
+        openSectionMainActivityI(this);
     }
 
 
@@ -154,7 +158,6 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
     private void SaveDraft() throws JSONException {
 
-        psc = new PatientSatisfactionContract();
         psc.setFormDate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
         psc.setDeviceID(MainApp.appInfo.getDeviceID());
         psc.setDevicetagID(MainApp.appInfo.getTagName());
