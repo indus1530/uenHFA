@@ -171,7 +171,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     TrainedStaffContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     TrainedStaffContract.SingleTSC.TABLE_NAME,
-                    db.getUnsyncedC2Section(), 0, uploadListAdapter, uploadlist
+                    db.getUnsyncedC2Section(), 1, uploadListAdapter, uploadlist
             ).execute();
 
 //  *******************************************************ISection*********************************
@@ -188,7 +188,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     PatientSatisfactionContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     PatientSatisfactionContract.SinglePSC.TABLE_NAME,
-                    db.getUnsyncedISection(), 0, uploadListAdapter, uploadlist
+                    db.getUnsyncedISection(), 2, uploadListAdapter, uploadlist
             ).execute();
 
 
