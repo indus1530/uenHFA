@@ -14,6 +14,9 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -104,6 +107,9 @@ public class SectionBActivity extends AppCompatActivity {
         json.put("a14", bi.a14a.isChecked() ? "1"
                 : bi.a14b.isChecked() ? "2"
                 : "-1");
+
+        json.put("moduleDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+        json.put("moduleTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
 
         json.put("a15", bi.a15a.isChecked() ? "1"
                 : bi.a15b.isChecked() ? "2"

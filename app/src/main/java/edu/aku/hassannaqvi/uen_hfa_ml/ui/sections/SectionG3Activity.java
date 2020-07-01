@@ -104,7 +104,6 @@ public class SectionG3Activity extends AppCompatActivity {
         edit01.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
@@ -112,7 +111,7 @@ public class SectionG3Activity extends AppCompatActivity {
                 if (TextUtils.isEmpty(edit01.getText()))
                     return;
                 for (EditTextPicker item : editTextsArray) {
-                    item.setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()));
+                    item.setMaxvalue(Integer.parseInt(edit01.getText().toString()));
                 }
             }
 
@@ -131,8 +130,8 @@ public class SectionG3Activity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (TextUtils.isEmpty(edit01.getText()) || TextUtils.isEmpty(editTextsArray[0].getText()) || TextUtils.isEmpty(editTextsArray[1].getText()))
                     return;
-                editTextsArray[1].setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()) - Integer.parseInt(editTextsArray[0].getText().toString().trim()));
-                editTextsArray[2].setText(String.valueOf(parseFloat(edit01.getText().toString().trim()) - (parseFloat(editTextsArray[0].getText().toString().trim()) + parseFloat(editTextsArray[1].getText().toString().trim()))));
+                editTextsArray[1].setMaxvalue(Integer.parseInt(edit01.getText().toString()) - Integer.parseInt(editTextsArray[0].getText().toString()));
+                editTextsArray[2].setText(String.valueOf(parseFloat(edit01.getText().toString()) - (parseFloat(editTextsArray[0].getText().toString()) + parseFloat(editTextsArray[1].getText().toString().trim()))));
             }
 
             @Override

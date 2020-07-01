@@ -16,6 +16,9 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -117,6 +120,9 @@ public class SectionC1Activity extends AppCompatActivity {
     private void SaveDraft() throws JSONException {
 
         JSONObject json = new JSONObject();
+
+        json.put("moduleDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+        json.put("moduleTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
 
         json.put("c01aa", bi.c01aa.getText().toString().trim().isEmpty() ? "-1" : bi.c01aa.getText().toString());
         json.put("c01ab", bi.c01ab.getText().toString().trim().isEmpty() ? "-1" : bi.c01ab.getText().toString());
