@@ -33,6 +33,8 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.SyncListAdapter;
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.UploadListAdapter;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TrainedStaffContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySyncBinding;
@@ -155,6 +157,39 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     db.getUnsyncedForms(), 0, uploadListAdapter, uploadlist
             ).execute();
 
+//  *******************************************************C2Section*********************************
+            Toast.makeText(getApplicationContext(), "Syncing C2Section", Toast.LENGTH_SHORT).show();
+            if (uploadlistActivityCreated) {
+                uploadmodel = new SyncModel();
+                uploadmodel.setstatusID(0);
+                uploadlist.add(uploadmodel);
+            }
+            new SyncAllData(
+                    this,
+                    "C2SECTION",
+                    "updateSyncedC2Section",
+                    TrainedStaffContract.class,
+                    MainApp._HOST_URL + MainApp._SERVER_URL,
+                    TrainedStaffContract.SingleTSC.TABLE_NAME,
+                    db.getUnsyncedC2Section(), 0, uploadListAdapter, uploadlist
+            ).execute();
+
+//  *******************************************************ISection*********************************
+            Toast.makeText(getApplicationContext(), "Syncing ISection", Toast.LENGTH_SHORT).show();
+            if (uploadlistActivityCreated) {
+                uploadmodel = new SyncModel();
+                uploadmodel.setstatusID(0);
+                uploadlist.add(uploadmodel);
+            }
+            new SyncAllData(
+                    this,
+                    "ISECTION",
+                    "updateSyncedISection",
+                    PatientSatisfactionContract.class,
+                    MainApp._HOST_URL + MainApp._SERVER_URL,
+                    PatientSatisfactionContract.SinglePSC.TABLE_NAME,
+                    db.getUnsyncedISection(), 0, uploadListAdapter, uploadlist
+            ).execute();
 
 
             bi.noDataItem.setVisibility(View.GONE);

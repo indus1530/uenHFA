@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.uen_hfa_ml.sync;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -26,12 +27,16 @@ import edu.aku.hassannaqvi.uen_hfa_ml.adapter.UploadListAdapter;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.otherClasses.SyncModel;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by ali.azaz on 3/14/2018.
  */
 
 public class SyncAllData extends AsyncTask<Void, Integer, String> {
 
+    SharedPreferences sharedPref;
+    SharedPreferences.Editor editor;
     private UploadListAdapter adapter;
     private List<SyncModel> uploadlist;
     private int position;
@@ -41,6 +46,7 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
     private String syncClass, url, tableName, updateSyncClass;
     private Class contractClass;
     private Collection dbData;
+    private DatabaseHelper db;
 
     public SyncAllData(Context mContext, String syncClass, String updateSyncClass, Class contractClass, String url,
                        String tableName, Collection dbData, int position, UploadListAdapter adapter, List<SyncModel> uploadlist) {
@@ -70,6 +76,8 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
         uploadlist.get(position).setmessage("");
         adapter.updatesyncList(uploadlist);
         //syncStatus.setText(syncStatus.getText() + "\r\nSyncing " + syncClass);
+        sharedPref = mContext.getSharedPreferences("src", MODE_PRIVATE);
+
     }
 
 
@@ -175,7 +183,8 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
                     connection.disconnect();
             }
         } else {
-            return "No new records to sync";
+
+            return "No new records to sync.";
         }
         return line;
     }
@@ -187,10 +196,13 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
         int sDuplicate = 0;
         StringBuilder sSyncedError = new StringBuilder();
         JSONArray json;
+
+
         try {
+            Log.d(TAG, "onPostExecute: " + result);
             json = new JSONArray(result);
 
-            DatabaseHelper db = new DatabaseHelper(mContext); // Database Helper
+            db = new DatabaseHelper(mContext); // Database Helper
 
             Method method = null;
             for (Method method1 : db.getClass().getDeclaredMethods()) {
@@ -246,9 +258,11 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
 
             pd.setMessage(result);
             pd.setTitle(syncClass + " Sync Failed");
-//            pd.show();
-            if (result.equals("No new records to sync")) {
-                uploadlist.get(position).setmessage(result);
+//            pd.show(); m
+            if (result.equals("No new records to sync.")) {
+                //Collection<FormsContract> unclosedForms = db.getUnclosedForms();
+
+                uploadlist.get(position).setmessage(result /*+ " Open Forms" + String.format("%02d", unclosedForms.size())*/);
                 uploadlist.get(position).setstatus("Not processed");
                 uploadlist.get(position).setstatusID(4);
                 adapter.updatesyncList(uploadlist);

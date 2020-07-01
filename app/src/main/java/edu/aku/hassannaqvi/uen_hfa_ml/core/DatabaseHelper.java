@@ -777,6 +777,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public void updateSyncedC2Section(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_SYNCED, true);
+        values.put(TrainedStaffContract.SingleTSC.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = TrainedStaffContract.SingleTSC.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                TrainedStaffContract.SingleTSC.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+    public void updateSyncedISection(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED, true);
+        values.put(PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = PatientSatisfactionContract.SinglePSC.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                PatientSatisfactionContract.SinglePSC.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
     public int updateFormID() {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -1003,10 +1043,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_APPVERSION,
         };
 
+        String whereClause = FormsTable.COLUMN_SYNCED + " is null AND " + FormsTable.COLUMN_ISTATUS + " =?";
 
-        String whereClause = FormsTable.COLUMN_SYNCED + " is null";
-
-        String[] whereArgs = null;
+        String[] whereArgs = new String[]{"1"};
 
         String groupBy = null;
         String having = null;
@@ -1028,6 +1067,127 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 FormsContract fc = new FormsContract();
                 allFC.add(fc.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
+    }
+
+
+    public Collection<TrainedStaffContract> getUnsyncedC2Section() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                TrainedStaffContract.SingleTSC._ID,
+                TrainedStaffContract.SingleTSC.COLUMN_UID,
+                TrainedStaffContract.SingleTSC.COLUMN_UUID,
+                TrainedStaffContract.SingleTSC.COLUMN_FORMDATE,
+                TrainedStaffContract.SingleTSC.COLUMN_SERIALNO,
+                TrainedStaffContract.SingleTSC.COLUMN_DISTRICT_CODE,
+                TrainedStaffContract.SingleTSC.COLUMN_TEHSIL_CODE,
+                TrainedStaffContract.SingleTSC.COLUMN_UC_CODE,
+                TrainedStaffContract.SingleTSC.COLUMN_HF_CODE,
+                TrainedStaffContract.SingleTSC.COLUMN_SC2,
+                TrainedStaffContract.SingleTSC.COLUMN_DEVICEID,
+                TrainedStaffContract.SingleTSC.COLUMN_DEVICETAGID,
+                TrainedStaffContract.SingleTSC.COLUMN_STATUS,
+                TrainedStaffContract.SingleTSC.COLUMN_SYNCED,
+                TrainedStaffContract.SingleTSC.COLUMN_SYNCED_DATE,
+                TrainedStaffContract.SingleTSC.COLUMN_APPVERSION,
+        };
+
+        String whereClause = TrainedStaffContract.SingleTSC.COLUMN_SYNCED + " is null AND " + TrainedStaffContract.SingleTSC.COLUMN_STATUS + " =?";
+
+        String[] whereArgs = new String[]{"1"};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                TrainedStaffContract.SingleTSC.COLUMN_ID + " ASC";
+
+        Collection<TrainedStaffContract> allFC = new ArrayList<TrainedStaffContract>();
+        try {
+            c = db.query(
+                    TrainedStaffContract.SingleTSC.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                TrainedStaffContract tsc = new TrainedStaffContract();
+                allFC.add(tsc.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
+    }
+
+
+    public Collection<PatientSatisfactionContract> getUnsyncedISection() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                PatientSatisfactionContract.SinglePSC._ID,
+                PatientSatisfactionContract.SinglePSC.COLUMN_UID,
+                PatientSatisfactionContract.SinglePSC.COLUMN_UUID,
+                PatientSatisfactionContract.SinglePSC.COLUMN_FORMDATE,
+                PatientSatisfactionContract.SinglePSC.COLUMN_SERIALNO,
+                PatientSatisfactionContract.SinglePSC.COLUMN_DISTRICT_CODE,
+                PatientSatisfactionContract.SinglePSC.COLUMN_TEHSIL_CODE,
+                PatientSatisfactionContract.SinglePSC.COLUMN_UC_CODE,
+                PatientSatisfactionContract.SinglePSC.COLUMN_HF_CODE,
+                PatientSatisfactionContract.SinglePSC.COLUMN_SI1,
+                PatientSatisfactionContract.SinglePSC.COLUMN_SI2,
+                PatientSatisfactionContract.SinglePSC.COLUMN_SI3,
+                PatientSatisfactionContract.SinglePSC.COLUMN_SI4,
+                PatientSatisfactionContract.SinglePSC.COLUMN_DEVICEID,
+                PatientSatisfactionContract.SinglePSC.COLUMN_DEVICETAGID,
+                PatientSatisfactionContract.SinglePSC.COLUMN_STATUS,
+                PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED,
+                PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED_DATE,
+                PatientSatisfactionContract.SinglePSC.COLUMN_APPVERSION,
+        };
+
+        String whereClause = PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED + " is null AND " + PatientSatisfactionContract.SinglePSC.COLUMN_STATUS + " =?";
+
+        String[] whereArgs = new String[]{"1"};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                PatientSatisfactionContract.SinglePSC.COLUMN_ID + " ASC";
+
+        Collection<PatientSatisfactionContract> allFC = new ArrayList<PatientSatisfactionContract>();
+        try {
+            c = db.query(
+                    PatientSatisfactionContract.SinglePSC.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                PatientSatisfactionContract psc = new PatientSatisfactionContract();
+                allFC.add(psc.hydrate(c));
             }
         } finally {
             if (c != null) {

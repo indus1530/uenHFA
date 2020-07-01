@@ -219,16 +219,48 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_A11, this.a11 == null ? JSONObject.NULL : this.a11);
         json.put(FormsTable.COLUMN_A12, this.a12 == null ? JSONObject.NULL : this.a12);
         json.put(FormsTable.COLUMN_A13, this.a13 == null ? JSONObject.NULL : this.a13);
-        json.put(FormsTable.COLUMN_SB, this.sB == null ? JSONObject.NULL : this.sB);
-        json.put(FormsTable.COLUMN_SC, this.sC == null ? JSONObject.NULL : this.sC);
-        json.put(FormsTable.COLUMN_SD, this.sD == null ? JSONObject.NULL : this.sD);
-        json.put(FormsTable.COLUMN_SE, this.sE == null ? JSONObject.NULL : this.sE);
-        json.put(FormsTable.COLUMN_SF, this.sF == null ? JSONObject.NULL : this.sF);
-        json.put(FormsTable.COLUMN_SG, this.sG == null ? JSONObject.NULL : this.sG);
-        json.put(FormsTable.COLUMN_SH, this.sH == null ? JSONObject.NULL : this.sH);
-        json.put(FormsTable.COLUMN_SI, this.sI == null ? JSONObject.NULL : this.sI);
-        json.put(FormsTable.COLUMN_SJ, this.sJ == null ? JSONObject.NULL : this.sJ);
-        json.put(FormsTable.COLUMN_SK, this.sK == null ? JSONObject.NULL : this.sK);
+
+        if (this.sB != null && !this.sB.equals("")) {
+            json.put(FormsTable.COLUMN_SB, new JSONObject(this.sB));
+        }
+
+        if (this.sC != null && !this.sC.equals("")) {
+            json.put(FormsTable.COLUMN_SC, new JSONObject(this.sC));
+        }
+
+        if (this.sD != null && !this.sD.equals("")) {
+            json.put(FormsTable.COLUMN_SD, new JSONObject(this.sD));
+        }
+
+        if (this.sE != null && !this.sE.equals("")) {
+            json.put(FormsTable.COLUMN_SE, new JSONObject(this.sE));
+        }
+
+        if (this.sF != null && !this.sF.equals("")) {
+            json.put(FormsTable.COLUMN_SF, new JSONObject(this.sF));
+        }
+
+        if (this.sG != null && !this.sG.equals("")) {
+            json.put(FormsTable.COLUMN_SG, new JSONObject(this.sG));
+        }
+
+        if (this.sH != null && !this.sH.equals("")) {
+            json.put(FormsTable.COLUMN_SH, new JSONObject(this.sH));
+        }
+
+        if (this.sI != null && !this.sI.equals("")) {
+            json.put(FormsTable.COLUMN_SI, new JSONObject(this.sI));
+        }
+
+        if (this.sJ != null && !this.sJ.equals("")) {
+            json.put(FormsTable.COLUMN_SJ, new JSONObject(this.sJ));
+        }
+
+        if (this.sK != null && !this.sK.equals("")) {
+            json.put(FormsTable.COLUMN_SK, new JSONObject(this.sK));
+        }
+
+
         json.put(FormsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(FormsTable.COLUMN_ISTATUS88x, this.istatus88x == null ? JSONObject.NULL : this.istatus88x);
         json.put(FormsTable.COLUMN_ENDINGDATETIME, this.endingdatetime == null ? JSONObject.NULL : this.endingdatetime);
