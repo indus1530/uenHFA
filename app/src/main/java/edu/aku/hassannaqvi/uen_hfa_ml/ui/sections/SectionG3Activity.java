@@ -65,11 +65,11 @@ public class SectionG3Activity extends AppCompatActivity {
         bi.g0301aa.setText("January");
         bi.g0301ab.setText("2020");
 
-        bi.g0301aa.setText("February");
-        bi.g0301ab.setText("2020");
+        bi.g0301ba.setText("February");
+        bi.g0301bb.setText("2020");
 
-        bi.g0301aa.setText("March");
-        bi.g0301ab.setText("2020");
+        bi.g0301ca.setText("March");
+        bi.g0301cb.setText("2020");
 
     }
 
