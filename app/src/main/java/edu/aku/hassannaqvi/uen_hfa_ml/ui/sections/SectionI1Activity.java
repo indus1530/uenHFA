@@ -91,18 +91,18 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (TextUtils.isEmpty(bi.i0106a.getText()))
+                    return;
+                if (bi.i0108a.isChecked() && Integer.parseInt(bi.i0106a.getText().toString()) == 5) {
+                    bi.i0106b.setMaxvalue(0);
+                }
+                if (bi.i0108b.isChecked() && Integer.parseInt(bi.i0106a.getText().toString()) == 49) {
+                    bi.i0106b.setMaxvalue(0);
+                }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if (TextUtils.isEmpty(bi.i0106a.getText()))
-                    return;
-                if (bi.i0108a.isChecked() && Integer.parseInt(bi.i0106a.getText().toString()) == 49) {
-                    bi.i0106b.setMaxvalue(0);
-                }
-                if (bi.i0108b.isChecked() && Integer.parseInt(bi.i0106a.getText().toString()) == 5) {
-                    bi.i0106b.setMaxvalue(0);
-                }
             }
         });
 
