@@ -33,8 +33,8 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.SyncListAdapter;
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.UploadListAdapter;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TrainedStaffContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleCContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySyncBinding;
@@ -158,7 +158,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             ).execute();
 
 //  *******************************************************C2Section*********************************
-            Toast.makeText(getApplicationContext(), "Syncing C2Section", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Syncing ModuleC", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
                 uploadmodel.setstatusID(0);
@@ -166,16 +166,16 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             }
             new SyncAllData(
                     this,
-                    "C2SECTION",
+                    "ModuleC",
                     "updateSyncedC2Section",
-                    TrainedStaffContract.class,
+                    ModuleCContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
-                    TrainedStaffContract.SingleTSC.TABLE_NAME,
-                    db.getUnsyncedC2Section(), 1, uploadListAdapter, uploadlist
+                    ModuleCContract.ModuleC.TABLE_NAME,
+                    db.getUnsyncedModuleC(), 1, uploadListAdapter, uploadlist
             ).execute();
 
 //  *******************************************************ISection*********************************
-            Toast.makeText(getApplicationContext(), "Syncing ISection", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Syncing ModuleI", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
                 uploadmodel.setstatusID(0);
@@ -183,12 +183,12 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             }
             new SyncAllData(
                     this,
-                    "ISECTION",
+                    "ModuleI",
                     "updateSyncedISection",
-                    PatientSatisfactionContract.class,
+                    ModuleIContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
-                    PatientSatisfactionContract.SinglePSC.TABLE_NAME,
-                    db.getUnsyncedISection(), 2, uploadListAdapter, uploadlist
+                    ModuleIContract.ModuleI.TABLE_NAME,
+                    db.getUnsyncedModuleI(), 2, uploadListAdapter, uploadlist
             ).execute();
 
 

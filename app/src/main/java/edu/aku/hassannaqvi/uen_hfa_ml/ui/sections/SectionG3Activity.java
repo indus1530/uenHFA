@@ -128,10 +128,12 @@ public class SectionG3Activity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (TextUtils.isEmpty(edit01.getText()) || TextUtils.isEmpty(editTextsArray[0].getText()) || TextUtils.isEmpty(editTextsArray[1].getText()))
+                if (TextUtils.isEmpty(edit01.getText()) || TextUtils.isEmpty(editTextsArray[0].getText()))
                     return;
+                editTextsArray[1].setText("");
+                editTextsArray[2].setText("");
                 editTextsArray[1].setMaxvalue(Integer.parseInt(edit01.getText().toString()) - Integer.parseInt(editTextsArray[0].getText().toString()));
-                editTextsArray[2].setText(String.valueOf(parseFloat(edit01.getText().toString()) - (parseFloat(editTextsArray[0].getText().toString()) + parseFloat(editTextsArray[1].getText().toString().trim()))));
+                //editTextsArray[2].setText(String.valueOf(parseFloat(edit01.getText().toString()) - (parseFloat(editTextsArray[0].getText().toString()) + parseFloat(editTextsArray[1].getText().toString().trim()))));
             }
 
             @Override

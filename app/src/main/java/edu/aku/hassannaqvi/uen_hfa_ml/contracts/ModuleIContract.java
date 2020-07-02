@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Created by hassan.naqvi on 11/30/2016.
  */
 
-public class PatientSatisfactionContract {
+public class ModuleIContract {
 
 
     private String _ID = "";
@@ -34,56 +34,56 @@ public class PatientSatisfactionContract {
     private String sI4;
 
 
-    public PatientSatisfactionContract() {
+    public ModuleIContract() {
     }
 
 
-    public PatientSatisfactionContract Sync(JSONObject jsonObject) throws JSONException {
-        this._ID = jsonObject.getString(SinglePSC.COLUMN_ID);
-        this._UID = jsonObject.getString(SinglePSC.COLUMN_UID);
-        this._UUID = jsonObject.getString(SinglePSC.COLUMN_UUID);
-        this.formDate = jsonObject.getString(SinglePSC.COLUMN_FORMDATE);
-        this.serialno = jsonObject.getString(SinglePSC.COLUMN_SERIALNO);
-        this.districtCode = jsonObject.getString(SinglePSC.COLUMN_DISTRICT_CODE);
-        this.tehsilCode = jsonObject.getString(SinglePSC.COLUMN_TEHSIL_CODE);
-        this.ucCode = jsonObject.getString(SinglePSC.COLUMN_UC_CODE);
-        this.hfCode = jsonObject.getString(SinglePSC.COLUMN_HF_CODE);
-        this.sI1 = jsonObject.getString(SinglePSC.COLUMN_SI1);
-        this.sI2 = jsonObject.getString(SinglePSC.COLUMN_SI2);
-        this.sI3 = jsonObject.getString(SinglePSC.COLUMN_SI3);
-        this.sI4 = jsonObject.getString(SinglePSC.COLUMN_SI4);
-        this.deviceID = jsonObject.getString(SinglePSC.COLUMN_DEVICEID);
-        this.devicetagID = jsonObject.getString(SinglePSC.COLUMN_DEVICETAGID);
-        this.synced = jsonObject.getString(SinglePSC.COLUMN_SYNCED);
-        this.synced_date = jsonObject.getString(SinglePSC.COLUMN_SYNCED_DATE);
-        this.status = jsonObject.getString(SinglePSC.COLUMN_STATUS);
-        this.appversion = jsonObject.getString(SinglePSC.COLUMN_APPVERSION);
+    public ModuleIContract Sync(JSONObject jsonObject) throws JSONException {
+        this._ID = jsonObject.getString(ModuleI.COLUMN_ID);
+        this._UID = jsonObject.getString(ModuleI.COLUMN_UID);
+        this._UUID = jsonObject.getString(ModuleI.COLUMN_UUID);
+        this.formDate = jsonObject.getString(ModuleI.COLUMN_FORMDATE);
+        this.serialno = jsonObject.getString(ModuleI.COLUMN_SERIALNO);
+        this.districtCode = jsonObject.getString(ModuleI.COLUMN_DISTRICT_CODE);
+        this.tehsilCode = jsonObject.getString(ModuleI.COLUMN_TEHSIL_CODE);
+        this.ucCode = jsonObject.getString(ModuleI.COLUMN_UC_CODE);
+        this.hfCode = jsonObject.getString(ModuleI.COLUMN_HF_CODE);
+        this.sI1 = jsonObject.getString(ModuleI.COLUMN_SI1);
+        this.sI2 = jsonObject.getString(ModuleI.COLUMN_SI2);
+        this.sI3 = jsonObject.getString(ModuleI.COLUMN_SI3);
+        this.sI4 = jsonObject.getString(ModuleI.COLUMN_SI4);
+        this.deviceID = jsonObject.getString(ModuleI.COLUMN_DEVICEID);
+        this.devicetagID = jsonObject.getString(ModuleI.COLUMN_DEVICETAGID);
+        this.synced = jsonObject.getString(ModuleI.COLUMN_SYNCED);
+        this.synced_date = jsonObject.getString(ModuleI.COLUMN_SYNCED_DATE);
+        this.status = jsonObject.getString(ModuleI.COLUMN_STATUS);
+        this.appversion = jsonObject.getString(ModuleI.COLUMN_APPVERSION);
 
         return this;
 
     }
 
 
-    public PatientSatisfactionContract hydrate(Cursor cursor) {
-        this._ID = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_ID));
-        this._UID = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_UID));
-        this._UUID = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_UUID));
-        this.formDate = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_FORMDATE));
-        this.serialno = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SERIALNO));
-        this.districtCode = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_DISTRICT_CODE));
-        this.tehsilCode = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_TEHSIL_CODE));
-        this.ucCode = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_UC_CODE));
-        this.hfCode = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_HF_CODE));
-        this.sI1 = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SI1));
-        this.sI2 = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SI2));
-        this.sI3 = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SI3));
-        this.sI4 = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SI4));
-        this.deviceID = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_DEVICEID));
-        this.devicetagID = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_DEVICETAGID));
-        this.synced = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SYNCED));
-        this.synced_date = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_SYNCED_DATE));
-        this.status = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_STATUS));
-        this.appversion = cursor.getString(cursor.getColumnIndex(SinglePSC.COLUMN_APPVERSION));
+    public ModuleIContract hydrate(Cursor cursor) {
+        this._ID = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_ID));
+        this._UID = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_UID));
+        this._UUID = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_UUID));
+        this.formDate = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_FORMDATE));
+        this.serialno = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_SERIALNO));
+        this.districtCode = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_DISTRICT_CODE));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_TEHSIL_CODE));
+        this.ucCode = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_UC_CODE));
+        this.hfCode = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_HF_CODE));
+        this.sI1 = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_SI1));
+        this.sI2 = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_SI2));
+        this.sI3 = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_SI3));
+        this.sI4 = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_SI4));
+        this.deviceID = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_DEVICEID));
+        this.devicetagID = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_DEVICETAGID));
+        this.synced = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_SYNCED));
+        this.synced_date = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_SYNCED_DATE));
+        this.status = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_STATUS));
+        this.appversion = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_APPVERSION));
 
         return this;
     }
@@ -93,38 +93,38 @@ public class PatientSatisfactionContract {
 
         JSONObject json = new JSONObject();
 
-        json.put(SinglePSC.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
-        json.put(SinglePSC.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
-        json.put(SinglePSC.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
-        json.put(SinglePSC.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
-        json.put(SinglePSC.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
-        json.put(SinglePSC.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
-        json.put(SinglePSC.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
-        json.put(SinglePSC.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
-        json.put(SinglePSC.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
+        json.put(ModuleI.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(ModuleI.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
+        json.put(ModuleI.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
+        json.put(ModuleI.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
+        json.put(ModuleI.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
+        json.put(ModuleI.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
+        json.put(ModuleI.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
+        json.put(ModuleI.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
+        json.put(ModuleI.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
 
         if (this.sI1 != null && !this.sI1.equals("")) {
-            json.put(SinglePSC.COLUMN_SI1, new JSONObject(this.sI1));
+            json.put(ModuleI.COLUMN_SI1, new JSONObject(this.sI1));
         }
 
         if (this.sI2 != null && !this.sI2.equals("")) {
-            json.put(SinglePSC.COLUMN_SI2, new JSONObject(this.sI2));
+            json.put(ModuleI.COLUMN_SI2, new JSONObject(this.sI2));
         }
 
         if (this.sI3 != null && !this.sI3.equals("")) {
-            json.put(SinglePSC.COLUMN_SI3, new JSONObject(this.sI3));
+            json.put(ModuleI.COLUMN_SI3, new JSONObject(this.sI3));
         }
 
         if (this.sI4 != null && !this.sI4.equals("")) {
-            json.put(SinglePSC.COLUMN_SI4, new JSONObject(this.sI4));
+            json.put(ModuleI.COLUMN_SI4, new JSONObject(this.sI4));
         }
 
-        json.put(SinglePSC.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
-        json.put(SinglePSC.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
-        json.put(SinglePSC.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
-        json.put(SinglePSC.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
-        json.put(SinglePSC.COLUMN_STATUS, this.status == null ? JSONObject.NULL : this.status);
-        json.put(SinglePSC.COLUMN_APPVERSION, this.appversion == null ? JSONObject.NULL : this.appversion);
+        json.put(ModuleI.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
+        json.put(ModuleI.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
+        json.put(ModuleI.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
+        json.put(ModuleI.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
+        json.put(ModuleI.COLUMN_STATUS, this.status == null ? JSONObject.NULL : this.status);
+        json.put(ModuleI.COLUMN_APPVERSION, this.appversion == null ? JSONObject.NULL : this.appversion);
 
         return json;
     }
@@ -301,9 +301,9 @@ public class PatientSatisfactionContract {
     }
 
 
-    public static abstract class SinglePSC implements BaseColumns {
+    public static abstract class ModuleI implements BaseColumns {
 
-        public static final String TABLE_NAME = "ISECTION";
+        public static final String TABLE_NAME = "ModuleI";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";

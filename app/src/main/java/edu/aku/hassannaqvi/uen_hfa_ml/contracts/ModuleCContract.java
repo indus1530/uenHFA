@@ -10,7 +10,7 @@ import org.json.JSONObject;
  * Created by hassan.naqvi on 11/30/2016.
  */
 
-public class TrainedStaffContract {
+public class ModuleCContract {
 
 
     private String _ID = "";
@@ -31,50 +31,50 @@ public class TrainedStaffContract {
     private String sC2;
 
 
-    public TrainedStaffContract() {
+    public ModuleCContract() {
     }
 
 
-    public TrainedStaffContract Sync(JSONObject jsonObject) throws JSONException {
-        this._ID = jsonObject.getString(SingleTSC.COLUMN_ID);
-        this._UID = jsonObject.getString(SingleTSC.COLUMN_UID);
-        this._UUID = jsonObject.getString(SingleTSC.COLUMN_UUID);
-        this.formDate = jsonObject.getString(SingleTSC.COLUMN_FORMDATE);
-        this.serialno = jsonObject.getString(SingleTSC.COLUMN_SERIALNO);
-        this.districtCode = jsonObject.getString(SingleTSC.COLUMN_DISTRICT_CODE);
-        this.tehsilCode = jsonObject.getString(SingleTSC.COLUMN_TEHSIL_CODE);
-        this.ucCode = jsonObject.getString(SingleTSC.COLUMN_UC_CODE);
-        this.hfCode = jsonObject.getString(SingleTSC.COLUMN_HF_CODE);
-        this.sC2 = jsonObject.getString(SingleTSC.COLUMN_SC2);
-        this.deviceID = jsonObject.getString(SingleTSC.COLUMN_DEVICEID);
-        this.devicetagID = jsonObject.getString(SingleTSC.COLUMN_DEVICETAGID);
-        this.synced = jsonObject.getString(SingleTSC.COLUMN_SYNCED);
-        this.synced_date = jsonObject.getString(SingleTSC.COLUMN_SYNCED_DATE);
-        this.status = jsonObject.getString(SingleTSC.COLUMN_STATUS);
-        this.appversion = jsonObject.getString(SingleTSC.COLUMN_APPVERSION);
+    public ModuleCContract Sync(JSONObject jsonObject) throws JSONException {
+        this._ID = jsonObject.getString(ModuleC.COLUMN_ID);
+        this._UID = jsonObject.getString(ModuleC.COLUMN_UID);
+        this._UUID = jsonObject.getString(ModuleC.COLUMN_UUID);
+        this.formDate = jsonObject.getString(ModuleC.COLUMN_FORMDATE);
+        this.serialno = jsonObject.getString(ModuleC.COLUMN_SERIALNO);
+        this.districtCode = jsonObject.getString(ModuleC.COLUMN_DISTRICT_CODE);
+        this.tehsilCode = jsonObject.getString(ModuleC.COLUMN_TEHSIL_CODE);
+        this.ucCode = jsonObject.getString(ModuleC.COLUMN_UC_CODE);
+        this.hfCode = jsonObject.getString(ModuleC.COLUMN_HF_CODE);
+        this.sC2 = jsonObject.getString(ModuleC.COLUMN_SC2);
+        this.deviceID = jsonObject.getString(ModuleC.COLUMN_DEVICEID);
+        this.devicetagID = jsonObject.getString(ModuleC.COLUMN_DEVICETAGID);
+        this.synced = jsonObject.getString(ModuleC.COLUMN_SYNCED);
+        this.synced_date = jsonObject.getString(ModuleC.COLUMN_SYNCED_DATE);
+        this.status = jsonObject.getString(ModuleC.COLUMN_STATUS);
+        this.appversion = jsonObject.getString(ModuleC.COLUMN_APPVERSION);
 
         return this;
 
     }
 
 
-    public TrainedStaffContract hydrate(Cursor cursor) {
-        this._ID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_ID));
-        this._UID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_UID));
-        this._UUID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_UUID));
-        this.formDate = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_FORMDATE));
-        this.serialno = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_SERIALNO));
-        this.districtCode = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_DISTRICT_CODE));
-        this.tehsilCode = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_TEHSIL_CODE));
-        this.ucCode = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_UC_CODE));
-        this.hfCode = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_HF_CODE));
-        this.sC2 = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_SC2));
-        this.deviceID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_DEVICEID));
-        this.devicetagID = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_DEVICETAGID));
-        this.synced = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_SYNCED));
-        this.synced_date = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_SYNCED_DATE));
-        this.status = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_STATUS));
-        this.appversion = cursor.getString(cursor.getColumnIndex(SingleTSC.COLUMN_APPVERSION));
+    public ModuleCContract hydrate(Cursor cursor) {
+        this._ID = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_ID));
+        this._UID = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_UID));
+        this._UUID = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_UUID));
+        this.formDate = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_FORMDATE));
+        this.serialno = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_SERIALNO));
+        this.districtCode = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_DISTRICT_CODE));
+        this.tehsilCode = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_TEHSIL_CODE));
+        this.ucCode = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_UC_CODE));
+        this.hfCode = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_HF_CODE));
+        this.sC2 = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_SC2));
+        this.deviceID = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_DEVICEID));
+        this.devicetagID = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_DEVICETAGID));
+        this.synced = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_SYNCED));
+        this.synced_date = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_SYNCED_DATE));
+        this.status = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_STATUS));
+        this.appversion = cursor.getString(cursor.getColumnIndex(ModuleC.COLUMN_APPVERSION));
 
         return this;
     }
@@ -84,26 +84,26 @@ public class TrainedStaffContract {
 
         JSONObject json = new JSONObject();
 
-        json.put(SingleTSC.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
-        json.put(SingleTSC.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
-        json.put(SingleTSC.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
-        json.put(SingleTSC.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
-        json.put(SingleTSC.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
-        json.put(SingleTSC.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
-        json.put(SingleTSC.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
-        json.put(SingleTSC.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
-        json.put(SingleTSC.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
+        json.put(ModuleC.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(ModuleC.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
+        json.put(ModuleC.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
+        json.put(ModuleC.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
+        json.put(ModuleC.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
+        json.put(ModuleC.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
+        json.put(ModuleC.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
+        json.put(ModuleC.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
+        json.put(ModuleC.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
 
         if (this.sC2 != null && !this.sC2.equals("")) {
-            json.put(SingleTSC.COLUMN_SC2, new JSONObject(this.sC2));
+            json.put(ModuleC.COLUMN_SC2, new JSONObject(this.sC2));
         }
 
-        json.put(SingleTSC.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
-        json.put(SingleTSC.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
-        json.put(SingleTSC.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
-        json.put(SingleTSC.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
-        json.put(SingleTSC.COLUMN_STATUS, this.status == null ? JSONObject.NULL : this.status);
-        json.put(SingleTSC.COLUMN_APPVERSION, this.appversion == null ? JSONObject.NULL : this.appversion);
+        json.put(ModuleC.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
+        json.put(ModuleC.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
+        json.put(ModuleC.COLUMN_SYNCED, this.synced == null ? JSONObject.NULL : this.synced);
+        json.put(ModuleC.COLUMN_SYNCED_DATE, this.synced_date == null ? JSONObject.NULL : this.synced_date);
+        json.put(ModuleC.COLUMN_STATUS, this.status == null ? JSONObject.NULL : this.status);
+        json.put(ModuleC.COLUMN_APPVERSION, this.appversion == null ? JSONObject.NULL : this.appversion);
 
         return json;
     }
@@ -253,9 +253,9 @@ public class TrainedStaffContract {
     }
 
 
-    public static abstract class SingleTSC implements BaseColumns {
+    public static abstract class ModuleC implements BaseColumns {
 
-        public static final String TABLE_NAME = "C2SECTION";
+        public static final String TABLE_NAME = "ModuleC";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";

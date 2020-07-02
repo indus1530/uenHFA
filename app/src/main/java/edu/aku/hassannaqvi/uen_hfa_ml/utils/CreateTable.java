@@ -3,9 +3,9 @@ package edu.aku.hassannaqvi.uen_hfa_ml.utils;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.HFContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleCContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TehsilsContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TrainedStaffContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UsersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
@@ -66,46 +66,46 @@ public final class CreateTable {
             + " );";
 
 
-    public static final String SQL_CREATE_TSCONTRACT = "CREATE TABLE " + TrainedStaffContract.SingleTSC.TABLE_NAME + "("
-            + TrainedStaffContract.SingleTSC._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_UID + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_UUID + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_FORMDATE + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_SERIALNO + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_DISTRICT_CODE + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_TEHSIL_CODE + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_UC_CODE + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_HF_CODE + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_SC2 + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_DEVICEID + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_DEVICETAGID + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_SYNCED + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_SYNCED_DATE + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_STATUS + " TEXT,"
-            + TrainedStaffContract.SingleTSC.COLUMN_APPVERSION + " TEXT"
+    public static final String SQL_CREATE_TSCONTRACT = "CREATE TABLE " + ModuleCContract.ModuleC.TABLE_NAME + "("
+            + ModuleCContract.ModuleC._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + ModuleCContract.ModuleC.COLUMN_UID + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_UUID + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_FORMDATE + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_SERIALNO + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_DISTRICT_CODE + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_TEHSIL_CODE + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_UC_CODE + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_HF_CODE + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_SC2 + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_DEVICEID + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_DEVICETAGID + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_SYNCED + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_SYNCED_DATE + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_STATUS + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_APPVERSION + " TEXT"
             + " );";
 
 
-    public static final String SQL_CREATE_PSCONTRACT = "CREATE TABLE " + PatientSatisfactionContract.SinglePSC.TABLE_NAME + "("
-            + PatientSatisfactionContract.SinglePSC._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_UID + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_UUID + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_FORMDATE + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_SERIALNO + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_DISTRICT_CODE + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_TEHSIL_CODE + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_UC_CODE + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_HF_CODE + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_SI1 + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_SI2 + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_SI3 + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_SI4 + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_DEVICEID + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_DEVICETAGID + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_SYNCED_DATE + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_STATUS + " TEXT,"
-            + PatientSatisfactionContract.SinglePSC.COLUMN_APPVERSION + " TEXT"
+    public static final String SQL_CREATE_PSCONTRACT = "CREATE TABLE " + ModuleIContract.ModuleI.TABLE_NAME + "("
+            + ModuleIContract.ModuleI._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + ModuleIContract.ModuleI.COLUMN_UID + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_UUID + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_FORMDATE + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_SERIALNO + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_DISTRICT_CODE + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_TEHSIL_CODE + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_UC_CODE + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_HF_CODE + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_SI1 + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_SI2 + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_SI3 + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_SI4 + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_DEVICEID + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_DEVICETAGID + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_SYNCED + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_SYNCED_DATE + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_STATUS + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_APPVERSION + " TEXT"
             + " );";
 
 

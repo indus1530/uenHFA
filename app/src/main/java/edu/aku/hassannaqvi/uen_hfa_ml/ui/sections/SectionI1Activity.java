@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI1Binding;
@@ -50,7 +50,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
     private void setupContent() {
 
-        psc = new PatientSatisfactionContract();
+        psc = new ModuleIContract();
 
         bi.hfType.setText(MainApp.fc.getA10().equals("1") ? getString(R.string.publicHF) : getString(R.string.privateHF));
         bi.maternalCount.setText(new StringBuilder("Maternal Entries: ").append(SectionMainActivity.maternalCount));
@@ -147,7 +147,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
         psc.set_ID(String.valueOf(updcount));
         if (updcount > 0) {
             psc.set_UID(psc.getDeviceID() + psc.get_ID());
-            db.updatesPSCColumn(PatientSatisfactionContract.SinglePSC.COLUMN_UID, psc.get_UID());
+            db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_UID, psc.get_UID());
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();

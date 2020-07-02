@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientSatisfactionContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI2Binding;
@@ -80,7 +80,7 @@ public class SectionI2Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesPSCColumn(PatientSatisfactionContract.SinglePSC.COLUMN_SI2, psc.getsI2());
+        int updcount = db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_SI2, psc.getsI2());
         if (updcount == 1) {
             return true;
         } else {
