@@ -53,6 +53,10 @@ public class FormsContract {
     private String devicetagID = "";
     private String synced = "";
     private String synced_date = "";
+    private String synced02 = "";
+    private String synced_date02 = "";
+    private String synced03 = "";
+    private String synced_date03 = "";
     private String appversion = "";
     private String districtCode = "";
     private String districtType = "";
@@ -96,7 +100,7 @@ public class FormsContract {
     }
 
 
-    public FormsContract Sync(JSONObject jsonObject) throws JSONException {
+   /* public FormsContract Sync(JSONObject jsonObject) throws JSONException {
         this._ID = jsonObject.getString(FormsTable.COLUMN_ID);
         this._UID = jsonObject.getString(FormsTable.COLUMN_UID);
         this.userName = jsonObject.getString(FormsTable.COLUMN_USERNAME);
@@ -128,8 +132,6 @@ public class FormsContract {
         this.sI = jsonObject.getString(FormsTable.COLUMN_SI);
         this.sJ = jsonObject.getString(FormsTable.COLUMN_SJ);
         this.sK = jsonObject.getString(FormsTable.COLUMN_SK);
-        this.istatus = jsonObject.getString(FormsTable.COLUMN_ISTATUS);
-        this.istatus88x = jsonObject.getString(FormsTable.COLUMN_ISTATUS88x);
         this.endingdatetime = jsonObject.getString(FormsTable.COLUMN_ENDINGDATETIME);
         this.gpsLat = jsonObject.getString(FormsTable.COLUMN_GPSLAT);
         this.gpsLng = jsonObject.getString(FormsTable.COLUMN_GPSLNG);
@@ -140,11 +142,13 @@ public class FormsContract {
         this.synced = jsonObject.getString(FormsTable.COLUMN_SYNCED);
         this.synced_date = jsonObject.getString(FormsTable.COLUMN_SYNCED_DATE);
         this.appversion = jsonObject.getString(FormsTable.COLUMN_SYNCED_DATE);
+        this.istatus = jsonObject.getString(FormsTable.COLUMN_ISTATUS);
+        this.istatus88x = jsonObject.getString(FormsTable.COLUMN_ISTATUS88x);
 
 
         return this;
 
-    }
+    }*/
 
 
     public FormsContract hydrate(Cursor cursor) {
@@ -208,6 +212,14 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
         json.put(FormsTable.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
         json.put(FormsTable.COLUMN_HF_NAME, this.hfName == null ? JSONObject.NULL : this.hfName);
+
+        json.put(FormsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
+        json.put(FormsTable.COLUMN_ISTATUS88x, this.istatus88x == null ? JSONObject.NULL : this.istatus88x);
+        json.put(FormsTable.COLUMN_ENDINGDATETIME, this.endingdatetime == null ? JSONObject.NULL : this.endingdatetime);
+        json.put(FormsTable.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
+        json.put(FormsTable.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
+        json.put(FormsTable.COLUMN_APPVERSION, this.appversion == null ? JSONObject.NULL : this.appversion);
+
         json.put(FormsTable.COLUMN_A01, this.a01 == null ? JSONObject.NULL : this.a01);
         json.put(FormsTable.COLUMN_A03D, this.a03d == null ? JSONObject.NULL : this.a03d);
         json.put(FormsTable.COLUMN_A03M, this.a03m == null ? JSONObject.NULL : this.a03m);
@@ -219,6 +231,10 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_A11, this.a11 == null ? JSONObject.NULL : this.a11);
         json.put(FormsTable.COLUMN_A12, this.a12 == null ? JSONObject.NULL : this.a12);
         json.put(FormsTable.COLUMN_A13, this.a13 == null ? JSONObject.NULL : this.a13);
+        json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
+        json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
+        json.put(FormsTable.COLUMN_GPSDATE, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
+        json.put(FormsTable.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
 
         if (this.sB != null && !this.sB.equals("")) {
             json.put(FormsTable.COLUMN_SB, new JSONObject(this.sB));
@@ -240,6 +256,33 @@ public class FormsContract {
             json.put(FormsTable.COLUMN_SF, new JSONObject(this.sF));
         }
 
+
+        return json;
+    }
+
+    public JSONObject toJSONObject02() throws JSONException {
+
+        JSONObject json = new JSONObject();
+
+        json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
+        json.put(FormsTable.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
+        json.put(FormsTable.COLUMN_FORMDATE, this.formdate == null ? JSONObject.NULL : this.formdate);
+        json.put(FormsTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
+        json.put(FormsTable.COLUMN_DISTRICT_TYPE, this.districtType == null ? JSONObject.NULL : this.districtType);
+        json.put(FormsTable.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
+        json.put(FormsTable.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
+        json.put(FormsTable.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
+        json.put(FormsTable.COLUMN_HF_NAME, this.hfName == null ? JSONObject.NULL : this.hfName);
+
+        json.put(FormsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
+        json.put(FormsTable.COLUMN_ISTATUS88x, this.istatus88x == null ? JSONObject.NULL : this.istatus88x);
+        json.put(FormsTable.COLUMN_ENDINGDATETIME, this.endingdatetime == null ? JSONObject.NULL : this.endingdatetime);
+        json.put(FormsTable.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
+        json.put(FormsTable.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
+        json.put(FormsTable.COLUMN_APPVERSION, this.appversion == null ? JSONObject.NULL : this.appversion);
+
+
         if (this.sG != null && !this.sG.equals("")) {
             json.put(FormsTable.COLUMN_SG, new JSONObject(this.sG));
         }
@@ -260,17 +303,34 @@ public class FormsContract {
             json.put(FormsTable.COLUMN_SK, new JSONObject(this.sK));
         }
 
+        return json;
+    }
+
+    public JSONObject toJSONObject03() throws JSONException {
+
+        JSONObject json = new JSONObject();
+
+        json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
+        json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
+        json.put(FormsTable.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
+        json.put(FormsTable.COLUMN_FORMDATE, this.formdate == null ? JSONObject.NULL : this.formdate);
+        json.put(FormsTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
+        json.put(FormsTable.COLUMN_DISTRICT_TYPE, this.districtType == null ? JSONObject.NULL : this.districtType);
+        json.put(FormsTable.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
+        json.put(FormsTable.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
+        json.put(FormsTable.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
+        json.put(FormsTable.COLUMN_HF_NAME, this.hfName == null ? JSONObject.NULL : this.hfName);
 
         json.put(FormsTable.COLUMN_ISTATUS, this.istatus == null ? JSONObject.NULL : this.istatus);
         json.put(FormsTable.COLUMN_ISTATUS88x, this.istatus88x == null ? JSONObject.NULL : this.istatus88x);
         json.put(FormsTable.COLUMN_ENDINGDATETIME, this.endingdatetime == null ? JSONObject.NULL : this.endingdatetime);
-        json.put(FormsTable.COLUMN_GPSLAT, this.gpsLat == null ? JSONObject.NULL : this.gpsLat);
-        json.put(FormsTable.COLUMN_GPSLNG, this.gpsLng == null ? JSONObject.NULL : this.gpsLng);
-        json.put(FormsTable.COLUMN_GPSDATE, this.gpsDT == null ? JSONObject.NULL : this.gpsDT);
-        json.put(FormsTable.COLUMN_GPSACC, this.gpsAcc == null ? JSONObject.NULL : this.gpsAcc);
         json.put(FormsTable.COLUMN_DEVICEID, this.deviceID == null ? JSONObject.NULL : this.deviceID);
         json.put(FormsTable.COLUMN_DEVICETAGID, this.devicetagID == null ? JSONObject.NULL : this.devicetagID);
         json.put(FormsTable.COLUMN_APPVERSION, this.appversion == null ? JSONObject.NULL : this.appversion);
+
+        if (this.sK != null && !this.sK.equals("")) {
+            json.put(FormsTable.COLUMN_SK, new JSONObject(this.sK));
+        }
 
         return json;
     }
@@ -658,6 +718,21 @@ public class FormsContract {
         this.synced_date = synced_date;
     }
 
+    public String getSynced02() {
+        return synced02;
+    }
+
+    public void setSynced02(String synced02) {
+        this.synced02 = synced02;
+    }
+
+    public String getSynced_date02() {
+        return synced_date02;
+    }
+
+    public void setSynced_date02(String synced_date02) {
+        this.synced_date02 = synced_date02;
+    }
 
     public static abstract class FormsTable implements BaseColumns {
 
@@ -706,6 +781,10 @@ public class FormsContract {
         public static final String COLUMN_DEVICETAGID = "tagid";
         public static final String COLUMN_SYNCED = "synced";
         public static final String COLUMN_SYNCED_DATE = "synced_date";
+        public static final String COLUMN_SYNCED_02 = "synced_02";
+        public static final String COLUMN_SYNCED_DATE_02 = "synced_date_02";
+        public static final String COLUMN_SYNCED_03 = "synced_03";
+        public static final String COLUMN_SYNCED_DATE_03 = "synced_date_03";
         public static final String COLUMN_APPVERSION = "appversion";
 
 

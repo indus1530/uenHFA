@@ -141,21 +141,24 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
 
             new SyncDevice(this, false).execute();
 //  *******************************************************Forms*********************************
-            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            if (uploadlistActivityCreated) {
-                uploadmodel = new SyncModel();
-                uploadmodel.setstatusID(0);
-                uploadlist.add(uploadmodel);
+            String[] unsyncedString = {"updateSyncedForms", "updateSyncedForms02", "updateSyncedForms03"};
+            for (int i = 1; i <= 3; i++) {
+                Toast.makeText(getApplicationContext(), "Syncing Forms (" + i + "/3)", Toast.LENGTH_SHORT).show();
+                if (uploadlistActivityCreated) {
+                    uploadmodel = new SyncModel();
+                    uploadmodel.setstatusID(0);
+                    uploadlist.add(uploadmodel);
+                }
+                new SyncAllData(
+                        this,
+                        "Forms Forms (" + i + "/3)",
+                        unsyncedString[i - 1],
+                        FormsContract.class,
+                        MainApp._HOST_URL + MainApp._SERVER_URL,
+                        FormsContract.FormsTable.TABLE_NAME + String.format("%02d", i),
+                        db.getUnsyncedForms(i), i - 1, uploadListAdapter, uploadlist
+                ).execute();
             }
-            new SyncAllData(
-                    this,
-                    "Forms",
-                    "updateSyncedForms",
-                    FormsContract.class,
-                    MainApp._HOST_URL + MainApp._SERVER_URL,
-                    FormsContract.FormsTable.TABLE_NAME,
-                    db.getUnsyncedForms(), 0, uploadListAdapter, uploadlist
-            ).execute();
 
 //  *******************************************************C2Section*********************************
             Toast.makeText(getApplicationContext(), "Syncing ModuleC", Toast.LENGTH_SHORT).show();
@@ -171,7 +174,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     ModuleCContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     ModuleCContract.ModuleC.TABLE_NAME,
-                    db.getUnsyncedModuleC(), 1, uploadListAdapter, uploadlist
+                    db.getUnsyncedModuleC(), 3, uploadListAdapter, uploadlist
             ).execute();
 
 //  *******************************************************ISection*********************************
@@ -188,7 +191,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     ModuleIContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     ModuleIContract.ModuleI.TABLE_NAME,
-                    db.getUnsyncedModuleI(), 2, uploadListAdapter, uploadlist
+                    db.getUnsyncedModuleI(), 4, uploadListAdapter, uploadlist
             ).execute();
 
 
@@ -218,9 +221,9 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
 
             String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
 
-            if (dt != new SimpleDateFormat("dd-MM-yy").format(new Date())) {
+            if (!dt.equals(new SimpleDateFormat("dd-MM-yy").format(new Date()))) {
                 editor.putString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
-                editor.commit();
+                editor.apply();
             }
 
             File folder = new File(Environment.getExternalStorageDirectory() + File.separator + PROJECT_NAME);
@@ -292,27 +295,27 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
 
 
 //                  getting Users!!
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
-                    new GetAllData(mContext, "User", syncListAdapter, list).execute();
+                if (listActivityCreated) {
+                    model = new SyncModel();
+                    model.setstatusID(0);
+                    list.add(model);
+                }
+                new GetAllData(mContext, "User", syncListAdapter, list).execute();
 
 //                    Getting App Version
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
-                    new GetAllData(mContext, "VersionApp", syncListAdapter, list).execute();
+                if (listActivityCreated) {
+                    model = new SyncModel();
+                    model.setstatusID(0);
+                    list.add(model);
+                }
+                new GetAllData(mContext, "VersionApp", syncListAdapter, list).execute();
 
 //                    Getting Districts
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
+                if (listActivityCreated) {
+                    model = new SyncModel();
+                    model.setstatusID(0);
+                    list.add(model);
+                }
                 new GetAllData(mContext, "Districts", syncListAdapter, list).execute();
 
 //                    Getting Tehsils
@@ -324,11 +327,11 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                 new GetAllData(mContext, "Tehsils", syncListAdapter, list).execute();
 
 //                    Getting UCs
-                    if (listActivityCreated) {
-                        model = new SyncModel();
-                        model.setstatusID(0);
-                        list.add(model);
-                    }
+                if (listActivityCreated) {
+                    model = new SyncModel();
+                    model.setstatusID(0);
+                    list.add(model);
+                }
                 new GetAllData(mContext, "UCs", syncListAdapter, list).execute();
 
 //                    Getting HealthFacilities

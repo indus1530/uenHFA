@@ -134,7 +134,7 @@ class SectionC2Activity : AppCompatActivity() {
             bi.c021dg.isChecked -> "96"
             else -> "-1"
         })
-        json.put("c021dgx ", if (bi.c021dgx.text.toString().trim().isEmpty()) "-1" else bi.c021dgx.text.toString())
+        json.put("c021dgx", if (bi.c021dgx.text.toString().trim().isEmpty()) "-1" else bi.c021dgx.text.toString())
 
         json.put("c021e", if (bi.c021e.text.toString().trim().isEmpty()) "-1" else bi.c021e.text.toString())
 

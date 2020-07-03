@@ -195,8 +195,7 @@ public class SectionAActivity extends AppCompatActivity {
         bi.a13.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                if (i == 0) return;
-//                Toast.makeText(SectionAActivity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
+                //                Toast.makeText(SectionAActivity.this, String.valueOf(hfCodes.get(bi.a13.getSelectedItemPosition())), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -258,15 +257,19 @@ public class SectionAActivity extends AppCompatActivity {
         fc.setA03y(bi.a03y.getText().toString().trim().isEmpty() ? "-1" : bi.a03y.getText().toString());
 
         fc.setDistrictCode(districtCodes.get(bi.a07.getSelectedItemPosition()));
+        fc.setA07(districtCodes.get(bi.a07.getSelectedItemPosition()));
         fc.setDistrictType(districtTypes.get(bi.a07.getSelectedItemPosition()));
 
-        fc.setTehsilCode(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
-
         fc.setUcCode(ucCodes.get(bi.a09.getSelectedItemPosition()));
-
-        fc.setA07(districtCodes.get(bi.a07.getSelectedItemPosition()));
-        fc.setA08(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
         fc.setA09(ucCodes.get(bi.a09.getSelectedItemPosition()));
+
+        fc.setTehsilCode(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
+        fc.setA08(tehsilCodes.get(bi.a08.getSelectedItemPosition()));
+
+        fc.setHfCode(hfMap.get(bi.a13.getSelectedItem().toString()));
+        fc.setHfName(bi.a13.getSelectedItem().toString());
+        fc.setA12(hfMap.get(bi.a13.getSelectedItem().toString()));
+        fc.setA13(bi.a13.getSelectedItem().toString());
 
         fc.setA10(bi.a10a.isChecked() ? "1"
                 : bi.a10b.isChecked() ? "2"
@@ -275,12 +278,6 @@ public class SectionAActivity extends AppCompatActivity {
         fc.setA11(bi.a11a.isChecked() ? "1"
                 : bi.a11b.isChecked() ? "2"
                 : "-1");
-
-        fc.setHfCode(hfMap.get(bi.a13.getSelectedItem().toString()));
-        fc.setHfName(bi.a13.getSelectedItem().toString());
-
-        fc.setA12(hfMap.get(bi.a13.getSelectedItem().toString()));
-        fc.setA13(bi.a13.getSelectedItem().toString());
 
         MainApp.setGPS(this); // Set GPS
     }

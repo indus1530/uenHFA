@@ -15,7 +15,7 @@ public final class CreateTable {
     public static final String DATABASE_NAME = "uen_hfa_ml.db";
     public static final String DB_NAME = "uen_hfa_ml_copy.db";
     public static final String PROJECT_NAME = "UEN_HFA_ML2020";
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
 
     public static final String SQL_CREATE_FORMS = "CREATE TABLE "
             + FormsContract.FormsTable.TABLE_NAME + "("
@@ -62,8 +62,20 @@ public final class CreateTable {
             + FormsContract.FormsTable.COLUMN_DEVICEID + " TEXT,"
             + FormsContract.FormsTable.COLUMN_DEVICETAGID + " TEXT,"
             + FormsContract.FormsTable.COLUMN_SYNCED + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_SYNCED_DATE + " TEXT"
+            + FormsContract.FormsTable.COLUMN_SYNCED_DATE + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SYNCED_02 + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SYNCED_DATE_02 + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SYNCED_03 + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SYNCED_DATE_03 + " TEXT"
             + " );";
+
+    public static final String SQL_ALTER_FORMS01 = "ALTER TABLE " +
+            FormsContract.FormsTable.TABLE_NAME + " ADD COLUMN " +
+            FormsContract.FormsTable.COLUMN_SYNCED_03 + " TEXT";
+
+    public static final String SQL_ALTER_FORMS02 = "ALTER TABLE " +
+            FormsContract.FormsTable.TABLE_NAME + " ADD COLUMN " +
+            FormsContract.FormsTable.COLUMN_SYNCED_DATE_03 + " TEXT";
 
 
     public static final String SQL_CREATE_TSCONTRACT = "CREATE TABLE " + ModuleCContract.ModuleC.TABLE_NAME + "("

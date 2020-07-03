@@ -30,6 +30,8 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_VERSION;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_ALTER_FORMS01;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_ALTER_FORMS02;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_DISTRICTS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_HF;
@@ -75,6 +77,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        switch (i) {
+            case 1:
+                db.execSQL(SQL_ALTER_FORMS01);
+                db.execSQL(SQL_ALTER_FORMS02);
+        }
     }
 
 
@@ -777,6 +784,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public void updateSyncedForms02(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_SYNCED_02, true);
+        values.put(FormsTable.COLUMN_SYNCED_DATE_02, new Date().toString());
+
+// Which row to update, based on the title
+        String where = FormsTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                FormsTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+    public void updateSyncedForms03(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(FormsTable.COLUMN_SYNCED_03, true);
+        values.put(FormsTable.COLUMN_SYNCED_DATE_03, new Date().toString());
+
+// Which row to update, based on the title
+        String where = FormsTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                FormsTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
     public void updateSyncedC2Section(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -996,7 +1043,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<FormsContract> getUnsyncedForms() {
+    public Collection<FormsContract> getUnsyncedForms(int formType) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -1043,17 +1090,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_APPVERSION,
         };
 
-        String whereClause = FormsTable.COLUMN_SYNCED + " is null AND " + FormsTable.COLUMN_ISTATUS + " =?";
+        String whereClause;
+        switch (formType) {
+            case 1:
+                whereClause = FormsTable.COLUMN_SYNCED + " is null AND " + FormsTable.COLUMN_ISTATUS + "=?";
+                break;
+            case 2:
+                whereClause = FormsTable.COLUMN_SYNCED_02 + " is null AND " + FormsTable.COLUMN_ISTATUS + "=?";
+                break;
+            case 3:
+                whereClause = FormsTable.COLUMN_SYNCED_03 + " is null AND " + FormsTable.COLUMN_ISTATUS + "=?";
+                break;
+            default:
+                whereClause = "(" + FormsTable.COLUMN_SYNCED + " is null or " + FormsTable.COLUMN_SYNCED_02 + " is null or " + FormsTable.COLUMN_SYNCED_03 + " is null) AND " + FormsTable.COLUMN_ISTATUS + "=?";
+
+        }
+//        String whereClause = "(" + FormsTable.COLUMN_SYNCED + " is null or " + FormsTable.COLUMN_SYNCED_02 + " is null) " + " AND FormsTable.COLUMN_ISTATUS =?";
 
         String[] whereArgs = new String[]{"1"};
 
         String groupBy = null;
         String having = null;
 
-        String orderBy =
-                FormsTable.COLUMN_ID + " ASC";
+        String orderBy = FormsTable.COLUMN_ID + " ASC";
 
-        Collection<FormsContract> allFC = new ArrayList<FormsContract>();
+        Collection<FormsContract> allFC = new ArrayList<>();
         try {
             c = db.query(
                     FormsTable.TABLE_NAME,  // The table to query

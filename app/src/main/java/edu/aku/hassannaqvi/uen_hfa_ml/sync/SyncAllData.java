@@ -33,7 +33,7 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by ali.azaz on 3/14/2018.
  */
 
-public class SyncAllData extends AsyncTask<Void, Integer, String> {
+public class SyncAllData extends AsyncTask<Boolean, Integer, String> {
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
@@ -47,6 +47,7 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
     private Class contractClass;
     private Collection dbData;
     private DatabaseHelper db;
+    private boolean form02_flag = true;
 
     public SyncAllData(Context mContext, String syncClass, String updateSyncClass, Class contractClass, String url,
                        String tableName, Collection dbData, int position, UploadListAdapter adapter, List<SyncModel> uploadlist) {
@@ -82,8 +83,12 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
 
 
     @Override
-    protected String doInBackground(Void... params) {
+    protected String doInBackground(Boolean... params) {
         Log.d(TAG, "doInBackground: URL " + url);
+
+        if (params.length != 0) {
+            form02_flag = params[0];
+        }
 
         return downloadUrl(contractClass);
     }
@@ -135,7 +140,8 @@ public class SyncAllData extends AsyncTask<Void, Integer, String> {
                         while (contractClass != null) {
                             for (Method method : contractClass.getDeclaredMethods()) {
                                 String methodName = method.getName();
-                                if (methodName.equals("toJSONObject")) {
+
+                                if (methodName.equals(form02_flag ? "toJSONObject" : "toJSONObject02")) {
                                     for (Object fc : DBData) {
                                         jsonSync.put(fc.getClass().getMethod(methodName).invoke(fc));
                                     }

@@ -297,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
         Collection<FormsContract> todaysForms = db.getTodayForms();
-        Collection<FormsContract> unsyncedForms = db.getUnsyncedForms();
+        Collection<FormsContract> unsyncedForms = db.getUnsyncedForms(0);
 
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
 
