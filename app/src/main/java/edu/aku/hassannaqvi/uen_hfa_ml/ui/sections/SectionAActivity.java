@@ -27,6 +27,11 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.HFContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleGContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleJContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleKContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TehsilsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -35,6 +40,11 @@ import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionABinding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modg;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modi;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modj;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modk;
 
 public class SectionAActivity extends AppCompatActivity {
 
@@ -61,6 +71,11 @@ public class SectionAActivity extends AppCompatActivity {
     private void initializingComponents() {
         // Databinding Edit Mode (only in first activity for every contract)
         fc = new FormsContract();
+        modg = new ModuleGContract();
+        modh = new ModuleHContract();
+        modi = new ModuleIContract();
+        modj = new ModuleJContract();
+        modk = new ModuleKContract();
         db = MainApp.appInfo.getDbHelper();
         populateSpinner(this);
     }

@@ -17,13 +17,17 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionD1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionE1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionF1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionG1Activity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH16Activity;
-import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH2Activity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH15Activity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionK1Activity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modg;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modj;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modk;
 
 public class SectionMainActivity extends AppCompatActivity {
     ActivitySectionMainBinding bi;
@@ -35,6 +39,12 @@ public class SectionMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_main);
         bi.setCallback(this);
+
+        /*if(modg.get_ID() == null) modg = new ModuleGContract();
+        if(modh.get_ID() == null) modh = new ModuleHContract();
+        if(modi.get_ID() == null) modi = new ModuleIContract();
+        if(modj.get_ID() == null) modj = new ModuleJContract();
+        if(modk.get_ID() == null) modk = new ModuleKContract();*/
 
 
         if (fc.getsB() != null) {
@@ -62,27 +72,27 @@ public class SectionMainActivity extends AppCompatActivity {
             bi.form05.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (fc.getsG() != null) {
+        if (modg.getsG() != null) {
             bi.form06.setEnabled(false);
             bi.form06.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (fc.getsH() != null) {
+        if (modh.getsH() != null) {
             bi.form07.setEnabled(false);
             bi.form07.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (MainApp.fc.getsI() != null) {
+        if (MainApp.modi.getsI1() != null) {
             bi.form08.setEnabled(false);
             bi.form08.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (fc.getsJ() != null) {
+        if (modj.getsJ() != null) {
             bi.form09.setEnabled(false);
             bi.form09.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (fc.getsK() != null) {
+        if (modk.getsK() != null) {
             bi.form10.setEnabled(false);
             bi.form10.setBackgroundResource(R.color.dullWhite);
         }
@@ -160,7 +170,7 @@ public class SectionMainActivity extends AppCompatActivity {
                     oF = new Intent(this, SectionG1Activity.class);
                     break;
                 case R.id.form07:
-                    oF = new Intent(this, fc.getA10().equals("2") ? SectionH16Activity.class : SectionH2Activity.class);
+                    oF = new Intent(this, fc.getA10().equals("2") ? SectionH15Activity.class : SectionH1Activity.class);
                     break;
                 case R.id.form08:
                     maternalCount = 0;

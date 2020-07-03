@@ -17,15 +17,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH9Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
-
 
 public class SectionH9Activity extends AppCompatActivity {
 
@@ -42,11 +41,12 @@ public class SectionH9Activity extends AppCompatActivity {
 
 
     private void setupSkips() {
-        bi.h0901.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.h0901b.getId()) {
-                Clear.clearAllFields(bi.fldGrpSech901);
+        bi.h1001.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1001b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSech1001);
             }
         }));
+
 
     }
 
@@ -69,7 +69,7 @@ public class SectionH9Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
+        int updcount = db.updatesMHColumn(ModuleHContract.ModuleH.COLUMN_SH, modh.getsH());
         if (updcount == 1) {
             return true;
         } else {
@@ -83,26 +83,22 @@ public class SectionH9Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h0901", bi.h0901a.isChecked() ? "1"
-                : bi.h0901b.isChecked() ? "2"
+        json.put("h1001", bi.h1001a.isChecked() ? "1"
+                : bi.h1001b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0902a", bi.h0902aa.isChecked() ? "1"
-                : bi.h0902ab.isChecked() ? "2"
+        json.put("h1002a", bi.h1002aa.isChecked() ? "1"
+                : bi.h1002ab.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0902b", bi.h0902ba.isChecked() ? "1"
-                : bi.h0902bb.isChecked() ? "2"
-                : "-1");
-
-        json.put("h0902c", bi.h0902ca.isChecked() ? "1"
-                : bi.h0902cb.isChecked() ? "2"
+        json.put("h1002b", bi.h1002ba.isChecked() ? "1"
+                : bi.h1002bb.isChecked() ? "2"
                 : "-1");
 
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modh.getsH()), json);
 
-            fc.setsH(String.valueOf(json_merge));
+            modh.setsH(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();

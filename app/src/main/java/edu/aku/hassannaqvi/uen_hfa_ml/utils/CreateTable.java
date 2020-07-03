@@ -4,7 +4,11 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.HFContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleCContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleGContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleJContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleKContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TehsilsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UsersContract;
@@ -46,11 +50,6 @@ public final class CreateTable {
             + FormsContract.FormsTable.COLUMN_SD + " TEXT,"
             + FormsContract.FormsTable.COLUMN_SE + " TEXT,"
             + FormsContract.FormsTable.COLUMN_SF + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_SG + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_SH + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_SI + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_SJ + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_SK + " TEXT,"
             + FormsContract.FormsTable.COLUMN_APPVERSION + " TEXT,"
             + FormsContract.FormsTable.COLUMN_ISTATUS + " TEXT,"
             + FormsContract.FormsTable.COLUMN_ISTATUS88x + " TEXT,"
@@ -66,7 +65,7 @@ public final class CreateTable {
             + " );";
 
 
-    public static final String SQL_CREATE_TSCONTRACT = "CREATE TABLE " + ModuleCContract.ModuleC.TABLE_NAME + "("
+    public static final String SQL_CREATE_MODULEC = "CREATE TABLE " + ModuleCContract.ModuleC.TABLE_NAME + "("
             + ModuleCContract.ModuleC._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + ModuleCContract.ModuleC.COLUMN_UID + " TEXT,"
             + ModuleCContract.ModuleC.COLUMN_UUID + " TEXT,"
@@ -86,7 +85,47 @@ public final class CreateTable {
             + " );";
 
 
-    public static final String SQL_CREATE_PSCONTRACT = "CREATE TABLE " + ModuleIContract.ModuleI.TABLE_NAME + "("
+    public static final String SQL_CREATE_MODULEG = "CREATE TABLE " + ModuleGContract.ModuleG.TABLE_NAME + "("
+            + ModuleGContract.ModuleG._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + ModuleGContract.ModuleG.COLUMN_UID + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_UUID + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_FORMDATE + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_SERIALNO + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_DISTRICT_CODE + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_TEHSIL_CODE + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_UC_CODE + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_HF_CODE + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_SG + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_DEVICEID + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_DEVICETAGID + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_SYNCED + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_SYNCED_DATE + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_STATUS + " TEXT,"
+            + ModuleGContract.ModuleG.COLUMN_APPVERSION + " TEXT"
+            + " );";
+
+
+    public static final String SQL_CREATE_MODULEH = "CREATE TABLE " + ModuleHContract.ModuleH.TABLE_NAME + "("
+            + ModuleHContract.ModuleH._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + ModuleHContract.ModuleH.COLUMN_UID + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_UUID + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_FORMDATE + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_SERIALNO + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_DISTRICT_CODE + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_TEHSIL_CODE + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_UC_CODE + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_HF_CODE + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_SH + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_DEVICEID + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_DEVICETAGID + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_SYNCED + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_SYNCED_DATE + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_STATUS + " TEXT,"
+            + ModuleHContract.ModuleH.COLUMN_APPVERSION + " TEXT"
+            + " );";
+
+
+    public static final String SQL_CREATE_MODULEI = "CREATE TABLE " + ModuleIContract.ModuleI.TABLE_NAME + "("
             + ModuleIContract.ModuleI._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + ModuleIContract.ModuleI.COLUMN_UID + " TEXT,"
             + ModuleIContract.ModuleI.COLUMN_UUID + " TEXT,"
@@ -106,6 +145,46 @@ public final class CreateTable {
             + ModuleIContract.ModuleI.COLUMN_SYNCED_DATE + " TEXT,"
             + ModuleIContract.ModuleI.COLUMN_STATUS + " TEXT,"
             + ModuleIContract.ModuleI.COLUMN_APPVERSION + " TEXT"
+            + " );";
+
+
+    public static final String SQL_CREATE_MODULEJ = "CREATE TABLE " + ModuleJContract.ModuleJ.TABLE_NAME + "("
+            + ModuleJContract.ModuleJ._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + ModuleJContract.ModuleJ.COLUMN_UID + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_UUID + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_FORMDATE + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_SERIALNO + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_DISTRICT_CODE + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_TEHSIL_CODE + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_UC_CODE + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_HF_CODE + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_SJ + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_DEVICEID + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_DEVICETAGID + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_SYNCED + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_SYNCED_DATE + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_STATUS + " TEXT,"
+            + ModuleJContract.ModuleJ.COLUMN_APPVERSION + " TEXT"
+            + " );";
+
+
+    public static final String SQL_CREATE_MODULEK = "CREATE TABLE " + ModuleKContract.ModuleK.TABLE_NAME + "("
+            + ModuleKContract.ModuleK._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + ModuleKContract.ModuleK.COLUMN_UID + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_UUID + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_FORMDATE + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_SERIALNO + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_DISTRICT_CODE + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_TEHSIL_CODE + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_UC_CODE + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_HF_CODE + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_SK + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_DEVICEID + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_DEVICETAGID + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_SYNCED + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_SYNCED_DATE + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_STATUS + " TEXT,"
+            + ModuleKContract.ModuleK.COLUMN_APPVERSION + " TEXT"
             + " );";
 
 

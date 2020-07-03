@@ -16,13 +16,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH4Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 
@@ -58,7 +58,7 @@ public class SectionH4Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
+        int updcount = db.updatesMHColumn(ModuleHContract.ModuleH.COLUMN_SH, modh.getsH());
         if (updcount == 1) {
             return true;
         } else {
@@ -72,18 +72,18 @@ public class SectionH4Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h0401", bi.h0401a.isChecked() ? "1"
-                : bi.h0401b.isChecked() ? "2"
-                : bi.h0401c.isChecked() ? "3"
-                : bi.h0401d.isChecked() ? "4"
-                : bi.h0401x.isChecked() ? "96"
+        json.put("h0501", bi.h0501a.isChecked() ? "1"
+                : bi.h0501b.isChecked() ? "2"
+                : bi.h0501c.isChecked() ? "3"
+                : bi.h0501x.isChecked() ? "96"
                 : "-1");
-        json.put("h0401xx", bi.h0401xx.getText().toString().trim().isEmpty() ? "-1" : bi.h0401xx.getText().toString());
+
+        json.put("h0501xx", bi.h0501xx.getText().toString().trim().isEmpty() ? "-1" : bi.h0501xx.getText().toString());
 
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modh.getsH()), json);
 
-            fc.setsH(String.valueOf(json_merge));
+            modh.setsH(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -94,6 +94,7 @@ public class SectionH4Activity extends AppCompatActivity {
 
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
+
     }
 
 

@@ -83,11 +83,10 @@ fun openSectionMainActivity(activity: Activity, item: String) {
             "D" -> MainApp.fc.setsD(null)
             "E" -> MainApp.fc.setsE(null)
             "F" -> MainApp.fc.setsF(null)
-            "G" -> MainApp.fc.setsG(null)
-            "H" -> MainApp.fc.setsH(null)
-            "I" -> MainApp.fc.setsI(null)
-            "J" -> MainApp.fc.setsJ(null)
-            "K" -> MainApp.fc.setsK(null)
+            "G" -> MainApp.modg.setsG(null)
+            "H" -> MainApp.modh.setsH(null)
+            "J" -> MainApp.modj.setsJ(null)
+            "K" -> MainApp.modk.setsK(null)
         }
 
         activity.finish()
@@ -111,11 +110,10 @@ fun openSectionMainActivityI(activity: Activity) {
     dialog.window!!.attributes = params
     dialog.findViewById<View>(R.id.btnOk).setOnClickListener { view: View? ->
 
-        if (MainApp.fc.getsI() != null) MainApp.fc.setsI(null)
-        if (MainApp.psc.getsI1() != null) MainApp.psc.setsI1(null)
-        if (MainApp.psc.getsI2() != null) MainApp.psc.setsI2(null)
-        if (MainApp.psc.getsI3() != null) MainApp.psc.setsI3(null)
-        if (MainApp.psc.getsI4() != null) MainApp.psc.setsI4(null)
+        if (MainApp.modi.getsI1() != null) MainApp.modi.setsI1(null)
+        if (MainApp.modi.getsI2() != null) MainApp.modi.setsI2(null)
+        if (MainApp.modi.getsI3() != null) MainApp.modi.setsI3(null)
+        if (MainApp.modi.getsI4() != null) MainApp.modi.setsI4(null)
 
         activity.finish()
         val intent = Intent(activity, SectionMainActivity::class.java)

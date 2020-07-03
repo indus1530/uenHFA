@@ -17,24 +17,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH153Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH143Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
-public class SectionH153Activity extends AppCompatActivity {
+public class SectionH143Activity extends AppCompatActivity {
 
-    ActivitySectionH153Binding bi;
+    ActivitySectionH143Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h153);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h143);
         bi.setCallback(this);
         setupSkips();
 
@@ -313,7 +313,7 @@ public class SectionH153Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, fc.getsH());
+        int updcount = db.updatesMHColumn(ModuleHContract.ModuleH.COLUMN_SH, modh.getsH());
         if (updcount == 1) {
             return true;
         } else {
@@ -496,10 +496,11 @@ public class SectionH153Activity extends AppCompatActivity {
 
         json.put("h1501z0dn", bi.h1501z0dn.getText().toString());
 
-        try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
 
-            fc.setsH(String.valueOf(json_merge));
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modh.getsH()), json);
+
+            modh.setsH(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();

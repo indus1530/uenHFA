@@ -23,13 +23,13 @@ import java.util.Collections;
 import java.util.List;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleGContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG3Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modg;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon1;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon2;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.setMon3;
@@ -197,7 +197,7 @@ public class SectionG3Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
+        int updcount = db.updatesMGColumn(ModuleGContract.ModuleG.COLUMN_SG, modg.getsG());
         if (updcount == 1) {
             return true;
         } else {
@@ -329,9 +329,9 @@ public class SectionG3Activity extends AppCompatActivity {
         json.put("g0302c70b", bi.g0302c70b.getText().toString().trim().isEmpty() ? "-1" : bi.g0302c70b.getText().toString());
 
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsG()), json);
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modg.getsG()), json);
 
-            MainApp.fc.setsG(String.valueOf(json_merge));
+            modg.setsG(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();

@@ -2,6 +2,9 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
@@ -9,6 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -16,13 +20,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH13Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 public class SectionH13Activity extends AppCompatActivity {
@@ -34,6 +38,39 @@ public class SectionH13Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h13);
         bi.setCallback(this);
+        setupTextWatchers();
+
+    }
+
+
+    private void setupTextWatchers() {
+        editTextImplementation(bi.h1401aa, bi.h1401ab);
+        editTextImplementation(bi.h1401ba, bi.h1401bb);
+        editTextImplementation(bi.h1401ca, bi.h1401cb);
+        editTextImplementation(bi.h1401da, bi.h1401db);
+        editTextImplementation(bi.h1401ea, bi.h1401eb);
+    }
+
+
+    public void editTextImplementation(EditTextPicker edit01, EditTextPicker edit02) {
+
+        edit01.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (TextUtils.isEmpty(edit01.getText()))
+                    return;
+                edit02.setMaxvalue(Integer.parseInt(edit01.getText().toString().trim()));
+            }
+        });
 
     }
 
@@ -47,7 +84,7 @@ public class SectionH13Activity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            startActivity(new Intent(this, SectionH14Activity.class));
+            startActivity(new Intent(this, SectionH141Activity.class));
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
@@ -56,7 +93,7 @@ public class SectionH13Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
+        int updcount = db.updatesMHColumn(ModuleHContract.ModuleH.COLUMN_SH, modh.getsH());
         if (updcount == 1) {
             return true;
         } else {
@@ -70,26 +107,26 @@ public class SectionH13Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h1301", bi.h1301a.isChecked() ? "1"
-                : bi.h1301b.isChecked() ? "2"
-                : bi.h1301c.isChecked() ? "3"
-                : bi.h1301d.isChecked() ? "4"
-                : bi.h1301e.isChecked() ? "5"
-                : bi.h1301f.isChecked() ? "6"
-                : "-1");
+        json.put("h1401aa", bi.h1401aa.getText().toString().trim().isEmpty() ? "-1" : bi.h1401aa.getText().toString());
+        json.put("h1401ab", bi.h1401ab.getText().toString().trim().isEmpty() ? "-1" : bi.h1401ab.getText().toString());
 
-        json.put("h1302", bi.h1302a.isChecked() ? "1"
-                : bi.h1302b.isChecked() ? "2"
-                : "-1");
+        json.put("h1401ba", bi.h1401ba.getText().toString().trim().isEmpty() ? "-1" : bi.h1401ba.getText().toString());
+        json.put("h1401bb", bi.h1401bb.getText().toString().trim().isEmpty() ? "-1" : bi.h1401bb.getText().toString());
 
-        json.put("h1303", bi.h1303a.isChecked() ? "1"
-                : bi.h1303b.isChecked() ? "2"
-                : "-1");
+        json.put("h1401ca", bi.h1401ca.getText().toString().trim().isEmpty() ? "-1" : bi.h1401ca.getText().toString());
+        json.put("h1401cb", bi.h1401cb.getText().toString().trim().isEmpty() ? "-1" : bi.h1401cb.getText().toString());
+
+        json.put("h1401da", bi.h1401da.getText().toString().trim().isEmpty() ? "-1" : bi.h1401da.getText().toString());
+        json.put("h1401db", bi.h1401db.getText().toString().trim().isEmpty() ? "-1" : bi.h1401db.getText().toString());
+
+        json.put("h1401ea", bi.h1401ea.getText().toString().trim().isEmpty() ? "-1" : bi.h1401ea.getText().toString());
+        json.put("h1401eb", bi.h1401eb.getText().toString().trim().isEmpty() ? "-1" : bi.h1401eb.getText().toString());
+
 
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modh.getsH()), json);
 
-            fc.setsH(String.valueOf(json_merge));
+            modh.setsH(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -99,7 +136,7 @@ public class SectionH13Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH13);
+        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH14);
     }
 
 

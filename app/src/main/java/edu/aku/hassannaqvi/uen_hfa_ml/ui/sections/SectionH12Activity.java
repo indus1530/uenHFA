@@ -9,7 +9,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -17,13 +16,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH12Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 public class SectionH12Activity extends AppCompatActivity {
@@ -35,17 +34,6 @@ public class SectionH12Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h12);
         bi.setCallback(this);
-        setupSkips();
-
-    }
-
-
-    private void setupSkips() {
-        bi.h1201.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.h1201b.getId()) {
-                Clear.clearAllFields(bi.fldGrpSech1201);
-            }
-        }));
 
     }
 
@@ -68,7 +56,7 @@ public class SectionH12Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
+        int updcount = db.updatesMHColumn(ModuleHContract.ModuleH.COLUMN_SH, modh.getsH());
         if (updcount == 1) {
             return true;
         } else {
@@ -82,47 +70,26 @@ public class SectionH12Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h1201", bi.h1201a.isChecked() ? "1"
-                : bi.h1201b.isChecked() ? "2"
+        json.put("h1301", bi.h1301a.isChecked() ? "1"
+                : bi.h1301b.isChecked() ? "2"
+                : bi.h1301c.isChecked() ? "3"
+                : bi.h1301d.isChecked() ? "4"
+                : bi.h1301e.isChecked() ? "5"
+                : bi.h1301f.isChecked() ? "6"
                 : "-1");
 
-        json.put("h1202", bi.h1202a.isChecked() ? "1"
-                : bi.h1202b.isChecked() ? "2"
+        json.put("h1302", bi.h1302a.isChecked() ? "1"
+                : bi.h1302b.isChecked() ? "2"
                 : "-1");
 
-
-        json.put("h1203a", bi.h1203aa.isChecked() ? "1"
-                : bi.h1203ab.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203b", bi.h1203ba.isChecked() ? "1"
-                : bi.h1203bb.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203c", bi.h1203ca.isChecked() ? "1"
-                : bi.h1203cb.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203d", bi.h1203da.isChecked() ? "1"
-                : bi.h1203db.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203e", bi.h1203ea.isChecked() ? "1"
-                : bi.h1203eb.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203f", bi.h1203fa.isChecked() ? "1"
-                : bi.h1203fb.isChecked() ? "2"
-                : "-1");
-
-        json.put("h1203g", bi.h1203ga.isChecked() ? "1"
-                : bi.h1203gb.isChecked() ? "2"
+        json.put("h1303", bi.h1303a.isChecked() ? "1"
+                : bi.h1303b.isChecked() ? "2"
                 : "-1");
 
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modh.getsH()), json);
 
-            fc.setsH(String.valueOf(json_merge));
+            modh.setsH(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -132,7 +99,7 @@ public class SectionH12Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH12);
+        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH13);
     }
 
 

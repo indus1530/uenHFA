@@ -14,13 +14,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleGContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG415Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modg;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 
@@ -74,7 +74,7 @@ public class SectionG415Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
+        int updcount = db.updatesMGColumn(ModuleGContract.ModuleG.COLUMN_SG, modg.getsG());
         if (updcount == 1) {
             return true;
         } else {
@@ -168,11 +168,10 @@ public class SectionG415Activity extends AppCompatActivity {
                 : bi.g0401440pn.isChecked() ? "2"
                 : "-1");
 
-
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsG()), json);
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modg.getsG()), json);
 
-            MainApp.fc.setsG(String.valueOf(json_merge));
+            modg.setsG(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();

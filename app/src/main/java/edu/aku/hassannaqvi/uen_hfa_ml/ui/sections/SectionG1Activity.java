@@ -18,22 +18,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleGContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionG1Binding;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modg;
 
 public class SectionG1Activity extends AppCompatActivity {
 
     ActivitySectionG1Binding bi;
+    private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g1);
         bi.setCallback(this);
+        modg = new ModuleGContract();
+        db = MainApp.appInfo.getDbHelper();
         setupSkips();
         bi.g0105cx.setMinvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())));
         bi.g0105cx.setMaxvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())) + 2);
@@ -97,9 +101,11 @@ public class SectionG1Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SG, fc.getsG());
-        if (updcount == 1) {
+        long updcount = db.addModuleG(modg);
+        modg.set_ID(String.valueOf(updcount));
+        if (updcount > 0) {
+            modg.set_UID(modg.getDeviceID() + modg.get_ID());
+            db.updatesMGColumn(ModuleGContract.ModuleG.COLUMN_UID, modg.get_UID());
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -109,6 +115,17 @@ public class SectionG1Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
+        modg.setFormDate(fc.getFormdate());
+        modg.setDeviceID(MainApp.appInfo.getDeviceID());
+        modg.setDevicetagID(MainApp.appInfo.getTagName());
+        modg.setAppversion(MainApp.appInfo.getAppVersion());
+        modg.set_UUID(MainApp.fc.get_UID());
+        modg.setDistrictCode(MainApp.fc.getDistrictCode());
+        modg.setTehsilCode(MainApp.fc.getTehsilCode());
+        modg.setUcCode(MainApp.fc.getUcCode());
+        modg.setHfCode(MainApp.fc.getHfCode());
+//        psc.serialno = serial.toString()
 
         JSONObject json = new JSONObject();
 
@@ -225,7 +242,7 @@ public class SectionG1Activity extends AppCompatActivity {
                 : bi.g01117e.isChecked() ? "5"
                 : "-1");
 
-        MainApp.fc.setsG(String.valueOf(json));
+        modg.setsG(json.toString());
 
     }
 

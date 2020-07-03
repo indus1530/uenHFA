@@ -17,21 +17,27 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH16Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH15Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 
-public class SectionH16Activity extends AppCompatActivity {
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
 
-    ActivitySectionH16Binding bi;
+public class SectionH15Activity extends AppCompatActivity {
+
+    ActivitySectionH15Binding bi;
+    private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h16);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h15);
         bi.setCallback(this);
+        modh = new ModuleHContract();
+        db = MainApp.appInfo.getDbHelper();
         setupSkips();
 
     }
@@ -65,9 +71,11 @@ public class SectionH16Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
-        if (updcount == 1) {
+        long updcount = db.addModuleH(modh);
+        modh.set_ID(String.valueOf(updcount));
+        if (updcount > 0) {
+            modh.set_UID(modh.getDeviceID() + modh.get_ID());
+            db.updatesMHColumn(ModuleHContract.ModuleH.COLUMN_UID, modh.get_UID());
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -77,6 +85,17 @@ public class SectionH16Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
+        modh.setFormDate(fc.getFormdate());
+        modh.setDeviceID(MainApp.appInfo.getDeviceID());
+        modh.setDevicetagID(MainApp.appInfo.getTagName());
+        modh.setAppversion(MainApp.appInfo.getAppVersion());
+        modh.set_UUID(MainApp.fc.get_UID());
+        modh.setDistrictCode(MainApp.fc.getDistrictCode());
+        modh.setTehsilCode(MainApp.fc.getTehsilCode());
+        modh.setUcCode(MainApp.fc.getUcCode());
+        modh.setHfCode(MainApp.fc.getHfCode());
+//        psc.serialno = serial.toString()
 
         JSONObject json = new JSONObject();
 
@@ -111,7 +130,8 @@ public class SectionH16Activity extends AppCompatActivity {
                 : "-1");
         json.put("h1605xx", bi.h1605xx.getText().toString().trim().isEmpty() ? "-1" : bi.h1605xx.getText().toString());
 
-        MainApp.fc.setsH(String.valueOf(json));
+
+        modh.setsH(String.valueOf(json));
 
     }
 

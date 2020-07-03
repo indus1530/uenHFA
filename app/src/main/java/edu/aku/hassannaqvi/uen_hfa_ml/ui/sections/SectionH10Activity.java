@@ -17,13 +17,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH10Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 public class SectionH10Activity extends AppCompatActivity {
@@ -41,12 +41,11 @@ public class SectionH10Activity extends AppCompatActivity {
 
 
     private void setupSkips() {
-        bi.h1001.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.h1001b.getId()) {
-                Clear.clearAllFields(bi.fldGrpSech1001);
+        bi.h1102.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h1102b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSech1101);
             }
         }));
-
 
     }
 
@@ -66,10 +65,9 @@ public class SectionH10Activity extends AppCompatActivity {
         }
     }
 
-
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
+        int updcount = db.updatesMHColumn(ModuleHContract.ModuleH.COLUMN_SH, modh.getsH());
         if (updcount == 1) {
             return true;
         } else {
@@ -83,22 +81,44 @@ public class SectionH10Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h1001", bi.h1001a.isChecked() ? "1"
-                : bi.h1001b.isChecked() ? "2"
+        json.put("h1101", bi.h1101a.isChecked() ? "1"
+                : bi.h1101b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h1002a", bi.h1002aa.isChecked() ? "1"
-                : bi.h1002ab.isChecked() ? "2"
+        json.put("h1102", bi.h1102a.isChecked() ? "1"
+                : bi.h1102b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h1002b", bi.h1002ba.isChecked() ? "1"
-                : bi.h1002bb.isChecked() ? "2"
+        json.put("h1103", bi.h1103a.isChecked() ? "1"
+                : bi.h1103b.isChecked() ? "2"
+                : bi.h1103c.isChecked() ? "3"
+                : bi.h1103d.isChecked() ? "4"
+                : bi.h1103e.isChecked() ? "5"
+                : bi.h1103f.isChecked() ? "6"
+                : "-1");
+
+        json.put("h1104", bi.h1104a.isChecked() ? "1"
+                : bi.h1104b.isChecked() ? "2"
+                : bi.h1104c.isChecked() ? "3"
+                : bi.h1104d.isChecked() ? "4"
+                : bi.h1104e.isChecked() ? "5"
+                : bi.h1104f.isChecked() ? "6"
+                : "-1");
+
+        json.put("h1105", bi.h1105a.isChecked() ? "1"
+                : bi.h1105b.isChecked() ? "2"
+                : "-1");
+
+        json.put("h1106", bi.h1106.getText().toString().trim().isEmpty() ? "-1" : bi.h1106.getText().toString());
+
+        json.put("h1107", bi.h1107a.isChecked() ? "1"
+                : bi.h1107b.isChecked() ? "2"
                 : "-1");
 
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modh.getsH()), json);
 
-            fc.setsH(String.valueOf(json_merge));
+            modh.setsH(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -108,7 +128,7 @@ public class SectionH10Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpName);
+        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionH11);
     }
 
 
@@ -156,5 +176,4 @@ public class SectionH10Activity extends AppCompatActivity {
 
         }
     }
-
 }

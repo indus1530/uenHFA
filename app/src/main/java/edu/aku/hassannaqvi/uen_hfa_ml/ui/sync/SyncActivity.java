@@ -34,7 +34,11 @@ import edu.aku.hassannaqvi.uen_hfa_ml.adapter.SyncListAdapter;
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.UploadListAdapter;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleCContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleGContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleJContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleKContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySyncBinding;
@@ -157,7 +161,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     db.getUnsyncedForms(), 0, uploadListAdapter, uploadlist
             ).execute();
 
-//  *******************************************************C2Section*********************************
+//  *******************************************************ModuleC*********************************
             Toast.makeText(getApplicationContext(), "Syncing ModuleC", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
@@ -167,14 +171,48 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             new SyncAllData(
                     this,
                     "ModuleC",
-                    "updateSyncedC2Section",
+                    "updateSyncedModuleC",
                     ModuleCContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     ModuleCContract.ModuleC.TABLE_NAME,
                     db.getUnsyncedModuleC(), 1, uploadListAdapter, uploadlist
             ).execute();
 
-//  *******************************************************ISection*********************************
+//  *******************************************************ModuleG*********************************
+            Toast.makeText(getApplicationContext(), "Syncing ModuleG", Toast.LENGTH_SHORT).show();
+            if (uploadlistActivityCreated) {
+                uploadmodel = new SyncModel();
+                uploadmodel.setstatusID(0);
+                uploadlist.add(uploadmodel);
+            }
+            new SyncAllData(
+                    this,
+                    "ModuleG",
+                    "updateSyncedModuleG",
+                    ModuleGContract.class,
+                    MainApp._HOST_URL + MainApp._SERVER_URL,
+                    ModuleGContract.ModuleG.TABLE_NAME,
+                    db.getUnsyncedModuleG(), 2, uploadListAdapter, uploadlist
+            ).execute();
+
+//  *******************************************************ModuleH*********************************
+            Toast.makeText(getApplicationContext(), "Syncing ModuleH", Toast.LENGTH_SHORT).show();
+            if (uploadlistActivityCreated) {
+                uploadmodel = new SyncModel();
+                uploadmodel.setstatusID(0);
+                uploadlist.add(uploadmodel);
+            }
+            new SyncAllData(
+                    this,
+                    "ModuleH",
+                    "updateSyncedModuleH",
+                    ModuleHContract.class,
+                    MainApp._HOST_URL + MainApp._SERVER_URL,
+                    ModuleHContract.ModuleH.TABLE_NAME,
+                    db.getUnsyncedModuleH(), 3, uploadListAdapter, uploadlist
+            ).execute();
+
+//  *******************************************************ModuleI*********************************
             Toast.makeText(getApplicationContext(), "Syncing ModuleI", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
@@ -184,11 +222,45 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             new SyncAllData(
                     this,
                     "ModuleI",
-                    "updateSyncedISection",
+                    "updateSyncedModuleI",
                     ModuleIContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     ModuleIContract.ModuleI.TABLE_NAME,
-                    db.getUnsyncedModuleI(), 2, uploadListAdapter, uploadlist
+                    db.getUnsyncedModuleI(), 4, uploadListAdapter, uploadlist
+            ).execute();
+
+//  *******************************************************ModuleJ*********************************
+            Toast.makeText(getApplicationContext(), "Syncing ModuleJ", Toast.LENGTH_SHORT).show();
+            if (uploadlistActivityCreated) {
+                uploadmodel = new SyncModel();
+                uploadmodel.setstatusID(0);
+                uploadlist.add(uploadmodel);
+            }
+            new SyncAllData(
+                    this,
+                    "ModuleJ",
+                    "updateSyncedModuleJ",
+                    ModuleJContract.class,
+                    MainApp._HOST_URL + MainApp._SERVER_URL,
+                    ModuleJContract.ModuleJ.TABLE_NAME,
+                    db.getUnsyncedModuleJ(), 5, uploadListAdapter, uploadlist
+            ).execute();
+
+//  *******************************************************ModuleK*********************************
+            Toast.makeText(getApplicationContext(), "Syncing ModuleK", Toast.LENGTH_SHORT).show();
+            if (uploadlistActivityCreated) {
+                uploadmodel = new SyncModel();
+                uploadmodel.setstatusID(0);
+                uploadlist.add(uploadmodel);
+            }
+            new SyncAllData(
+                    this,
+                    "ModuleK",
+                    "updateSyncedModuleK",
+                    ModuleKContract.class,
+                    MainApp._HOST_URL + MainApp._SERVER_URL,
+                    ModuleKContract.ModuleK.TABLE_NAME,
+                    db.getUnsyncedModuleK(), 6, uploadListAdapter, uploadlist
             ).execute();
 
 

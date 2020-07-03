@@ -76,11 +76,6 @@ public class FormsContract {
     private String sD;
     private String sE;
     private String sF;
-    private String sG;
-    private String sH;
-    private String sI;
-    private String sJ;
-    private String sK;
 
 
     public FormsContract() {
@@ -123,11 +118,6 @@ public class FormsContract {
         this.sD = jsonObject.getString(FormsTable.COLUMN_SD);
         this.sE = jsonObject.getString(FormsTable.COLUMN_SE);
         this.sF = jsonObject.getString(FormsTable.COLUMN_SF);
-        this.sG = jsonObject.getString(FormsTable.COLUMN_SG);
-        this.sH = jsonObject.getString(FormsTable.COLUMN_SH);
-        this.sI = jsonObject.getString(FormsTable.COLUMN_SI);
-        this.sJ = jsonObject.getString(FormsTable.COLUMN_SJ);
-        this.sK = jsonObject.getString(FormsTable.COLUMN_SK);
         this.istatus = jsonObject.getString(FormsTable.COLUMN_ISTATUS);
         this.istatus88x = jsonObject.getString(FormsTable.COLUMN_ISTATUS88x);
         this.endingdatetime = jsonObject.getString(FormsTable.COLUMN_ENDINGDATETIME);
@@ -174,11 +164,6 @@ public class FormsContract {
         this.sD = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SD));
         this.sE = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SE));
         this.sF = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SF));
-        this.sG = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SG));
-        this.sH = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SH));
-        this.sI = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SI));
-        this.sJ = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SJ));
-        this.sK = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SK));
         this.istatus = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS));
         this.istatus88x = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ISTATUS88x));
         this.endingdatetime = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ENDINGDATETIME));
@@ -238,26 +223,6 @@ public class FormsContract {
 
         if (this.sF != null && !this.sF.equals("")) {
             json.put(FormsTable.COLUMN_SF, new JSONObject(this.sF));
-        }
-
-        if (this.sG != null && !this.sG.equals("")) {
-            json.put(FormsTable.COLUMN_SG, new JSONObject(this.sG));
-        }
-
-        if (this.sH != null && !this.sH.equals("")) {
-            json.put(FormsTable.COLUMN_SH, new JSONObject(this.sH));
-        }
-
-        if (this.sI != null && !this.sI.equals("")) {
-            json.put(FormsTable.COLUMN_SI, new JSONObject(this.sI));
-        }
-
-        if (this.sJ != null && !this.sJ.equals("")) {
-            json.put(FormsTable.COLUMN_SJ, new JSONObject(this.sJ));
-        }
-
-        if (this.sK != null && !this.sK.equals("")) {
-            json.put(FormsTable.COLUMN_SK, new JSONObject(this.sK));
         }
 
 
@@ -515,51 +480,6 @@ public class FormsContract {
     }
 
 
-    public String getsG() {
-        return sG;
-    }
-
-    public void setsG(String sG) {
-        this.sG = sG;
-    }
-
-
-    public String getsH() {
-        return sH;
-    }
-
-    public void setsH(String sH) {
-        this.sH = sH;
-    }
-
-
-    public String getsI() {
-        return sI;
-    }
-
-    public void setsI(String sI) {
-        this.sI = sI;
-    }
-
-
-    public String getsJ() {
-        return sJ;
-    }
-
-    public void setsJ(String sJ) {
-        this.sJ = sJ;
-    }
-
-
-    public String getsK() {
-        return sK;
-    }
-
-    public void setsK(String sK) {
-        this.sK = sK;
-    }
-
-
     public String getIstatus() {
         return istatus;
     }
@@ -690,11 +610,6 @@ public class FormsContract {
         public static final String COLUMN_SD = "sD";
         public static final String COLUMN_SE = "sE";
         public static final String COLUMN_SF = "sF";
-        public static final String COLUMN_SG = "sG";
-        public static final String COLUMN_SH = "sH";
-        public static final String COLUMN_SI = "sI";
-        public static final String COLUMN_SJ = "sJ";
-        public static final String COLUMN_SK = "sK";
         public static final String COLUMN_ISTATUS = "istatus";
         public static final String COLUMN_ISTATUS88x = "istatus88x";
         public static final String COLUMN_ENDINGDATETIME = "endingdatetime";
@@ -708,7 +623,7 @@ public class FormsContract {
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_APPVERSION = "appversion";
 
-
         public static String _URL = "sync.php";
+
     }
 }

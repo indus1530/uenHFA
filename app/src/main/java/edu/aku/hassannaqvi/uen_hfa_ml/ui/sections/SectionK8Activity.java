@@ -13,12 +13,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleKContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK8Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modk;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 public class SectionK8Activity extends AppCompatActivity {
@@ -52,7 +53,7 @@ public class SectionK8Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SK, MainApp.fc.getsK());
+        int updcount = db.updatesMKColumn(ModuleKContract.ModuleK.COLUMN_SK, modk.getsK());
         if (updcount == 1) {
             return true;
         } else {
@@ -132,9 +133,9 @@ public class SectionK8Activity extends AppCompatActivity {
                 : "-1");
 
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsK()), json);
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modk.getsK()), json);
 
-            MainApp.fc.setsK(String.valueOf(json_merge));
+            MainApp.modk.setsK(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();

@@ -24,25 +24,25 @@
             style="@style/vlinearlayout">
 
 
-            <!-- h08  SectionTitle   -->
+            <!-- h09  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVh08"
+                android:id="@+id/fldGrpCVh09"
                 style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
 
                     <TextView
                         style="@style/textView3Head"
-                        android:text="@string/h08" />
+                        android:text="@string/h09" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h0801  Radio   -->
+            <!-- h0901  Radio   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVh0801"
+                android:id="@+id/fldGrpCVh0901"
                 style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
@@ -53,43 +53,39 @@
                         android:background="@drawable/bottom">
 
                         <TextView
-                            android:id="@+id/qtxt_h0801"
+                            android:id="@+id/qtxt_h0901"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/q_h0801"
-                            android:text="@string/h0801" />
+                            android:layout_toEndOf="@id/q_h0901"
+                            android:text="@string/h0901" />
 
                         <TextView
-                            android:id="@+id/q_h0801"
+                            android:id="@+id/q_h0901"
                             style="@style/quesNum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/qtxt_h0801"
-                            android:layout_alignBottom="@id/qtxt_h0801"
-                            android:text="@string/Q_h0801" />
+                            android:layout_alignTop="@id/qtxt_h0901"
+                            android:layout_alignBottom="@id/qtxt_h0901"
+                            android:text="@string/Q_h0901" />
 
                     </RelativeLayout>
 
                     <RadioGroup
-                        android:id="@+id/h0801"
+                        android:id="@+id/h0901"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_height="wrap_content">
 
                         <RadioButton
-                            android:id="@+id/h0801a"
+                            android:id="@+id/h0901a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/h0801a" />
+                            android:text="@string/h0901a" />
 
                         <RadioButton
-                            android:id="@+id/h0801b"
+                            android:id="@+id/h0901b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/h0801b" />
-
+                            android:text="@string/h0901b" />
                     </RadioGroup>
 
                 </LinearLayout>
@@ -97,61 +93,199 @@
             </androidx.cardview.widget.CardView>
 
 
-            <!-- h0802  Radio   -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVh0802"
-                style="@style/cardView">
+            <LinearLayout
+                android:id="@+id/fldGrpSech901"
+                style="@style/vlinearlayout"
+                android:visibility='@{h0901b.checked? View.GONE : View.VISIBLE}'>
 
-                <LinearLayout style="@style/vlinearlayout">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bottom">
+                <!-- h0902  SUB TextView   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVh0902"
+                    style="@style/cardView">
 
-                        <TextView
-                            android:id="@+id/qtxt_h0802"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/q_h0802"
-                            android:text="@string/h0802" />
+                    <LinearLayout style="@style/vlinearlayout">
 
                         <TextView
-                            android:id="@+id/q_h0802"
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@id/qtxt_h0802"
-                            android:layout_alignBottom="@id/qtxt_h0802"
-                            android:text="@string/Q_h0802" />
+                            style="@style/sub"
+                            android:text="@string/h0902" />
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
-                    <RadioGroup
-                        android:id="@+id/h0802"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                </androidx.cardview.widget.CardView>
 
-                        <RadioButton
-                            android:id="@+id/h0802a"
+
+                <!-- h0902a  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVh0902a"
+                    style="@style/cardView">
+
+                    <LinearLayout style="@style/vlinearlayout">
+
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/h0802a" />
+                            android:background="@drawable/bottom">
 
-                        <RadioButton
-                            android:id="@+id/h0802b"
+                            <TextView
+                                android:id="@+id/qtxt_h0902a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/q_h0902a"
+                                android:text="@string/h0902a" />
+
+                            <TextView
+                                android:id="@+id/q_h0902a"
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@id/qtxt_h0902a"
+                                android:layout_alignBottom="@id/qtxt_h0902a"
+                                android:text="@string/Q_h0902a" />
+
+                        </RelativeLayout>
+
+                        <RadioGroup
+                            android:id="@+id/h0902a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/h0802b" />
+                            android:orientation="horizontal">
 
-                    </RadioGroup>
+                            <RadioButton
+                                android:id="@+id/h0902aa"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/h0902aa" />
 
-                </LinearLayout>
+                            <RadioButton
+                                android:id="@+id/h0902ab"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/h0902ab" />
 
-            </androidx.cardview.widget.CardView>
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- h0902b  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVh0902b"
+                    style="@style/cardView">
+
+                    <LinearLayout style="@style/vlinearlayout">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom">
+
+                            <TextView
+                                android:id="@+id/qtxt_h0902b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/q_h0902b"
+                                android:text="@string/h0902b" />
+
+                            <TextView
+                                android:id="@+id/q_h0902b"
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@id/qtxt_h0902b"
+                                android:layout_alignBottom="@id/qtxt_h0902b"
+                                android:text="@string/Q_h0902b" />
+
+                        </RelativeLayout>
+
+                        <RadioGroup
+                            android:id="@+id/h0902b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/h0902ba"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/h0902ba" />
+
+                            <RadioButton
+                                android:id="@+id/h0902bb"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/h0902bb" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- h0902c  Radio   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVh0902c"
+                    style="@style/cardView">
+
+                    <LinearLayout style="@style/vlinearlayout">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom">
+
+                            <TextView
+                                android:id="@+id/qtxt_h0902c"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/q_h0902c"
+                                android:text="@string/h0902c" />
+
+                            <TextView
+                                android:id="@+id/q_h0902c"
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignTop="@id/qtxt_h0902c"
+                                android:layout_alignBottom="@id/qtxt_h0902c"
+                                android:text="@string/Q_h0902c" />
+
+                        </RelativeLayout>
+
+                        <RadioGroup
+                            android:id="@+id/h0902c"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/h0902ca"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/h0902ca" />
+
+                            <RadioButton
+                                android:id="@+id/h0902cb"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/h0902cb" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
 
 
             <!--EndButton LinearLayout-->
@@ -178,6 +312,5 @@
         </LinearLayout>
 
     </ScrollView>
-
 
 </layout>

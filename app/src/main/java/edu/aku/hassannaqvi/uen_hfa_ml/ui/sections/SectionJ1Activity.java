@@ -16,20 +16,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleJContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ1Binding;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modj;
+
 public class SectionJ1Activity extends AppCompatActivity {
 
     ActivitySectionJ1Binding bi;
+    private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_j1);
         bi.setCallback(this);
+        modj = new ModuleJContract();
+        db = MainApp.appInfo.getDbHelper();
 
     }
 
@@ -58,9 +64,11 @@ public class SectionJ1Activity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SJ, MainApp.fc.getsJ());
-        if (updcount == 1) {
+        long updcount = db.addModuleJ(modj);
+        modj.set_ID(String.valueOf(updcount));
+        if (updcount > 0) {
+            modj.set_UID(modj.getDeviceID() + modj.get_ID());
+            db.updatesMJColumn(ModuleJContract.ModuleJ.COLUMN_UID, modj.get_UID());
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -70,6 +78,17 @@ public class SectionJ1Activity extends AppCompatActivity {
 
 
     private void SaveDraft() throws JSONException {
+
+        modj.setFormDate(fc.getFormdate());
+        modj.setDeviceID(MainApp.appInfo.getDeviceID());
+        modj.setDevicetagID(MainApp.appInfo.getTagName());
+        modj.setAppversion(MainApp.appInfo.getAppVersion());
+        modj.set_UUID(MainApp.fc.get_UID());
+        modj.setDistrictCode(MainApp.fc.getDistrictCode());
+        modj.setTehsilCode(MainApp.fc.getTehsilCode());
+        modj.setUcCode(MainApp.fc.getUcCode());
+        modj.setHfCode(MainApp.fc.getHfCode());
+//        psc.serialno = serial.toString()
 
         JSONObject json = new JSONObject();
 
@@ -145,7 +164,7 @@ public class SectionJ1Activity extends AppCompatActivity {
         json.put("j0101mx", bi.j0101mx.isChecked() ? "96" : "-1");
         json.put("j0101mxx", bi.j0101mxx.getText().toString());
 
-        MainApp.fc.setsJ(String.valueOf(json));
+        modj.setsJ(String.valueOf(json));
 
     }
 

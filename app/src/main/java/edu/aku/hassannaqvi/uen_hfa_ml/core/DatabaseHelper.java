@@ -22,7 +22,11 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.HFContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleCContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleGContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleJContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleKContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TehsilsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UsersContract;
@@ -33,9 +37,13 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_VERSION;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_DISTRICTS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_HF;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_PSCONTRACT;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_MODULEC;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_MODULEG;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_MODULEH;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_MODULEI;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_MODULEJ;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_MODULEK;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_TEHSILS;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_TSCONTRACT;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_UCS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_VERSIONAPP;
@@ -64,8 +72,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
-        db.execSQL(SQL_CREATE_TSCONTRACT);
-        db.execSQL(SQL_CREATE_PSCONTRACT);
+        db.execSQL(SQL_CREATE_MODULEC);
+        db.execSQL(SQL_CREATE_MODULEG);
+        db.execSQL(SQL_CREATE_MODULEH);
+        db.execSQL(SQL_CREATE_MODULEI);
+        db.execSQL(SQL_CREATE_MODULEJ);
+        db.execSQL(SQL_CREATE_MODULEK);
         db.execSQL(SQL_CREATE_VERSIONAPP);
         db.execSQL(SQL_CREATE_DISTRICTS);
         db.execSQL(SQL_CREATE_TEHSILS);
@@ -620,11 +632,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_SD, fc.getsD());
         values.put(FormsTable.COLUMN_SE, fc.getsE());
         values.put(FormsTable.COLUMN_SF, fc.getsF());
-        values.put(FormsTable.COLUMN_SG, fc.getsG());
-        values.put(FormsTable.COLUMN_SH, fc.getsH());
-        values.put(FormsTable.COLUMN_SI, fc.getsI());
-        values.put(FormsTable.COLUMN_SJ, fc.getsJ());
-        values.put(FormsTable.COLUMN_SK, fc.getsK());
         values.put(FormsTable.COLUMN_ISTATUS, fc.getIstatus());
         values.put(FormsTable.COLUMN_ISTATUS88x, fc.getIstatus88x());
         values.put(FormsTable.COLUMN_ENDINGDATETIME, fc.getEndingdatetime());
@@ -646,28 +653,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Long addTSC(ModuleCContract tsc) {
+    public Long addModuleC(ModuleCContract modc) {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(ModuleCContract.ModuleC.COLUMN_UID, tsc.get_UID());
-        values.put(ModuleCContract.ModuleC.COLUMN_UUID, tsc.get_UUID());
-        values.put(ModuleCContract.ModuleC.COLUMN_FORMDATE, tsc.getFormDate());
-        values.put(ModuleCContract.ModuleC.COLUMN_SERIALNO, tsc.getSerialno());
-        values.put(ModuleCContract.ModuleC.COLUMN_DISTRICT_CODE, tsc.getDistrictCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_TEHSIL_CODE, tsc.getTehsilCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_UC_CODE, tsc.getUcCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_HF_CODE, tsc.getHfCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_SC2, tsc.getsC2());
-        values.put(ModuleCContract.ModuleC.COLUMN_DEVICEID, tsc.getDeviceID());
-        values.put(ModuleCContract.ModuleC.COLUMN_DEVICETAGID, tsc.getDevicetagID());
-        values.put(ModuleCContract.ModuleC.COLUMN_STATUS, tsc.getStatus());
-        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED, tsc.getSynced());
-        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED_DATE, tsc.getSynced_date());
-        values.put(ModuleCContract.ModuleC.COLUMN_APPVERSION, tsc.getAppversion());
+        values.put(ModuleCContract.ModuleC.COLUMN_UID, modc.get_UID());
+        values.put(ModuleCContract.ModuleC.COLUMN_UUID, modc.get_UUID());
+        values.put(ModuleCContract.ModuleC.COLUMN_FORMDATE, modc.getFormDate());
+        values.put(ModuleCContract.ModuleC.COLUMN_SERIALNO, modc.getSerialno());
+        values.put(ModuleCContract.ModuleC.COLUMN_DISTRICT_CODE, modc.getDistrictCode());
+        values.put(ModuleCContract.ModuleC.COLUMN_TEHSIL_CODE, modc.getTehsilCode());
+        values.put(ModuleCContract.ModuleC.COLUMN_UC_CODE, modc.getUcCode());
+        values.put(ModuleCContract.ModuleC.COLUMN_HF_CODE, modc.getHfCode());
+        values.put(ModuleCContract.ModuleC.COLUMN_SC2, modc.getsC2());
+        values.put(ModuleCContract.ModuleC.COLUMN_DEVICEID, modc.getDeviceID());
+        values.put(ModuleCContract.ModuleC.COLUMN_DEVICETAGID, modc.getDevicetagID());
+        values.put(ModuleCContract.ModuleC.COLUMN_STATUS, modc.getStatus());
+        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED, modc.getSynced());
+        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED_DATE, modc.getSynced_date());
+        values.put(ModuleCContract.ModuleC.COLUMN_APPVERSION, modc.getAppversion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -679,37 +686,169 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Long addPSC(ModuleIContract psc) {
+    public Long addModuleG(ModuleGContract modg) {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(ModuleIContract.ModuleI.COLUMN_UID, psc.get_UID());
-        values.put(ModuleIContract.ModuleI.COLUMN_UUID, psc.get_UUID());
-        values.put(ModuleIContract.ModuleI.COLUMN_FORMDATE, psc.getFormDate());
-        values.put(ModuleIContract.ModuleI.COLUMN_SERIALNO, psc.getSerialno());
-        values.put(ModuleIContract.ModuleI.COLUMN_DISTRICT_CODE, psc.getDistrictCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_TEHSIL_CODE, psc.getTehsilCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_UC_CODE, psc.getUcCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_HF_CODE, psc.getHfCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI1, psc.getsI1());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI2, psc.getsI2());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI3, psc.getsI3());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI4, psc.getsI4());
-        values.put(ModuleIContract.ModuleI.COLUMN_DEVICEID, psc.getDeviceID());
-        values.put(ModuleIContract.ModuleI.COLUMN_DEVICETAGID, psc.getDevicetagID());
-        values.put(ModuleIContract.ModuleI.COLUMN_STATUS, psc.getStatus());
-        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED, psc.getSynced());
-        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED_DATE, psc.getSynced_date());
-        values.put(ModuleIContract.ModuleI.COLUMN_APPVERSION, psc.getAppversion());
+        values.put(ModuleGContract.ModuleG.COLUMN_UID, modg.get_UID());
+        values.put(ModuleGContract.ModuleG.COLUMN_UUID, modg.get_UUID());
+        values.put(ModuleGContract.ModuleG.COLUMN_FORMDATE, modg.getFormDate());
+        values.put(ModuleGContract.ModuleG.COLUMN_SERIALNO, modg.getSerialno());
+        values.put(ModuleGContract.ModuleG.COLUMN_DISTRICT_CODE, modg.getDistrictCode());
+        values.put(ModuleGContract.ModuleG.COLUMN_TEHSIL_CODE, modg.getTehsilCode());
+        values.put(ModuleGContract.ModuleG.COLUMN_UC_CODE, modg.getUcCode());
+        values.put(ModuleGContract.ModuleG.COLUMN_HF_CODE, modg.getHfCode());
+        values.put(ModuleGContract.ModuleG.COLUMN_SG, modg.getsG());
+        values.put(ModuleGContract.ModuleG.COLUMN_DEVICEID, modg.getDeviceID());
+        values.put(ModuleGContract.ModuleG.COLUMN_DEVICETAGID, modg.getDevicetagID());
+        values.put(ModuleGContract.ModuleG.COLUMN_STATUS, modg.getStatus());
+        values.put(ModuleGContract.ModuleG.COLUMN_SYNCED, modg.getSynced());
+        values.put(ModuleGContract.ModuleG.COLUMN_SYNCED_DATE, modg.getSynced_date());
+        values.put(ModuleGContract.ModuleG.COLUMN_APPVERSION, modg.getAppversion());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                ModuleGContract.ModuleG.TABLE_NAME,
+                ModuleGContract.ModuleG.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
+    public Long addModuleH(ModuleHContract modh) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(ModuleHContract.ModuleH.COLUMN_UID, modh.get_UID());
+        values.put(ModuleHContract.ModuleH.COLUMN_UUID, modh.get_UUID());
+        values.put(ModuleHContract.ModuleH.COLUMN_FORMDATE, modh.getFormDate());
+        values.put(ModuleHContract.ModuleH.COLUMN_SERIALNO, modh.getSerialno());
+        values.put(ModuleHContract.ModuleH.COLUMN_DISTRICT_CODE, modh.getDistrictCode());
+        values.put(ModuleHContract.ModuleH.COLUMN_TEHSIL_CODE, modh.getTehsilCode());
+        values.put(ModuleHContract.ModuleH.COLUMN_UC_CODE, modh.getUcCode());
+        values.put(ModuleHContract.ModuleH.COLUMN_HF_CODE, modh.getHfCode());
+        values.put(ModuleHContract.ModuleH.COLUMN_SH, modh.getsH());
+        values.put(ModuleHContract.ModuleH.COLUMN_DEVICEID, modh.getDeviceID());
+        values.put(ModuleHContract.ModuleH.COLUMN_DEVICETAGID, modh.getDevicetagID());
+        values.put(ModuleHContract.ModuleH.COLUMN_STATUS, modh.getStatus());
+        values.put(ModuleHContract.ModuleH.COLUMN_SYNCED, modh.getSynced());
+        values.put(ModuleHContract.ModuleH.COLUMN_SYNCED_DATE, modh.getSynced_date());
+        values.put(ModuleHContract.ModuleH.COLUMN_APPVERSION, modh.getAppversion());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                ModuleHContract.ModuleH.TABLE_NAME,
+                ModuleHContract.ModuleH.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
+    public Long addModuleI(ModuleIContract modi) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(ModuleIContract.ModuleI.COLUMN_UID, modi.get_UID());
+        values.put(ModuleIContract.ModuleI.COLUMN_UUID, modi.get_UUID());
+        values.put(ModuleIContract.ModuleI.COLUMN_FORMDATE, modi.getFormDate());
+        values.put(ModuleIContract.ModuleI.COLUMN_SERIALNO, modi.getSerialno());
+        values.put(ModuleIContract.ModuleI.COLUMN_DISTRICT_CODE, modi.getDistrictCode());
+        values.put(ModuleIContract.ModuleI.COLUMN_TEHSIL_CODE, modi.getTehsilCode());
+        values.put(ModuleIContract.ModuleI.COLUMN_UC_CODE, modi.getUcCode());
+        values.put(ModuleIContract.ModuleI.COLUMN_HF_CODE, modi.getHfCode());
+        values.put(ModuleIContract.ModuleI.COLUMN_SI1, modi.getsI1());
+        values.put(ModuleIContract.ModuleI.COLUMN_SI2, modi.getsI2());
+        values.put(ModuleIContract.ModuleI.COLUMN_SI3, modi.getsI3());
+        values.put(ModuleIContract.ModuleI.COLUMN_SI4, modi.getsI4());
+        values.put(ModuleIContract.ModuleI.COLUMN_DEVICEID, modi.getDeviceID());
+        values.put(ModuleIContract.ModuleI.COLUMN_DEVICETAGID, modi.getDevicetagID());
+        values.put(ModuleIContract.ModuleI.COLUMN_STATUS, modi.getStatus());
+        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED, modi.getSynced());
+        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED_DATE, modi.getSynced_date());
+        values.put(ModuleIContract.ModuleI.COLUMN_APPVERSION, modi.getAppversion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
                 ModuleIContract.ModuleI.TABLE_NAME,
                 ModuleIContract.ModuleI.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
+    public Long addModuleJ(ModuleJContract modj) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(ModuleJContract.ModuleJ.COLUMN_UID, modj.get_UID());
+        values.put(ModuleJContract.ModuleJ.COLUMN_UUID, modj.get_UUID());
+        values.put(ModuleJContract.ModuleJ.COLUMN_FORMDATE, modj.getFormDate());
+        values.put(ModuleJContract.ModuleJ.COLUMN_SERIALNO, modj.getSerialno());
+        values.put(ModuleJContract.ModuleJ.COLUMN_DISTRICT_CODE, modj.getDistrictCode());
+        values.put(ModuleJContract.ModuleJ.COLUMN_TEHSIL_CODE, modj.getTehsilCode());
+        values.put(ModuleJContract.ModuleJ.COLUMN_UC_CODE, modj.getUcCode());
+        values.put(ModuleJContract.ModuleJ.COLUMN_HF_CODE, modj.getHfCode());
+        values.put(ModuleJContract.ModuleJ.COLUMN_SJ, modj.getsJ());
+        values.put(ModuleJContract.ModuleJ.COLUMN_DEVICEID, modj.getDeviceID());
+        values.put(ModuleJContract.ModuleJ.COLUMN_DEVICETAGID, modj.getDevicetagID());
+        values.put(ModuleJContract.ModuleJ.COLUMN_STATUS, modj.getStatus());
+        values.put(ModuleJContract.ModuleJ.COLUMN_SYNCED, modj.getSynced());
+        values.put(ModuleJContract.ModuleJ.COLUMN_SYNCED_DATE, modj.getSynced_date());
+        values.put(ModuleJContract.ModuleJ.COLUMN_APPVERSION, modj.getAppversion());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                ModuleJContract.ModuleJ.TABLE_NAME,
+                ModuleJContract.ModuleJ.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
+    public Long addModuleK(ModuleKContract modk) {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(ModuleKContract.ModuleK.COLUMN_UID, modk.get_UID());
+        values.put(ModuleKContract.ModuleK.COLUMN_UUID, modk.get_UUID());
+        values.put(ModuleKContract.ModuleK.COLUMN_FORMDATE, modk.getFormDate());
+        values.put(ModuleKContract.ModuleK.COLUMN_SERIALNO, modk.getSerialno());
+        values.put(ModuleKContract.ModuleK.COLUMN_DISTRICT_CODE, modk.getDistrictCode());
+        values.put(ModuleKContract.ModuleK.COLUMN_TEHSIL_CODE, modk.getTehsilCode());
+        values.put(ModuleKContract.ModuleK.COLUMN_UC_CODE, modk.getUcCode());
+        values.put(ModuleKContract.ModuleK.COLUMN_HF_CODE, modk.getHfCode());
+        values.put(ModuleKContract.ModuleK.COLUMN_SK, modk.getsK());
+        values.put(ModuleKContract.ModuleK.COLUMN_DEVICEID, modk.getDeviceID());
+        values.put(ModuleKContract.ModuleK.COLUMN_DEVICETAGID, modk.getDevicetagID());
+        values.put(ModuleKContract.ModuleK.COLUMN_STATUS, modk.getStatus());
+        values.put(ModuleKContract.ModuleK.COLUMN_SYNCED, modk.getSynced());
+        values.put(ModuleKContract.ModuleK.COLUMN_SYNCED_DATE, modk.getSynced_date());
+        values.put(ModuleKContract.ModuleK.COLUMN_APPVERSION, modk.getAppversion());
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                ModuleKContract.ModuleK.TABLE_NAME,
+                ModuleKContract.ModuleK.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -777,7 +916,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateSyncedC2Section(String id) {
+    public void updateSyncedModuleC(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -797,7 +936,47 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateSyncedISection(String id) {
+    public void updateSyncedModuleG(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ModuleGContract.ModuleG.COLUMN_SYNCED, true);
+        values.put(ModuleGContract.ModuleG.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = ModuleGContract.ModuleG.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                ModuleGContract.ModuleG.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+    public void updateSyncedModuleH(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ModuleHContract.ModuleH.COLUMN_SYNCED, true);
+        values.put(ModuleHContract.ModuleH.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = ModuleHContract.ModuleH.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                ModuleHContract.ModuleH.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+    public void updateSyncedModuleI(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -811,6 +990,45 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int count = db.update(
                 ModuleIContract.ModuleI.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+    public void updateSyncedModuleJ(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ModuleJContract.ModuleJ.COLUMN_SYNCED, true);
+        values.put(ModuleJContract.ModuleJ.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = ModuleJContract.ModuleJ.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                ModuleJContract.ModuleJ.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+    public void updateSyncedModuleK(String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(ModuleKContract.ModuleK.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = ModuleKContract.ModuleK.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                ModuleKContract.ModuleK.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -866,11 +1084,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_SD,
                 FormsTable.COLUMN_SE,
                 FormsTable.COLUMN_SF,
-                FormsTable.COLUMN_SG,
-                FormsTable.COLUMN_SH,
-                FormsTable.COLUMN_SI,
-                FormsTable.COLUMN_SJ,
-                FormsTable.COLUMN_SK,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
@@ -946,11 +1159,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_SD,
                 FormsTable.COLUMN_SE,
                 FormsTable.COLUMN_SF,
-                FormsTable.COLUMN_SG,
-                FormsTable.COLUMN_SH,
-                FormsTable.COLUMN_SI,
-                FormsTable.COLUMN_SJ,
-                FormsTable.COLUMN_SK,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_GPSLAT,
                 FormsTable.COLUMN_GPSLNG,
@@ -1026,11 +1234,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FormsTable.COLUMN_SD,
                 FormsTable.COLUMN_SE,
                 FormsTable.COLUMN_SF,
-                FormsTable.COLUMN_SG,
-                FormsTable.COLUMN_SH,
-                FormsTable.COLUMN_SI,
-                FormsTable.COLUMN_SJ,
-                FormsTable.COLUMN_SK,
                 FormsTable.COLUMN_ISTATUS,
                 FormsTable.COLUMN_ISTATUS88x,
                 FormsTable.COLUMN_ENDINGDATETIME,
@@ -1139,6 +1342,124 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public Collection<ModuleGContract> getUnsyncedModuleG() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                ModuleGContract.ModuleG._ID,
+                ModuleGContract.ModuleG.COLUMN_UID,
+                ModuleGContract.ModuleG.COLUMN_UUID,
+                ModuleGContract.ModuleG.COLUMN_FORMDATE,
+                ModuleGContract.ModuleG.COLUMN_SERIALNO,
+                ModuleGContract.ModuleG.COLUMN_DISTRICT_CODE,
+                ModuleGContract.ModuleG.COLUMN_TEHSIL_CODE,
+                ModuleGContract.ModuleG.COLUMN_UC_CODE,
+                ModuleGContract.ModuleG.COLUMN_HF_CODE,
+                ModuleGContract.ModuleG.COLUMN_SG,
+                ModuleGContract.ModuleG.COLUMN_DEVICEID,
+                ModuleGContract.ModuleG.COLUMN_DEVICETAGID,
+                ModuleGContract.ModuleG.COLUMN_STATUS,
+                ModuleGContract.ModuleG.COLUMN_SYNCED,
+                ModuleGContract.ModuleG.COLUMN_SYNCED_DATE,
+                ModuleGContract.ModuleG.COLUMN_APPVERSION,
+        };
+
+        String whereClause = "(" + ModuleGContract.ModuleG.COLUMN_SYNCED + " is null or " + ModuleGContract.ModuleG.COLUMN_SYNCED + " ='')  AND " + ModuleGContract.ModuleG.COLUMN_STATUS + " =?";
+
+        String[] whereArgs = new String[]{"1"};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                ModuleGContract.ModuleG.COLUMN_ID + " ASC";
+
+        Collection<ModuleGContract> allMGC = new ArrayList<ModuleGContract>();
+        try {
+            c = db.query(
+                    ModuleGContract.ModuleG.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                ModuleGContract modg = new ModuleGContract();
+                allMGC.add(modg.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allMGC;
+    }
+
+
+    public Collection<ModuleHContract> getUnsyncedModuleH() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                ModuleHContract.ModuleH._ID,
+                ModuleHContract.ModuleH.COLUMN_UID,
+                ModuleHContract.ModuleH.COLUMN_UUID,
+                ModuleHContract.ModuleH.COLUMN_FORMDATE,
+                ModuleHContract.ModuleH.COLUMN_SERIALNO,
+                ModuleHContract.ModuleH.COLUMN_DISTRICT_CODE,
+                ModuleHContract.ModuleH.COLUMN_TEHSIL_CODE,
+                ModuleHContract.ModuleH.COLUMN_UC_CODE,
+                ModuleHContract.ModuleH.COLUMN_HF_CODE,
+                ModuleHContract.ModuleH.COLUMN_SH,
+                ModuleHContract.ModuleH.COLUMN_DEVICEID,
+                ModuleHContract.ModuleH.COLUMN_DEVICETAGID,
+                ModuleHContract.ModuleH.COLUMN_STATUS,
+                ModuleHContract.ModuleH.COLUMN_SYNCED,
+                ModuleHContract.ModuleH.COLUMN_SYNCED_DATE,
+                ModuleHContract.ModuleH.COLUMN_APPVERSION,
+        };
+
+        String whereClause = "(" + ModuleHContract.ModuleH.COLUMN_SYNCED + " is null or " + ModuleHContract.ModuleH.COLUMN_SYNCED + " ='')  AND " + ModuleHContract.ModuleH.COLUMN_STATUS + " =?";
+
+        String[] whereArgs = new String[]{"1"};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                ModuleHContract.ModuleH.COLUMN_ID + " ASC";
+
+        Collection<ModuleHContract> allMHC = new ArrayList<ModuleHContract>();
+        try {
+            c = db.query(
+                    ModuleHContract.ModuleH.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                ModuleHContract modh = new ModuleHContract();
+                allMHC.add(modh.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allMHC;
+    }
+
+
     public Collection<ModuleIContract> getUnsyncedModuleI() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -1198,6 +1519,124 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return allFC;
+    }
+
+
+    public Collection<ModuleJContract> getUnsyncedModuleJ() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                ModuleJContract.ModuleJ._ID,
+                ModuleJContract.ModuleJ.COLUMN_UID,
+                ModuleJContract.ModuleJ.COLUMN_UUID,
+                ModuleJContract.ModuleJ.COLUMN_FORMDATE,
+                ModuleJContract.ModuleJ.COLUMN_SERIALNO,
+                ModuleJContract.ModuleJ.COLUMN_DISTRICT_CODE,
+                ModuleJContract.ModuleJ.COLUMN_TEHSIL_CODE,
+                ModuleJContract.ModuleJ.COLUMN_UC_CODE,
+                ModuleJContract.ModuleJ.COLUMN_HF_CODE,
+                ModuleJContract.ModuleJ.COLUMN_SJ,
+                ModuleJContract.ModuleJ.COLUMN_DEVICEID,
+                ModuleJContract.ModuleJ.COLUMN_DEVICETAGID,
+                ModuleJContract.ModuleJ.COLUMN_STATUS,
+                ModuleJContract.ModuleJ.COLUMN_SYNCED,
+                ModuleJContract.ModuleJ.COLUMN_SYNCED_DATE,
+                ModuleJContract.ModuleJ.COLUMN_APPVERSION,
+        };
+
+        String whereClause = "(" + ModuleJContract.ModuleJ.COLUMN_SYNCED + " is null or " + ModuleJContract.ModuleJ.COLUMN_SYNCED + " ='')  AND " + ModuleJContract.ModuleJ.COLUMN_STATUS + " =?";
+
+        String[] whereArgs = new String[]{"1"};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                ModuleJContract.ModuleJ.COLUMN_ID + " ASC";
+
+        Collection<ModuleJContract> allMJC = new ArrayList<ModuleJContract>();
+        try {
+            c = db.query(
+                    ModuleJContract.ModuleJ.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                ModuleJContract modj = new ModuleJContract();
+                allMJC.add(modj.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allMJC;
+    }
+
+
+    public Collection<ModuleKContract> getUnsyncedModuleK() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                ModuleKContract.ModuleK._ID,
+                ModuleKContract.ModuleK.COLUMN_UID,
+                ModuleKContract.ModuleK.COLUMN_UUID,
+                ModuleKContract.ModuleK.COLUMN_FORMDATE,
+                ModuleKContract.ModuleK.COLUMN_SERIALNO,
+                ModuleKContract.ModuleK.COLUMN_DISTRICT_CODE,
+                ModuleKContract.ModuleK.COLUMN_TEHSIL_CODE,
+                ModuleKContract.ModuleK.COLUMN_UC_CODE,
+                ModuleKContract.ModuleK.COLUMN_HF_CODE,
+                ModuleKContract.ModuleK.COLUMN_SK,
+                ModuleKContract.ModuleK.COLUMN_DEVICEID,
+                ModuleKContract.ModuleK.COLUMN_DEVICETAGID,
+                ModuleKContract.ModuleK.COLUMN_STATUS,
+                ModuleKContract.ModuleK.COLUMN_SYNCED,
+                ModuleKContract.ModuleK.COLUMN_SYNCED_DATE,
+                ModuleKContract.ModuleK.COLUMN_APPVERSION,
+        };
+
+        String whereClause = "(" + ModuleKContract.ModuleK.COLUMN_SYNCED + " is null or " + ModuleKContract.ModuleK.COLUMN_SYNCED + " ='')  AND " + ModuleKContract.ModuleK.COLUMN_STATUS + " =?";
+
+        String[] whereArgs = new String[]{"1"};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                ModuleKContract.ModuleK.COLUMN_ID + " ASC";
+
+        Collection<ModuleKContract> allMKC = new ArrayList<ModuleKContract>();
+        try {
+            c = db.query(
+                    ModuleKContract.ModuleK.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                ModuleKContract modk = new ModuleKContract();
+                allMKC.add(modk.hydrate(c));
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allMKC;
     }
 
 
@@ -1344,15 +1783,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    //Generic update TSCColumn
-    public int updatesTSCColumn(ModuleCContract tsc, String column, String value) {
+    //Generic update MCColumn
+    public int updatesMCColumn(ModuleCContract modc, String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(column, value);
 
         String selection = ModuleCContract.ModuleC._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(tsc.get_ID())};
+        String[] selectionArgs = {String.valueOf(modc.get_ID())};
 
         return db.update(ModuleCContract.ModuleC.TABLE_NAME,
                 values,
@@ -1361,17 +1800,85 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    //Generic update PSCColumn
-    public int updatesPSCColumn(String column, String value) {
+    //Generic update MGColumn
+    public int updatesMGColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = ModuleGContract.ModuleG._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.modg.get_ID())};
+
+        return db.update(ModuleGContract.ModuleG.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+
+    //Generic update MHColumn
+    public int updatesMHColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = ModuleHContract.ModuleH._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.modh.get_ID())};
+
+        return db.update(ModuleHContract.ModuleH.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+
+    //Generic update MIColumn
+    public int updatesMIColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(column, value);
 
         String selection = ModuleIContract.ModuleI._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(MainApp.psc.get_ID())};
+        String[] selectionArgs = {String.valueOf(MainApp.modi.get_ID())};
 
         return db.update(ModuleIContract.ModuleI.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+
+    //Generic update MJColumn
+    public int updatesMJColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = ModuleJContract.ModuleJ._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.modj.get_ID())};
+
+        return db.update(ModuleJContract.ModuleJ.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+
+    //Generic update MKColumn
+    public int updatesMKColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = ModuleKContract.ModuleK._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.modk.get_ID())};
+
+        return db.update(ModuleKContract.ModuleK.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);

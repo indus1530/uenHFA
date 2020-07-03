@@ -76,11 +76,10 @@ public class EndingActivity extends AppCompatActivity {
     private void SaveDraft() {
 
         if (sectionMainCheck) {
-            MainApp.psc.setStatus(bi.istatusa.isChecked() ? "1"
+            MainApp.modi.setStatus(bi.istatusa.isChecked() ? "1"
                     : bi.istatusb.isChecked() ? "2"
                     : bi.istatus96.isChecked() ? "96"
                     : "0");
-            MainApp.fc.setsI(String.valueOf(SectionMainActivity.maternalCount + SectionMainActivity.paedsCount));
         } else {
             MainApp.fc.setIstatus(bi.istatusa.isChecked() ? "1"
                     : bi.istatusb.isChecked() ? "2"
@@ -95,7 +94,7 @@ public class EndingActivity extends AppCompatActivity {
 
     public boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = sectionMainCheck ? db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_STATUS, MainApp.psc.getStatus()) : db.updateEnding();
+        int updcount = sectionMainCheck ? db.updatesMIColumn(ModuleIContract.ModuleI.COLUMN_STATUS, MainApp.modi.getStatus()) : db.updateEnding();
         if (updcount == 1) {
             return true;
         } else {

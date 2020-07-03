@@ -24,7 +24,7 @@ import java.util.*
 
 class SectionC2Activity : AppCompatActivity() {
     lateinit var bi: ActivitySectionC2Binding
-    lateinit var tsc: ModuleCContract
+    lateinit var modc: ModuleCContract
     var serial = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,11 +79,11 @@ class SectionC2Activity : AppCompatActivity() {
 
     private fun UpdateDB(): Boolean {
         val db = MainApp.appInfo.dbHelper
-        val updcount = db.addTSC(tsc)
-        tsc._ID = updcount.toString()
+        val updcount = db.addModuleC(modc)
+        modc._ID = updcount.toString()
         return if (updcount > 0) {
-            tsc._UID = tsc.deviceID + tsc._ID
-            db.updatesTSCColumn(tsc, ModuleCContract.ModuleC.COLUMN_UID, tsc._UID)
+            modc._UID = modc.deviceID + modc._ID
+            db.updatesMCColumn(modc, ModuleCContract.ModuleC.COLUMN_UID, modc._UID)
             true
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show()
@@ -94,18 +94,18 @@ class SectionC2Activity : AppCompatActivity() {
 
     private fun saveDraft() {
 
-        tsc = ModuleCContract()
-        tsc.formDate = SimpleDateFormat("dd-MM-yy HH:mm").format(Date().time)
-        tsc.deviceID = MainApp.appInfo.deviceID
-        tsc.devicetagID = MainApp.appInfo.tagName
-        tsc.appversion = MainApp.appInfo.appVersion
-        tsc._UUID = MainApp.fc._UID
-        tsc.districtCode = MainApp.fc.districtCode
-        tsc.tehsilCode = MainApp.fc.tehsilCode
-        tsc.ucCode = MainApp.fc.ucCode
-        tsc.hfCode = MainApp.fc.hfCode
-        tsc.serialno = serial.toString()
-        tsc.status = "1"
+        modc = ModuleCContract()
+        modc.formDate = SimpleDateFormat("dd-MM-yy HH:mm").format(Date().time)
+        modc.deviceID = MainApp.appInfo.deviceID
+        modc.devicetagID = MainApp.appInfo.tagName
+        modc.appversion = MainApp.appInfo.appVersion
+        modc._UUID = MainApp.fc._UID
+        modc.districtCode = MainApp.fc.districtCode
+        modc.tehsilCode = MainApp.fc.tehsilCode
+        modc.ucCode = MainApp.fc.ucCode
+        modc.hfCode = MainApp.fc.hfCode
+        modc.serialno = serial.toString()
+        modc.status = "1"
 
         val json = JSONObject()
 
@@ -134,11 +134,11 @@ class SectionC2Activity : AppCompatActivity() {
             bi.c021dg.isChecked -> "96"
             else -> "-1"
         })
-        json.put("c021dgx ", if (bi.c021dgx.text.toString().trim().isEmpty()) "-1" else bi.c021dgx.text.toString())
+        json.put("c021dgx", if (bi.c021dgx.text.toString().trim().isEmpty()) "-1" else bi.c021dgx.text.toString())
 
         json.put("c021e", if (bi.c021e.text.toString().trim().isEmpty()) "-1" else bi.c021e.text.toString())
 
-        tsc.setsC2(json.toString())
+        modc.setsC2(json.toString())
 
     }
 

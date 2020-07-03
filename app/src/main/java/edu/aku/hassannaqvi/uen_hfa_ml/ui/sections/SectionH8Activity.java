@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -16,13 +17,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH8Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 
@@ -35,6 +36,17 @@ public class SectionH8Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h8);
         bi.setCallback(this);
+        setupSkips();
+
+    }
+
+
+    private void setupSkips() {
+        bi.h0901.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (i == bi.h0901b.getId()) {
+                Clear.clearAllFields(bi.fldGrpSech901);
+            }
+        }));
 
     }
 
@@ -57,7 +69,7 @@ public class SectionH8Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, MainApp.fc.getsH());
+        int updcount = db.updatesMHColumn(ModuleHContract.ModuleH.COLUMN_SH, modh.getsH());
         if (updcount == 1) {
             return true;
         } else {
@@ -71,18 +83,26 @@ public class SectionH8Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h0801", bi.h0801a.isChecked() ? "1"
-                : bi.h0801b.isChecked() ? "2"
+        json.put("h0901", bi.h0901a.isChecked() ? "1"
+                : bi.h0901b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h0802", bi.h0802a.isChecked() ? "1"
-                : bi.h0802b.isChecked() ? "2"
+        json.put("h0902a", bi.h0902aa.isChecked() ? "1"
+                : bi.h0902ab.isChecked() ? "2"
+                : "-1");
+
+        json.put("h0902b", bi.h0902ba.isChecked() ? "1"
+                : bi.h0902bb.isChecked() ? "2"
+                : "-1");
+
+        json.put("h0902c", bi.h0902ca.isChecked() ? "1"
+                : bi.h0902cb.isChecked() ? "2"
                 : "-1");
 
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modh.getsH()), json);
 
-            fc.setsH(String.valueOf(json_merge));
+            modh.setsH(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();

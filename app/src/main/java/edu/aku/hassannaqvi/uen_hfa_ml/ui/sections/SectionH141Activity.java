@@ -17,23 +17,23 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleHContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH151Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH141Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modh;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
-public class SectionH151Activity extends AppCompatActivity {
+public class SectionH141Activity extends AppCompatActivity {
 
-    ActivitySectionH151Binding bi;
+    ActivitySectionH141Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h151);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h141);
         bi.setCallback(this);
         setupSkips();
 
@@ -253,7 +253,7 @@ public class SectionH151Activity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            startActivity(new Intent(this, SectionH152Activity.class));
+            startActivity(new Intent(this, SectionH142Activity.class));
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
@@ -262,7 +262,7 @@ public class SectionH151Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SH, fc.getsH());
+        int updcount = db.updatesMHColumn(ModuleHContract.ModuleH.COLUMN_SH, modh.getsH());
         if (updcount == 1) {
             return true;
         } else {
@@ -403,10 +403,11 @@ public class SectionH151Activity extends AppCompatActivity {
         json.put("h1501h0dy", bi.h1501h0dy.getText().toString().trim().isEmpty() ? "-1" : bi.h1501h0dy.getText().toString());
         json.put("h1501h0dn", bi.h1501h0dn.getText().toString().trim().isEmpty() ? "-1" : bi.h1501h0dn.getText().toString());
 
-        try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
 
-            fc.setsH(String.valueOf(json_merge));
+        try {
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(modh.getsH()), json);
+
+            modh.setsH(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();

@@ -23,7 +23,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI4Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.EndingActivity;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.psc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modi;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivityI;
 
 
@@ -60,7 +60,7 @@ public class SectionI4Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_SI4, psc.getsI4());
+        int updcount = db.updatesMIColumn(ModuleIContract.ModuleI.COLUMN_SI4, modi.getsI4());
         if (updcount == 1) {
             return true;
         } else {
@@ -117,7 +117,7 @@ public class SectionI4Activity extends AppCompatActivity {
                 : "-1");
 
 
-        psc.setsI4(String.valueOf(json));
+        modi.setsI4(String.valueOf(json));
 
     }
 

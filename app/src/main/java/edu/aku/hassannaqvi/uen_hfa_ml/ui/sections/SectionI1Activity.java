@@ -30,7 +30,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.utils.EndSectionActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.validator.ValidatorClass;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.SECTION_MAIN_CHECK_FOR_END;
-import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.psc;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.modi;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivityI;
 
 
@@ -50,7 +50,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
     private void setupContent() {
 
-        psc = new ModuleIContract();
+        modi = new ModuleIContract();
 
         bi.hfType.setText(MainApp.fc.getA10().equals("1") ? getString(R.string.publicHF) : getString(R.string.privateHF));
         bi.maternalCount.setText(new StringBuilder("Maternal Entries: ").append(SectionMainActivity.maternalCount));
@@ -143,11 +143,11 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        long updcount = db.addPSC(psc);
-        psc.set_ID(String.valueOf(updcount));
+        long updcount = db.addModuleI(modi);
+        modi.set_ID(String.valueOf(updcount));
         if (updcount > 0) {
-            psc.set_UID(psc.getDeviceID() + psc.get_ID());
-            db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_UID, psc.get_UID());
+            modi.set_UID(modi.getDeviceID() + modi.get_ID());
+            db.updatesMIColumn(ModuleIContract.ModuleI.COLUMN_UID, modi.get_UID());
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -158,15 +158,15 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
     private void SaveDraft() throws JSONException {
 
-        psc.setFormDate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
-        psc.setDeviceID(MainApp.appInfo.getDeviceID());
-        psc.setDevicetagID(MainApp.appInfo.getTagName());
-        psc.setAppversion(MainApp.appInfo.getAppVersion());
-        psc.set_UUID(MainApp.fc.get_UID());
-        psc.setDistrictCode(MainApp.fc.getDistrictCode());
-        psc.setTehsilCode(MainApp.fc.getTehsilCode());
-        psc.setUcCode(MainApp.fc.getUcCode());
-        psc.setHfCode(MainApp.fc.getHfCode());
+        modi.setFormDate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        modi.setDeviceID(MainApp.appInfo.getDeviceID());
+        modi.setDevicetagID(MainApp.appInfo.getTagName());
+        modi.setAppversion(MainApp.appInfo.getAppVersion());
+        modi.set_UUID(MainApp.fc.get_UID());
+        modi.setDistrictCode(MainApp.fc.getDistrictCode());
+        modi.setTehsilCode(MainApp.fc.getTehsilCode());
+        modi.setUcCode(MainApp.fc.getUcCode());
+        modi.setHfCode(MainApp.fc.getHfCode());
 //        psc.serialno = serial.toString()
 
         JSONObject json = new JSONObject();
@@ -203,7 +203,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
                 : bi.i0108b.isChecked() ? "2"
                 : "-1");
 
-        psc.setsI1(String.valueOf(json));
+        modi.setsI1(String.valueOf(json));
 
     }
 
