@@ -2,11 +2,15 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -35,6 +39,46 @@ public class SectionF1Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_f1);
         bi.setCallback(this);
         setupSkips();
+        setupTextWatchers();
+    }
+
+
+    private void setupTextWatchers() {
+        editTextImplementation(bi.f0101aa0ayx, bi.f0101aa0fyx);
+        editTextImplementation(bi.f0101ab0ayx, bi.f0101ab0fyx);
+
+        editTextImplementation(bi.f0105aaa0ayx, bi.f0105aaa0fyx);
+        editTextImplementation(bi.f0105aab0ayx, bi.f0105aab0fyx);
+        editTextImplementation(bi.f0105aac0ayx, bi.f0105aac0fyx);
+
+        editTextImplementation(bi.f0106aaa0ayx, bi.f0106aaa0fyx);
+
+        editTextImplementation(bi.f0110aaa0ayx, bi.f0110aaa0fyx);
+        editTextImplementation(bi.f0110aab0ayx, bi.f0110aab0fyx);
+        editTextImplementation(bi.f0110aac0ayx, bi.f0110aac0fyx);
+        editTextImplementation(bi.f0110aad0ayx, bi.f0110aad0fyx);
+        editTextImplementation(bi.f0110aae0ayx, bi.f0110aae0fyx);
+    }
+
+
+    public void editTextImplementation(EditTextPicker edit01, EditTextPicker edit02) {
+
+        edit01.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (TextUtils.isEmpty(edit01.getText()))
+                    return;
+                edit02.setMaxvalue(Integer.parseInt(edit01.getText().toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
 
     }
 

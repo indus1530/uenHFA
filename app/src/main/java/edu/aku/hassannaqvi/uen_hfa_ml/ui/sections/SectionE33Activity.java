@@ -2,11 +2,15 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.edittextpicker.aliazaz.EditTextPicker;
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
@@ -33,6 +37,41 @@ public class SectionE33Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_e33);
         bi.setCallback(this);
         setupSkips();
+        setupTextWatchers();
+    }
+
+
+    private void setupTextWatchers() {
+        editTextImplementation(bi.e0306k0ayx, bi.e0306k0fyx);
+        editTextImplementation(bi.e0306l0ayx, bi.e0306l0fyx);
+        editTextImplementation(bi.e0306m0ayx, bi.e0306m0fyx);
+        editTextImplementation(bi.e0306n0ayx, bi.e0306n0fyx);
+        editTextImplementation(bi.e0306o0ayx, bi.e0306o0fyx);
+        editTextImplementation(bi.e0306p0ayx, bi.e0306p0fyx);
+        editTextImplementation(bi.e0306q0ayx, bi.e0306q0fyx);
+        editTextImplementation(bi.e0306r0ayx, bi.e0306r0fyx);
+    }
+
+
+    public void editTextImplementation(EditTextPicker edit01, EditTextPicker edit02) {
+
+        edit01.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (TextUtils.isEmpty(edit01.getText()))
+                    return;
+                edit02.setMaxvalue(Integer.parseInt(edit01.getText().toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
+
     }
 
 

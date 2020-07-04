@@ -1,7 +1,9 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <data>
+
         <import type="android.view.View" />
 
         <variable
@@ -1540,11 +1542,15 @@
 
                         </RadioGroup>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/e0705a0ayx"
                             style="@style/EditTextNum"
                             android:hint="@string/e0705a0aq"
                             android:maxLength="3"
+                            android:tag="e0705a0ay"
+                            app:maxValue="999"
+                            app:minValue="0"
+                            app:type="range"
                             android:text='@{e0705a0ay.checked? e0705a0ayx.getText().toString() : ""}'
                             android:visibility='@{e0705a0ay.checked? View.VISIBLE : View.GONE}' />
 
@@ -1606,11 +1612,15 @@
 
                         </RadioGroup>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/e0705a0fyx"
                             style="@style/EditTextNum"
                             android:hint="@string/e0705a0fq"
                             android:maxLength="3"
+                            android:tag="e0705a0fy"
+                            app:maxValue="999"
+                            app:minValue="0"
+                            app:type="range"
                             android:text='@{e0705a0fy.checked? e0705a0fyx.getText().toString() : ""}'
                             android:visibility='@{e0705a0fy.checked? View.VISIBLE : View.GONE}' />
 
@@ -1672,11 +1682,15 @@
 
                         </RadioGroup>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/e0705b0ayx"
                             style="@style/EditTextNum"
                             android:hint="@string/e0705b0aq"
                             android:maxLength="3"
+                            android:tag="e0705b0ay"
+                            app:maxValue="999"
+                            app:minValue="0"
+                            app:type="range"
                             android:text='@{e0705b0ay.checked? e0705b0ayx.getText().toString() : ""}'
                             android:visibility='@{e0705b0ay.checked? View.VISIBLE : View.GONE}' />
 
@@ -1738,17 +1752,22 @@
 
                         </RadioGroup>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/e0705b0fyx"
                             style="@style/EditTextNum"
                             android:hint="@string/e0705b0fq"
                             android:maxLength="3"
+                            android:tag="e0705b0fy"
+                            app:maxValue="999"
+                            app:minValue="0"
+                            app:type="range"
                             android:text='@{e0705b0fy.checked? e0705b0fyx.getText().toString() : ""}'
                             android:visibility='@{e0705b0fy.checked? View.VISIBLE : View.GONE}' />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
 
                 <!-- e0705c0a  Radio   -->
@@ -1803,11 +1822,15 @@
 
                         </RadioGroup>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/e0705c0ayx"
                             style="@style/EditTextNum"
                             android:hint="@string/e0705c0aq"
                             android:maxLength="3"
+                            android:tag="e0705c0ay"
+                            app:maxValue="999"
+                            app:minValue="0"
+                            app:type="range"
                             android:text='@{e0705c0ay.checked? e0705c0ayx.getText().toString() : ""}'
                             android:visibility='@{e0705c0ay.checked? View.VISIBLE : View.GONE}' />
 
@@ -1869,17 +1892,22 @@
 
                         </RadioGroup>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/e0705c0fyx"
                             style="@style/EditTextNum"
                             android:hint="@string/e0705c0fq"
                             android:maxLength="3"
+                            android:tag="e0705c0fy"
+                            app:maxValue="999"
+                            app:minValue="0"
+                            app:type="range"
                             android:text='@{e0705c0fy.checked? e0705c0fyx.getText().toString() : ""}'
                             android:visibility='@{e0705c0fy.checked? View.VISIBLE : View.GONE}' />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
+
 
 
                 <!-- e0705d0a  Radio   -->
@@ -1934,11 +1962,15 @@
 
                         </RadioGroup>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/e0705d0ayx"
                             style="@style/EditTextNum"
                             android:hint="@string/e0705d0aq"
                             android:maxLength="3"
+                            android:tag="e0705d0ay"
+                            app:maxValue="999"
+                            app:minValue="0"
+                            app:type="range"
                             android:text='@{e0705d0ay.checked? e0705d0ayx.getText().toString() : ""}'
                             android:visibility='@{e0705d0ay.checked? View.VISIBLE : View.GONE}' />
 
@@ -2000,11 +2032,15 @@
 
                         </RadioGroup>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/e0705d0fyx"
                             style="@style/EditTextNum"
                             android:hint="@string/e0705d0fq"
                             android:maxLength="3"
+                            android:tag="e0705d0ay"
+                            app:maxValue="999"
+                            app:minValue="0"
+                            app:type="range"
                             android:text='@{e0705d0fy.checked? e0705d0fyx.getText().toString() : ""}'
                             android:visibility='@{e0705d0fy.checked? View.VISIBLE : View.GONE}' />
 
@@ -2065,11 +2101,15 @@
 
                         </RadioGroup>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/e0705e0ayx"
                             style="@style/EditTextNum"
                             android:hint="@string/e0705e0aq"
                             android:maxLength="3"
+                            android:tag="e0705e0ay"
+                            app:maxValue="999"
+                            app:minValue="0"
+                            app:type="range"
                             android:text='@{e0705e0ay.checked? e0705e0ayx.getText().toString() : ""}'
                             android:visibility='@{e0705e0ay.checked? View.VISIBLE : View.GONE}' />
 
@@ -2131,11 +2171,15 @@
 
                         </RadioGroup>
 
-                        <EditText
+                        <com.edittextpicker.aliazaz.EditTextPicker
                             android:id="@+id/e0705e0fyx"
                             style="@style/EditTextNum"
                             android:hint="@string/e0705e0fq"
                             android:maxLength="3"
+                            android:tag="e0705e0fy"
+                            app:maxValue="999"
+                            app:minValue="0"
+                            app:type="range"
                             android:text='@{e0705e0fy.checked? e0705e0fyx.getText().toString() : ""}'
                             android:visibility='@{e0705e0fy.checked? View.VISIBLE : View.GONE}' />
 
