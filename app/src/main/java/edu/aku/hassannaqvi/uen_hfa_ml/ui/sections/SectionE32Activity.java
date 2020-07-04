@@ -219,9 +219,9 @@ public class SectionE32Activity extends AppCompatActivity {
         json.put("e0306j0fyx", bi.e0306j0fyx.getText().toString().trim().isEmpty() ? "-1" : bi.e0306j0fyx.getText().toString());
 
         try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsE()), json);
+            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsE()), json);
 
-            MainApp.fc.setsE(String.valueOf(json_merge));
+            fc.setsE(String.valueOf(json_merge));
 
         } catch (JSONException e) {
             e.printStackTrace();

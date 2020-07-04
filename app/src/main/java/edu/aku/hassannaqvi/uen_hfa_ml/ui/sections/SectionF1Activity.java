@@ -145,8 +145,8 @@ public class SectionF1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("moduleDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
-        json.put("moduleTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
+        json.put("FDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+        json.put("FTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
 
         json.put("f0100", bi.f0100a.isChecked() ? "1"
                 : bi.f0100b.isChecked() ? "2"

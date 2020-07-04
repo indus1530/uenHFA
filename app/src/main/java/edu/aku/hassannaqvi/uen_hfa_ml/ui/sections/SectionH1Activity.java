@@ -145,8 +145,8 @@ public class SectionH1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("moduleDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
-        json.put("moduleTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
+        json.put("HDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+        json.put("HTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
 
         json.put("h0101a", bi.h0101a.getText().toString().trim().isEmpty() ? "-1" : bi.h0101a.getText().toString());
         json.put("h0101b", bi.h0101b.getText().toString().trim().isEmpty() ? "-1" : bi.h0101b.getText().toString());

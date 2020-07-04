@@ -73,8 +73,8 @@ public class SectionJ1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("moduleDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
-        json.put("moduleTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
+        json.put("JDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+        json.put("JTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
 
         json.put("j0100a", bi.j0100a.getText().toString().trim().length() > 0 ? bi.j0100a.getText().toString() : "-1");
         json.put("j0100b", bi.j0100b.getText().toString().trim().length() > 0 ? bi.j0100b.getText().toString() : "-1");

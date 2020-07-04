@@ -121,8 +121,8 @@ public class SectionC1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("moduleDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
-        json.put("moduleTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
+        json.put("CDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+        json.put("CTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
 
         json.put("c01aa", bi.c01aa.getText().toString().trim().isEmpty() ? "-1" : bi.c01aa.getText().toString());
         json.put("c01ab", bi.c01ab.getText().toString().trim().isEmpty() ? "-1" : bi.c01ab.getText().toString());

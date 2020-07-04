@@ -112,8 +112,8 @@ public class SectionG1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("moduleDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
-        json.put("moduleTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
+        json.put("GDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+        json.put("GTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
 
         json.put("g0101", bi.g0101a.isChecked() ? "1"
                 : bi.g0101b.isChecked() ? "2"

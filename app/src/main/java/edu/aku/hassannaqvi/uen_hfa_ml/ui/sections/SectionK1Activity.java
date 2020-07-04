@@ -88,8 +88,8 @@ public class SectionK1Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("moduleDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
-        json.put("moduleTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
+        json.put("KDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+        json.put("KTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
 
         json.put("k0101a", bi.k0101aa.isChecked() ? "1"
                 : bi.k0101ab.isChecked() ? "2"

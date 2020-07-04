@@ -108,8 +108,8 @@ public class SectionBActivity extends AppCompatActivity {
                 : bi.a14b.isChecked() ? "2"
                 : "-1");
 
-        json.put("moduleDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
-        json.put("moduleTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
+        json.put("BDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+        json.put("BTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
 
         json.put("a15", bi.a15a.isChecked() ? "1"
                 : bi.a15b.isChecked() ? "2"
