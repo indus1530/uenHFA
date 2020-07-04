@@ -722,12 +722,12 @@ public class FormsContract {
         this.synced02 = synced02;
     }
 
-    public String getSynced_date02() {
-        return synced_date02;
+    public String getSynced_date03() {
+        return synced_date03;
     }
 
-    public void setSynced_date02(String synced_date02) {
-        this.synced_date02 = synced_date02;
+    public void setSynced_date03(String synced_date03) {
+        this.synced_date03 = synced_date03;
     }
 
     public static abstract class FormsTable implements BaseColumns {
@@ -783,7 +783,7 @@ public class FormsContract {
         public static final String COLUMN_SYNCED_DATE_03 = "synced_date_03";
         public static final String COLUMN_APPVERSION = "appversion";
 
-
         public static String _URL = "sync.php";
+
     }
 }
