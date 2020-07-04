@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
@@ -95,7 +96,14 @@ public class EndingActivity extends AppCompatActivity {
 
     public boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = sectionMainCheck ? db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_STATUS, MainApp.psc.getStatus()) : db.updateEnding();
+        int updcount;
+        if (sectionMainCheck) {
+            updcount = db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_STATUS, MainApp.psc.getStatus());
+            if (updcount == 1)
+                updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SI, MainApp.fc.getsI());
+        } else
+            updcount = db.updateEnding();
+
         if (updcount == 1) {
             return true;
         } else {
