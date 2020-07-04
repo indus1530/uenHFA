@@ -291,9 +291,10 @@ public class FormsContract {
             json.put(FormsTable.COLUMN_SH, new JSONObject(this.sH));
         }
 
-        if (this.sI != null && !this.sI.equals("")) {
+        /*if (this.sI != null && !this.sI.equals("")) {
             json.put(FormsTable.COLUMN_SI, new JSONObject(this.sI));
-        }
+        }*/
+        json.put(FormsTable.COLUMN_SI, this.sI == null ? JSONObject.NULL : this.sI);
 
         if (this.sJ != null && !this.sJ.equals("")) {
             json.put(FormsTable.COLUMN_SJ, new JSONObject(this.sJ));
