@@ -299,10 +299,6 @@ public class FormsContract {
             json.put(FormsTable.COLUMN_SJ, new JSONObject(this.sJ));
         }
 
-        if (this.sK != null && !this.sK.equals("")) {
-            json.put(FormsTable.COLUMN_SK, new JSONObject(this.sK));
-        }
-
         return json;
     }
 

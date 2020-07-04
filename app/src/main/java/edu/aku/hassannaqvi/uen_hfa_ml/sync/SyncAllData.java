@@ -33,7 +33,7 @@ import static android.content.Context.MODE_PRIVATE;
  * Created by ali.azaz on 3/14/2018.
  */
 
-public class SyncAllData extends AsyncTask<Boolean, Integer, String> {
+public class SyncAllData extends AsyncTask<Integer, Integer, String> {
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
@@ -47,7 +47,7 @@ public class SyncAllData extends AsyncTask<Boolean, Integer, String> {
     private Class contractClass;
     private Collection dbData;
     private DatabaseHelper db;
-    private boolean form02_flag = true;
+    private int form02_flag = 0;
 
     public SyncAllData(Context mContext, String syncClass, String updateSyncClass, Class contractClass, String url,
                        String tableName, Collection dbData, int position, UploadListAdapter adapter, List<SyncModel> uploadlist) {
@@ -83,7 +83,7 @@ public class SyncAllData extends AsyncTask<Boolean, Integer, String> {
 
 
     @Override
-    protected String doInBackground(Boolean... params) {
+    protected String doInBackground(Integer... params) {
         Log.d(TAG, "doInBackground: URL " + url);
 
         if (params.length != 0) {
@@ -141,7 +141,7 @@ public class SyncAllData extends AsyncTask<Boolean, Integer, String> {
                             for (Method method : contractClass.getDeclaredMethods()) {
                                 String methodName = method.getName();
 
-                                if (methodName.equals(form02_flag ? "toJSONObject" : "toJSONObject02")) {
+                                if (methodName.equals(form02_flag == 0 ? "toJSONObject" : form02_flag == 1 ? "toJSONObject02" : "toJSONObject03")) {
                                     for (Object fc : DBData) {
                                         jsonSync.put(fc.getClass().getMethod(methodName).invoke(fc));
                                     }
