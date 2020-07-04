@@ -157,7 +157,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                         MainApp._HOST_URL + MainApp._SERVER_URL,
                         FormsContract.FormsTable.TABLE_NAME + String.format("%02d", i),
                         db.getUnsyncedForms(i), i - 1, uploadListAdapter, uploadlist
-                ).execute();
+                ).execute(i - 1);
             }
 
 //  *******************************************************C2Section*********************************
