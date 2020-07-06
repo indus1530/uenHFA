@@ -153,12 +153,15 @@ class SectionC2Activity : AppCompatActivity() {
     }
 
 
-    private fun routingNextActivity(activity: Class<*>) {
+    private fun routingNextActivity(activity: Class<*>, flag: Boolean = true) {
         if (!formValidation()) return
         saveDraft()
         if (UpdateDB()) {
             finish()
-            startActivity(Intent(this, activity).putExtra(TRAINED_STAFF_SERIAL, serial + 1))
+            var intent = Intent(this, activity).putExtra(TRAINED_STAFF_SERIAL, serial + 1)
+            if (!flag)
+                intent = Intent(this, activity)
+            startActivity(intent)
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show()
         }
@@ -186,7 +189,7 @@ class SectionC2Activity : AppCompatActivity() {
                     run {
                         when (item.id) {
                             0 -> routingNextActivity(this::class.java)
-                            else -> if (formValidation()) startActivity(Intent(this@SectionC2Activity, SectionMainActivity::class.java))
+                            else -> routingNextActivity(SectionMainActivity::class.java, false)
                         }
                     }
 
