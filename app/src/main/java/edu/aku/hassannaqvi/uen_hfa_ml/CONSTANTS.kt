@@ -34,5 +34,8 @@ class CONSTANTS {
         const val SECTION_MAIN_CHECK_FOR_END = "section_main_check"
 
 
+        //Login Result Code
+        const val LOGIN_RESULT_CODE = 10101
+        const val LOGIN_SPLASH_FLAG = "splash_flag"
     }
 }

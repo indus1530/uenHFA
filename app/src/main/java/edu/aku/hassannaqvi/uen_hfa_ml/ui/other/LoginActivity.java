@@ -33,8 +33,9 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -68,15 +69,8 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.AppInfo;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sync.SyncActivity;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable;
 
-import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.MINIMUM_DISTANCE_CHANGE_FOR_UPDATES;
-import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.MINIMUM_TIME_BETWEEN_UPDATES;
-import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.MY_PERMISSIONS_REQUEST_READ_CONTACTS;
-import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.MY_PERMISSIONS_REQUEST_READ_PHONE_STATE;
-import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.TWO_MINUTES;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_NAME;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DB_NAME;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.PROJECT_NAME;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.getPermissionsList;
 import static java.lang.Thread.sleep;
 
@@ -98,12 +92,13 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     @BindView(R.id.email_sign_in_button)
     AppCompatButton mEmailSignInButton;
     @BindView(R.id.syncData)
-    ImageButton syncData;
+    Button syncData;
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     String DirectoryName;
     DatabaseHelper db;
     private UserLoginTask mAuthTask = null;
+    ArrayAdapter<String> provinceAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,6 +148,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     }
 
 
+
     private void gettingDeviceIMEI() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             return;
@@ -164,7 +160,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private boolean checkAndRequestPermissions() {
         if (!getPermissionsList(this).isEmpty()) {
             ActivityCompat.requestPermissions(this, getPermissionsList(this).toArray(new String[getPermissionsList(this).size()]),
-                    MY_PERMISSIONS_REQUEST_READ_CONTACTS);
+                    CONSTANTS.MY_PERMISSIONS_REQUEST_READ_CONTACTS);
             return false;
         }
 
@@ -185,7 +181,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 editor.apply();
             }
 
-            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + PROJECT_NAME);
+            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + CreateTable.PROJECT_NAME);
             boolean success = true;
             if (!folder.exists()) {
                 success = folder.mkdirs();
@@ -200,9 +196,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 if (success) {
 
                     try {
-                        File dbFile = new File(this.getDatabasePath(DATABASE_NAME).getPath());
+                        File dbFile = new File(this.getDatabasePath(CreateTable.DATABASE_NAME).getPath());
                         FileInputStream fis = new FileInputStream(dbFile);
-                        String outFileName = DirectoryName + File.separator + DB_NAME;
+                        String outFileName = DirectoryName + File.separator + CreateTable.DB_NAME;
                         // Open the empty db as the output stream
                         OutputStream output = new FileOutputStream(outFileName);
 
@@ -283,6 +279,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             // form field with an error.
             focusView.requestFocus();
         } else {
+            // Show a progress spinner, and kick off a background task to
+            // perform the user login attempt.
             showProgress(true);
             mAuthTask = new UserLoginTask(this, email, password);
             mAuthTask.execute((Void) null);
@@ -398,14 +396,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                             //re-request
                             ActivityCompat.requestPermissions(LoginActivity.this,
                                     new String[]{Manifest.permission.READ_PHONE_STATE},
-                                    MY_PERMISSIONS_REQUEST_READ_PHONE_STATE);
+                                    CONSTANTS.MY_PERMISSIONS_REQUEST_READ_PHONE_STATE);
                         }
                     })
                     .show();
         } else {
             // READ_PHONE_STATE permission has not been granted yet. Request it directly.
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE},
-                    MY_PERMISSIONS_REQUEST_READ_PHONE_STATE);
+                    CONSTANTS.MY_PERMISSIONS_REQUEST_READ_PHONE_STATE);
         }
     }
 
@@ -413,58 +411,52 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         for (int i = 0; i < permissions.length; i++) {
-            if (permissions[i].equals(Manifest.permission.READ_CONTACTS)) {
-                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                    populateAutoComplete();
-                }
-            } else if (permissions[i].equals(Manifest.permission.GET_ACCOUNTS)) {
-                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-
-
-                }
-            } else if (permissions[i].equals(Manifest.permission.READ_PHONE_STATE)) {
-                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                    doPermissionGrantedStuffs();
-                    //loadIMEI();
-                }
-            } else if (permissions[i].equals(Manifest.permission.ACCESS_COARSE_LOCATION)) {
-                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-
-
-                }
-            } else if (permissions[i].equals(Manifest.permission.ACCESS_FINE_LOCATION)) {
-                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-                    locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                            != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        // TODO: Consider calling
-                        //    ActivityCompat#requestPermissions
-                        // here to request the missing permissions, and then overriding
-                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                        //                                          int[] grantResults)
-                        // to handle the case where the user grants the permission. See the documentation
-                        // for ActivityCompat#requestPermissions for more details.
-                        return;
+            switch (permissions[i]) {
+                case Manifest.permission.READ_CONTACTS:
+                    if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                        populateAutoComplete();
                     }
-                    locationManager.requestLocationUpdates(
-                            LocationManager.GPS_PROVIDER,
-                            MINIMUM_TIME_BETWEEN_UPDATES,
-                            MINIMUM_DISTANCE_CHANGE_FOR_UPDATES,
-                            new GPSLocationListener()// Implement this class from code
+                    break;
+                case Manifest.permission.GET_ACCOUNTS:
+                    break;
+                case Manifest.permission.READ_PHONE_STATE:
+                    if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                        doPermissionGrantedStuffs();
+                        //loadIMEI();
+                    }
+                    break;
+                case Manifest.permission.ACCESS_COARSE_LOCATION:
+                    break;
+                case Manifest.permission.ACCESS_FINE_LOCATION:
+                    if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+                        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                            // TODO: Consider calling
+                            //    ActivityCompat#requestPermissions
+                            // here to request the missing permissions, and then overriding
+                            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                            //                                          int[] grantResults)
+                            // to handle the case where the user grants the permission. See the documentation
+                            // for ActivityCompat#requestPermissions for more details.
+                            return;
+                        }
+                        locationManager.requestLocationUpdates(
+                                LocationManager.GPS_PROVIDER,
+                                CONSTANTS.MINIMUM_TIME_BETWEEN_UPDATES,
+                                CONSTANTS.MINIMUM_DISTANCE_CHANGE_FOR_UPDATES,
+                                new GPSLocationListener()// Implement this class from code
 
-                    );
-                }
-            } else if (permissions[i].equals(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-
-                }
-            } else if (permissions[i].equals(Manifest.permission.CAMERA)) {
-                if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
-
-                }
+                        );
+                    }
+                    break;
+                case Manifest.permission.WRITE_EXTERNAL_STORAGE:
+                case Manifest.permission.CAMERA:
+                    break;
             }
         }
     }
+
 
     private void doPermissionGrantedStuffs() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
@@ -513,8 +505,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         // Check whether the new location fix is newer or older
         long timeDelta = location.getTime() - currentBestLocation.getTime();
-        boolean isSignificantlyNewer = timeDelta > TWO_MINUTES;
-        boolean isSignificantlyOlder = timeDelta < -TWO_MINUTES;
+        boolean isSignificantlyNewer = timeDelta > CONSTANTS.TWO_MINUTES;
+        boolean isSignificantlyOlder = timeDelta < -CONSTANTS.TWO_MINUTES;
         boolean isNewer = timeDelta > 0;
 
         // If it's been more than two minutes since the current location, use the new location
@@ -554,30 +546,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
     public void populateSpinner(Context context) {
 
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        //To call coroutine here
-        /*populatingSpinners(getApplicationContext(), new SplashscreenActivity.Continuation<Unit>() {
-            @Override
-            public void resume(Unit value) {
-
-            }
-
-            @Override
-            public void resumeWithException(@NotNull Throwable exception) {
-
-            }
-
-            @NotNull
-            @Override
-            public CoroutineContext getContext() {
-                return null;
-            }
-        });*/
     }
 
     private interface ProfileQuery {
@@ -635,11 +603,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         }
     }
 
+
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+    private class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String mEmail;
         private final String mPassword;
