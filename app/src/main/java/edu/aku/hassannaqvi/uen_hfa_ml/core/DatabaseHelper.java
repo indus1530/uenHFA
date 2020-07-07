@@ -663,6 +663,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(StaffingContract.StaffingTable.COLUMN_UID, tsc.get_UID());
         values.put(StaffingContract.StaffingTable.COLUMN_UUID, tsc.get_UUID());
         values.put(StaffingContract.StaffingTable.COLUMN_FORMDATE, tsc.getFormDate());
+        values.put(StaffingContract.StaffingTable.COLUMN_USERNAME, tsc.getUserName());
         values.put(StaffingContract.StaffingTable.COLUMN_SERIALNO, tsc.getSerialno());
         values.put(StaffingContract.StaffingTable.COLUMN_DISTRICT_CODE, tsc.getDistrictCode());
         values.put(StaffingContract.StaffingTable.COLUMN_TEHSIL_CODE, tsc.getTehsilCode());
@@ -696,6 +697,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(PatientsContract.PatientsTable.COLUMN_UID, psc.get_UID());
         values.put(PatientsContract.PatientsTable.COLUMN_UUID, psc.get_UUID());
         values.put(PatientsContract.PatientsTable.COLUMN_FORMDATE, psc.getFormDate());
+        values.put(PatientsContract.PatientsTable.COLUMN_USERNAME, psc.getUserName());
         values.put(PatientsContract.PatientsTable.COLUMN_SERIALNO, psc.getSerialno());
         values.put(PatientsContract.PatientsTable.COLUMN_DISTRICT_CODE, psc.getDistrictCode());
         values.put(PatientsContract.PatientsTable.COLUMN_TEHSIL_CODE, psc.getTehsilCode());
@@ -1149,6 +1151,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 StaffingContract.StaffingTable.COLUMN_UID,
                 StaffingContract.StaffingTable.COLUMN_UUID,
                 StaffingContract.StaffingTable.COLUMN_FORMDATE,
+                StaffingContract.StaffingTable.COLUMN_USERNAME,
                 StaffingContract.StaffingTable.COLUMN_SERIALNO,
                 StaffingContract.StaffingTable.COLUMN_DISTRICT_CODE,
                 StaffingContract.StaffingTable.COLUMN_TEHSIL_CODE,
@@ -1208,6 +1211,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PatientsContract.PatientsTable.COLUMN_UID,
                 PatientsContract.PatientsTable.COLUMN_UUID,
                 PatientsContract.PatientsTable.COLUMN_FORMDATE,
+                PatientsContract.PatientsTable.COLUMN_USERNAME,
                 PatientsContract.PatientsTable.COLUMN_SERIALNO,
                 PatientsContract.PatientsTable.COLUMN_DISTRICT_CODE,
                 PatientsContract.PatientsTable.COLUMN_TEHSIL_CODE,

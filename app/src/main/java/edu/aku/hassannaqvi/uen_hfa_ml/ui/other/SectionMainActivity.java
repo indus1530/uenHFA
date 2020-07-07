@@ -61,7 +61,7 @@ public class SectionMainActivity extends AppCompatActivity {
             }
 
             DatabaseHelper db = MainApp.appInfo.getDbHelper();
-            int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, MainApp.fc.getsC());
+            db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, MainApp.fc.getsC());
             Toast.makeText(this, "C2 Count" + countC2, Toast.LENGTH_SHORT).show();
         }
 
