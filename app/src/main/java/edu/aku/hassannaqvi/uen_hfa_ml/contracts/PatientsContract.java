@@ -71,6 +71,7 @@ public class PatientsContract {
         this._UID = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_UID));
         this._UUID = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_UUID));
         this.formDate = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_FORMDATE));
+        this.userName = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_USERNAME));
         this.serialno = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_SERIALNO));
         this.districtCode = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_DISTRICT_CODE));
         this.tehsilCode = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_TEHSIL_CODE));
