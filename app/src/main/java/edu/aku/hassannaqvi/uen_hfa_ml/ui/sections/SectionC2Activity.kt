@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.validatorcrawler.aliazaz.Validator
 import edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.Companion.TRAINED_STAFF_SERIAL
 import edu.aku.hassannaqvi.uen_hfa_ml.R
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleCContract
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.StaffingContract
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionC2Binding
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.MainActivity
@@ -22,7 +22,7 @@ import ru.whalemare.sheetmenu.layout.GridLayoutProvider
 
 class SectionC2Activity : AppCompatActivity() {
     lateinit var bi: ActivitySectionC2Binding
-    lateinit var tsc: ModuleCContract
+    lateinit var tsc: StaffingContract
     var serial = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,11 +38,11 @@ class SectionC2Activity : AppCompatActivity() {
 
     private fun UpdateDB(): Boolean {
         val db = MainApp.appInfo.dbHelper
-        val updcount = db.addModC(tsc)
+        val updcount = db.addTSC(tsc)
         tsc._ID = updcount.toString()
         return if (updcount > 0) {
             tsc._UID = tsc.deviceID + tsc._ID
-            db.updatesModCColumn(tsc, ModuleCContract.ModuleC.COLUMN_UID, tsc._UID)
+            db.updatesTSCColumn(tsc, StaffingContract.StaffingTable.COLUMN_UID, tsc._UID)
             true
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show()
@@ -53,7 +53,7 @@ class SectionC2Activity : AppCompatActivity() {
 
     private fun saveDraft() {
 
-        tsc = ModuleCContract()
+        tsc = StaffingContract()
         tsc.formDate = MainApp.fc.formdate
         tsc.userName = MainApp.fc.userName
         tsc.deviceID = MainApp.appInfo.deviceID

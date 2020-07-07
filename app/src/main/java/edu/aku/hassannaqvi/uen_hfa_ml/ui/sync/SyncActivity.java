@@ -33,8 +33,8 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.SyncListAdapter;
 import edu.aku.hassannaqvi.uen_hfa_ml.adapter.UploadListAdapter;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleCContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.StaffingContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySyncBinding;
@@ -161,7 +161,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             }
 
 //  *******************************************************C2Section*********************************
-            Toast.makeText(getApplicationContext(), "Syncing ModuleC", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Syncing StaffingTable", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
                 uploadmodel.setstatusID(0);
@@ -169,16 +169,16 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             }
             new SyncAllData(
                     this,
-                    "ModuleC",
-                    "updateSyncedModC",
-                    ModuleCContract.class,
+                    "StaffingTable",
+                    "updateSyncedC2Section",
+                    StaffingContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
-                    ModuleCContract.ModuleC.TABLE_NAME,
-                    db.getUnsyncedModC(), 3, uploadListAdapter, uploadlist
+                    StaffingContract.StaffingTable.TABLE_NAME,
+                    db.getUnsyncedStaffing(), 3, uploadListAdapter, uploadlist
             ).execute();
 
 //  *******************************************************ISection*********************************
-            Toast.makeText(getApplicationContext(), "Syncing ModuleI", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Syncing PatientsTable", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
                 uploadmodel.setstatusID(0);
@@ -186,12 +186,12 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             }
             new SyncAllData(
                     this,
-                    "ModuleI",
-                    "updateSyncedModI",
-                    ModuleIContract.class,
+                    "PatientsTable",
+                    "updateSyncedISection",
+                    PatientsContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
-                    ModuleIContract.ModuleI.TABLE_NAME,
-                    db.getUnsyncedModI(), 4, uploadListAdapter, uploadlist
+                    PatientsContract.PatientsTable.TABLE_NAME,
+                    db.getUnsyncedPatients(), 4, uploadListAdapter, uploadlist
             ).execute();
 
 

@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionI4Binding;
@@ -60,7 +60,7 @@ public class SectionI4Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesModIColumn(ModuleIContract.ModuleI.COLUMN_SI4, psc.getsI4());
+        int updcount = db.updatesPSCColumn(PatientsContract.PatientsTable.COLUMN_SI4, psc.getsI4());
         if (updcount == 1) {
             return true;
         } else {

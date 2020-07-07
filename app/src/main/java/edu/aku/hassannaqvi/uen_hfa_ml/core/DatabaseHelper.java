@@ -21,8 +21,8 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.DistrictContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.HFContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleCContract;
-import edu.aku.hassannaqvi.uen_hfa_ml.contracts.ModuleIContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.StaffingContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TehsilsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UsersContract;
@@ -35,9 +35,9 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_ALTER_FORMS02
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_DISTRICTS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_HF;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_MODULEC;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_MODULEI;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_PSCONTRACT;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_TEHSILS;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_TSCONTRACT;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_UCS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_VERSIONAPP;
@@ -66,8 +66,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
-        db.execSQL(SQL_CREATE_MODULEC);
-        db.execSQL(SQL_CREATE_MODULEI);
+        db.execSQL(SQL_CREATE_TSCONTRACT);
+        db.execSQL(SQL_CREATE_PSCONTRACT);
         db.execSQL(SQL_CREATE_VERSIONAPP);
         db.execSQL(SQL_CREATE_DISTRICTS);
         db.execSQL(SQL_CREATE_TEHSILS);
@@ -653,71 +653,70 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Long addModC(ModuleCContract modc) {
+    public Long addTSC(StaffingContract tsc) {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(ModuleCContract.ModuleC.COLUMN_UID, modc.get_UID());
-        values.put(ModuleCContract.ModuleC.COLUMN_UUID, modc.get_UUID());
-        values.put(ModuleCContract.ModuleC.COLUMN_FORMDATE, modc.getFormDate());
-        values.put(ModuleCContract.ModuleC.COLUMN_USERNAME, modc.getUserName());
-        values.put(ModuleCContract.ModuleC.COLUMN_SERIALNO, modc.getSerialno());
-        values.put(ModuleCContract.ModuleC.COLUMN_DISTRICT_CODE, modc.getDistrictCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_TEHSIL_CODE, modc.getTehsilCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_UC_CODE, modc.getUcCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_HF_CODE, modc.getHfCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_SC2, modc.getsC2());
-        values.put(ModuleCContract.ModuleC.COLUMN_DEVICEID, modc.getDeviceID());
-        values.put(ModuleCContract.ModuleC.COLUMN_DEVICETAGID, modc.getDevicetagID());
-        values.put(ModuleCContract.ModuleC.COLUMN_STATUS, modc.getStatus());
-        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED, modc.getSynced());
-        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED_DATE, modc.getSynced_date());
-        values.put(ModuleCContract.ModuleC.COLUMN_APPVERSION, modc.getAppversion());
+        values.put(StaffingContract.StaffingTable.COLUMN_UID, tsc.get_UID());
+        values.put(StaffingContract.StaffingTable.COLUMN_UUID, tsc.get_UUID());
+        values.put(StaffingContract.StaffingTable.COLUMN_FORMDATE, tsc.getFormDate());
+        values.put(StaffingContract.StaffingTable.COLUMN_SERIALNO, tsc.getSerialno());
+        values.put(StaffingContract.StaffingTable.COLUMN_DISTRICT_CODE, tsc.getDistrictCode());
+        values.put(StaffingContract.StaffingTable.COLUMN_TEHSIL_CODE, tsc.getTehsilCode());
+        values.put(StaffingContract.StaffingTable.COLUMN_UC_CODE, tsc.getUcCode());
+        values.put(StaffingContract.StaffingTable.COLUMN_HF_CODE, tsc.getHfCode());
+        values.put(StaffingContract.StaffingTable.COLUMN_SC2, tsc.getsC2());
+        values.put(StaffingContract.StaffingTable.COLUMN_DEVICEID, tsc.getDeviceID());
+        values.put(StaffingContract.StaffingTable.COLUMN_DEVICETAGID, tsc.getDevicetagID());
+        values.put(StaffingContract.StaffingTable.COLUMN_STATUS, tsc.getStatus());
+        values.put(StaffingContract.StaffingTable.COLUMN_SYNCED, tsc.getSynced());
+        values.put(StaffingContract.StaffingTable.COLUMN_SYNCED_DATE, tsc.getSynced_date());
+        values.put(StaffingContract.StaffingTable.COLUMN_APPVERSION, tsc.getAppversion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                ModuleCContract.ModuleC.TABLE_NAME,
-                ModuleCContract.ModuleC.COLUMN_NAME_NULLABLE,
+                StaffingContract.StaffingTable.TABLE_NAME,
+                StaffingContract.StaffingTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
 
 
-    public Long addModI(ModuleIContract modi) {
+    public Long addPSC(PatientsContract psc) {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(ModuleIContract.ModuleI.COLUMN_UID, modi.get_UID());
-        values.put(ModuleIContract.ModuleI.COLUMN_UUID, modi.get_UUID());
-        values.put(ModuleIContract.ModuleI.COLUMN_FORMDATE, modi.getFormDate());
-        values.put(ModuleIContract.ModuleI.COLUMN_SERIALNO, modi.getSerialno());
-        values.put(ModuleIContract.ModuleI.COLUMN_DISTRICT_CODE, modi.getDistrictCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_TEHSIL_CODE, modi.getTehsilCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_UC_CODE, modi.getUcCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_HF_CODE, modi.getHfCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI1, modi.getsI1());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI2, modi.getsI2());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI3, modi.getsI3());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI4, modi.getsI4());
-        values.put(ModuleIContract.ModuleI.COLUMN_DEVICEID, modi.getDeviceID());
-        values.put(ModuleIContract.ModuleI.COLUMN_DEVICETAGID, modi.getDevicetagID());
-        values.put(ModuleIContract.ModuleI.COLUMN_STATUS, modi.getStatus());
-        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED, modi.getSynced());
-        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED_DATE, modi.getSynced_date());
-        values.put(ModuleIContract.ModuleI.COLUMN_APPVERSION, modi.getAppversion());
+        values.put(PatientsContract.PatientsTable.COLUMN_UID, psc.get_UID());
+        values.put(PatientsContract.PatientsTable.COLUMN_UUID, psc.get_UUID());
+        values.put(PatientsContract.PatientsTable.COLUMN_FORMDATE, psc.getFormDate());
+        values.put(PatientsContract.PatientsTable.COLUMN_SERIALNO, psc.getSerialno());
+        values.put(PatientsContract.PatientsTable.COLUMN_DISTRICT_CODE, psc.getDistrictCode());
+        values.put(PatientsContract.PatientsTable.COLUMN_TEHSIL_CODE, psc.getTehsilCode());
+        values.put(PatientsContract.PatientsTable.COLUMN_UC_CODE, psc.getUcCode());
+        values.put(PatientsContract.PatientsTable.COLUMN_HF_CODE, psc.getHfCode());
+        values.put(PatientsContract.PatientsTable.COLUMN_SI1, psc.getsI1());
+        values.put(PatientsContract.PatientsTable.COLUMN_SI2, psc.getsI2());
+        values.put(PatientsContract.PatientsTable.COLUMN_SI3, psc.getsI3());
+        values.put(PatientsContract.PatientsTable.COLUMN_SI4, psc.getsI4());
+        values.put(PatientsContract.PatientsTable.COLUMN_DEVICEID, psc.getDeviceID());
+        values.put(PatientsContract.PatientsTable.COLUMN_DEVICETAGID, psc.getDevicetagID());
+        values.put(PatientsContract.PatientsTable.COLUMN_STATUS, psc.getStatus());
+        values.put(PatientsContract.PatientsTable.COLUMN_SYNCED, psc.getSynced());
+        values.put(PatientsContract.PatientsTable.COLUMN_SYNCED_DATE, psc.getSynced_date());
+        values.put(PatientsContract.PatientsTable.COLUMN_APPVERSION, psc.getAppversion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
         newRowId = db.insert(
-                ModuleIContract.ModuleI.TABLE_NAME,
-                ModuleIContract.ModuleI.COLUMN_NAME_NULLABLE,
+                PatientsContract.PatientsTable.TABLE_NAME,
+                PatientsContract.PatientsTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -830,15 +829,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED, true);
-        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED_DATE, new Date().toString());
+        values.put(StaffingContract.StaffingTable.COLUMN_SYNCED, true);
+        values.put(StaffingContract.StaffingTable.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = ModuleCContract.ModuleC.COLUMN_ID + " = ?";
+        String where = StaffingContract.StaffingTable.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
-                ModuleCContract.ModuleC.TABLE_NAME,
+                StaffingContract.StaffingTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -850,15 +849,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // New value for one column
         ContentValues values = new ContentValues();
-        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED, true);
-        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED_DATE, new Date().toString());
+        values.put(PatientsContract.PatientsTable.COLUMN_SYNCED, true);
+        values.put(PatientsContract.PatientsTable.COLUMN_SYNCED_DATE, new Date().toString());
 
 // Which row to update, based on the title
-        String where = ModuleIContract.ModuleI.COLUMN_ID + " = ?";
+        String where = PatientsContract.PatientsTable.COLUMN_ID + " = ?";
         String[] whereArgs = {id};
 
         int count = db.update(
-                ModuleIContract.ModuleI.TABLE_NAME,
+                PatientsContract.PatientsTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);
@@ -1142,30 +1141,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<ModuleCContract> getUnsyncedModC() {
+    public Collection<StaffingContract> getUnsyncedStaffing() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                ModuleCContract.ModuleC._ID,
-                ModuleCContract.ModuleC.COLUMN_UID,
-                ModuleCContract.ModuleC.COLUMN_UUID,
-                ModuleCContract.ModuleC.COLUMN_FORMDATE,
-                ModuleCContract.ModuleC.COLUMN_USERNAME,
-                ModuleCContract.ModuleC.COLUMN_SERIALNO,
-                ModuleCContract.ModuleC.COLUMN_DISTRICT_CODE,
-                ModuleCContract.ModuleC.COLUMN_TEHSIL_CODE,
-                ModuleCContract.ModuleC.COLUMN_UC_CODE,
-                ModuleCContract.ModuleC.COLUMN_HF_CODE,
-                ModuleCContract.ModuleC.COLUMN_SC2,
-                ModuleCContract.ModuleC.COLUMN_DEVICEID,
-                ModuleCContract.ModuleC.COLUMN_DEVICETAGID,
-                ModuleCContract.ModuleC.COLUMN_STATUS,
-                ModuleCContract.ModuleC.COLUMN_SYNCED,
-                ModuleCContract.ModuleC.COLUMN_SYNCED_DATE,
-                ModuleCContract.ModuleC.COLUMN_APPVERSION,
+                StaffingContract.StaffingTable._ID,
+                StaffingContract.StaffingTable.COLUMN_UID,
+                StaffingContract.StaffingTable.COLUMN_UUID,
+                StaffingContract.StaffingTable.COLUMN_FORMDATE,
+                StaffingContract.StaffingTable.COLUMN_SERIALNO,
+                StaffingContract.StaffingTable.COLUMN_DISTRICT_CODE,
+                StaffingContract.StaffingTable.COLUMN_TEHSIL_CODE,
+                StaffingContract.StaffingTable.COLUMN_UC_CODE,
+                StaffingContract.StaffingTable.COLUMN_HF_CODE,
+                StaffingContract.StaffingTable.COLUMN_SC2,
+                StaffingContract.StaffingTable.COLUMN_DEVICEID,
+                StaffingContract.StaffingTable.COLUMN_DEVICETAGID,
+                StaffingContract.StaffingTable.COLUMN_STATUS,
+                StaffingContract.StaffingTable.COLUMN_SYNCED,
+                StaffingContract.StaffingTable.COLUMN_SYNCED_DATE,
+                StaffingContract.StaffingTable.COLUMN_APPVERSION,
         };
 
-        String whereClause = "(" + ModuleCContract.ModuleC.COLUMN_SYNCED + " is null or " + ModuleCContract.ModuleC.COLUMN_SYNCED + " ='')  AND " + ModuleCContract.ModuleC.COLUMN_STATUS + " =?";
+        String whereClause = "(" + StaffingContract.StaffingTable.COLUMN_SYNCED + " is null or " + StaffingContract.StaffingTable.COLUMN_SYNCED + " ='')  AND " + StaffingContract.StaffingTable.COLUMN_STATUS + " =?";
 
         String[] whereArgs = new String[]{"1"};
 
@@ -1173,12 +1171,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                ModuleCContract.ModuleC.COLUMN_ID + " ASC";
+                StaffingContract.StaffingTable.COLUMN_ID + " ASC";
 
-        Collection<ModuleCContract> allFC = new ArrayList<ModuleCContract>();
+        Collection<StaffingContract> allFC = new ArrayList<StaffingContract>();
         try {
             c = db.query(
-                    ModuleCContract.ModuleC.TABLE_NAME,  // The table to query
+                    StaffingContract.StaffingTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -1187,7 +1185,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                ModuleCContract tsc = new ModuleCContract();
+                StaffingContract tsc = new StaffingContract();
                 allFC.add(tsc.hydrate(c));
             }
         } finally {
@@ -1202,33 +1200,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<ModuleIContract> getUnsyncedModI() {
+    public Collection<PatientsContract> getUnsyncedPatients() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                ModuleIContract.ModuleI._ID,
-                ModuleIContract.ModuleI.COLUMN_UID,
-                ModuleIContract.ModuleI.COLUMN_UUID,
-                ModuleIContract.ModuleI.COLUMN_FORMDATE,
-                ModuleIContract.ModuleI.COLUMN_USERNAME,
-                ModuleIContract.ModuleI.COLUMN_SERIALNO,
-                ModuleIContract.ModuleI.COLUMN_DISTRICT_CODE,
-                ModuleIContract.ModuleI.COLUMN_TEHSIL_CODE,
-                ModuleIContract.ModuleI.COLUMN_UC_CODE,
-                ModuleIContract.ModuleI.COLUMN_HF_CODE,
-                ModuleIContract.ModuleI.COLUMN_SI1,
-                ModuleIContract.ModuleI.COLUMN_SI2,
-                ModuleIContract.ModuleI.COLUMN_SI3,
-                ModuleIContract.ModuleI.COLUMN_SI4,
-                ModuleIContract.ModuleI.COLUMN_DEVICEID,
-                ModuleIContract.ModuleI.COLUMN_DEVICETAGID,
-                ModuleIContract.ModuleI.COLUMN_STATUS,
-                ModuleIContract.ModuleI.COLUMN_SYNCED,
-                ModuleIContract.ModuleI.COLUMN_SYNCED_DATE,
-                ModuleIContract.ModuleI.COLUMN_APPVERSION,
+                PatientsContract.PatientsTable._ID,
+                PatientsContract.PatientsTable.COLUMN_UID,
+                PatientsContract.PatientsTable.COLUMN_UUID,
+                PatientsContract.PatientsTable.COLUMN_FORMDATE,
+                PatientsContract.PatientsTable.COLUMN_SERIALNO,
+                PatientsContract.PatientsTable.COLUMN_DISTRICT_CODE,
+                PatientsContract.PatientsTable.COLUMN_TEHSIL_CODE,
+                PatientsContract.PatientsTable.COLUMN_UC_CODE,
+                PatientsContract.PatientsTable.COLUMN_HF_CODE,
+                PatientsContract.PatientsTable.COLUMN_SI1,
+                PatientsContract.PatientsTable.COLUMN_SI2,
+                PatientsContract.PatientsTable.COLUMN_SI3,
+                PatientsContract.PatientsTable.COLUMN_SI4,
+                PatientsContract.PatientsTable.COLUMN_DEVICEID,
+                PatientsContract.PatientsTable.COLUMN_DEVICETAGID,
+                PatientsContract.PatientsTable.COLUMN_STATUS,
+                PatientsContract.PatientsTable.COLUMN_SYNCED,
+                PatientsContract.PatientsTable.COLUMN_SYNCED_DATE,
+                PatientsContract.PatientsTable.COLUMN_APPVERSION,
         };
 
-        String whereClause = "(" + ModuleIContract.ModuleI.COLUMN_SYNCED + " is null or " + ModuleIContract.ModuleI.COLUMN_SYNCED + " ='')  AND " + ModuleIContract.ModuleI.COLUMN_STATUS + " =?";
+        String whereClause = "(" + PatientsContract.PatientsTable.COLUMN_SYNCED + " is null or " + PatientsContract.PatientsTable.COLUMN_SYNCED + " ='')  AND " + PatientsContract.PatientsTable.COLUMN_STATUS + " =?";
 
         String[] whereArgs = new String[]{"1"};
 
@@ -1236,12 +1233,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
 
         String orderBy =
-                ModuleIContract.ModuleI.COLUMN_ID + " ASC";
+                PatientsContract.PatientsTable.COLUMN_ID + " ASC";
 
-        Collection<ModuleIContract> allFC = new ArrayList<ModuleIContract>();
+        Collection<PatientsContract> allFC = new ArrayList<PatientsContract>();
         try {
             c = db.query(
-                    ModuleIContract.ModuleI.TABLE_NAME,  // The table to query
+                    PatientsContract.PatientsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -1250,7 +1247,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                ModuleIContract psc = new ModuleIContract();
+                PatientsContract psc = new PatientsContract();
                 allFC.add(psc.hydrate(c));
             }
         } finally {
@@ -1409,16 +1406,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //Generic update TSCColumn
-    public int updatesModCColumn(ModuleCContract tsc, String column, String value) {
+    public int updatesTSCColumn(StaffingContract tsc, String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(column, value);
 
-        String selection = ModuleCContract.ModuleC._ID + " =? ";
+        String selection = StaffingContract.StaffingTable._ID + " =? ";
         String[] selectionArgs = {String.valueOf(tsc.get_ID())};
 
-        return db.update(ModuleCContract.ModuleC.TABLE_NAME,
+        return db.update(StaffingContract.StaffingTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -1426,16 +1423,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //Generic update PSCColumn
-    public int updatesModIColumn(String column, String value) {
+    public int updatesPSCColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(column, value);
 
-        String selection = ModuleIContract.ModuleI._ID + " =? ";
+        String selection = PatientsContract.PatientsTable._ID + " =? ";
         String[] selectionArgs = {String.valueOf(MainApp.psc.get_ID())};
 
-        return db.update(ModuleIContract.ModuleI.TABLE_NAME,
+        return db.update(PatientsContract.PatientsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
