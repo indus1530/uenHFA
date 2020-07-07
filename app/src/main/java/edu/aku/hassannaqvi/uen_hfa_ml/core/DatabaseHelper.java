@@ -35,9 +35,9 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_ALTER_FORMS02
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_DISTRICTS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_HF;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_PSCONTRACT;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_MODULEC;
+import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_MODULEI;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_TEHSILS;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_TSCONTRACT;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_UCS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_VERSIONAPP;
@@ -66,8 +66,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_FORMS);
-        db.execSQL(SQL_CREATE_TSCONTRACT);
-        db.execSQL(SQL_CREATE_PSCONTRACT);
+        db.execSQL(SQL_CREATE_MODULEC);
+        db.execSQL(SQL_CREATE_MODULEI);
         db.execSQL(SQL_CREATE_VERSIONAPP);
         db.execSQL(SQL_CREATE_DISTRICTS);
         db.execSQL(SQL_CREATE_TEHSILS);
@@ -653,28 +653,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Long addTSC(ModuleCContract tsc) {
+    public Long addModC(ModuleCContract modc) {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(ModuleCContract.ModuleC.COLUMN_UID, tsc.get_UID());
-        values.put(ModuleCContract.ModuleC.COLUMN_UUID, tsc.get_UUID());
-        values.put(ModuleCContract.ModuleC.COLUMN_FORMDATE, tsc.getFormDate());
-        values.put(ModuleCContract.ModuleC.COLUMN_SERIALNO, tsc.getSerialno());
-        values.put(ModuleCContract.ModuleC.COLUMN_DISTRICT_CODE, tsc.getDistrictCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_TEHSIL_CODE, tsc.getTehsilCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_UC_CODE, tsc.getUcCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_HF_CODE, tsc.getHfCode());
-        values.put(ModuleCContract.ModuleC.COLUMN_SC2, tsc.getsC2());
-        values.put(ModuleCContract.ModuleC.COLUMN_DEVICEID, tsc.getDeviceID());
-        values.put(ModuleCContract.ModuleC.COLUMN_DEVICETAGID, tsc.getDevicetagID());
-        values.put(ModuleCContract.ModuleC.COLUMN_STATUS, tsc.getStatus());
-        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED, tsc.getSynced());
-        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED_DATE, tsc.getSynced_date());
-        values.put(ModuleCContract.ModuleC.COLUMN_APPVERSION, tsc.getAppversion());
+        values.put(ModuleCContract.ModuleC.COLUMN_UID, modc.get_UID());
+        values.put(ModuleCContract.ModuleC.COLUMN_UUID, modc.get_UUID());
+        values.put(ModuleCContract.ModuleC.COLUMN_FORMDATE, modc.getFormDate());
+        values.put(ModuleCContract.ModuleC.COLUMN_USERNAME, modc.getUserName());
+        values.put(ModuleCContract.ModuleC.COLUMN_SERIALNO, modc.getSerialno());
+        values.put(ModuleCContract.ModuleC.COLUMN_DISTRICT_CODE, modc.getDistrictCode());
+        values.put(ModuleCContract.ModuleC.COLUMN_TEHSIL_CODE, modc.getTehsilCode());
+        values.put(ModuleCContract.ModuleC.COLUMN_UC_CODE, modc.getUcCode());
+        values.put(ModuleCContract.ModuleC.COLUMN_HF_CODE, modc.getHfCode());
+        values.put(ModuleCContract.ModuleC.COLUMN_SC2, modc.getsC2());
+        values.put(ModuleCContract.ModuleC.COLUMN_DEVICEID, modc.getDeviceID());
+        values.put(ModuleCContract.ModuleC.COLUMN_DEVICETAGID, modc.getDevicetagID());
+        values.put(ModuleCContract.ModuleC.COLUMN_STATUS, modc.getStatus());
+        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED, modc.getSynced());
+        values.put(ModuleCContract.ModuleC.COLUMN_SYNCED_DATE, modc.getSynced_date());
+        values.put(ModuleCContract.ModuleC.COLUMN_APPVERSION, modc.getAppversion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -686,31 +687,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Long addPSC(ModuleIContract psc) {
+    public Long addModI(ModuleIContract modi) {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(ModuleIContract.ModuleI.COLUMN_UID, psc.get_UID());
-        values.put(ModuleIContract.ModuleI.COLUMN_UUID, psc.get_UUID());
-        values.put(ModuleIContract.ModuleI.COLUMN_FORMDATE, psc.getFormDate());
-        values.put(ModuleIContract.ModuleI.COLUMN_SERIALNO, psc.getSerialno());
-        values.put(ModuleIContract.ModuleI.COLUMN_DISTRICT_CODE, psc.getDistrictCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_TEHSIL_CODE, psc.getTehsilCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_UC_CODE, psc.getUcCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_HF_CODE, psc.getHfCode());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI1, psc.getsI1());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI2, psc.getsI2());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI3, psc.getsI3());
-        values.put(ModuleIContract.ModuleI.COLUMN_SI4, psc.getsI4());
-        values.put(ModuleIContract.ModuleI.COLUMN_DEVICEID, psc.getDeviceID());
-        values.put(ModuleIContract.ModuleI.COLUMN_DEVICETAGID, psc.getDevicetagID());
-        values.put(ModuleIContract.ModuleI.COLUMN_STATUS, psc.getStatus());
-        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED, psc.getSynced());
-        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED_DATE, psc.getSynced_date());
-        values.put(ModuleIContract.ModuleI.COLUMN_APPVERSION, psc.getAppversion());
+        values.put(ModuleIContract.ModuleI.COLUMN_UID, modi.get_UID());
+        values.put(ModuleIContract.ModuleI.COLUMN_UUID, modi.get_UUID());
+        values.put(ModuleIContract.ModuleI.COLUMN_FORMDATE, modi.getFormDate());
+        values.put(ModuleIContract.ModuleI.COLUMN_SERIALNO, modi.getSerialno());
+        values.put(ModuleIContract.ModuleI.COLUMN_DISTRICT_CODE, modi.getDistrictCode());
+        values.put(ModuleIContract.ModuleI.COLUMN_TEHSIL_CODE, modi.getTehsilCode());
+        values.put(ModuleIContract.ModuleI.COLUMN_UC_CODE, modi.getUcCode());
+        values.put(ModuleIContract.ModuleI.COLUMN_HF_CODE, modi.getHfCode());
+        values.put(ModuleIContract.ModuleI.COLUMN_SI1, modi.getsI1());
+        values.put(ModuleIContract.ModuleI.COLUMN_SI2, modi.getsI2());
+        values.put(ModuleIContract.ModuleI.COLUMN_SI3, modi.getsI3());
+        values.put(ModuleIContract.ModuleI.COLUMN_SI4, modi.getsI4());
+        values.put(ModuleIContract.ModuleI.COLUMN_DEVICEID, modi.getDeviceID());
+        values.put(ModuleIContract.ModuleI.COLUMN_DEVICETAGID, modi.getDevicetagID());
+        values.put(ModuleIContract.ModuleI.COLUMN_STATUS, modi.getStatus());
+        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED, modi.getSynced());
+        values.put(ModuleIContract.ModuleI.COLUMN_SYNCED_DATE, modi.getSynced_date());
+        values.put(ModuleIContract.ModuleI.COLUMN_APPVERSION, modi.getAppversion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -824,7 +825,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateSyncedC2Section(String id) {
+    public void updateSyncedModC(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -844,7 +845,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateSyncedISection(String id) {
+    public void updateSyncedModI(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -1141,7 +1142,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<ModuleCContract> getUnsyncedModuleC() {
+    public Collection<ModuleCContract> getUnsyncedModC() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -1149,6 +1150,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ModuleCContract.ModuleC.COLUMN_UID,
                 ModuleCContract.ModuleC.COLUMN_UUID,
                 ModuleCContract.ModuleC.COLUMN_FORMDATE,
+                ModuleCContract.ModuleC.COLUMN_USERNAME,
                 ModuleCContract.ModuleC.COLUMN_SERIALNO,
                 ModuleCContract.ModuleC.COLUMN_DISTRICT_CODE,
                 ModuleCContract.ModuleC.COLUMN_TEHSIL_CODE,
@@ -1200,7 +1202,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Collection<ModuleIContract> getUnsyncedModuleI() {
+    public Collection<ModuleIContract> getUnsyncedModI() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
@@ -1208,6 +1210,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 ModuleIContract.ModuleI.COLUMN_UID,
                 ModuleIContract.ModuleI.COLUMN_UUID,
                 ModuleIContract.ModuleI.COLUMN_FORMDATE,
+                ModuleIContract.ModuleI.COLUMN_USERNAME,
                 ModuleIContract.ModuleI.COLUMN_SERIALNO,
                 ModuleIContract.ModuleI.COLUMN_DISTRICT_CODE,
                 ModuleIContract.ModuleI.COLUMN_TEHSIL_CODE,
@@ -1406,7 +1409,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //Generic update TSCColumn
-    public int updatesTSCColumn(ModuleCContract tsc, String column, String value) {
+    public int updatesModCColumn(ModuleCContract tsc, String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();
@@ -1423,7 +1426,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //Generic update PSCColumn
-    public int updatesPSCColumn(String column, String value) {
+    public int updatesModIColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();

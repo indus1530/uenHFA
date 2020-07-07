@@ -17,6 +17,7 @@ public class ModuleIContract {
     private String _UID = "";
     private String _UUID = "";
     private String formDate = "";
+    private String userName = "";
     private String serialno = "";
     private String deviceID = "";
     private String devicetagID = "";
@@ -43,6 +44,7 @@ public class ModuleIContract {
         this._UID = jsonObject.getString(ModuleI.COLUMN_UID);
         this._UUID = jsonObject.getString(ModuleI.COLUMN_UUID);
         this.formDate = jsonObject.getString(ModuleI.COLUMN_FORMDATE);
+        this.userName = jsonObject.getString(ModuleI.COLUMN_USERNAME);
         this.serialno = jsonObject.getString(ModuleI.COLUMN_SERIALNO);
         this.districtCode = jsonObject.getString(ModuleI.COLUMN_DISTRICT_CODE);
         this.tehsilCode = jsonObject.getString(ModuleI.COLUMN_TEHSIL_CODE);
@@ -69,6 +71,7 @@ public class ModuleIContract {
         this._UID = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_UID));
         this._UUID = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_UUID));
         this.formDate = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_FORMDATE));
+        this.userName = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_USERNAME));
         this.serialno = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_SERIALNO));
         this.districtCode = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_DISTRICT_CODE));
         this.tehsilCode = cursor.getString(cursor.getColumnIndex(ModuleI.COLUMN_TEHSIL_CODE));
@@ -97,6 +100,7 @@ public class ModuleIContract {
         json.put(ModuleI.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
         json.put(ModuleI.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
         json.put(ModuleI.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
+        json.put(ModuleI.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
         json.put(ModuleI.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
         json.put(ModuleI.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
         json.put(ModuleI.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
@@ -163,6 +167,15 @@ public class ModuleIContract {
 
     public void setFormDate(String formDate) {
         this.formDate = formDate;
+    }
+
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
 
@@ -309,6 +322,7 @@ public class ModuleIContract {
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_UUID = "_uuid";
         public static final String COLUMN_FORMDATE = "formdate";
+        public static final String COLUMN_USERNAME = "userName";
         public static final String COLUMN_SERIALNO = "serialno";
         public static final String COLUMN_DISTRICT_CODE = "districtCode";
         public static final String COLUMN_TEHSIL_CODE = "tehsilCode";

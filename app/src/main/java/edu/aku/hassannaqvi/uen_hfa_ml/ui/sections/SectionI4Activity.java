@@ -60,7 +60,7 @@ public class SectionI4Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_SI4, psc.getsI4());
+        int updcount = db.updatesModIColumn(ModuleIContract.ModuleI.COLUMN_SI4, psc.getsI4());
         if (updcount == 1) {
             return true;
         } else {

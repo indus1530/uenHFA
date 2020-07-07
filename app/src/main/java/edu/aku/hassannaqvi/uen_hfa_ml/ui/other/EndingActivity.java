@@ -98,7 +98,7 @@ public class EndingActivity extends AppCompatActivity {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
         int updcount;
         if (sectionMainCheck) {
-            updcount = db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_STATUS, MainApp.psc.getStatus());
+            updcount = db.updatesModIColumn(ModuleIContract.ModuleI.COLUMN_STATUS, MainApp.psc.getStatus());
             if (updcount == 1)
                 updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SI, MainApp.fc.getsI());
         } else

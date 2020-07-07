@@ -78,11 +78,12 @@ public final class CreateTable {
             FormsContract.FormsTable.COLUMN_SYNCED_DATE_03 + " TEXT";
 
 
-    public static final String SQL_CREATE_TSCONTRACT = "CREATE TABLE " + ModuleCContract.ModuleC.TABLE_NAME + "("
+    public static final String SQL_CREATE_MODULEC = "CREATE TABLE " + ModuleCContract.ModuleC.TABLE_NAME + "("
             + ModuleCContract.ModuleC._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + ModuleCContract.ModuleC.COLUMN_UID + " TEXT,"
             + ModuleCContract.ModuleC.COLUMN_UUID + " TEXT,"
             + ModuleCContract.ModuleC.COLUMN_FORMDATE + " TEXT,"
+            + ModuleCContract.ModuleC.COLUMN_USERNAME + " TEXT,"
             + ModuleCContract.ModuleC.COLUMN_SERIALNO + " TEXT,"
             + ModuleCContract.ModuleC.COLUMN_DISTRICT_CODE + " TEXT,"
             + ModuleCContract.ModuleC.COLUMN_TEHSIL_CODE + " TEXT,"
@@ -98,11 +99,12 @@ public final class CreateTable {
             + " );";
 
 
-    public static final String SQL_CREATE_PSCONTRACT = "CREATE TABLE " + ModuleIContract.ModuleI.TABLE_NAME + "("
+    public static final String SQL_CREATE_MODULEI = "CREATE TABLE " + ModuleIContract.ModuleI.TABLE_NAME + "("
             + ModuleIContract.ModuleI._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + ModuleIContract.ModuleI.COLUMN_UID + " TEXT,"
             + ModuleIContract.ModuleI.COLUMN_UUID + " TEXT,"
             + ModuleIContract.ModuleI.COLUMN_FORMDATE + " TEXT,"
+            + ModuleIContract.ModuleI.COLUMN_USERNAME + " TEXT,"
             + ModuleIContract.ModuleI.COLUMN_SERIALNO + " TEXT,"
             + ModuleIContract.ModuleI.COLUMN_DISTRICT_CODE + " TEXT,"
             + ModuleIContract.ModuleI.COLUMN_TEHSIL_CODE + " TEXT,"

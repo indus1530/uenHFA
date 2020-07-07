@@ -56,7 +56,7 @@ public class SectionI3Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_SI3, psc.getsI3());
+        int updcount = db.updatesModIColumn(ModuleIContract.ModuleI.COLUMN_SI3, psc.getsI3());
         if (updcount == 1) {
             return true;
         } else {

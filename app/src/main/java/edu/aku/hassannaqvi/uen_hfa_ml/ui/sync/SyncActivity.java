@@ -170,11 +170,11 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             new SyncAllData(
                     this,
                     "ModuleC",
-                    "updateSyncedC2Section",
+                    "updateSyncedModC",
                     ModuleCContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     ModuleCContract.ModuleC.TABLE_NAME,
-                    db.getUnsyncedModuleC(), 3, uploadListAdapter, uploadlist
+                    db.getUnsyncedModC(), 3, uploadListAdapter, uploadlist
             ).execute();
 
 //  *******************************************************ISection*********************************
@@ -187,11 +187,11 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             new SyncAllData(
                     this,
                     "ModuleI",
-                    "updateSyncedISection",
+                    "updateSyncedModI",
                     ModuleIContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     ModuleIContract.ModuleI.TABLE_NAME,
-                    db.getUnsyncedModuleI(), 4, uploadListAdapter, uploadlist
+                    db.getUnsyncedModI(), 4, uploadListAdapter, uploadlist
             ).execute();
 
 

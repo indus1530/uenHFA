@@ -80,7 +80,7 @@ public class SectionI2Activity extends AppCompatActivity {
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        int updcount = db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_SI2, psc.getsI2());
+        int updcount = db.updatesModIColumn(ModuleIContract.ModuleI.COLUMN_SI2, psc.getsI2());
         if (updcount == 1) {
             return true;
         } else {

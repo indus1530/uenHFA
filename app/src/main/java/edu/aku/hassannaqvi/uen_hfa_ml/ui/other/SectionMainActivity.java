@@ -8,7 +8,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionMainBinding;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionBActivity;
@@ -22,6 +27,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH2Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionK1Activity;
+import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 
@@ -29,6 +35,7 @@ public class SectionMainActivity extends AppCompatActivity {
     ActivitySectionMainBinding bi;
 
     public static int maternalCount = 0, paedsCount = 0;
+    public static int countC2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +44,34 @@ public class SectionMainActivity extends AppCompatActivity {
         bi.setCallback(this);
 
 
+        if (countC2 != 0 && bi.form02.isEnabled()) {
+
+            JSONObject json = new JSONObject();
+
+            try {
+                json.put("countC2", String.valueOf(countC2));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
+                JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsC()), json);
+                fc.setsC(String.valueOf(json_merge));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            DatabaseHelper db = MainApp.appInfo.getDbHelper();
+            int updcount = db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, MainApp.fc.getsC());
+            Toast.makeText(this, "C2 Count" + countC2, Toast.LENGTH_SHORT).show();
+        }
+
+
         if (fc.getsB() != null) {
             bi.form01.setEnabled(false);
             bi.form01.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (MainApp.fc.getsC() != null) {
+        if (fc.getsC() != null) {
             bi.form02.setEnabled(false);
             bi.form02.setBackgroundResource(R.color.dullWhite);
         }
@@ -72,7 +101,7 @@ public class SectionMainActivity extends AppCompatActivity {
             bi.form07.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (MainApp.fc.getsI() != null) {
+        if (fc.getsI() != null) {
             bi.form08.setEnabled(false);
             bi.form08.setBackgroundResource(R.color.dullWhite);
         }

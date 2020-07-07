@@ -29,6 +29,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.EndSectionActivity;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS.SECTION_MAIN_CHECK_FOR_END;
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.psc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivityI;
 
@@ -144,11 +145,11 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
     private boolean UpdateDB() {
         DatabaseHelper db = MainApp.appInfo.getDbHelper();
-        long updcount = db.addPSC(psc);
+        long updcount = db.addModI(psc);
         psc.set_ID(String.valueOf(updcount));
         if (updcount > 0) {
             psc.set_UID(psc.getDeviceID() + psc.get_ID());
-            db.updatesPSCColumn(ModuleIContract.ModuleI.COLUMN_UID, psc.get_UID());
+            db.updatesModIColumn(ModuleIContract.ModuleI.COLUMN_UID, psc.get_UID());
             return true;
         } else {
             Toast.makeText(this, "Updating Database... ERROR!", Toast.LENGTH_SHORT).show();
@@ -159,7 +160,8 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
     private void SaveDraft() throws JSONException {
 
-        psc.setFormDate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        psc.setFormDate(fc.getFormdate());
+        psc.setUserName(fc.getUserName());
         psc.setDeviceID(MainApp.appInfo.getDeviceID());
         psc.setDevicetagID(MainApp.appInfo.getTagName());
         psc.setAppversion(MainApp.appInfo.getAppVersion());
