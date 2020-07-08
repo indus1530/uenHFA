@@ -22,7 +22,9 @@
         android:label="@string/app_name"
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme1">
-
+        <activity android:name=".ui.sections.SectionF7Activity"></activity>
+        <activity android:name=".ui.sections.SectionF6Activity" />
+        <activity android:name=".ui.sections.SectionF5Activity" />
         <activity
             android:name=".ui.other.SectionMainActivity"
             android:screenOrientation="portrait" />
@@ -350,7 +352,6 @@
             android:name=".ui.sections.SectionK11Activity"
             android:label="@string/modktitle"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".ui.other.SplashscreenActivity"
             android:screenOrientation="portrait"
@@ -371,7 +372,7 @@
         <activity
             android:name=".ui.other.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
         <activity
             android:name=".core.AndroidDatabaseManager"
             android:parentActivityName=".ui.other.MainActivity"
