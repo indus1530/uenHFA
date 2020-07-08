@@ -18,13 +18,23 @@
     <application
         android:name=".core.MainApp"
         android:allowBackup="true"
-        android:icon="@drawable/uenlogo"
+        android:icon="@drawable/uen_hfa_logo"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme1">
         <activity android:name=".ui.sections.SectionF7Activity"></activity>
         <activity android:name=".ui.sections.SectionF6Activity" />
         <activity android:name=".ui.sections.SectionF5Activity" />
+        <activity
+            android:name=".ui.list_activity.FormsReportDate"
+            android:label="Forms Report"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.list_activity.PendingFormsActivity"
+            android:label="Unfinished Forms"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.other.SectionMainActivity"
             android:screenOrientation="portrait" />

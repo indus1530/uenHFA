@@ -49,6 +49,8 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivityMainBinding;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.list_activity.FormsReportDate;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.list_activity.PendingFormsActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionAActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sync.SyncActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding bi;
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     String dtToday1 = new SimpleDateFormat("dd-MMM-yyyy").format(new Date());
+    String sysdateToday = new SimpleDateFormat("dd-MM-yy").format(new Date());
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
     AlertDialog.Builder builder;
@@ -272,6 +275,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SyncActivity.class));
                 break;
         }
+
+        if (item.getItemId() == R.id.checkOpenForms) {
+            startActivity(new Intent(MainActivity.this, PendingFormsActivity.class));
+        }
+        if (item.getItemId() == R.id.formsReportDate) {
+            startActivity(new Intent(MainActivity.this, FormsReportDate.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -296,67 +306,72 @@ public class MainActivity extends AppCompatActivity {
 
         db = new DatabaseHelper(this);
 
-        Collection<FormsContract> todaysForms = db.getTodayForms();
-        Collection<FormsContract> unsyncedForms = db.getUnsyncedForms(0);
+        Collection<FormsContract> todaysForms = db.getTodayForms(sysdateToday);
+        Collection<FormsContract> unsyncedForms = db.getUnsyncedForms(1);
+        Collection<FormsContract> unclosedForms = db.getUnclosedForms();
 
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
 
         rSumText += "=======================\r\n";
         rSumText += "\r\n";
         rSumText += "Total Forms Today" + "(" + dtToday1 + "): " + todaysForms.size() + "\r\n";
-        rSumText += "\r\n";
         if (todaysForms.size() > 0) {
-            rSumText += "\tFORMS' LIST: \r\n";
             String iStatus;
-            rSumText += "--------------------------------------------------\r\n";
-            rSumText += "[ DSS ID ] \t[Form Status] \t[Sync Status]\r\n";
-            rSumText += "--------------------------------------------------\r\n";
+            rSumText += "---------------------------------------------------------\r\n";
+            rSumText += "[    Health Facility   ][ S/P ][Form Status][Sync Status]\r\n";
+            rSumText += "---------------------------------------------------------\r\n";
 
             for (FormsContract fc : todaysForms) {
-                if (fc.getIstatus() != null) {
-                    switch (fc.getIstatus()) {
-                        case "1":
-                            iStatus = "Complete";
-                            break;
-                        case "2":
-                            iStatus = "Incomplete";
-                            break;
-                        case "3":
-                            iStatus = "Refused";
-                            break;
-                        case "4":
-                            iStatus = "Refused";
-                            break;
-                        default:
-                            iStatus = "N/A";
-                    }
-                } else {
-                    iStatus = "N/A";
+                Log.d(TAG, "onCreate: '" + fc.getIstatus() + "'");
+                switch (fc.getIstatus()) {
+                    case "1":
+                        iStatus = "Complete     ";
+                        break;
+                    case "2":
+                        iStatus = "Incomplete   ";
+                        break;
+                    case "":
+                        iStatus = "Open";
+                        break;
+                    default:
+                        iStatus = "\t\tN/A" + fc.getIstatus();
                 }
 
-                /*rSumText += fc.getLuid();*/
-                rSumText += "\t\t\t\t\t";
+                fc.setHfName(fc.getHfName() + ".......................");
+                rSumText += fc.getHfName().substring(0, 21) + "...";
+
+
+                int staffCount = db.getStaffingsByUUID(fc.get_UID());
+                int patientCount = db.getPatientsByUUID(fc.get_UID());
+                rSumText += "  " + staffCount + "/" + patientCount + "  ";
+
 
                 rSumText += iStatus;
-                rSumText += "\t\t\t\t\t";
 
                 rSumText += (fc.getSynced() == null ? "Not Synced" : "Synced");
                 rSumText += "\r\n";
-                rSumText += "--------------------------------------------------\r\n";
+                rSumText += "---------------------------------------------------------\r\n";
             }
         }
+        SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+        rSumText += "\r\nDEVICE INFORMATION\r\n";
+        rSumText += "  ========================================================\r\n";
+
+        rSumText += "\t|| Open Forms: \t\t\t\t\t\t" + String.format("%02d", unclosedForms.size());
+        rSumText += "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t||\r\n";
+        rSumText += "\t|| Unsynced Forms: \t\t\t\t" + String.format("%02d", unsyncedForms.size());
+        rSumText += "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t||\r\n";
+        rSumText += "\t|| Last Data Download: \t\t" + syncPref.getString("LastDataDownload", "Never Downloaded   ");
+        rSumText += "\t\t\t\t\t\t||\r\n";
+        rSumText += "\t|| Last Data Upload: \t\t\t" + syncPref.getString("LastDataUpload", "Never Uploaded     ");
+        rSumText += "\t\t\t\t\t\t||\r\n";
+        rSumText += "\t|| Last Photo Upload: \t\t" + syncPref.getString("LastPhotoUpload", "Never Uploaded     ");
+        rSumText += "\t\t\t\t\t\t||\r\n";
+        rSumText += "\t========================================================\r\n";
 
 
         if (MainApp.admin) {
             bi.databaseBtn.setVisibility(View.VISIBLE);
-            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-            rSumText += "Last Data Download: \t" + syncPref.getString("LastDownSyncServer", "Never Updated");
-            rSumText += "\r\n";
-            rSumText += "Last Data Upload: \t" + syncPref.getString("LastUpSyncServer", "Never Synced");
-            rSumText += "\r\n";
-            rSumText += "\r\n";
-            rSumText += "Unsynced Forms: \t" + unsyncedForms.size();
-            rSumText += "\r\n";
         } else {
             bi.databaseBtn.setVisibility(View.GONE);
         }

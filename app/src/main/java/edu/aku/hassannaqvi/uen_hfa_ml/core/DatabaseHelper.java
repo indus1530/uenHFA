@@ -22,12 +22,14 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract.FormsTable;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.HFContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientsContract;
+import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientsContract.PatientsTable;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.StaffingContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.TehsilsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UCsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.UsersContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.contracts.StaffingContract.StaffingTable;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_VERSION;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_ALTER_FORMS01;
@@ -41,6 +43,7 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_TSCONT
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_UCS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_VERSIONAPP;
+
 
 
 /**
@@ -1367,6 +1370,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFC;
     }
 
+    public Collection<FormsContract> getTodayForms(String sysdate) {
+
+        // String sysdate =  spDateT.substring(0, 8).trim()
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FormsTable._ID,
+                FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_HF_NAME,
+                FormsTable.COLUMN_ISTATUS,
+                FormsTable.COLUMN_SYNCED,
+
+        };
+        String whereClause = FormsTable.COLUMN_FORMDATE + " Like ? ";
+        String[] whereArgs = new String[]{"%" + sysdate + " %"};
+//        String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
+        String groupBy = null;
+        String having = null;
+
+        String orderBy =
+                FormsTable.COLUMN_ID + " ASC";
+
+        Collection<FormsContract> allFC = new ArrayList<>();
+        try {
+            c = db.query(
+                    FormsTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FormsContract fc = new FormsContract();
+                fc.set_ID(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
+                fc.set_UID(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
+                fc.setFormdate(c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMDATE)));
+                fc.setHfName(c.getString(c.getColumnIndex(FormsTable.COLUMN_HF_NAME)));
+                fc.setIstatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
+                fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
+                allFC.add(fc);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
+    }
 
     public int updateEnding() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -1442,6 +1499,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selectionArgs);
     }
 
+    public int getStaffingsByUUID(String UUID) {
+        String countQuery = "SELECT  * FROM " + StaffingTable.TABLE_NAME + " WHERE " + StaffingTable.COLUMN_UUID + " = '" + UUID + "' AND " + StaffingTable.COLUMN_STATUS + " = '1'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
+
+    public int getPatientsByUUID(String UUID) {
+        String countQuery = "SELECT  * FROM " + PatientsTable.TABLE_NAME + " WHERE " + PatientsTable.COLUMN_UUID + " = '" + UUID + "' AND " + PatientsTable.COLUMN_STATUS + " = '1'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
+
 
     // ANDROID DATABASE MANAGER
     public ArrayList<Cursor> getData(String Query) {
@@ -1487,6 +1562,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             alc.set(1, Cursor2);
             return alc;
         }
+    }
+
+    public ArrayList<FormsContract> getUnclosedForms() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {
+                FormsTable._ID,
+                FormsTable.COLUMN_UID,
+                FormsTable.COLUMN_FORMDATE,
+                FormsTable.COLUMN_HF_NAME,
+                FormsTable.COLUMN_ISTATUS,
+                FormsTable.COLUMN_SYNCED,
+        };
+        String whereClause = FormsTable.COLUMN_ISTATUS + " != '1'";
+        String[] whereArgs = null;
+//        String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
+        String groupBy = null;
+        String having = null;
+        String orderBy = FormsTable.COLUMN_ID + " ASC";
+        ArrayList<FormsContract> allFC = new ArrayList<>();
+        try {
+            c = db.query(
+                    FormsTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+                FormsContract fc = new FormsContract();
+                fc.set_ID(c.getString(c.getColumnIndex(FormsTable.COLUMN_ID)));
+                fc.set_UID(c.getString(c.getColumnIndex(FormsTable.COLUMN_UID)));
+                fc.setFormdate(c.getString(c.getColumnIndex(FormsTable.COLUMN_FORMDATE)));
+                fc.setHfName(c.getString(c.getColumnIndex(FormsTable.COLUMN_HF_NAME)));
+                fc.setIstatus(c.getString(c.getColumnIndex(FormsTable.COLUMN_ISTATUS)));
+                fc.setSynced(c.getString(c.getColumnIndex(FormsTable.COLUMN_SYNCED)));
+                allFC.add(fc);
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return allFC;
     }
 
 

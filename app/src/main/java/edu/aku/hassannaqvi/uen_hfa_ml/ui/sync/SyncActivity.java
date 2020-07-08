@@ -202,7 +202,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = syncPref.edit();
 
-            editor.putString("LastUpSyncServer", dtToday);
+            editor.putString("LastDataUpload", new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()));
 
             editor.apply();
 
@@ -341,6 +341,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     list.add(model);
                 }
                 new GetAllData(mContext, "HealthFacilities", syncListAdapter, list).execute();
+
                 bi.noItem.setVisibility(View.GONE);
 
                 listActivityCreated = false;
@@ -352,7 +353,9 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
         @Override
         protected void onPostExecute(String s) {
             new Handler().postDelayed(() -> {
-
+                SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor1 = syncPref.edit();
+                editor1.putString("LastDataDownload", new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()));
                 editor.putBoolean("flag", true);
                 editor.commit();
 
