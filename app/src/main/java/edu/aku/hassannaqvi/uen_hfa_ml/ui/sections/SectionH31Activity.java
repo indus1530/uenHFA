@@ -19,21 +19,21 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH3Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionH31Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 
-public class SectionH3Activity extends AppCompatActivity {
+public class SectionH31Activity extends AppCompatActivity {
 
-    ActivitySectionH3Binding bi;
+    ActivitySectionH31Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h3);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h31);
         bi.setCallback(this);
 
     }
@@ -48,7 +48,7 @@ public class SectionH3Activity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            startActivity(new Intent(this, SectionH4Activity.class));
+            startActivity(new Intent(this, SectionH32Activity.class));
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
