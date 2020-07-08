@@ -170,7 +170,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             new SyncAllData(
                     this,
                     "StaffingTable",
-                    "updateSyncedC2Section",
+                    "updateSyncedStaffing",
                     StaffingContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     StaffingContract.StaffingTable.TABLE_NAME,
@@ -187,7 +187,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
             new SyncAllData(
                     this,
                     "PatientsTable",
-                    "updateSyncedISection",
+                    "updateSyncedPatient",
                     PatientsContract.class,
                     MainApp._HOST_URL + MainApp._SERVER_URL,
                     PatientsContract.PatientsTable.TABLE_NAME,
