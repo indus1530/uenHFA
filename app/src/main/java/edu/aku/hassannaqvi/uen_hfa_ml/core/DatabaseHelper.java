@@ -829,7 +829,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateSyncedModC(String id) {
+    public void updateSyncedStaffing(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
@@ -849,7 +849,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateSyncedModI(String id) {
+    public void updateSyncedPatient(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
 // New value for one column
