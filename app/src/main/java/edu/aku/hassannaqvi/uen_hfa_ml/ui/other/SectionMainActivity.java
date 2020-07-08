@@ -36,6 +36,7 @@ public class SectionMainActivity extends AppCompatActivity {
 
     public static int maternalCount = 0, paedsCount = 0;
     public static int countC2 = 0;
+    boolean flag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class SectionMainActivity extends AppCompatActivity {
         bi.setCallback(this);
 
 
-        if (countC2 != 0 && bi.form02.isEnabled()) {
+        if (countC2 != 0 && !flag) {
 
             JSONObject json = new JSONObject();
 
@@ -62,7 +63,7 @@ public class SectionMainActivity extends AppCompatActivity {
 
             DatabaseHelper db = MainApp.appInfo.getDbHelper();
             db.updatesFormColumn(FormsContract.FormsTable.COLUMN_SC, MainApp.fc.getsC());
-            Toast.makeText(this, "C2 Count" + countC2, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "countC2: 0" + countC2, Toast.LENGTH_SHORT).show();
         }
 
 
@@ -74,6 +75,7 @@ public class SectionMainActivity extends AppCompatActivity {
         if (fc.getsC() != null) {
             bi.form02.setEnabled(false);
             bi.form02.setBackgroundResource(R.color.dullWhite);
+            flag = true;
         }
 
         if (fc.getsD() != null) {
