@@ -167,6 +167,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
         psc.setAppversion(MainApp.appInfo.getAppVersion());
         psc.set_UUID(MainApp.fc.get_UID());
         psc.setDistrictCode(MainApp.fc.getDistrictCode());
+        psc.setDistrictType(MainApp.fc.getDistrictType());
         psc.setTehsilCode(MainApp.fc.getTehsilCode());
         psc.setUcCode(MainApp.fc.getUcCode());
         psc.setHfCode(MainApp.fc.getHfCode());

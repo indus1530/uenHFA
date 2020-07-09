@@ -663,22 +663,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(StaffingContract.StaffingTable.COLUMN_UID, tsc.get_UID());
-        values.put(StaffingContract.StaffingTable.COLUMN_UUID, tsc.get_UUID());
-        values.put(StaffingContract.StaffingTable.COLUMN_FORMDATE, tsc.getFormDate());
-        values.put(StaffingContract.StaffingTable.COLUMN_USERNAME, tsc.getUserName());
-        values.put(StaffingContract.StaffingTable.COLUMN_SERIALNO, tsc.getSerialno());
-        values.put(StaffingContract.StaffingTable.COLUMN_DISTRICT_CODE, tsc.getDistrictCode());
-        values.put(StaffingContract.StaffingTable.COLUMN_TEHSIL_CODE, tsc.getTehsilCode());
-        values.put(StaffingContract.StaffingTable.COLUMN_UC_CODE, tsc.getUcCode());
-        values.put(StaffingContract.StaffingTable.COLUMN_HF_CODE, tsc.getHfCode());
-        values.put(StaffingContract.StaffingTable.COLUMN_SC2, tsc.getsC2());
-        values.put(StaffingContract.StaffingTable.COLUMN_DEVICEID, tsc.getDeviceID());
-        values.put(StaffingContract.StaffingTable.COLUMN_DEVICETAGID, tsc.getDevicetagID());
-        values.put(StaffingContract.StaffingTable.COLUMN_STATUS, tsc.getStatus());
-        values.put(StaffingContract.StaffingTable.COLUMN_SYNCED, tsc.getSynced());
-        values.put(StaffingContract.StaffingTable.COLUMN_SYNCED_DATE, tsc.getSynced_date());
-        values.put(StaffingContract.StaffingTable.COLUMN_APPVERSION, tsc.getAppversion());
+        values.put(StaffingTable.COLUMN_UID, tsc.get_UID());
+        values.put(StaffingTable.COLUMN_UUID, tsc.get_UUID());
+        values.put(StaffingTable.COLUMN_FORMDATE, tsc.getFormDate());
+        values.put(StaffingTable.COLUMN_USERNAME, tsc.getUserName());
+        values.put(StaffingTable.COLUMN_SERIALNO, tsc.getSerialno());
+        values.put(StaffingTable.COLUMN_DISTRICT_CODE, tsc.getDistrictCode());
+        values.put(StaffingTable.COLUMN_DISTRICT_TYPE, tsc.getDistrictType());
+        values.put(StaffingTable.COLUMN_TEHSIL_CODE, tsc.getTehsilCode());
+        values.put(StaffingTable.COLUMN_UC_CODE, tsc.getUcCode());
+        values.put(StaffingTable.COLUMN_HF_CODE, tsc.getHfCode());
+        values.put(StaffingTable.COLUMN_SC2, tsc.getsC2());
+        values.put(StaffingTable.COLUMN_DEVICEID, tsc.getDeviceID());
+        values.put(StaffingTable.COLUMN_DEVICETAGID, tsc.getDevicetagID());
+        values.put(StaffingTable.COLUMN_STATUS, tsc.getStatus());
+        values.put(StaffingTable.COLUMN_SYNCED, tsc.getSynced());
+        values.put(StaffingTable.COLUMN_SYNCED_DATE, tsc.getSynced_date());
+        values.put(StaffingTable.COLUMN_APPVERSION, tsc.getAppversion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -697,25 +698,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(PatientsContract.PatientsTable.COLUMN_UID, psc.get_UID());
-        values.put(PatientsContract.PatientsTable.COLUMN_UUID, psc.get_UUID());
-        values.put(PatientsContract.PatientsTable.COLUMN_FORMDATE, psc.getFormDate());
-        values.put(PatientsContract.PatientsTable.COLUMN_USERNAME, psc.getUserName());
-        values.put(PatientsContract.PatientsTable.COLUMN_SERIALNO, psc.getSerialno());
-        values.put(PatientsContract.PatientsTable.COLUMN_DISTRICT_CODE, psc.getDistrictCode());
-        values.put(PatientsContract.PatientsTable.COLUMN_TEHSIL_CODE, psc.getTehsilCode());
-        values.put(PatientsContract.PatientsTable.COLUMN_UC_CODE, psc.getUcCode());
-        values.put(PatientsContract.PatientsTable.COLUMN_HF_CODE, psc.getHfCode());
-        values.put(PatientsContract.PatientsTable.COLUMN_SI1, psc.getsI1());
-        values.put(PatientsContract.PatientsTable.COLUMN_SI2, psc.getsI2());
-        values.put(PatientsContract.PatientsTable.COLUMN_SI3, psc.getsI3());
-        values.put(PatientsContract.PatientsTable.COLUMN_SI4, psc.getsI4());
-        values.put(PatientsContract.PatientsTable.COLUMN_DEVICEID, psc.getDeviceID());
-        values.put(PatientsContract.PatientsTable.COLUMN_DEVICETAGID, psc.getDevicetagID());
-        values.put(PatientsContract.PatientsTable.COLUMN_STATUS, psc.getStatus());
-        values.put(PatientsContract.PatientsTable.COLUMN_SYNCED, psc.getSynced());
-        values.put(PatientsContract.PatientsTable.COLUMN_SYNCED_DATE, psc.getSynced_date());
-        values.put(PatientsContract.PatientsTable.COLUMN_APPVERSION, psc.getAppversion());
+        values.put(PatientsTable.COLUMN_UID, psc.get_UID());
+        values.put(PatientsTable.COLUMN_UUID, psc.get_UUID());
+        values.put(PatientsTable.COLUMN_FORMDATE, psc.getFormDate());
+        values.put(PatientsTable.COLUMN_USERNAME, psc.getUserName());
+        values.put(PatientsTable.COLUMN_SERIALNO, psc.getSerialno());
+        values.put(PatientsTable.COLUMN_DISTRICT_CODE, psc.getDistrictCode());
+        values.put(PatientsTable.COLUMN_DISTRICT_TYPE, psc.getDistrictType());
+        values.put(PatientsTable.COLUMN_TEHSIL_CODE, psc.getTehsilCode());
+        values.put(PatientsTable.COLUMN_UC_CODE, psc.getUcCode());
+        values.put(PatientsTable.COLUMN_HF_CODE, psc.getHfCode());
+        values.put(PatientsTable.COLUMN_SI1, psc.getsI1());
+        values.put(PatientsTable.COLUMN_SI2, psc.getsI2());
+        values.put(PatientsTable.COLUMN_SI3, psc.getsI3());
+        values.put(PatientsTable.COLUMN_SI4, psc.getsI4());
+        values.put(PatientsTable.COLUMN_DEVICEID, psc.getDeviceID());
+        values.put(PatientsTable.COLUMN_DEVICETAGID, psc.getDevicetagID());
+        values.put(PatientsTable.COLUMN_STATUS, psc.getStatus());
+        values.put(PatientsTable.COLUMN_SYNCED, psc.getSynced());
+        values.put(PatientsTable.COLUMN_SYNCED_DATE, psc.getSynced_date());
+        values.put(PatientsTable.COLUMN_APPVERSION, psc.getAppversion());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
@@ -1150,23 +1152,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                StaffingContract.StaffingTable._ID,
-                StaffingContract.StaffingTable.COLUMN_UID,
-                StaffingContract.StaffingTable.COLUMN_UUID,
-                StaffingContract.StaffingTable.COLUMN_FORMDATE,
-                StaffingContract.StaffingTable.COLUMN_USERNAME,
-                StaffingContract.StaffingTable.COLUMN_SERIALNO,
-                StaffingContract.StaffingTable.COLUMN_DISTRICT_CODE,
-                StaffingContract.StaffingTable.COLUMN_TEHSIL_CODE,
-                StaffingContract.StaffingTable.COLUMN_UC_CODE,
-                StaffingContract.StaffingTable.COLUMN_HF_CODE,
-                StaffingContract.StaffingTable.COLUMN_SC2,
-                StaffingContract.StaffingTable.COLUMN_DEVICEID,
-                StaffingContract.StaffingTable.COLUMN_DEVICETAGID,
-                StaffingContract.StaffingTable.COLUMN_STATUS,
-                StaffingContract.StaffingTable.COLUMN_SYNCED,
-                StaffingContract.StaffingTable.COLUMN_SYNCED_DATE,
-                StaffingContract.StaffingTable.COLUMN_APPVERSION,
+                StaffingTable._ID,
+                StaffingTable.COLUMN_UID,
+                StaffingTable.COLUMN_UUID,
+                StaffingTable.COLUMN_FORMDATE,
+                StaffingTable.COLUMN_USERNAME,
+                StaffingTable.COLUMN_SERIALNO,
+                StaffingTable.COLUMN_DISTRICT_CODE,
+                StaffingTable.COLUMN_DISTRICT_TYPE,
+                StaffingTable.COLUMN_TEHSIL_CODE,
+                StaffingTable.COLUMN_UC_CODE,
+                StaffingTable.COLUMN_HF_CODE,
+                StaffingTable.COLUMN_SC2,
+                StaffingTable.COLUMN_DEVICEID,
+                StaffingTable.COLUMN_DEVICETAGID,
+                StaffingTable.COLUMN_STATUS,
+                StaffingTable.COLUMN_SYNCED,
+                StaffingTable.COLUMN_SYNCED_DATE,
+                StaffingTable.COLUMN_APPVERSION,
         };
 
         String whereClause = "(" + StaffingContract.StaffingTable.COLUMN_SYNCED + " is null or " + StaffingContract.StaffingTable.COLUMN_SYNCED + " ='')  AND " + StaffingContract.StaffingTable.COLUMN_STATUS + " =?";
@@ -1210,26 +1213,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = {
-                PatientsContract.PatientsTable._ID,
-                PatientsContract.PatientsTable.COLUMN_UID,
-                PatientsContract.PatientsTable.COLUMN_UUID,
-                PatientsContract.PatientsTable.COLUMN_FORMDATE,
-                PatientsContract.PatientsTable.COLUMN_USERNAME,
-                PatientsContract.PatientsTable.COLUMN_SERIALNO,
-                PatientsContract.PatientsTable.COLUMN_DISTRICT_CODE,
-                PatientsContract.PatientsTable.COLUMN_TEHSIL_CODE,
-                PatientsContract.PatientsTable.COLUMN_UC_CODE,
-                PatientsContract.PatientsTable.COLUMN_HF_CODE,
-                PatientsContract.PatientsTable.COLUMN_SI1,
-                PatientsContract.PatientsTable.COLUMN_SI2,
-                PatientsContract.PatientsTable.COLUMN_SI3,
-                PatientsContract.PatientsTable.COLUMN_SI4,
-                PatientsContract.PatientsTable.COLUMN_DEVICEID,
-                PatientsContract.PatientsTable.COLUMN_DEVICETAGID,
-                PatientsContract.PatientsTable.COLUMN_STATUS,
-                PatientsContract.PatientsTable.COLUMN_SYNCED,
-                PatientsContract.PatientsTable.COLUMN_SYNCED_DATE,
-                PatientsContract.PatientsTable.COLUMN_APPVERSION,
+                PatientsTable._ID,
+                PatientsTable.COLUMN_UID,
+                PatientsTable.COLUMN_UUID,
+                PatientsTable.COLUMN_FORMDATE,
+                PatientsTable.COLUMN_USERNAME,
+                PatientsTable.COLUMN_SERIALNO,
+                PatientsTable.COLUMN_DISTRICT_CODE,
+                PatientsTable.COLUMN_DISTRICT_TYPE,
+                PatientsTable.COLUMN_TEHSIL_CODE,
+                PatientsTable.COLUMN_UC_CODE,
+                PatientsTable.COLUMN_HF_CODE,
+                PatientsTable.COLUMN_SI1,
+                PatientsTable.COLUMN_SI2,
+                PatientsTable.COLUMN_SI3,
+                PatientsTable.COLUMN_SI4,
+                PatientsTable.COLUMN_DEVICEID,
+                PatientsTable.COLUMN_DEVICETAGID,
+                PatientsTable.COLUMN_STATUS,
+                PatientsTable.COLUMN_SYNCED,
+                PatientsTable.COLUMN_SYNCED_DATE,
+                PatientsTable.COLUMN_APPVERSION,
         };
 
         String whereClause = "(" + PatientsContract.PatientsTable.COLUMN_SYNCED + " is null or " + PatientsContract.PatientsTable.COLUMN_SYNCED + " ='')  AND " + PatientsContract.PatientsTable.COLUMN_STATUS + " =?";

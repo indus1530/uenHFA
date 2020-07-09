@@ -22,6 +22,7 @@ public class PatientsContract {
     private String deviceID = "";
     private String devicetagID = "";
     private String districtCode = "";
+    private String districtType = "";
     private String tehsilCode = "";
     private String ucCode = "";
     private String hfCode = "";
@@ -47,6 +48,7 @@ public class PatientsContract {
         this.userName = jsonObject.getString(PatientsTable.COLUMN_USERNAME);
         this.serialno = jsonObject.getString(PatientsTable.COLUMN_SERIALNO);
         this.districtCode = jsonObject.getString(PatientsTable.COLUMN_DISTRICT_CODE);
+        this.districtType = jsonObject.getString(PatientsTable.COLUMN_DISTRICT_TYPE);
         this.tehsilCode = jsonObject.getString(PatientsTable.COLUMN_TEHSIL_CODE);
         this.ucCode = jsonObject.getString(PatientsTable.COLUMN_UC_CODE);
         this.hfCode = jsonObject.getString(PatientsTable.COLUMN_HF_CODE);
@@ -74,6 +76,7 @@ public class PatientsContract {
         this.userName = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_USERNAME));
         this.serialno = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_SERIALNO));
         this.districtCode = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_DISTRICT_CODE));
+        this.districtType = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_DISTRICT_TYPE));
         this.tehsilCode = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_TEHSIL_CODE));
         this.ucCode = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_UC_CODE));
         this.hfCode = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_HF_CODE));
@@ -103,6 +106,7 @@ public class PatientsContract {
         json.put(PatientsTable.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
         json.put(PatientsTable.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
         json.put(PatientsTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
+        json.put(PatientsTable.COLUMN_DISTRICT_TYPE, this.districtType == null ? JSONObject.NULL : this.districtType);
         json.put(PatientsTable.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
         json.put(PatientsTable.COLUMN_UC_CODE, this.ucCode == null ? JSONObject.NULL : this.ucCode);
         json.put(PatientsTable.COLUMN_HF_CODE, this.hfCode == null ? JSONObject.NULL : this.hfCode);
@@ -194,6 +198,15 @@ public class PatientsContract {
 
     public void setDistrictCode(String districtCode) {
         this.districtCode = districtCode;
+    }
+
+
+    public String getDistrictType() {
+        return districtType;
+    }
+
+    public void setDistrictType(String districtType) {
+        this.districtType = districtType;
     }
 
 
@@ -325,6 +338,7 @@ public class PatientsContract {
         public static final String COLUMN_USERNAME = "userName";
         public static final String COLUMN_SERIALNO = "serialno";
         public static final String COLUMN_DISTRICT_CODE = "districtCode";
+        public static final String COLUMN_DISTRICT_TYPE = "districtType";
         public static final String COLUMN_TEHSIL_CODE = "tehsilCode";
         public static final String COLUMN_UC_CODE = "ucCode";
         public static final String COLUMN_HF_CODE = "hfCode";

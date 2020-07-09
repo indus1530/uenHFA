@@ -61,6 +61,7 @@ class SectionC2Activity : AppCompatActivity() {
         tsc.appversion = MainApp.appInfo.appVersion
         tsc._UUID = MainApp.fc._UID
         tsc.districtCode = MainApp.fc.districtCode
+        tsc.districtType = MainApp.fc.districtType
         tsc.tehsilCode = MainApp.fc.tehsilCode
         tsc.ucCode = MainApp.fc.ucCode
         tsc.hfCode = MainApp.fc.hfCode
