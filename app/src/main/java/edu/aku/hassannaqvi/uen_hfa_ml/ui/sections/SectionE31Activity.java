@@ -44,17 +44,8 @@ public class SectionE31Activity extends AppCompatActivity {
             }
         }));
 
-
-        bi.e0305a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpSece305);
-        }));
-
-        bi.e0305b.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpSece305);
-        }));
-
         bi.e0305c.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpSece305);
+            Clear.clearAllFields(bi.ll305c);
         }));
 
     }
@@ -191,11 +182,7 @@ public class SectionE31Activity extends AppCompatActivity {
                 : bi.e0305cc.isChecked() ? "3"
                 : "-1");
 
-        json.put("e0305d", bi.e0305da.isChecked() ? "1"
-                : bi.e0305db.isChecked() ? "2"
-                : bi.e0305dc.isChecked() ? "3"
-                : bi.e0305dd.isChecked() ? "4"
-                : "-1");
+        json.put("e0305d", bi.e0305d.getText().toString().trim().isEmpty() ? "-1" : bi.e0305d.getText().toString());
 
         json.put("e0305e", bi.e0305ea.isChecked() ? "1"
                 : bi.e0305ex.isChecked() ? "96"
