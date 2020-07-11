@@ -53,6 +53,7 @@ public class SectionC1Activity extends AppCompatActivity {
         editTextImplementation(bi.c01ia, new EditTextPicker[]{bi.c01ib, bi.c01id, bi.c01ie}, bi.c01ic);
         editTextImplementation(bi.c01ja, new EditTextPicker[]{bi.c01jb, bi.c01jd, bi.c01je}, bi.c01jc);
         editTextImplementation(bi.c01ka, new EditTextPicker[]{bi.c01kb, bi.c01kd, bi.c01ke}, bi.c01kc);
+        editTextImplementation(bi.c01la, new EditTextPicker[]{bi.c01lb, bi.c01ld, bi.c01le}, bi.c01lc);
     }
 
 
@@ -189,6 +190,12 @@ public class SectionC1Activity extends AppCompatActivity {
         json.put("c01kc", bi.c01kc.getText().toString().trim().isEmpty() ? "-1" : bi.c01kc.getText().toString());
         json.put("c01kd", bi.c01kd.getText().toString().trim().isEmpty() ? "-1" : bi.c01kd.getText().toString());
         json.put("c01ke", bi.c01ke.getText().toString().trim().isEmpty() ? "-1" : bi.c01ke.getText().toString());
+
+        json.put("c01la", bi.c01la.getText().toString().trim().isEmpty() ? "-1" : bi.c01la.getText().toString());
+        json.put("c01lb", bi.c01lb.getText().toString().trim().isEmpty() ? "-1" : bi.c01lb.getText().toString());
+        json.put("c01lc", bi.c01lc.getText().toString().trim().isEmpty() ? "-1" : bi.c01lc.getText().toString());
+        json.put("c01ld", bi.c01ld.getText().toString().trim().isEmpty() ? "-1" : bi.c01ld.getText().toString());
+        json.put("c01le", bi.c01le.getText().toString().trim().isEmpty() ? "-1" : bi.c01le.getText().toString());
 
         fc.setsC(String.valueOf(json));
 

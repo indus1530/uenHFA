@@ -1618,4 +1618,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    /*public List<StaffingContract> getAllStaff(String uuid, String uid) {
+        List<StaffingContract> posts = new ArrayList<>();
+
+        // SELECT * FROM POSTS
+        // LEFT OUTER JOIN USERS
+        // ON POSTS.KEY_POST_USER_ID_FK = USERS.KEY_USER_ID
+        String POSTS_SELECT_QUERY =
+                String.format("SELECT * FROM %s LEFT INNER JOIN %s ON %s.%s = %s.%s",
+                        StaffingContract.StaffingTable,
+                        FormsTable,
+                        StaffingTable, uuid,
+                        FormsTable, uid);
+
+        // "getReadableDatabase()" and "getWriteableDatabase()" return the same object (except under low
+        // disk space scenarios)
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(POSTS_SELECT_QUERY, null);
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    FormsContract form = new FormsContract();
+                    cursor.getString(cursor.getColumnIndex(uid));
+
+                    StaffingContract newPost = new StaffingContract();
+                    cursor.getString(cursor.getColumnIndex(uuid));
+                    newPost. = newUser;
+                    posts.add(newPost);
+                } while(cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "Error while trying to get posts from database");
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+        return posts;
+    }*/
+
+
 }
