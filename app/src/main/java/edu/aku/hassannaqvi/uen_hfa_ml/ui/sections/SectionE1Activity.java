@@ -2,14 +2,17 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -47,13 +50,13 @@ public class SectionE1Activity extends AppCompatActivity {
 
 
         bi.e0104a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpSece104);
+            Clear.clearAllFields(bi.ll04c04e);
         }));
 
 
-        bi.e0104b.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpSece104);
-        }));
+        /*bi.e0104b.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.ll04c04e);
+        }));*/
 
     }
 
@@ -141,11 +144,7 @@ public class SectionE1Activity extends AppCompatActivity {
 
         json.put("e0104c", bi.e0104c.getText().toString().trim().isEmpty() ? "-1" : bi.e0104c.getText().toString());
 
-        json.put("e0104d", bi.e0104da.isChecked() ? "1"
-                : bi.e0104db.isChecked() ? "2"
-                : bi.e0104dc.isChecked() ? "3"
-                : bi.e0104dd.isChecked() ? "4"
-                : "-1");
+        json.put("e0104d", bi.e0104d.getText().toString().trim().isEmpty() ? "-1" : bi.e0104d.getText().toString());
 
         json.put("e0104e", bi.e0104ea.isChecked() ? "1"
                 : bi.e0104ex.isChecked() ? "2"
@@ -176,5 +175,41 @@ public class SectionE1Activity extends AppCompatActivity {
     private boolean formValidation() {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
+
+
+    public void showTooltip(@NotNull View view) {
+        if (view.getId() != View.NO_ID) {
+            String package_name = getApplicationContext().getPackageName();
+
+            // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
+            String infoid = view.getResources().getResourceName(view.getId()).replace(package_name + ":id/q_", "");
+
+            // Question info text must be suffixed with _info e.g.: aa12a_info
+            int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
+
+            // Fetch info text from strings.xml
+            //String infoText = (String) getResources().getText(stringRes);
+
+            // Check if string resource exists to avoid crash on missing info string
+            if (stringRes != 0) {
+
+                // Fetch info text from strings.xml
+                String infoText = (String) getResources().getText(stringRes);
+
+                new AlertDialog.Builder(this)
+                        .setTitle("Info: " + infoid.toUpperCase())
+                        .setMessage(infoText)
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .show();
+            } else {
+                Toast.makeText(this, "No information available on this question.", Toast.LENGTH_SHORT).show();
+            }
+
+        } else {
+            Toast.makeText(this, "No ID Associated with this question.", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
 
 }

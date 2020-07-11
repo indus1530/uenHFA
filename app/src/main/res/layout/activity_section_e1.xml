@@ -1,7 +1,9 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <data>
+
         <import type="android.view.View" />
 
         <variable
@@ -951,9 +953,9 @@
 
 
                 <LinearLayout
-                    android:id="@+id/fldGrpSece104"
+                    android:id="@+id/ll04c04e"
                     style="@style/vlinearlayout"
-                    android:visibility='@{e0104aa.checked || e0104ba.checked ? View.VISIBLE : View.GONE}'>
+                    android:visibility='@{e0104aa.checked ? View.VISIBLE : View.GONE}'>
 
 
                     <!-- e0104c  Input   -->
@@ -990,7 +992,7 @@
                                 android:id="@+id/e0104c"
                                 style="@style/EditTextAlpha"
                                 android:hint="@string/name"
-                                android:maxLength="20" />
+                                android:maxLength="50" />
 
                         </LinearLayout>
 
@@ -1023,40 +1025,35 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignTop="@id/qtxt_e0104d"
                                     android:layout_alignBottom="@id/qtxt_e0104d"
+                                    android:drawableStart="@drawable/ic_info_outline_black_24dp"
+                                    android:drawablePadding="16dp"
+                                    android:onClick="showTooltip"
                                     android:text="@string/Q_e0104d" />
 
                             </RelativeLayout>
 
-                            <RadioGroup
-                                android:id="@+id/e0104d"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
 
-                                <RadioButton
-                                    android:id="@+id/e0104da"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/e0104da" />
+                            <LinearLayout style="@style/hlinearlayout">
 
-                                <RadioButton
-                                    android:id="@+id/e0104db"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/e0104db" />
+                                <TextView
+                                    style="@style/textviewh"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/days" />
 
-                                <RadioButton
-                                    android:id="@+id/e0104dc"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/e0104dc" />
+                                <com.edittextpicker.aliazaz.EditTextPicker
+                                    android:id="@+id/e0104d"
+                                    style="@style/EditTextNum"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:hint="##"
+                                    android:maxLength="2"
+                                    app:maxValue="20"
+                                    app:minValue="1"
+                                    app:type="range" />
 
-                                <RadioButton
-                                    android:id="@+id/e0104dd"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/e0104dd" />
-
-                            </RadioGroup>
+                            </LinearLayout>
 
                         </LinearLayout>
 
