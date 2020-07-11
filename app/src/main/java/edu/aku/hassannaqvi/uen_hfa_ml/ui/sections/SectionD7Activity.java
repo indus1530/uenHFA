@@ -41,8 +41,8 @@ public class SectionD7Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        if (MainApp.fc.getA10().equals("2")) {
-            bi.lld0704.setVisibility(View.GONE);
+        if (MainApp.fc.getA10().equals("1")) {
+            bi.lld0704.setVisibility(View.VISIBLE);
         }
 
     }

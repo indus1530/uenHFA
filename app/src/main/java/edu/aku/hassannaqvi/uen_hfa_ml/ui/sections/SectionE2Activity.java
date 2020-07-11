@@ -39,14 +39,12 @@ public class SectionE2Activity extends AppCompatActivity {
     private void setupSkips() {
 
         bi.e0201.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.e0201b.getId()) {
-                Clear.clearAllFields(bi.fldGrpSece201);
-            }
+                Clear.clearAllFields(bi.ll0204d);
         }));
 
 
         bi.e0204a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpSece204);
+            Clear.clearAllFields(bi.ll04b04d);
         }));
 
     }
