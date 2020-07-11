@@ -83,12 +83,11 @@ public class SectionG2Activity extends AppCompatActivity {
                 : bi.g0207c.isChecked() ? "3"
                 : "-1");
 
-        json.put("g0208", bi.g0208a.isChecked() ? "1"
-                : bi.g0208b.isChecked() ? "2"
-                : bi.g0208c.isChecked() ? "3"
-                : bi.g0208d.isChecked() ? "4"
-                : bi.g0208e.isChecked() ? "5"
-                : "-1");
+        json.put("g0208a", bi.g0208a.isChecked() ? "1" : "-1");
+        json.put("g0208b", bi.g0208b.isChecked() ? "2" : "-1");
+        json.put("g0208c", bi.g0208c.isChecked() ? "3" : "-1");
+        json.put("g0208d", bi.g0208d.isChecked() ? "4" : "-1");
+        json.put("g0208e", bi.g0208e.isChecked() ? "5" : "-1");
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsG()), json);
