@@ -78,6 +78,23 @@ public class SectionD4Activity extends AppCompatActivity {
         json.put("d0404", bi.d0404a.isChecked() ? "1"
                 : bi.d0404b.isChecked() ? "2"
                 : bi.d0404c.isChecked() ? "3"
+                : bi.d0404d.isChecked() ? "4"
+                : "-1");
+
+        json.put("d0405", bi.d0405a.isChecked() ? "1"
+                : bi.d0405b.isChecked() ? "2"
+                : "-1");
+
+        json.put("d0406", bi.d0406a.isChecked() ? "1"
+                : bi.d0406b.isChecked() ? "2"
+                : "-1");
+
+        json.put("d0407", bi.d0407a.isChecked() ? "1"
+                : bi.d0407b.isChecked() ? "2"
+                : "-1");
+
+        json.put("d0408", bi.d0408a.isChecked() ? "1"
+                : bi.d0408b.isChecked() ? "2"
                 : "-1");
 
         try {
