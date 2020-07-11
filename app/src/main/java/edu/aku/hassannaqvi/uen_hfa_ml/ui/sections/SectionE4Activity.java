@@ -2,14 +2,17 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -45,18 +48,6 @@ public class SectionE4Activity extends AppCompatActivity {
             }
         }));
 
-
-        bi.e0407a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpSece407);
-        }));
-
-        bi.e0407b.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpSece407);
-        }));
-
-        bi.e0407c.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpSece407);
-        }));
 
         bi.e0407d.setOnCheckedChangeListener(((radioGroup, i) -> {
             Clear.clearAllFields(bi.fldGrpSece407);
@@ -112,16 +103,100 @@ public class SectionE4Activity extends AppCompatActivity {
                 : bi.e0403cd.isChecked() ? "4"
                 : "-1");
 
-        json.put("e0404", bi.e0404a.isChecked() ? "1"
-                : bi.e0404b.isChecked() ? "2"
-                : bi.e0404c.isChecked() ? "3"
-                : bi.e0404d.isChecked() ? "4"
+        json.put("e04041", bi.e04041a.isChecked() ? "1"
+                : bi.e04041b.isChecked() ? "2"
+                : bi.e04041c.isChecked() ? "3"
+                : bi.e04041d.isChecked() ? "4"
                 : "-1");
 
-        json.put("e0405", bi.e0405a.isChecked() ? "1"
-                : bi.e0405b.isChecked() ? "2"
-                : bi.e0405c.isChecked() ? "3"
-                : bi.e0405d.isChecked() ? "4"
+        json.put("e04042", bi.e04042a.isChecked() ? "1"
+                : bi.e04042b.isChecked() ? "2"
+                : bi.e04042c.isChecked() ? "3"
+                : bi.e04042d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04043", bi.e04043a.isChecked() ? "1"
+                : bi.e04043b.isChecked() ? "2"
+                : bi.e04043c.isChecked() ? "3"
+                : bi.e04043d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04044", bi.e04044a.isChecked() ? "1"
+                : bi.e04044b.isChecked() ? "2"
+                : bi.e04044c.isChecked() ? "3"
+                : bi.e04044d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04045", bi.e04045a.isChecked() ? "1"
+                : bi.e04045b.isChecked() ? "2"
+                : bi.e04045c.isChecked() ? "3"
+                : bi.e04045d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04046", bi.e04046a.isChecked() ? "1"
+                : bi.e04046b.isChecked() ? "2"
+                : bi.e04046c.isChecked() ? "3"
+                : bi.e04046d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04047", bi.e04047a.isChecked() ? "1"
+                : bi.e04047b.isChecked() ? "2"
+                : bi.e04047c.isChecked() ? "3"
+                : bi.e04047d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04048", bi.e04048a.isChecked() ? "1"
+                : bi.e04048b.isChecked() ? "2"
+                : bi.e04048c.isChecked() ? "3"
+                : bi.e04048d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04051", bi.e04051a.isChecked() ? "1"
+                : bi.e04051b.isChecked() ? "2"
+                : bi.e04051c.isChecked() ? "3"
+                : bi.e04051d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04052", bi.e04052a.isChecked() ? "1"
+                : bi.e04052b.isChecked() ? "2"
+                : bi.e04052c.isChecked() ? "3"
+                : bi.e04052d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04053", bi.e04053a.isChecked() ? "1"
+                : bi.e04053b.isChecked() ? "2"
+                : bi.e04053c.isChecked() ? "3"
+                : bi.e04053d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04054", bi.e04054a.isChecked() ? "1"
+                : bi.e04054b.isChecked() ? "2"
+                : bi.e04054c.isChecked() ? "3"
+                : bi.e04054d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04055", bi.e04055a.isChecked() ? "1"
+                : bi.e04055b.isChecked() ? "2"
+                : bi.e04055c.isChecked() ? "3"
+                : bi.e04055d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04056", bi.e04056a.isChecked() ? "1"
+                : bi.e04056b.isChecked() ? "2"
+                : bi.e04056c.isChecked() ? "3"
+                : bi.e04056d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04057", bi.e04057a.isChecked() ? "1"
+                : bi.e04057b.isChecked() ? "2"
+                : bi.e04057c.isChecked() ? "3"
+                : bi.e04057d.isChecked() ? "4"
+                : "-1");
+
+        json.put("e04058", bi.e04058a.isChecked() ? "1"
+                : bi.e04058b.isChecked() ? "2"
+                : bi.e04058c.isChecked() ? "3"
+                : bi.e04058d.isChecked() ? "4"
                 : "-1");
 
         json.put("e0406", bi.e0406a.isChecked() ? "1"
@@ -149,16 +224,11 @@ public class SectionE4Activity extends AppCompatActivity {
                 : bi.e0407dc.isChecked() ? "3"
                 : "-1");
 
-        json.put("e0408", bi.e0408a.isChecked() ? "1"
-                : bi.e0408b.isChecked() ? "2"
-                : bi.e0408c.isChecked() ? "3"
-                : bi.e0408d.isChecked() ? "4"
-                : "-1");
+        json.put("e0408", bi.e0408.getText().toString().trim().isEmpty() ? "-1" : bi.e0408.getText().toString());
 
         json.put("e0409", bi.e0409a.isChecked() ? "1"
                 : bi.e0409x.isChecked() ? "96"
                 : "-1");
-
         json.put("e0409xx", bi.e0409xx.getText().toString().trim().isEmpty() ? "-1" : bi.e0409xx.getText().toString());
 
         json.put("e0410a", bi.e0410aa.isChecked() ? "1"
@@ -197,11 +267,10 @@ public class SectionE4Activity extends AppCompatActivity {
                 : bi.e0411d.isChecked() ? "4"
                 : "-1");
 
-        json.put("e0412", bi.e0412a.isChecked() ? "1"
-                : bi.e0412b.isChecked() ? "2"
-                : bi.e0412c.isChecked() ? "3"
-                : bi.e0412d.isChecked() ? "4"
-                : "-1");
+        json.put("e0412a", bi.e0412a.isChecked() ? "1" : "-1");
+        json.put("e0412b", bi.e0412b.isChecked() ? "2" : "-1");
+        json.put("e0412c", bi.e0412c.isChecked() ? "3" : "-1");
+        json.put("e0412d", bi.e0412d.isChecked() ? "4" : "-1");
 
         json.put("e0413", bi.e0413a.isChecked() ? "1"
                 : bi.e0413b.isChecked() ? "2"
@@ -265,5 +334,41 @@ public class SectionE4Activity extends AppCompatActivity {
     public void onBackPressed() {
         Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
     }
+
+
+    public void showTooltip(@NotNull View view) {
+        if (view.getId() != View.NO_ID) {
+            String package_name = getApplicationContext().getPackageName();
+
+            // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
+            String infoid = view.getResources().getResourceName(view.getId()).replace(package_name + ":id/q_", "");
+
+            // Question info text must be suffixed with _info e.g.: aa12a_info
+            int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
+
+            // Fetch info text from strings.xml
+            //String infoText = (String) getResources().getText(stringRes);
+
+            // Check if string resource exists to avoid crash on missing info string
+            if (stringRes != 0) {
+
+                // Fetch info text from strings.xml
+                String infoText = (String) getResources().getText(stringRes);
+
+                new AlertDialog.Builder(this)
+                        .setTitle("Info: " + infoid.toUpperCase())
+                        .setMessage(infoText)
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .show();
+            } else {
+                Toast.makeText(this, "No information available on this question.", Toast.LENGTH_SHORT).show();
+            }
+
+        } else {
+            Toast.makeText(this, "No ID Associated with this question.", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
 
 }
