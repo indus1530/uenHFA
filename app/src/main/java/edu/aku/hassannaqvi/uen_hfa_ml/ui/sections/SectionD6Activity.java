@@ -2,16 +2,14 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,6 +32,15 @@ public class SectionD6Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_d6);
         bi.setCallback(this);
+        setupSkips();
+    }
+
+
+    private void setupSkips() {
+
+        bi.d0602.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.lld060304);
+        }));
 
     }
 
@@ -82,16 +89,16 @@ public class SectionD6Activity extends AppCompatActivity {
                 : bi.d0604b.isChecked() ? "2"
                 : "-1");
 
-        json.put("d0605", bi.d0605a.isChecked() ? "1"
-                : bi.d0605b.isChecked() ? "2"
-                : bi.d0605c.isChecked() ? "3"
-                : bi.d0605d.isChecked() ? "4"
-                : bi.d0605e.isChecked() ? "5"
-                : bi.d0605f.isChecked() ? "6"
-                : bi.d0605g.isChecked() ? "7"
-                : bi.d0605h.isChecked() ? "8"
-                : bi.d0605i.isChecked() ? "9"
-                : "-1");
+        json.put("d0605a", bi.d0605a.isChecked() ? "1" : "-1");
+        json.put("d0605b", bi.d0605b.isChecked() ? "2" : "-1");
+        json.put("d0605c", bi.d0605c.isChecked() ? "3" : "-1");
+        json.put("d0605d", bi.d0605d.isChecked() ? "4" : "-1");
+        json.put("d0605e", bi.d0605e.isChecked() ? "5" : "-1");
+        json.put("d0605f", bi.d0605f.isChecked() ? "6" : "-1");
+        json.put("d0605g", bi.d0605g.isChecked() ? "7" : "-1");
+        json.put("d0605h", bi.d0605h.isChecked() ? "8" : "-1");
+        json.put("d0605i", bi.d0605i.isChecked() ? "9" : "-1");
+
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsD()), json);
@@ -134,41 +141,6 @@ public class SectionD6Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
-    }
-
-
-    public void showTooltip(@NotNull View view) {
-        if (view.getId() != View.NO_ID) {
-            String package_name = getApplicationContext().getPackageName();
-
-            // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
-            String infoid = view.getResources().getResourceName(view.getId()).replace(package_name + ":id/q_", "");
-
-            // Question info text must be suffixed with _info e.g.: aa12a_info
-            int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
-
-            // Fetch info text from strings.xml
-            //String infoText = (String) getResources().getText(stringRes);
-
-            // Check if string resource exists to avoid crash on missing info string
-            if (stringRes != 0) {
-
-                // Fetch info text from strings.xml
-                String infoText = (String) getResources().getText(stringRes);
-
-                new AlertDialog.Builder(this)
-                        .setTitle("Info: " + infoid.toUpperCase())
-                        .setMessage(infoText)
-                        .setIcon(android.R.drawable.ic_dialog_info)
-                        .show();
-            } else {
-                Toast.makeText(this, "No information available on this question.", Toast.LENGTH_SHORT).show();
-            }
-
-        } else {
-            Toast.makeText(this, "No ID Associated with this question.", Toast.LENGTH_SHORT).show();
-
-        }
     }
 
 
