@@ -88,12 +88,12 @@ public class SectionMainActivity extends AppCompatActivity {
             bi.form04.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (fc.getsF() != null) {
+        if (fc.getsF() != null || fc.getA10().equals("2")) {
             bi.form05.setEnabled(false);
             bi.form05.setBackgroundResource(R.color.dullWhite);
         }
 
-        if (fc.getsG() != null) {
+        if (fc.getsG() != null || fc.getA10().equals("2")) {
             bi.form06.setEnabled(false);
             bi.form06.setBackgroundResource(R.color.dullWhite);
         }

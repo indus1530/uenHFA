@@ -2,7 +2,6 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,19 +34,21 @@ public class SectionG1Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_g1);
         bi.setCallback(this);
         setupSkips();
-        bi.g0105cx.setMinvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())));
-        bi.g0105cx.setMaxvalue(Float.parseFloat(new SimpleDateFormat("yyyy").format(new Date().getTime())) + 2);
 
     }
 
 
     private void setupSkips() {
 
-        bi.g0102a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpCVg0102b);
+        bi.g0111.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpCVg01112);
         }));
 
-        bi.g0108a.setOnCheckedChangeListener(((radioGroup, i) -> {
+        bi.g01113.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.fldGrpCVg01114);
+        }));
+
+        /*bi.g0108a.setOnCheckedChangeListener(((radioGroup, i) -> {
 
             if (i == bi.g0108aa.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVg0108b);
@@ -91,8 +92,7 @@ public class SectionG1Activity extends AppCompatActivity {
                 bi.fldGrpCVg0108a.setVisibility(View.GONE);
                 bi.fldGrpCVg0108b.setVisibility(View.GONE);
             }
-        }));
-
+        }));*/
     }
 
 
@@ -126,12 +126,8 @@ public class SectionG1Activity extends AppCompatActivity {
         json.put("g0101xx", bi.g0101xx.getText().toString().trim().length() > 0 ? bi.g0101xx.getText().toString() : "-1");
 
 
-        json.put("g0102a", bi.g0102aa.isChecked() ? "1"
-                : bi.g0102ab.isChecked() ? "2"
-                : "-1");
-
-        json.put("g0102b", bi.g0102ba.isChecked() ? "1"
-                : bi.g0102bb.isChecked() ? "2"
+        json.put("g0102", bi.g0102a.isChecked() ? "1"
+                : bi.g0102b.isChecked() ? "2"
                 : "-1");
 
         json.put("g0103", bi.g0103a.isChecked() ? "1"
@@ -151,7 +147,6 @@ public class SectionG1Activity extends AppCompatActivity {
 
         json.put("g0105ax", bi.g0105ax.getText().toString().trim().isEmpty() ? "-1" : bi.g0105ax.getText().toString());
         json.put("g0105bx", bi.g0105bx.getText().toString().trim().isEmpty() ? "-1" : bi.g0105bx.getText().toString());
-        json.put("g0105cx", bi.g0105cx.getText().toString().trim().isEmpty() ? "-1" : bi.g0105cx.getText().toString());
 
         json.put("g0106", bi.g0106a.isChecked() ? "1"
                 : bi.g0106b.isChecked() ? "2"
@@ -163,12 +158,13 @@ public class SectionG1Activity extends AppCompatActivity {
 
         json.put("g0107", bi.g0107a.isChecked() ? "1"
                 : bi.g0107b.isChecked() ? "2"
+                : bi.g0107c.isChecked() ? "3"
                 : bi.g0107x.isChecked() ? "96"
                 : "-1");
         json.put("g0107xx", bi.g0107xx.getText().toString().trim().length() > 0 ? bi.g0107xx.getText().toString() : "-1");
 
 
-        json.put("g0108a", bi.g0108aa.isChecked() ? "1"
+        /*json.put("g0108a", bi.g0108aa.isChecked() ? "1"
                 : bi.g0108ab.isChecked() ? "2"
                 : "-1");
 
@@ -178,7 +174,8 @@ public class SectionG1Activity extends AppCompatActivity {
 
         json.put("g0108c", bi.g0108ca.isChecked() ? "1"
                 : bi.g0108cb.isChecked() ? "2"
-                : "-1");
+                : "-1");*/
+
 
         json.put("g0109", bi.g0109a.isChecked() ? "1"
                 : bi.g0109b.isChecked() ? "2"
@@ -188,7 +185,6 @@ public class SectionG1Activity extends AppCompatActivity {
 
         json.put("g0110ax", bi.g0110ax.getText().toString().trim().isEmpty() ? "-1" : bi.g0110ax.getText().toString());
         json.put("g0110bx", bi.g0110bx.getText().toString().trim().isEmpty() ? "-1" : bi.g0110bx.getText().toString());
-        json.put("g0110cx", bi.g0110cx.getText().toString().trim().isEmpty() ? "-1" : bi.g0110cx.getText().toString());
 
         json.put("g0111", bi.g0111a.isChecked() ? "1"
                 : bi.g0111b.isChecked() ? "2"
