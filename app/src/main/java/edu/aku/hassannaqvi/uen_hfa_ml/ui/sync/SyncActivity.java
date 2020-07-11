@@ -160,7 +160,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                 ).execute(i - 1);
             }
 
-//  *******************************************************C2Section*********************************
+//  *******************************************************StaffingTable*********************************
             Toast.makeText(getApplicationContext(), "Syncing StaffingTable", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
@@ -177,7 +177,7 @@ public class SyncActivity extends AppCompatActivity implements SyncDevice.SyncDe
                     db.getUnsyncedStaffing(), 3, uploadListAdapter, uploadlist
             ).execute();
 
-//  *******************************************************ISection*********************************
+//  *******************************************************PatientsTable*********************************
             Toast.makeText(getApplicationContext(), "Syncing PatientsTable", Toast.LENGTH_SHORT).show();
             if (uploadlistActivityCreated) {
                 uploadmodel = new SyncModel();
