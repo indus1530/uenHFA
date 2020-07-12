@@ -4,14 +4,11 @@
     <data>
         <import type="android.view.View" />
 
-        <!--<variable
-            name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH9Activity" />
     </data>
+
 
 
     <ScrollView
@@ -93,11 +90,10 @@
             </androidx.cardview.widget.CardView>
 
 
-
             <LinearLayout
                 android:id="@+id/fldGrpSech901"
                 style="@style/vlinearlayout"
-                android:visibility='@{h0901b.checked? View.GONE : View.VISIBLE}'>
+                android:visibility='@{h0901a.checked ? View.VISIBLE : View.GONE}'>
 
 
                 <!-- h0902  SUB TextView   -->
