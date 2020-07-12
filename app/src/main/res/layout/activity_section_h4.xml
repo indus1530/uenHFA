@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <LinearLayout
             android:id="@+id/GrpName"
             style="@style/vlinearlayout">
@@ -60,40 +61,43 @@
                             android:layout_height="wrap_content"
                             android:layout_alignTop="@id/qtxt_h0401"
                             android:layout_alignBottom="@id/qtxt_h0401"
+                            android:drawableStart="@drawable/ic_info_outline_black_24dp"
+                            android:drawablePadding="16dp"
+                            android:onClick="showTooltip"
                             android:text="@string/Q_h0401" />
 
                     </RelativeLayout>
 
-                    <RadioGroup
-                        android:id="@+id/h0401"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:id="@+id/llh0401check"
+                        style="@style/vlinearlayout"
+                        android:tag="0">
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/h0401a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/h0401a" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/h0401b"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/h0401b" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/h0401c"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/h0401c" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/h0401d"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/h0401d" />
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/h0401x"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -107,7 +111,7 @@
                             android:text='@{h0401x.checked ? h0401xx.getText().toString() : ""}'
                             android:visibility='@{h0401x.checked ? View.VISIBLE : View.GONE}' />
 
-                    </RadioGroup>
+                    </LinearLayout>
 
                 </LinearLayout>
 

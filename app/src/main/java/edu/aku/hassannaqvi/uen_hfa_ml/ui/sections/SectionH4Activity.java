@@ -72,12 +72,11 @@ public class SectionH4Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("h0401", bi.h0401a.isChecked() ? "1"
-                : bi.h0401b.isChecked() ? "2"
-                : bi.h0401c.isChecked() ? "3"
-                : bi.h0401d.isChecked() ? "4"
-                : bi.h0401x.isChecked() ? "96"
-                : "-1");
+        json.put("h0401a", bi.h0401a.isChecked() ? "1" : "-1");
+        json.put("h0401b", bi.h0401b.isChecked() ? "2" : "-1");
+        json.put("h0401c", bi.h0401c.isChecked() ? "3" : "-1");
+        json.put("h0401d", bi.h0401d.isChecked() ? "4" : "-1");
+        json.put("h0401x", bi.h0401x.isChecked() ? "96" : "-1");
         json.put("h0401xx", bi.h0401xx.getText().toString().trim().isEmpty() ? "-1" : bi.h0401xx.getText().toString());
 
         try {
