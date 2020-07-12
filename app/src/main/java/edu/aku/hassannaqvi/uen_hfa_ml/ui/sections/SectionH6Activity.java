@@ -38,15 +38,13 @@ public class SectionH6Activity extends AppCompatActivity {
         bi.setCallback(this);
         setupSkips();
 
-
     }
 
 
     private void setupSkips() {
+
         bi.h0602.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.h0602b.getId()) {
                 Clear.clearAllFields(bi.llh0603);
-            }
         }));
 
     }
