@@ -118,9 +118,6 @@ public class SectionG424Activity extends AppCompatActivity {
         json.put("g0403200sd", bi.g0403200sd.getText().toString().trim().length() > 0 ? bi.g0403200sd.getText().toString() : "-1");
         json.put("g0403200sm", bi.g0403200sm.getText().toString().trim().length() > 0 ? bi.g0403200sm.getText().toString() : "-1");
 
-        json.put("g0403200p", bi.g0403200py.isChecked() ? "1"
-                : bi.g0403200pn.isChecked() ? "2"
-                : "-1");
 
 
         json.put("g0403210a", bi.g0403210ay.isChecked() ? "1"
@@ -134,9 +131,6 @@ public class SectionG424Activity extends AppCompatActivity {
         json.put("g0403210sd", bi.g0403210sd.getText().toString().trim().length() > 0 ? bi.g0403210sd.getText().toString() : "-1");
         json.put("g0403210sm", bi.g0403210sm.getText().toString().trim().length() > 0 ? bi.g0403210sm.getText().toString() : "-1");
 
-        json.put("g0403210p", bi.g0403210py.isChecked() ? "1"
-                : bi.g0403210pn.isChecked() ? "2"
-                : "-1");
 
 
         json.put("g0403220a", bi.g0403220ay.isChecked() ? "1"
@@ -150,9 +144,6 @@ public class SectionG424Activity extends AppCompatActivity {
         json.put("g0403220sd", bi.g0403220sd.getText().toString().trim().length() > 0 ? bi.g0403220sd.getText().toString() : "-1");
         json.put("g0403220sm", bi.g0403220sm.getText().toString().trim().length() > 0 ? bi.g0403220sm.getText().toString() : "-1");
 
-        json.put("g0403220p", bi.g0403220py.isChecked() ? "1"
-                : bi.g0403220pn.isChecked() ? "2"
-                : "-1");
 
 
         json.put("g0403230a", bi.g0403230ay.isChecked() ? "1"
@@ -166,9 +157,6 @@ public class SectionG424Activity extends AppCompatActivity {
         json.put("g0403230sd", bi.g0403230sd.getText().toString().trim().length() > 0 ? bi.g0403230sd.getText().toString() : "-1");
         json.put("g0403230sm", bi.g0403230sm.getText().toString().trim().length() > 0 ? bi.g0403230sm.getText().toString() : "-1");
 
-        json.put("g0403230p", bi.g0403230py.isChecked() ? "1"
-                : bi.g0403230pn.isChecked() ? "2"
-                : "-1");
 
 
         json.put("g0403240a", bi.g0403240ay.isChecked() ? "1"
@@ -182,9 +170,6 @@ public class SectionG424Activity extends AppCompatActivity {
         json.put("g0403240sd", bi.g0403240sd.getText().toString().trim().length() > 0 ? bi.g0403240sd.getText().toString() : "-1");
         json.put("g0403240sm", bi.g0403240sm.getText().toString().trim().length() > 0 ? bi.g0403240sm.getText().toString() : "-1");
 
-        json.put("g0403240p", bi.g0403240py.isChecked() ? "1"
-                : bi.g0403240pn.isChecked() ? "2"
-                : "-1");
 
 
         json.put("g0403250a", bi.g0403250ay.isChecked() ? "1"
@@ -198,9 +183,6 @@ public class SectionG424Activity extends AppCompatActivity {
         json.put("g0403250sd", bi.g0403250sd.getText().toString().trim().length() > 0 ? bi.g0403250sd.getText().toString() : "-1");
         json.put("g0403250sm", bi.g0403250sm.getText().toString().trim().length() > 0 ? bi.g0403250sm.getText().toString() : "-1");
 
-        json.put("g0403250p", bi.g0403250py.isChecked() ? "1"
-                : bi.g0403250pn.isChecked() ? "2"
-                : "-1");
 
 
         json.put("g0403260a", bi.g0403260ay.isChecked() ? "1"
@@ -214,9 +196,6 @@ public class SectionG424Activity extends AppCompatActivity {
         json.put("g0403260sd", bi.g0403260sd.getText().toString().trim().length() > 0 ? bi.g0403260sd.getText().toString() : "-1");
         json.put("g0403260sm", bi.g0403260sm.getText().toString().trim().length() > 0 ? bi.g0403260sm.getText().toString() : "-1");
 
-        json.put("g0403260p", bi.g0403260py.isChecked() ? "1"
-                : bi.g0403260pn.isChecked() ? "2"
-                : "-1");
 
 
         json.put("g0403270a", bi.g0403270ay.isChecked() ? "1"
@@ -230,9 +209,6 @@ public class SectionG424Activity extends AppCompatActivity {
         json.put("g0403270sd", bi.g0403270sd.getText().toString().trim().length() > 0 ? bi.g0403270sd.getText().toString() : "-1");
         json.put("g0403270sm", bi.g0403270sm.getText().toString().trim().length() > 0 ? bi.g0403270sm.getText().toString() : "-1");
 
-        json.put("g0403270p", bi.g0403270py.isChecked() ? "1"
-                : bi.g0403270pn.isChecked() ? "2"
-                : "-1");
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsG()), json);
