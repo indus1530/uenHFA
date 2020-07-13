@@ -41,10 +41,9 @@ public class SectionH11Activity extends AppCompatActivity {
 
 
     private void setupSkips() {
+
         bi.h1102.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.h1102b.getId()) {
                 Clear.clearAllFields(bi.fldGrpSech1101);
-            }
         }));
 
     }
@@ -109,10 +108,8 @@ public class SectionH11Activity extends AppCompatActivity {
                 : bi.h1105b.isChecked() ? "2"
                 : "-1");
 
-        json.put("h1106", bi.h1106.getText().toString().trim().isEmpty() ? "-1" : bi.h1106.getText().toString());
-
-        json.put("h1107", bi.h1107a.isChecked() ? "1"
-                : bi.h1107b.isChecked() ? "2"
+        json.put("h1106", bi.h1106a.isChecked() ? "1"
+                : bi.h1106b.isChecked() ? "2"
                 : "-1");
 
         try {
