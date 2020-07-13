@@ -41,12 +41,10 @@ public class SectionH10Activity extends AppCompatActivity {
 
 
     private void setupSkips() {
-        bi.h1001.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.h1001b.getId()) {
-                Clear.clearAllFields(bi.fldGrpSech1001);
-            }
-        }));
 
+        bi.h1001.setOnCheckedChangeListener(((radioGroup, i) -> {
+                Clear.clearAllFields(bi.fldGrpSech1001);
+        }));
 
     }
 
