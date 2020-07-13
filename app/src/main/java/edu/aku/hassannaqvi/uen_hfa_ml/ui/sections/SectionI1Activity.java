@@ -50,7 +50,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
         psc = new PatientsContract();
 
-        bi.hfType.setText(MainApp.fc.getA10().equals("1") ? getString(R.string.publicHF) : getString(R.string.privateHF));
+        bi.hfType.setText(MainApp.fc.getA10().equals("1") ? getString(R.string.hfpublic) : getString(R.string.hfprivate));
         bi.countI.setText(new StringBuilder("Entries: 0").append(SectionMainActivity.countI));
 
         /*if (MainApp.fc.getA10().equals("1")) {

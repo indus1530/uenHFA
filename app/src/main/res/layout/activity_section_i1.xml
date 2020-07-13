@@ -28,14 +28,14 @@
                 style="@style/textviewh"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:text="Maternal" />
+                android:text="TYPE" />
 
             <TextView
                 android:id="@+id/countI"
                 style="@style/textviewh"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:text="Paeds" />
+                android:text="COUNT" />
 
         </LinearLayout>
 
@@ -1181,8 +1181,7 @@
                             <LinearLayout
                                 style="@style/vlinearlayout"
                                 android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:tag="0">
+                                android:layout_weight="1">
 
                                 <com.edittextpicker.aliazaz.EditTextPicker
                                     android:id="@+id/i0112ax"
@@ -1384,17 +1383,16 @@
                                 android:layout_height="wrap_content"
                                 android:text="@string/i0115c" />
 
-                            <com.edittextpicker.aliazaz.EditTextPicker
-                                android:id="@+id/i0115x"
-                                style="@style/EditTextNum"
-                                android:hint="@string/rupees"
-                                android:maxLength="4"
-                                android:tag="i0115"
-                                app:maxValue="9999"
-                                app:minValue="1"
-                                app:type="range" />
-
                         </RadioGroup>
+
+                        <com.edittextpicker.aliazaz.EditTextPicker
+                            android:id="@+id/i0115x"
+                            style="@style/EditTextNum"
+                            android:hint="@string/rupees"
+                            android:maxLength="4"
+                            app:maxValue="9999"
+                            app:minValue="1"
+                            app:type="range" />
 
                     </LinearLayout>
 
