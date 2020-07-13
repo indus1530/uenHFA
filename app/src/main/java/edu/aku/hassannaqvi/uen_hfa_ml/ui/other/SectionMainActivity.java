@@ -34,8 +34,8 @@ import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 public class SectionMainActivity extends AppCompatActivity {
     ActivitySectionMainBinding bi;
 
-    public static int maternalCount = 0, paedsCount = 0;
-    public static int countC2 = 0;
+    //public static String maternalCount = 0, paedsCount = 0;
+    public static int countC2 = 0, countI = 0;
     boolean flag;
 
     @Override
@@ -194,8 +194,7 @@ public class SectionMainActivity extends AppCompatActivity {
                     oF = new Intent(this, fc.getA10().equals("2") ? SectionH16Activity.class : SectionH2Activity.class);
                     break;
                 case R.id.form08:
-                    maternalCount = 0;
-                    paedsCount = 0;
+                    countI = 0;
                     oF = new Intent(this, SectionI1Activity.class);
                     break;
                 case R.id.form09:

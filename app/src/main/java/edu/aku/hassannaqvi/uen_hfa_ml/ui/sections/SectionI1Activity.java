@@ -2,9 +2,6 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +16,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import edu.aku.hassannaqvi.uen_hfa_ml.CONSTANTS;
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.PatientsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -53,20 +51,19 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
         psc = new PatientsContract();
 
         bi.hfType.setText(MainApp.fc.getA10().equals("1") ? getString(R.string.publicHF) : getString(R.string.privateHF));
-        bi.maternalCount.setText(new StringBuilder("Maternal Entries: ").append(SectionMainActivity.maternalCount));
-        bi.paedsCount.setText(new StringBuilder("Paeds Entries: ").append(SectionMainActivity.paedsCount));
+        bi.countI.setText(new StringBuilder("Entries: 0").append(SectionMainActivity.countI));
 
-        if (MainApp.fc.getA10().equals("1")) {
+        /*if (MainApp.fc.getA10().equals("1")) {
             if (SectionMainActivity.paedsCount == 3) bi.i0108a.setEnabled(false);
             else if (SectionMainActivity.maternalCount == 3) bi.i0108b.setEnabled(false);
-        }
+        }*/
     }
 
 
     private void setupSkips() {
         bi.i0103.setOnCheckedChangeListener(((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVi0104)));
 
-        bi.i0108.setOnCheckedChangeListener(((radioGroup, i) -> {
+        /*bi.i0108.setOnCheckedChangeListener(((radioGroup, i) -> {
 
             if (i == bi.i0108a.getId()) {
                 Clear.clearAllFields(bi.fldGrpCVi0105);
@@ -83,10 +80,10 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
                 bi.i0106a.setMinvalue(15);
             }
 
-        }));
+        }));*/
 
 
-        bi.i0106a.addTextChangedListener(new TextWatcher() {
+        /*bi.i0106a.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -109,7 +106,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
             @Override
             public void afterTextChanged(Editable editable) {
             }
-        });
+        });*/
 
 
     }
@@ -124,11 +121,9 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
         }
         if (UpdateDB()) {
             finish();
-
-            if (bi.i0108a.isChecked()) SectionMainActivity.paedsCount++;
-            else if (bi.i0108b.isChecked()) SectionMainActivity.maternalCount++;
-
-            startActivity(new Intent(this, bi.i0108b.isChecked() ? SectionI3Activity.class : SectionI2Activity.class));
+            SectionMainActivity.countI++;
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true).putExtra(CONSTANTS.SECTION_MAIN_CHECK_FOR_END, true)
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
@@ -203,8 +198,100 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
                 : bi.i0107b.isChecked() ? "2"
                 : "-1");
 
-        json.put("i0108", bi.i0108a.isChecked() ? "1"
-                : bi.i0108b.isChecked() ? "2"
+        json.put("i0108a", bi.i0108a.isChecked() ? "1" : "-1");
+        json.put("i0108b", bi.i0108b.isChecked() ? "2" : "-1");
+        json.put("i0108c", bi.i0108c.isChecked() ? "3" : "-1");
+        json.put("i0108d", bi.i0108d.isChecked() ? "4" : "-1");
+        json.put("i0108e", bi.i0108e.isChecked() ? "5" : "-1");
+        json.put("i0108f", bi.i0108f.isChecked() ? "6" : "-1");
+        json.put("i0108g", bi.i0108g.isChecked() ? "7" : "-1");
+        json.put("i010896", bi.i010896.isChecked() ? "96" : "-1");
+        json.put("i010896x", bi.i010896x.getText().toString().trim().isEmpty() ? "-1" : bi.i010896x.getText().toString());
+
+        json.put("i01091", bi.i01091a.isChecked() ? "1"
+                : bi.i01091b.isChecked() ? "2"
+                : bi.i01091c.isChecked() ? "3"
+                : bi.i01091d.isChecked() ? "4"
+                : bi.i01091e.isChecked() ? "5"
+                : "-1");
+
+        json.put("i01092", bi.i01092a.isChecked() ? "1"
+                : bi.i01092b.isChecked() ? "2"
+                : bi.i01092c.isChecked() ? "3"
+                : bi.i01092d.isChecked() ? "4"
+                : bi.i01092e.isChecked() ? "5"
+                : "-1");
+
+        json.put("i01093", bi.i01093a.isChecked() ? "1"
+                : bi.i01093b.isChecked() ? "2"
+                : bi.i01093c.isChecked() ? "3"
+                : bi.i01093d.isChecked() ? "4"
+                : bi.i01093e.isChecked() ? "5"
+                : "-1");
+
+        json.put("i01094", bi.i01094a.isChecked() ? "1"
+                : bi.i01094b.isChecked() ? "2"
+                : bi.i01094c.isChecked() ? "3"
+                : bi.i01094d.isChecked() ? "4"
+                : bi.i01094e.isChecked() ? "5"
+                : "-1");
+
+        json.put("i01095", bi.i01095a.isChecked() ? "1"
+                : bi.i01095b.isChecked() ? "2"
+                : bi.i01095c.isChecked() ? "3"
+                : bi.i01095d.isChecked() ? "4"
+                : bi.i01095e.isChecked() ? "5"
+                : "-1");
+
+        json.put("i01096", bi.i01096a.isChecked() ? "1"
+                : bi.i01096b.isChecked() ? "2"
+                : bi.i01096c.isChecked() ? "3"
+                : bi.i01096d.isChecked() ? "4"
+                : bi.i01096e.isChecked() ? "5"
+                : "-1");
+
+        json.put("i0110a", bi.i0110a.isChecked() ? "1" : "-1");
+        json.put("i0110b", bi.i0110b.isChecked() ? "2" : "-1");
+        json.put("i0110c", bi.i0110c.isChecked() ? "3" : "-1");
+        json.put("i0110bx", bi.i0110bx.getText().toString().trim().isEmpty() ? "-1" : bi.i0110bx.getText().toString());
+        json.put("i0110cx", bi.i0110cx.getText().toString().trim().isEmpty() ? "-1" : bi.i0110cx.getText().toString());
+
+        json.put("i0111a", bi.i0111a.isChecked() ? "1" : "-1");
+        json.put("i0111b", bi.i0111b.isChecked() ? "2" : "-1");
+        json.put("i0111c", bi.i0111c.isChecked() ? "3" : "-1");
+        json.put("i0111bx", bi.i0111bx.getText().toString().trim().isEmpty() ? "-1" : bi.i0111bx.getText().toString());
+        json.put("i0111cx", bi.i0111cx.getText().toString().trim().isEmpty() ? "-1" : bi.i0111cx.getText().toString());
+
+        json.put("i0112a", bi.i0112a.isChecked() ? "1" : "-1");
+        json.put("i0112b", bi.i0112b.isChecked() ? "2" : "-1");
+        json.put("i0112ax", bi.i0112ax.getText().toString().trim().isEmpty() ? "-1" : bi.i0112ax.getText().toString());
+        json.put("i0112bx", bi.i0112bx.getText().toString().trim().isEmpty() ? "-1" : bi.i0112bx.getText().toString());
+
+        json.put("i0113", bi.i0113a.isChecked() ? "1"
+                : bi.i0113b.isChecked() ? "2"
+                : "-1");
+
+        json.put("i0114", bi.i0114a.isChecked() ? "1"
+                : bi.i0114b.isChecked() ? "2"
+                : "-1");
+
+        json.put("i0115", bi.i0115a.isChecked() ? "1"
+                : bi.i0115b.isChecked() ? "2"
+                : bi.i0115c.isChecked() ? "3"
+                : "-1");
+        json.put("i0115x", bi.i0115x.getText().toString().trim().isEmpty() ? "-1" : bi.i0115x.getText().toString());
+
+        json.put("i0116a", bi.i0116a.isChecked() ? "1" : "-1");
+        json.put("i0116b", bi.i0116b.isChecked() ? "2" : "-1");
+        json.put("i0116c", bi.i0116c.isChecked() ? "3" : "-1");
+        json.put("i0116d", bi.i0116d.isChecked() ? "4" : "-1");
+        json.put("i0116e", bi.i0116e.isChecked() ? "5" : "-1");
+        json.put("i0116f", bi.i0116f.isChecked() ? "6" : "-1");
+        json.put("i011696", bi.i011696.isChecked() ? "96" : "-1");
+        json.put("i011696x", bi.i011696x.getText().toString().trim().isEmpty() ? "-1" : bi.i011696x.getText().toString());
+
+        json.put("i0117", bi.i0117a.isChecked() ? "1"
+                : bi.i0117b.isChecked() ? "2"
                 : "-1");
 
         psc.setsI1(String.valueOf(json));
@@ -236,10 +323,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
         }
         if (UpdateDB()) {
             finish();
-
-            if (bi.i0108a.isChecked()) SectionMainActivity.paedsCount++;
-            else if (bi.i0108b.isChecked()) SectionMainActivity.maternalCount++;
-
+            SectionMainActivity.countI++;
             startActivity(new Intent(this, EndingActivity.class).putExtra(SECTION_MAIN_CHECK_FOR_END, true)
                     .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         } else {
@@ -250,7 +334,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
     @Override
     public void onBackPressed() {
-        if (SectionMainActivity.maternalCount + SectionMainActivity.paedsCount > 0) {
+        if (SectionMainActivity.countI > 0) {
             Toast.makeText(getApplicationContext(), "Back Press Not Allowed", Toast.LENGTH_LONG).show();
         } else super.onBackPressed();
     }

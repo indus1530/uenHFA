@@ -65,9 +65,9 @@ public class EndingActivity extends AppCompatActivity {
     }
 
     private Class<?> routingSelectionForChildEnding() {
-        if (MainApp.fc.getA10().equals("1") && (SectionMainActivity.maternalCount + SectionMainActivity.paedsCount) == 6)
+        if (MainApp.fc.getA10().equals("1") && SectionMainActivity.countI == 6)
             return SectionMainActivity.class;
-        else if (MainApp.fc.getA10().equals("2") && (SectionMainActivity.maternalCount + SectionMainActivity.paedsCount) == 3)
+        else if (MainApp.fc.getA10().equals("2") && SectionMainActivity.countI == 3)
             return SectionMainActivity.class;
         else
             return SectionI1Activity.class;
@@ -81,7 +81,7 @@ public class EndingActivity extends AppCompatActivity {
                     : bi.istatusb.isChecked() ? "2"
                     : bi.istatus96.isChecked() ? "96"
                     : "0");
-            MainApp.fc.setsI(String.valueOf(SectionMainActivity.maternalCount + SectionMainActivity.paedsCount));
+            MainApp.fc.setsI(String.valueOf(SectionMainActivity.countI));
         } else {
             MainApp.fc.setIstatus(bi.istatusa.isChecked() ? "1"
                     : bi.istatusb.isChecked() ? "2"
