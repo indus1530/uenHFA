@@ -3,12 +3,14 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -33,7 +35,43 @@ public class SectionJ5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_j5);
         bi.setCallback(this);
+        setupSkips();
 
+    }
+
+
+    private void setupSkips() {
+        radioGroup(bi.j0501a);
+        radioGroup(bi.j0501b);
+        radioGroup(bi.j0501c);
+        radioGroup(bi.j0501d);
+        radioGroup(bi.j0501e);
+        radioGroup(bi.j0501f);
+        radioGroup(bi.j0501g);
+        radioGroup(bi.j0501h);
+        radioGroup(bi.j0501i);
+        radioGroup(bi.j0501j);
+        radioGroup(bi.j0501k);
+        radioGroup(bi.j0501l);
+        radioGroup(bi.j0501m);
+    }
+
+
+    public void radioGroup(RadioGroup grp) {
+
+        grp.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (bi.j0501ab.isChecked() || bi.j0501bb.isChecked() || bi.j0501cb.isChecked()
+                    || bi.j0501db.isChecked() || bi.j0501eb.isChecked() || bi.j0501fb.isChecked()
+                    || bi.j0501gb.isChecked() || bi.j0501hb.isChecked() || bi.j0501ib.isChecked()
+                    || bi.j0501jb.isChecked() || bi.j0501kb.isChecked() || bi.j0501lb.isChecked()
+                    || bi.j0501mb.isChecked()) {
+                Clear.clearAllFields(bi.fldGrpCVj0501n);
+                bi.fldGrpCVj0501n.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVj0501n);
+                bi.fldGrpCVj0501n.setVisibility(View.GONE);
+            }
+        }));
     }
 
 
@@ -135,7 +173,7 @@ public class SectionJ5Activity extends AppCompatActivity {
         json.put("j0501ne", bi.j0501ne.isChecked() ? "5" : "-1");
         json.put("j0501nf", bi.j0501nf.isChecked() ? "6" : "-1");
         json.put("j0501nx", bi.j0501nx.isChecked() ? "96" : "-1");
-        json.put("j0501nxx", bi.j0501nxx.getText().toString());
+        json.put("j0501nxx", bi.j0501nxx.getText().toString().trim().isEmpty() ? "-1" : j0501nxx.getText().toString());
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsJ()), json);

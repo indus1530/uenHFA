@@ -3,12 +3,14 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -33,7 +35,33 @@ public class SectionJ7Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_j7);
         bi.setCallback(this);
+        setupSkips();
 
+    }
+
+
+    private void setupSkips() {
+        radioGroup(bi.j0701a);
+        radioGroup(bi.j0701b);
+        radioGroup(bi.j0701c);
+        radioGroup(bi.j0701d);
+        radioGroup(bi.j0701e);
+        radioGroup(bi.j0701f);
+    }
+
+
+    public void radioGroup(RadioGroup grp) {
+
+        grp.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (bi.j0701ab.isChecked() || bi.j0701bb.isChecked() || bi.j0701cb.isChecked()
+                    || bi.j0701db.isChecked() || bi.j0701eb.isChecked() || bi.j0701fb.isChecked()) {
+                Clear.clearAllFields(bi.fldGrpCVj0701g);
+                bi.fldGrpCVj0701g.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVj0701g);
+                bi.fldGrpCVj0701g.setVisibility(View.GONE);
+            }
+        }));
     }
 
 
@@ -107,7 +135,7 @@ public class SectionJ7Activity extends AppCompatActivity {
         json.put("j0701ge", bi.j0701ge.isChecked() ? "5" : "-1");
         json.put("j0701gf", bi.j0701gf.isChecked() ? "6" : "-1");
         json.put("j0701gx", bi.j0701gx.isChecked() ? "96" : "-1");
-        json.put("j0701gxx", bi.j0701gxx.getText().toString());
+        json.put("j0701gxx", bi.j0701gxx.getText().toString().trim().isEmpty() ? "-1" : bi.j0701gxx.getText().toString());
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsJ()), json);

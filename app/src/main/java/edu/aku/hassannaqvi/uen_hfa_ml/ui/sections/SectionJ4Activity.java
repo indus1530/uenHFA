@@ -3,12 +3,14 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -33,7 +35,41 @@ public class SectionJ4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_j4);
         bi.setCallback(this);
+        setupSkips();
 
+    }
+
+
+    private void setupSkips() {
+        radioGroup(bi.j0401a);
+        radioGroup(bi.j0401b);
+        radioGroup(bi.j0401c);
+        radioGroup(bi.j0401d);
+        radioGroup(bi.j0401e);
+        radioGroup(bi.j0401f);
+        radioGroup(bi.j0401g);
+        radioGroup(bi.j0401h);
+        radioGroup(bi.j0401i);
+        radioGroup(bi.j0401j);
+        radioGroup(bi.j0401k);
+        radioGroup(bi.j0401l);
+    }
+
+
+    public void radioGroup(RadioGroup grp) {
+
+        grp.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (bi.j0401ab.isChecked() || bi.j0401bb.isChecked() || bi.j0401cb.isChecked()
+                    || bi.j0401db.isChecked() || bi.j0401eb.isChecked() || bi.j0401fb.isChecked()
+                    || bi.j0401gb.isChecked() || bi.j0401hb.isChecked() || bi.j0401ib.isChecked()
+                    || bi.j0401jb.isChecked() || bi.j0401kb.isChecked() || bi.j0401lb.isChecked()) {
+                Clear.clearAllFields(bi.fldGrpCVj0401m);
+                bi.fldGrpCVj0401m.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVj0401m);
+                bi.fldGrpCVj0401m.setVisibility(View.GONE);
+            }
+        }));
     }
 
 
@@ -131,7 +167,7 @@ public class SectionJ4Activity extends AppCompatActivity {
         json.put("j0401me", bi.j0401me.isChecked() ? "5" : "-1");
         json.put("j0401mf", bi.j0401mf.isChecked() ? "6" : "-1");
         json.put("j0401mx", bi.j0401mx.isChecked() ? "96" : "-1");
-        json.put("j0401mxx", bi.j0401mxx.getText().toString());
+        json.put("j0401mxx", bi.j0401mxx.getText().toString().trim().isEmpty() ? "-1" : j0401mxx.getText().toString());
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsJ()), json);

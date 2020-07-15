@@ -26,6 +26,9 @@ import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH16Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionH2Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionI1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ1Activity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ2Activity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ3Activity;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ4Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionK1Activity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
@@ -198,7 +201,19 @@ public class SectionMainActivity extends AppCompatActivity {
                     oF = new Intent(this, SectionI1Activity.class);
                     break;
                 case R.id.form09:
-                    oF = new Intent(this, SectionJ1Activity.class);
+                    if (fc.getA10().equals("1")) {
+                        oF = new Intent(this, SectionJ1Activity.class);
+                    } else {
+                        if (fc.getDistrictType().equals("2") || fc.getDistrictType().equals("4")) {
+                            oF = new Intent(this, SectionJ1Activity.class);
+                        } else if (!fc.getDistrictType().equals("1")) {
+                            oF = new Intent(this, SectionJ2Activity.class);
+                        } else if (fc.getDistrictType().equals("3") || fc.getDistrictType().equals("4")) {
+                            oF = new Intent(this, SectionJ3Activity.class);
+                        } else if (fc.getDistrictType().equals("1")) {
+                            oF = new Intent(this, SectionJ4Activity.class);
+                        }
+                    }
                     break;
                 case R.id.form10:
                     oF = new Intent(this, SectionK1Activity.class);

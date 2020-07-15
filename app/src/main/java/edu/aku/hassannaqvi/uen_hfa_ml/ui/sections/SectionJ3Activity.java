@@ -3,12 +3,14 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.jetbrains.annotations.NotNull;
@@ -33,7 +35,55 @@ public class SectionJ3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_j3);
         bi.setCallback(this);
+        setupSkips();
 
+    }
+
+
+    private void setupSkips() {
+        radioGroup(bi.j0301a);
+        radioGroup(bi.j0301b);
+        radioGroup(bi.j0301c);
+        radioGroup(bi.j0301d);
+        radioGroup(bi.j0301e);
+        radioGroup(bi.j0301f);
+        radioGroup(bi.j0301g);
+        radioGroup(bi.j0301h);
+        radioGroup(bi.j0301i);
+        radioGroup(bi.j0301j);
+        radioGroup(bi.j0301k);
+        radioGroup(bi.j0301l);
+        radioGroup(bi.j0301m);
+        radioGroup(bi.j0301n);
+        radioGroup(bi.j0301o);
+        radioGroup(bi.j0301p);
+        radioGroup(bi.j0301q);
+        radioGroup(bi.j0301r);
+        radioGroup(bi.j0301s);
+        radioGroup(bi.j0301t);
+        radioGroup(bi.j0301u);
+        radioGroup(bi.j0301v);
+    }
+
+
+    public void radioGroup(RadioGroup grp) {
+
+        grp.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (bi.j0301ab.isChecked() || bi.j0301bb.isChecked() || bi.j0301cb.isChecked()
+                    || bi.j0301db.isChecked() || bi.j0301eb.isChecked() || bi.j0301fb.isChecked()
+                    || bi.j0301gb.isChecked() || bi.j0301hb.isChecked() || bi.j0301ib.isChecked()
+                    || bi.j0301jb.isChecked() || bi.j0301kb.isChecked() || bi.j0301lb.isChecked()
+                    || bi.j0301mb.isChecked() || bi.j0301nb.isChecked() || bi.j0301ob.isChecked()
+                    || bi.j0301pb.isChecked() || bi.j0301qb.isChecked() || bi.j0301rb.isChecked()
+                    || bi.j0301sb.isChecked() || bi.j0301tb.isChecked() || bi.j0301ub.isChecked()
+                    || bi.j0301vb.isChecked()) {
+                Clear.clearAllFields(bi.fldGrpCVj0301w);
+                bi.fldGrpCVj0301w.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVj0301w);
+                bi.fldGrpCVj0301w.setVisibility(View.GONE);
+            }
+        }));
     }
 
 
@@ -178,7 +228,7 @@ public class SectionJ3Activity extends AppCompatActivity {
         json.put("j0301we", bi.j0301we.isChecked() ? "5" : "-1");
         json.put("j0301wf", bi.j0301wf.isChecked() ? "6" : "-1");
         json.put("j0301wx", bi.j0301wx.isChecked() ? "96" : "-1");
-        json.put("j0301wxx", bi.j0301wxx.getText().toString());
+        json.put("j0301wxx", bi.j0301wxx.getText().toString().trim().isEmpty() ? "-1" : j0301wxx.getText().toString());
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsJ()), json);

@@ -4,10 +4,6 @@
     <data>
         <import type="android.view.View" />
 
-        <!--<variable
-            name="formsContract"
-            type="edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract" />-->
-
         <variable
             name="callback"
             type="edu.aku.hassannaqvi.uen_hfa_ml.ui.sections.SectionJ9Activity" />
@@ -532,6 +528,19 @@
                             android:id="@+id/j0901fe"
                             style="@style/checkbox"
                             android:text="@string/j0901fe" />
+
+                        <CheckBox
+                            android:id="@+id/j0901fx"
+                            style="@style/checkbox"
+                            android:text="@string/j0901fx" />
+
+                        <EditText
+                            android:id="@+id/j0901fxx"
+                            style="@style/EditTextAlpha"
+                            android:hint="@string/specify"
+                            android:tag="j0901fx"
+                            android:text='@{j0901fx.checked ? j0901fxx.getText().toString() : ""}'
+                            android:visibility='@{j0901fx.checked ? View.VISIBLE : View.GONE}' />
 
                     </LinearLayout>
 

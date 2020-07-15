@@ -2,11 +2,14 @@ package edu.aku.hassannaqvi.uen_hfa_ml.ui.sections;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -30,7 +33,42 @@ public class SectionJ1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_j1);
         bi.setCallback(this);
+        setupSkips();
 
+    }
+
+
+    private void setupSkips() {
+        radioGroup(bi.j0101a);
+        radioGroup(bi.j0101b);
+        radioGroup(bi.j0101c);
+        radioGroup(bi.j0101d);
+        radioGroup(bi.j0101e);
+        radioGroup(bi.j0101f);
+        radioGroup(bi.j0101g);
+        radioGroup(bi.j0101h);
+        radioGroup(bi.j0101ia);
+        radioGroup(bi.j0101ib);
+        radioGroup(bi.j0101j);
+        radioGroup(bi.j0101k);
+        radioGroup(bi.j0101l);
+    }
+
+
+    public void radioGroup(RadioGroup grp) {
+
+        grp.setOnCheckedChangeListener(((radioGroup, i) -> {
+            if (bi.j0101ab.isChecked() || bi.j0101bb.isChecked() || bi.j0101cb.isChecked()
+                    || bi.j0101db.isChecked() || bi.j0101eb.isChecked() || bi.j0101fb.isChecked()
+                    || bi.j0101gb.isChecked() || bi.j0101hb.isChecked() || bi.j0101iab.isChecked()
+                    || bi.j0101ibb.isChecked() || bi.j0101jb.isChecked() || bi.j0101kb.isChecked() || bi.j0101lb.isChecked()) {
+                Clear.clearAllFields(bi.fldGrpCVj0101m);
+                bi.fldGrpCVj0101m.setVisibility(View.VISIBLE);
+            } else {
+                Clear.clearAllFields(bi.fldGrpCVj0101m);
+                bi.fldGrpCVj0101m.setVisibility(View.GONE);
+            }
+        }));
     }
 
 
@@ -143,7 +181,7 @@ public class SectionJ1Activity extends AppCompatActivity {
         json.put("j0101me", bi.j0101me.isChecked() ? "5" : "-1");
         json.put("j0101mf", bi.j0101mf.isChecked() ? "6" : "-1");
         json.put("j0101mx", bi.j0101mx.isChecked() ? "96" : "-1");
-        json.put("j0101mxx", bi.j0101mxx.getText().toString());
+        json.put("j0101mxx", bi.j0101mxx.getText().toString().trim().isEmpty() ? "-1" : j0101mxx.getText().toString());
 
         MainApp.fc.setsJ(String.valueOf(json));
 
