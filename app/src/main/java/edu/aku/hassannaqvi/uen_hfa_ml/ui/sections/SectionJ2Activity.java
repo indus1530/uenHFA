@@ -75,7 +75,14 @@ public class SectionJ2Activity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            startActivity(new Intent(this, SectionJ3Activity.class));
+            Intent intent;
+
+            if (MainApp.fc.getA10().equals("2") && MainApp.fc.getDistrictType().equals("1") && MainApp.fc.getDistrictType().equals("2")) {
+                intent = new Intent(this, SectionJ8Activity.class);
+            } else {
+                intent = new Intent(this, SectionJ3Activity.class);
+            }
+            startActivity(intent);
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
@@ -168,18 +175,13 @@ public class SectionJ2Activity extends AppCompatActivity {
 
     public void showTooltip(@NotNull View view) {
         if (view.getId() != View.NO_ID) {
+
             String package_name = getApplicationContext().getPackageName();
-
-            // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
             String infoid = view.getResources().getResourceName(view.getId()).replace(package_name + ":id/q_", "");
-
-            // Question info text must be suffixed with _info e.g.: aa12a_info
             int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
 
-            // Check if string resource exists to avoid crash on missing info string
             if (stringRes != 0) {
 
-                // Fetch info text from strings.xml
                 String infoText = (String) getResources().getText(stringRes);
 
                 new AlertDialog.Builder(this)
