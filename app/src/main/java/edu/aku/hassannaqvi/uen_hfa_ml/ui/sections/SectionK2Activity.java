@@ -40,16 +40,15 @@ public class SectionK2Activity extends AppCompatActivity {
 
     private void setupSkips() {
 
-        bi.k0201a.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.k0201ab.getId()) {
-                Clear.clearAllFields(bi.fldGrpSecK201);
-            }
+        bi.k0021.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.cvk0022);
+            Clear.clearAllFields(bi.cvk0023);
+            Clear.clearAllFields(bi.cvk0024);
         }));
 
-        bi.k0202.setOnCheckedChangeListener(((radioGroup, i) -> {
-            if (i == bi.k0202b.getId()) {
-                Clear.clearAllFields(bi.fldGrpSecK202);
-            }
+
+        bi.k0023.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.cvk0024);
         }));
 
     }
@@ -87,28 +86,23 @@ public class SectionK2Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("k0201a", bi.k0201aa.isChecked() ? "1"
-                : bi.k0201ab.isChecked() ? "2"
+        json.put("k0021", bi.k0021a.isChecked() ? "1"
+                : bi.k0021b.isChecked() ? "2"
                 : "-1");
 
-        json.put("k0201b", bi.k0201ba.isChecked() ? "1"
-                : bi.k0201bb.isChecked() ? "2"
-                : bi.k0201bc.isChecked() ? "3"
+        json.put("k0022", bi.k0022a.isChecked() ? "1"
+                : bi.k0022b.isChecked() ? "2"
+                : bi.k0022c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k0202", bi.k0202a.isChecked() ? "1"
-                : bi.k0202b.isChecked() ? "2"
-                : bi.k0202c.isChecked() ? "3"
+        json.put("k0023", bi.k0023a.isChecked() ? "1"
+                : bi.k0023b.isChecked() ? "2"
                 : "-1");
 
-        json.put("k0203", bi.k0203a.isChecked() ? "1"
-                : bi.k0203b.isChecked() ? "2"
-                : "-1");
-
-        json.put("k0204", bi.k0204a.isChecked() ? "1"
-                : bi.k0204b.isChecked() ? "2"
-                : bi.k0204c.isChecked() ? "3"
-                : bi.k0204d.isChecked() ? "4"
+        json.put("k0024", bi.k0024a.isChecked() ? "1"
+                : bi.k0024b.isChecked() ? "2"
+                : bi.k0024c.isChecked() ? "3"
+                : bi.k0024d.isChecked() ? "4"
                 : "-1");
 
         try {
@@ -142,17 +136,9 @@ public class SectionK2Activity extends AppCompatActivity {
     public void showTooltip(@NotNull View view) {
         if (view.getId() != View.NO_ID) {
             String package_name = getApplicationContext().getPackageName();
-
-            // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
             String infoid = view.getResources().getResourceName(view.getId()).replace(package_name + ":id/q_", "");
-
-            // Question info text must be suffixed with _info e.g.: aa12a_info
             int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
-
-            // Check if string resource exists to avoid crash on missing info string
             if (stringRes != 0) {
-
-                // Fetch info text from strings.xml
                 String infoText = (String) getResources().getText(stringRes);
 
                 new AlertDialog.Builder(this)

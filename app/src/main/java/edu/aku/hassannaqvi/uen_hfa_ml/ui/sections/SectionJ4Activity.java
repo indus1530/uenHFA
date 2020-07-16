@@ -207,17 +207,9 @@ public class SectionJ4Activity extends AppCompatActivity {
     public void showTooltip(@NotNull View view) {
         if (view.getId() != View.NO_ID) {
             String package_name = getApplicationContext().getPackageName();
-
-            // Question Number Textview ID must be prefixed with q_ e.g.: 'q_aa12a'
             String infoid = view.getResources().getResourceName(view.getId()).replace(package_name + ":id/q_", "");
-
-            // Question info text must be suffixed with _info e.g.: aa12a_info
             int stringRes = this.getResources().getIdentifier(infoid + "_info", "string", getApplicationContext().getPackageName());
-
-            // Check if string resource exists to avoid crash on missing info string
             if (stringRes != 0) {
-
-                // Fetch info text from strings.xml
                 String infoText = (String) getResources().getText(stringRes);
 
                 new AlertDialog.Builder(this)
