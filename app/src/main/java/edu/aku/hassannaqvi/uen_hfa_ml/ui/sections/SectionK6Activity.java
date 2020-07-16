@@ -66,7 +66,7 @@ public class SectionK6Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("k060101a", bi.k060101aa.isChecked() ? "11"
+        /*json.put("k060101a", bi.k060101aa.isChecked() ? "11"
                 : bi.k060101ab.isChecked() ? "12"
                 : bi.k060101ac.isChecked() ? "13"
                 : "-1");
@@ -185,7 +185,7 @@ public class SectionK6Activity extends AppCompatActivity {
                 : bi.k060206bb.isChecked() ? "22"
                 : bi.k060206bc.isChecked() ? "23"
                 : bi.k060206c.isChecked() ? "3"
-                : "-1");
+                : "-1");*/
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsK()), json);
@@ -201,7 +201,7 @@ public class SectionK6Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionK6);
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
 

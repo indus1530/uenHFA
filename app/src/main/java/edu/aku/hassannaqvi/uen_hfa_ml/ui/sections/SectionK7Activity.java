@@ -20,6 +20,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK7Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.ui.other.SectionMainActivity;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
@@ -46,7 +47,7 @@ public class SectionK7Activity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            startActivity(new Intent(this, SectionK8Activity.class));
+            startActivity(new Intent(this, SectionMainActivity.class));
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
@@ -69,24 +70,59 @@ public class SectionK7Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("k0701a", bi.k0701aa.isChecked() ? "11"
-                : bi.k0701ab.isChecked() ? "12"
-                : bi.k0701ac.isChecked() ? "13"
+        json.put("k0071", bi.k0071a.isChecked() ? "1"
+                : bi.k0071b.isChecked() ? "2"
+                : bi.k0071c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k0701b", bi.k0701ba.isChecked() ? "21"
-                : bi.k0701bb.isChecked() ? "22"
-                : bi.k0701bc.isChecked() ? "23"
+        json.put("k0072", bi.k0072a.isChecked() ? "1"
+                : bi.k0072b.isChecked() ? "2"
+                : bi.k0072c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k0702a", bi.k0702aa.isChecked() ? "11"
-                : bi.k0702ab.isChecked() ? "12"
-                : bi.k0702ac.isChecked() ? "13"
+        json.put("k0073", bi.k0073a.isChecked() ? "1"
+                : bi.k0073b.isChecked() ? "2"
+                : bi.k0073c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k0702b", bi.k0702ba.isChecked() ? "21"
-                : bi.k0702bb.isChecked() ? "22"
-                : bi.k0702bc.isChecked() ? "23"
+        json.put("k0074", bi.k0074a.isChecked() ? "1"
+                : bi.k0074b.isChecked() ? "2"
+                : bi.k0074c.isChecked() ? "3"
+                : "-1");
+
+        json.put("k0075", bi.k0075a.isChecked() ? "1"
+                : bi.k0075b.isChecked() ? "2"
+                : bi.k0075c.isChecked() ? "3"
+                : "-1");
+
+        json.put("k0076", bi.k0076a.isChecked() ? "1"
+                : bi.k0076b.isChecked() ? "2"
+                : bi.k0076c.isChecked() ? "3"
+                : "-1");
+
+        json.put("k0077", bi.k0077a.isChecked() ? "1"
+                : bi.k0077b.isChecked() ? "2"
+                : bi.k0077c.isChecked() ? "3"
+                : "-1");
+
+        json.put("k0078", bi.k0078a.isChecked() ? "1"
+                : bi.k0078b.isChecked() ? "2"
+                : bi.k0078c.isChecked() ? "3"
+                : "-1");
+
+        json.put("k0079", bi.k0079a.isChecked() ? "1"
+                : bi.k0079b.isChecked() ? "2"
+                : bi.k0079c.isChecked() ? "3"
+                : "-1");
+
+        json.put("k007010", bi.k007010a.isChecked() ? "1"
+                : bi.k007010b.isChecked() ? "2"
+                : bi.k007010c.isChecked() ? "3"
+                : "-1");
+
+        json.put("k007011", bi.k007011a.isChecked() ? "1"
+                : bi.k007011b.isChecked() ? "2"
+                : bi.k007011c.isChecked() ? "3"
                 : "-1");
 
         try {
