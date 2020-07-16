@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -30,9 +31,21 @@ public class SectionK4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_k4);
         bi.setCallback(this);
+        setupSkips();
 
     }
 
+    private void setupSkips() {
+
+        bi.k0045.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.llk0045);
+        }));
+
+        bi.k0049.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.cvk00410);
+        }));
+
+    }
 
 
     public void BtnContinue() {
@@ -67,39 +80,56 @@ public class SectionK4Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("k0401", bi.k0401a.isChecked() ? "1"
-                : bi.k0401b.isChecked() ? "2"
-                : bi.k0401c.isChecked() ? "3"
-                : bi.k0401d.isChecked() ? "4"
-                : bi.k0401e.isChecked() ? "5"
-                : bi.k0401f.isChecked() ? "6"
-                : bi.k0401g.isChecked() ? "7"
+        json.put("k0041", bi.k0041a.isChecked() ? "1"
+                : bi.k0041b.isChecked() ? "2"
+                : bi.k0041c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k0402", bi.k0402a.isChecked() ? "1"
-                : bi.k0402b.isChecked() ? "2"
+        json.put("k0042", bi.k0042a.isChecked() ? "1"
+                : bi.k0042b.isChecked() ? "2"
                 : "-1");
 
-        json.put("k0403", bi.k0403a.isChecked() ? "1"
-                : bi.k0403b.isChecked() ? "2"
+        json.put("k0043", bi.k0043a.isChecked() ? "1"
+                : bi.k0043b.isChecked() ? "2"
+                : bi.k0043c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k0404", bi.k0404a.isChecked() ? "1"
-                : bi.k0404b.isChecked() ? "2"
-                : bi.k0404c.isChecked() ? "3"
+        json.put("k0044", bi.k0044a.isChecked() ? "1"
+                : bi.k0044b.isChecked() ? "2"
+                : bi.k0044c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k0405", bi.k0405a.isChecked() ? "1"
-                : bi.k0405b.isChecked() ? "2"
-                : bi.k0405c.isChecked() ? "3"
-                : bi.k0405d.isChecked() ? "4"
+        json.put("k0045", bi.k0045a.isChecked() ? "1"
+                : bi.k0045b.isChecked() ? "2"
+                : bi.k0045c.isChecked() ? "3"
                 : "-1");
 
-        json.put("k0406", bi.k0406a.isChecked() ? "1"
-                : bi.k0406b.isChecked() ? "2"
-                : bi.k0406c.isChecked() ? "3"
-                : bi.k0406d.isChecked() ? "4"
+        json.put("k0046a", bi.k0046a.isChecked() ? "1" : "-1");
+        json.put("k0046b", bi.k0046b.isChecked() ? "2" : "-1");
+
+        json.put("k0047a", bi.k0047a.getText().toString().trim().isEmpty() ? "-1" : bi.k0047a.getText().toString());
+        json.put("k0047b", bi.k0047b.getText().toString().trim().isEmpty() ? "-1" : bi.k0047b.getText().toString());
+        json.put("k0047c", bi.k0047c.getText().toString().trim().isEmpty() ? "-1" : bi.k0047c.getText().toString());
+        json.put("k0047d", bi.k0047d.getText().toString().trim().isEmpty() ? "-1" : bi.k0047d.getText().toString());
+        json.put("k0047e", bi.k0047e.getText().toString().trim().isEmpty() ? "-1" : bi.k0047e.getText().toString());
+        json.put("k0047f", bi.k0047f.getText().toString().trim().isEmpty() ? "-1" : bi.k0047f.getText().toString());
+        json.put("k0047g", bi.k0047g.getText().toString().trim().isEmpty() ? "-1" : bi.k0047g.getText().toString());
+
+        json.put("k0048", bi.k0048.getText().toString().trim().isEmpty() ? "-1" : bi.k0048.getText().toString());
+
+        json.put("k0049", bi.k0049a.isChecked() ? "1"
+                : bi.k0049b.isChecked() ? "2"
                 : "-1");
+
+        json.put("k00410", bi.k00410a.isChecked() ? "1"
+                : bi.k00410b.isChecked() ? "2"
+                : bi.k00410c.isChecked() ? "3"
+                : bi.k00410d.isChecked() ? "4"
+                : bi.k00410e.isChecked() ? "5"
+                : "-1");
+
+        json.put("k00411", bi.k00411.getText().toString().trim().isEmpty() ? "-1" : bi.k00411.getText().toString());
+
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsK()), json);
