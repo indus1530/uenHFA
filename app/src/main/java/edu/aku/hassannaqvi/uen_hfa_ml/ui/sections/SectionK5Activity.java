@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.validatorcrawler.aliazaz.Clear;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
@@ -30,6 +31,19 @@ public class SectionK5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_k5);
         bi.setCallback(this);
+        setupSkips();
+
+    }
+
+    private void setupSkips() {
+
+        bi.k0051.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.llk0051);
+        }));
+
+        bi.k0053.setOnCheckedChangeListener(((radioGroup, i) -> {
+            Clear.clearAllFields(bi.cvk0054);
+        }));
 
     }
 
@@ -66,34 +80,34 @@ public class SectionK5Activity extends AppCompatActivity {
 
         JSONObject json = new JSONObject();
 
-        json.put("k0501", bi.k0501a.isChecked() ? "1"
-                : bi.k0501b.isChecked() ? "2"
+        json.put("k0051", bi.k0051a.isChecked() ? "1"
+                : bi.k0051b.isChecked() ? "2"
                 : "-1");
 
-        json.put("k0502", bi.k0502a.isChecked() ? "1"
-                : bi.k0502b.isChecked() ? "2"
-                : bi.k0502c.isChecked() ? "3"
-                : bi.k0502d.isChecked() ? "4"
-                : bi.k0502e.isChecked() ? "5"
+        json.put("k0052", bi.k0052a.isChecked() ? "1"
+                : bi.k0052b.isChecked() ? "2"
+                : bi.k0052c.isChecked() ? "3"
+                : bi.k0052d.isChecked() ? "4"
                 : "-1");
 
-        json.put("k0503", bi.k0503a.isChecked() ? "1"
-                : bi.k0503b.isChecked() ? "2"
+        json.put("k0053", bi.k0053a.isChecked() ? "1"
+                : bi.k0053b.isChecked() ? "2"
                 : "-1");
 
-        json.put("k0504", bi.k0504a.isChecked() ? "1"
-                : bi.k0504b.isChecked() ? "2"
+        json.put("k0054", bi.k0054a.isChecked() ? "1"
+                : bi.k0054b.isChecked() ? "2"
                 : "-1");
 
-        json.put("k0505", bi.k0505a.isChecked() ? "1"
-                : bi.k0505b.isChecked() ? "2"
-                : bi.k0505c.isChecked() ? "3"
-                : bi.k0505d.isChecked() ? "4"
+        json.put("k0055", bi.k0055a.isChecked() ? "1"
+                : bi.k0055b.isChecked() ? "2"
+                : bi.k0055c.isChecked() ? "3"
+                : bi.k0055d.isChecked() ? "4"
+                : bi.k0055e.isChecked() ? "5"
                 : "-1");
 
-        json.put("k0506", bi.k0506a.isChecked() ? "1"
-                : bi.k0506b.isChecked() ? "2"
-                : bi.k0506c.isChecked() ? "3"
+        json.put("k0056", bi.k0056a.isChecked() ? "1"
+                : bi.k0056b.isChecked() ? "2"
+                : bi.k0056c.isChecked() ? "3"
                 : "-1");
 
         try {
@@ -109,7 +123,7 @@ public class SectionK5Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionK5);
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
 
