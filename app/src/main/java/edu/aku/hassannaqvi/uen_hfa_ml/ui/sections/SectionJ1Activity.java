@@ -181,7 +181,7 @@ public class SectionJ1Activity extends AppCompatActivity {
         json.put("j0101me", bi.j0101me.isChecked() ? "5" : "-1");
         json.put("j0101mf", bi.j0101mf.isChecked() ? "6" : "-1");
         json.put("j0101mx", bi.j0101mx.isChecked() ? "96" : "-1");
-        json.put("j0101mxx", bi.j0101mxx.getText().toString().trim().isEmpty() ? "-1" : j0101mxx.getText().toString());
+        //json.put("j0101mxx", j0101mxx.getText().toString().trim().isEmpty ? "-1" : j0101mxx.getText().toString());
 
         MainApp.fc.setsJ(String.valueOf(json));
 
