@@ -56,11 +56,11 @@ public class SectionJ2Activity extends AppCompatActivity {
         grp.setOnCheckedChangeListener(((radioGroup, i) -> {
             if (bi.j0201ab.isChecked() || bi.j0201bb.isChecked() || bi.j0201cb.isChecked()
                     || bi.j0201db.isChecked() || bi.j0201eb.isChecked() || bi.j0201fb.isChecked()) {
-                Clear.clearAllFields(bi.fldGrpCVj0201g);
-                bi.fldGrpCVj0201g.setVisibility(View.VISIBLE);
+                Clear.clearAllFields(bi.cvj0201g);
+                bi.cvj0201g.setVisibility(View.VISIBLE);
             } else {
-                Clear.clearAllFields(bi.fldGrpCVj0201g);
-                bi.fldGrpCVj0201g.setVisibility(View.GONE);
+                Clear.clearAllFields(bi.cvj0201g);
+                bi.cvj0201g.setVisibility(View.GONE);
             }
         }));
     }
@@ -158,7 +158,7 @@ public class SectionJ2Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionJ2);
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
 
