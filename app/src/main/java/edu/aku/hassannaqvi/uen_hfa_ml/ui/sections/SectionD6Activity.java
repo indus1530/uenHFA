@@ -39,7 +39,7 @@ public class SectionD6Activity extends AppCompatActivity {
     private void setupSkips() {
 
         bi.d0602.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.lld060304);
+            Clear.clearAllFields(bi.lld0602);
         }));
 
     }
