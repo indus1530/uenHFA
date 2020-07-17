@@ -34,7 +34,7 @@ public class SectionK62Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_k61);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_k62);
         bi.setCallback(this);
         setupSkips();
         setupTextWatchers();
@@ -132,7 +132,7 @@ public class SectionK62Activity extends AppCompatActivity {
         }
         if (UpdateDB()) {
             finish();
-            startActivity(new Intent(this, SectionK7Activity.class));
+            startActivity(new Intent(this, SectionK63Activity.class));
         } else {
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
