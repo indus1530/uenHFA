@@ -21,19 +21,19 @@ import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
-import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK6Binding;
+import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionK61Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 public class SectionK61Activity extends AppCompatActivity {
 
-    ActivitySectionK6Binding bi;
+    ActivitySectionK61Binding bi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_k6);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_k61);
         bi.setCallback(this);
         setupSkips();
         setupTextWatchers();
