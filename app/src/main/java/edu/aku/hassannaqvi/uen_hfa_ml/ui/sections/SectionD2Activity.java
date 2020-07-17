@@ -39,17 +39,16 @@ public class SectionD2Activity extends AppCompatActivity {
 
     }
 
+
     private void setupSkips() {
 
         bi.d0201.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpCVd0203);
-        }));
-
-        bi.d0202.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.fldGrpCVd0203);
+            Clear.clearAllFields(bi.cvd0202);
+            Clear.clearAllFields(bi.cvd0203);
         }));
 
     }
+
 
 
     private boolean UpdateDB() {
@@ -71,9 +70,11 @@ public class SectionD2Activity extends AppCompatActivity {
         json.put("d0201", bi.d0201a.isChecked() ? "1"
                 : bi.d0201b.isChecked() ? "2"
                 : "-1");
+
         json.put("d0202", bi.d0202a.isChecked() ? "1"
                 : bi.d0202b.isChecked() ? "2"
                 : "-1");
+
         json.put("d0203", bi.d0203a.isChecked() ? "1"
                 : bi.d0203b.isChecked() ? "2"
                 : "-1");
@@ -113,6 +114,7 @@ public class SectionD2Activity extends AppCompatActivity {
     public void BtnEnd() {
         openSectionMainActivity(this, "D");
     }
+
 
     @Override
     public void onBackPressed() {

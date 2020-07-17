@@ -1,7 +1,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <data>
 
+    <data>
         <import type="android.view.View" />
 
         <variable
@@ -22,7 +22,7 @@
 
             <!-- d02  Title   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVd02"
+                android:id="@+id/cvd02"
                 style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
@@ -38,7 +38,7 @@
 
             <!-- d0201  Radio   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVd0201"
+                android:id="@+id/cvd0201"
                 style="@style/cardView">
 
                 <LinearLayout style="@style/vlinearlayout">
@@ -95,8 +95,9 @@
 
             <!-- d0202  Radio   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVd0202"
-                style="@style/cardView">
+                android:id="@+id/cvd0202"
+                style="@style/cardView"
+                android:visibility='@{d0201b.checked ? View.VISIBLE : View.GONE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
@@ -152,9 +153,9 @@
 
             <!-- d0203  Radio   -->
             <androidx.cardview.widget.CardView
-                android:id="@+id/fldGrpCVd0203"
+                android:id="@+id/cvd0203"
                 style="@style/cardView"
-                android:visibility='@{d0201a.checked &amp;&amp; d0202a.checked ? View.VISIBLE : View.GONE}'>
+                android:visibility='@{d0201a.checked ? View.VISIBLE : View.GONE}'>
 
                 <LinearLayout style="@style/vlinearlayout">
 
