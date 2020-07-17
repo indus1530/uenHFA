@@ -180,7 +180,7 @@ public class SectionJ5Activity extends AppCompatActivity {
         json.put("j0501ne", bi.j0501ne.isChecked() ? "5" : "-1");
         json.put("j0501nf", bi.j0501nf.isChecked() ? "6" : "-1");
         json.put("j0501nx", bi.j0501nx.isChecked() ? "96" : "-1");
-        //json.put("j0501nxx", bi.j0501nxx.getText().trim().isEmpty() ? "-1" : j0501nxx.getText().toString());
+        json.put("j0501nxx", bi.j0501nxx.getText().toString().trim().length() > 0 ? bi.j0501nxx.getText().toString() : "-1");
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsJ()), json);

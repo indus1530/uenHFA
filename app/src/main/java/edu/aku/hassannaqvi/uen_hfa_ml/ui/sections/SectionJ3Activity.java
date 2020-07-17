@@ -228,7 +228,7 @@ public class SectionJ3Activity extends AppCompatActivity {
         json.put("j0301we", bi.j0301we.isChecked() ? "5" : "-1");
         json.put("j0301wf", bi.j0301wf.isChecked() ? "6" : "-1");
         json.put("j0301wx", bi.j0301wx.isChecked() ? "96" : "-1");
-        //json.put("j0301wxx", bi.j0301wxx.getText().toString().trim().isEmpty() ? "-1" : j0301wxx.getText().toString());
+        json.put("j0301wxx", bi.j0301wxx.getText().toString().trim().length() > 0 ? bi.j0301wxx.getText().toString() : "-1");
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsJ()), json);

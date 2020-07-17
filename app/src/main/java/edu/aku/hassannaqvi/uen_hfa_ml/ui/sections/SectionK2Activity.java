@@ -41,9 +41,7 @@ public class SectionK2Activity extends AppCompatActivity {
     private void setupSkips() {
 
         bi.k0021.setOnCheckedChangeListener(((radioGroup, i) -> {
-            Clear.clearAllFields(bi.cvk0022);
-            Clear.clearAllFields(bi.cvk0023);
-            Clear.clearAllFields(bi.cvk0024);
+            Clear.clearAllFields(bi.llk0021);
         }));
 
 
@@ -118,7 +116,7 @@ public class SectionK2Activity extends AppCompatActivity {
 
 
     private boolean formValidation() {
-        return Validator.emptyCheckingContainer(this, bi.GrpNameSectionK2);
+        return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
 
