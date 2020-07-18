@@ -179,7 +179,7 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
     private void SaveDraft() throws JSONException {
 
-        psc.setFormDate(fc.getSysdate());
+        psc.setSysdate(fc.getSysdate());
         psc.setUserName(fc.getUserName());
         psc.setDeviceID(MainApp.appInfo.getDeviceID());
         psc.setDevicetagID(MainApp.appInfo.getTagName());

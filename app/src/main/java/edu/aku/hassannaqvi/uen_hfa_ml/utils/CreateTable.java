@@ -104,7 +104,7 @@ public final class CreateTable {
             + PatientsContract.PatientsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + PatientsContract.PatientsTable.COLUMN_UID + " TEXT,"
             + PatientsContract.PatientsTable.COLUMN_UUID + " TEXT,"
-            + PatientsContract.PatientsTable.COLUMN_FORMDATE + " TEXT,"
+            + PatientsContract.PatientsTable.COLUMN_SYSDATE + " TEXT,"
             + PatientsContract.PatientsTable.COLUMN_USERNAME + " TEXT,"
             + PatientsContract.PatientsTable.COLUMN_SERIALNO + " TEXT,"
             + PatientsContract.PatientsTable.COLUMN_DISTRICT_CODE + " TEXT,"

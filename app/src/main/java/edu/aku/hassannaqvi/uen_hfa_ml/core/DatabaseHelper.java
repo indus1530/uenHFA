@@ -700,7 +700,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(PatientsTable.COLUMN_UID, psc.get_UID());
         values.put(PatientsTable.COLUMN_UUID, psc.get_UUID());
-        values.put(PatientsTable.COLUMN_FORMDATE, psc.getFormDate());
+        values.put(PatientsTable.COLUMN_SYSDATE, psc.getSysdate());
         values.put(PatientsTable.COLUMN_USERNAME, psc.getUserName());
         values.put(PatientsTable.COLUMN_SERIALNO, psc.getSerialno());
         values.put(PatientsTable.COLUMN_DISTRICT_CODE, psc.getDistrictCode());
@@ -1216,7 +1216,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 PatientsTable._ID,
                 PatientsTable.COLUMN_UID,
                 PatientsTable.COLUMN_UUID,
-                PatientsTable.COLUMN_FORMDATE,
+                PatientsTable.COLUMN_SYSDATE,
                 PatientsTable.COLUMN_USERNAME,
                 PatientsTable.COLUMN_SERIALNO,
                 PatientsTable.COLUMN_DISTRICT_CODE,

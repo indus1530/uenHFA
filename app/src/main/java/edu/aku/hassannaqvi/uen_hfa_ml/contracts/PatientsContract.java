@@ -16,7 +16,7 @@ public class PatientsContract {
     private String _ID = "";
     private String _UID = "";
     private String _UUID = "";
-    private String formDate = "";
+    private String sysdate = "";
     private String userName = "";
     private String serialno = "";
     private String deviceID = "";
@@ -44,7 +44,7 @@ public class PatientsContract {
         this._ID = jsonObject.getString(PatientsTable.COLUMN_ID);
         this._UID = jsonObject.getString(PatientsTable.COLUMN_UID);
         this._UUID = jsonObject.getString(PatientsTable.COLUMN_UUID);
-        this.formDate = jsonObject.getString(PatientsTable.COLUMN_FORMDATE);
+        this.sysdate = jsonObject.getString(PatientsTable.COLUMN_SYSDATE);
         this.userName = jsonObject.getString(PatientsTable.COLUMN_USERNAME);
         this.serialno = jsonObject.getString(PatientsTable.COLUMN_SERIALNO);
         this.districtCode = jsonObject.getString(PatientsTable.COLUMN_DISTRICT_CODE);
@@ -72,7 +72,7 @@ public class PatientsContract {
         this._ID = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_UID));
         this._UUID = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_UUID));
-        this.formDate = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_FORMDATE));
+        this.sysdate = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_SYSDATE));
         this.userName = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_USERNAME));
         this.serialno = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_SERIALNO));
         this.districtCode = cursor.getString(cursor.getColumnIndex(PatientsTable.COLUMN_DISTRICT_CODE));
@@ -102,7 +102,7 @@ public class PatientsContract {
         json.put(PatientsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(PatientsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
         json.put(PatientsTable.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
-        json.put(PatientsTable.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
+        json.put(PatientsTable.COLUMN_SYSDATE, this.sysdate == null ? JSONObject.NULL : this.sysdate);
         json.put(PatientsTable.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
         json.put(PatientsTable.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
         json.put(PatientsTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
@@ -165,12 +165,12 @@ public class PatientsContract {
     }
 
 
-    public String getFormDate() {
-        return formDate;
+    public String getSysdate() {
+        return sysdate;
     }
 
-    public void setFormDate(String formDate) {
-        this.formDate = formDate;
+    public void setSysdate(String sysdate) {
+        this.sysdate = sysdate;
     }
 
 
@@ -334,7 +334,7 @@ public class PatientsContract {
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_UUID = "_uuid";
-        public static final String COLUMN_FORMDATE = "formdate";
+        public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_USERNAME = "userName";
         public static final String COLUMN_SERIALNO = "serialno";
         public static final String COLUMN_DISTRICT_CODE = "districtCode";
