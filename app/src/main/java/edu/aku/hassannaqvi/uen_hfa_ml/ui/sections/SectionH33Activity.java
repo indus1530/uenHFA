@@ -137,13 +137,6 @@ public class SectionH33Activity extends AppCompatActivity {
                 : "-1");
 
 
-        json.put("h03022", bi.h03022a.isChecked() ? "1"
-                : bi.h03022b.isChecked() ? "2"
-                : bi.h03022c.isChecked() ? "3"
-                : bi.h03022d.isChecked() ? "4"
-                : "-1");
-
-
         json.put("h03023", bi.h03023a.isChecked() ? "1"
                 : bi.h03023b.isChecked() ? "2"
                 : bi.h03023c.isChecked() ? "3"
