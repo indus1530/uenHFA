@@ -76,6 +76,18 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
             }
         });
 
+        bi.i0111a.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                bi.i0111b.setChecked(false);
+                bi.i0111b.setEnabled(false);
+                bi.i0111c.setChecked(false);
+                bi.i0111c.setEnabled(false);
+            } else {
+                bi.i0111b.setEnabled(true);
+                bi.i0111c.setEnabled(true);
+            }
+        });
+
         /*bi.i0108.setOnCheckedChangeListener(((radioGroup, i) -> {
 
             if (i == bi.i0108a.getId()) {
