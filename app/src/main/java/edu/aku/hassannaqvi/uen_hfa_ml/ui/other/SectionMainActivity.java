@@ -39,7 +39,7 @@ public class SectionMainActivity extends AppCompatActivity {
 
     //public static String maternalCount = 0, paedsCount = 0;
     public static int countC2 = 0, countI = 0;
-    boolean flag;
+    boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
