@@ -17,6 +17,9 @@ import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import edu.aku.hassannaqvi.uen_hfa_ml.R;
 import edu.aku.hassannaqvi.uen_hfa_ml.contracts.FormsContract;
 import edu.aku.hassannaqvi.uen_hfa_ml.core.DatabaseHelper;
@@ -24,6 +27,7 @@ import edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp;
 import edu.aku.hassannaqvi.uen_hfa_ml.databinding.ActivitySectionJ8Binding;
 import edu.aku.hassannaqvi.uen_hfa_ml.utils.JSONUtils;
 
+import static edu.aku.hassannaqvi.uen_hfa_ml.core.MainApp.fc;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.UtilKt.openSectionMainActivity;
 
 public class SectionJ8Activity extends AppCompatActivity {
@@ -134,13 +138,20 @@ public class SectionJ8Activity extends AppCompatActivity {
         json.put("j0801gx", bi.j0801gx.isChecked() ? "96" : "-1");
         json.put("j0801gxx", bi.j0801gxx.getText().toString().trim().length() > 0 ? bi.j0801gxx.getText().toString() : "-1");
 
-        try {
-            JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(MainApp.fc.getsJ()), json);
+        if (fc.getsJ() != null) {
 
-            MainApp.fc.setsJ(String.valueOf(json_merge));
+            try {
+                JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsJ()), json);
 
-        } catch (JSONException e) {
-            e.printStackTrace();
+                fc.setsJ(String.valueOf(json_merge));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else {
+            json.put("JDate", new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime()));
+            json.put("JTime", new SimpleDateFormat("HH:mm").format(new Date().getTime()));
+            fc.setsJ(String.valueOf(json));
         }
 
     }

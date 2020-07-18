@@ -61,7 +61,20 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
 
 
     private void setupSkips() {
+
         bi.i0103.setOnCheckedChangeListener(((radioGroup, i) -> Clear.clearAllFields(bi.fldGrpCVi0104)));
+
+        bi.i0110a.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b) {
+                bi.i0110b.setChecked(false);
+                bi.i0110b.setEnabled(false);
+                bi.i0110c.setChecked(false);
+                bi.i0110c.setEnabled(false);
+            } else {
+                bi.i0110b.setEnabled(true);
+                bi.i0110c.setEnabled(true);
+            }
+        });
 
         /*bi.i0108.setOnCheckedChangeListener(((radioGroup, i) -> {
 
@@ -128,7 +141,6 @@ public class SectionI1Activity extends AppCompatActivity implements EndSectionAc
             Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
     public void BtnEnd() {
