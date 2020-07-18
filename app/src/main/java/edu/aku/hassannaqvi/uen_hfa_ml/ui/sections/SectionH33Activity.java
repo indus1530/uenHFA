@@ -137,12 +137,6 @@ public class SectionH33Activity extends AppCompatActivity {
                 : "-1");
 
 
-        json.put("h03024", bi.h03024a.isChecked() ? "1"
-                : bi.h03024b.isChecked() ? "2"
-                : bi.h03024c.isChecked() ? "3"
-                : bi.h03024d.isChecked() ? "4"
-                : "-1");
-
 
         try {
             JSONObject json_merge = JSONUtils.mergeJSONObjects(new JSONObject(fc.getsH()), json);
