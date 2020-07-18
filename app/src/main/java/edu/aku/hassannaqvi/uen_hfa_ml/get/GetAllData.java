@@ -7,6 +7,7 @@ import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -160,62 +161,6 @@ public class GetAllData extends AsyncTask<String, String, String> {
             urlConnection.setReadTimeout(100000 /* milliseconds */);
             urlConnection.setConnectTimeout(150000 /* milliseconds */);
 
-            /*switch (syncClass) {
-                case "BLRandom":
-
-                    if (args[0] != null && !args[0].equals("")) {
-                        if (Integer.parseInt(args[0]) > 0) {
-                            urlConnection.setRequestMethod("POST");
-                            urlConnection.setDoOutput(true);
-                            urlConnection.setDoInput(true);
-                            urlConnection.setRequestProperty("Content-Type", "application/json");
-                            urlConnection.setRequestProperty("charset", "utf-8");
-                            urlConnection.setUseCaches(false);
-
-                            // Starts the query
-                            urlConnection.connect();
-                            DataOutputStream wr = new DataOutputStream(urlConnection.getOutputStream());
-                            JSONObject json = new JSONObject();
-                            try {
-                                json.put("dist_id", args[0]);
-                                json.put("user", "test1234");
-                            } catch (JSONException e1) {
-                                e1.printStackTrace();
-                            }
-                            Log.d(TAG, "downloadUrl: " + json.toString());
-                            wr.writeBytes(json.toString());
-                            wr.flush();
-                            wr.close();
-                        }
-                    }
-                    break;
-
-                case "EnumBlock":
-                case "User":
-                    urlConnection.setRequestMethod("POST");
-                    urlConnection.setDoOutput(true);
-                    urlConnection.setDoInput(true);
-                    urlConnection.setRequestProperty("Content-Type", "application/json");
-                    urlConnection.setRequestProperty("charset", "utf-8");
-                    urlConnection.setUseCaches(false);
-
-                    // Starts the query
-                    urlConnection.connect();
-                    DataOutputStream wr = new DataOutputStream(urlConnection.getOutputStream());
-                    JSONObject json = new JSONObject();
-                    try {
-                        json.put("user", "test1234");
-                    } catch (JSONException e1) {
-                        e1.printStackTrace();
-                    }
-                    Log.d(TAG, "downloadUrl: " + json.toString());
-                    wr.writeBytes(json.toString());
-                    wr.flush();
-                    wr.close();
-                    break;
-            }*/
-
-
             Log.d(TAG, "doInBackground: " + urlConnection.getResponseCode());
             publishProgress(syncClass);
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
@@ -254,7 +199,7 @@ public class GetAllData extends AsyncTask<String, String, String> {
                             position = 0;
                             break;
                         case "VersionApp":
-                            db.syncVersionApp(jsonArray);
+                            db.syncVersionApp(new JSONObject(result));
                             position = 1;
                             break;
                         case "Districts":

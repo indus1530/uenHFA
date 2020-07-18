@@ -32,8 +32,6 @@ import edu.aku.hassannaqvi.uen_hfa_ml.contracts.VersionAppContract;
 import static edu.aku.hassannaqvi.uen_hfa_ml.contracts.StaffingContract.StaffingTable;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.DATABASE_VERSION;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_ALTER_FORMS01;
-import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_ALTER_FORMS02;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_DISTRICTS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_FORMS;
 import static edu.aku.hassannaqvi.uen_hfa_ml.utils.CreateTable.SQL_CREATE_HF;
@@ -80,11 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        switch (i) {
-            case 1:
-                db.execSQL(SQL_ALTER_FORMS01);
-                db.execSQL(SQL_ALTER_FORMS02);
-        }
+
     }
 
 
@@ -485,13 +479,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public void syncVersionApp(JSONArray Versionlist) {
+    public Integer syncVersionApp(JSONObject VersionList) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(VersionAppContract.VersionAppTable.TABLE_NAME, null, null);
+        long count = 0;
         try {
-            JSONArray jsonArray = Versionlist;
-            JSONObject jsonObjectCC = jsonArray.getJSONObject(0);
-
+            JSONObject jsonObjectCC = ((JSONArray) VersionList.get(VersionAppContract.VersionAppTable.COLUMN_VERSION_PATH)).getJSONObject(0);
             VersionAppContract Vc = new VersionAppContract();
             Vc.Sync(jsonObjectCC);
 
@@ -501,11 +494,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(VersionAppContract.VersionAppTable.COLUMN_VERSION_CODE, Vc.getVersioncode());
             values.put(VersionAppContract.VersionAppTable.COLUMN_VERSION_NAME, Vc.getVersionname());
 
-            db.insert(VersionAppContract.VersionAppTable.TABLE_NAME, null, values);
-        } catch (Exception e) {
+            count = db.insert(VersionAppContract.VersionAppTable.TABLE_NAME, null, values);
+            if (count > 0) count = 1;
+
+        } catch (Exception ignored) {
         } finally {
             db.close();
         }
+
+        return (int) count;
     }
 
 
