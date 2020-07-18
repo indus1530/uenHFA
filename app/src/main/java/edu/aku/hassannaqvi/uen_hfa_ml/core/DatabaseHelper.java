@@ -665,7 +665,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(StaffingTable.COLUMN_UID, tsc.get_UID());
         values.put(StaffingTable.COLUMN_UUID, tsc.get_UUID());
-        values.put(StaffingTable.COLUMN_FORMDATE, tsc.getFormDate());
+        values.put(StaffingTable.COLUMN_SYSDATE, tsc.getSysdate());
         values.put(StaffingTable.COLUMN_USERNAME, tsc.getUserName());
         values.put(StaffingTable.COLUMN_SERIALNO, tsc.getSerialno());
         values.put(StaffingTable.COLUMN_DISTRICT_CODE, tsc.getDistrictCode());
@@ -1155,7 +1155,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 StaffingTable._ID,
                 StaffingTable.COLUMN_UID,
                 StaffingTable.COLUMN_UUID,
-                StaffingTable.COLUMN_FORMDATE,
+                StaffingTable.COLUMN_SYSDATE,
                 StaffingTable.COLUMN_USERNAME,
                 StaffingTable.COLUMN_SERIALNO,
                 StaffingTable.COLUMN_DISTRICT_CODE,

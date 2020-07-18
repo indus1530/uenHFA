@@ -82,7 +82,7 @@ public final class CreateTable {
             + StaffingContract.StaffingTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + StaffingContract.StaffingTable.COLUMN_UID + " TEXT,"
             + StaffingContract.StaffingTable.COLUMN_UUID + " TEXT,"
-            + StaffingContract.StaffingTable.COLUMN_FORMDATE + " TEXT,"
+            + StaffingContract.StaffingTable.COLUMN_SYSDATE + " TEXT,"
             + StaffingContract.StaffingTable.COLUMN_USERNAME + " TEXT,"
             + StaffingContract.StaffingTable.COLUMN_SERIALNO + " TEXT,"
             + StaffingContract.StaffingTable.COLUMN_DISTRICT_CODE + " TEXT,"

@@ -16,7 +16,7 @@ public class StaffingContract {
     private String _ID = "";
     private String _UID = "";
     private String _UUID = "";
-    private String formDate = "";
+    private String sysdate = "";
     private String userName = "";
     private String serialno = "";
     private String deviceID = "";
@@ -41,7 +41,7 @@ public class StaffingContract {
         this._ID = jsonObject.getString(StaffingTable.COLUMN_ID);
         this._UID = jsonObject.getString(StaffingTable.COLUMN_UID);
         this._UUID = jsonObject.getString(StaffingTable.COLUMN_UUID);
-        this.formDate = jsonObject.getString(StaffingTable.COLUMN_FORMDATE);
+        this.sysdate = jsonObject.getString(StaffingTable.COLUMN_SYSDATE);
         this.userName = jsonObject.getString(StaffingTable.COLUMN_USERNAME);
         this.serialno = jsonObject.getString(StaffingTable.COLUMN_SERIALNO);
         this.districtCode = jsonObject.getString(StaffingTable.COLUMN_DISTRICT_CODE);
@@ -66,7 +66,7 @@ public class StaffingContract {
         this._ID = cursor.getString(cursor.getColumnIndex(StaffingTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(StaffingTable.COLUMN_UID));
         this._UUID = cursor.getString(cursor.getColumnIndex(StaffingTable.COLUMN_UUID));
-        this.formDate = cursor.getString(cursor.getColumnIndex(StaffingTable.COLUMN_FORMDATE));
+        this.sysdate = cursor.getString(cursor.getColumnIndex(StaffingTable.COLUMN_SYSDATE));
         this.userName = cursor.getString(cursor.getColumnIndex(StaffingTable.COLUMN_USERNAME));
         this.serialno = cursor.getString(cursor.getColumnIndex(StaffingTable.COLUMN_SERIALNO));
         this.districtCode = cursor.getString(cursor.getColumnIndex(StaffingTable.COLUMN_DISTRICT_CODE));
@@ -93,7 +93,7 @@ public class StaffingContract {
         json.put(StaffingTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(StaffingTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
         json.put(StaffingTable.COLUMN_UUID, this._UUID == null ? JSONObject.NULL : this._UUID);
-        json.put(StaffingTable.COLUMN_FORMDATE, this.formDate == null ? JSONObject.NULL : this.formDate);
+        json.put(StaffingTable.COLUMN_SYSDATE, this.sysdate == null ? JSONObject.NULL : this.sysdate);
         json.put(StaffingTable.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
         json.put(StaffingTable.COLUMN_SERIALNO, this.serialno == null ? JSONObject.NULL : this.serialno);
         json.put(StaffingTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
@@ -144,12 +144,12 @@ public class StaffingContract {
     }
 
 
-    public String getFormDate() {
-        return formDate;
+    public String getSysdate() {
+        return sysdate;
     }
 
-    public void setFormDate(String formDate) {
-        this.formDate = formDate;
+    public void setSysdate(String sysdate) {
+        this.sysdate = sysdate;
     }
 
 
@@ -286,7 +286,7 @@ public class StaffingContract {
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_UUID = "_uuid";
-        public static final String COLUMN_FORMDATE = "formdate";
+        public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_USERNAME = "userName";
         public static final String COLUMN_SERIALNO = "serialno";
         public static final String COLUMN_DISTRICT_CODE = "districtCode";
