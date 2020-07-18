@@ -99,7 +99,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
 
         fc.get(position).setHfName(fc.get(position).getHfName() + ".......................");
         holder.cluster.setText(fc.get(position).getHfName().substring(0, 21));
-        holder.hhno.setText("(" + fc.get(position).getFormdate() + ")");
+        holder.hhno.setText("(" + fc.get(position).getSysdate() + ")");
         holder.istatus.setText(iStatus);
         holder.sysdate.setText("  Staffing Count: " + staffCount + " \t\t\t Patient's Count: " + patientCount);
         holder.istatus.setTextColor(iColor);

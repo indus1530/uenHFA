@@ -240,7 +240,7 @@ public class SectionAActivity extends AppCompatActivity {
 
         fc = new FormsContract();
 
-        fc.setFormdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        fc.setSysdate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
 
         fc.setUserName(MainApp.userName);
 

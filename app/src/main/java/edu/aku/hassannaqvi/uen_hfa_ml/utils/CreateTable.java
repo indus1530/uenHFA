@@ -23,7 +23,7 @@ public final class CreateTable {
             + FormsContract.FormsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + FormsContract.FormsTable.COLUMN_UID + " TEXT,"
             + FormsContract.FormsTable.COLUMN_USERNAME + " TEXT,"
-            + FormsContract.FormsTable.COLUMN_FORMDATE + " TEXT,"
+            + FormsContract.FormsTable.COLUMN_SYSDATE + " TEXT,"
             + FormsContract.FormsTable.COLUMN_DISTRICT_CODE + " TEXT,"
             + FormsContract.FormsTable.COLUMN_DISTRICT_TYPE + " TEXT,"
             + FormsContract.FormsTable.COLUMN_TEHSIL_CODE + " TEXT,"

@@ -21,7 +21,7 @@ class PendingListAdapter(private val mContext: Context, private var mList: List<
     override fun onBindViewHolder(holder: ViewHolder, i: Int) {
         holder.bi.parentLayout.tag = i
         holder.bi.cluster.text = "Health Facility: ".plus(mList[i].hfName)
-        holder.bi.hhno.text = mList[i].formdate
+        holder.bi.hhno.text = mList[i].sysdate
         holder.bi.istatus.text = "Incomplete"
         holder.bi.sysdate.visibility = View.INVISIBLE
         holder.bi.istatus.setTextColor(Color.RED)

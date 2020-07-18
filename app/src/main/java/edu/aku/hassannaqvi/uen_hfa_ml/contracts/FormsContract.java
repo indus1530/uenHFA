@@ -41,7 +41,7 @@ public class FormsContract {
     private String _ID = "";
     private String _UID = "";
     private String userName = "";
-    private String formdate = "";
+    private String sysdate = "";
     private String istatus = ""; // Interview Status
     private String istatus88x = ""; // Interview Status
     private String endingdatetime = "";
@@ -155,7 +155,7 @@ public class FormsContract {
         this._ID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_ID));
         this._UID = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_UID));
         this.userName = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_USERNAME));
-        this.formdate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_FORMDATE));
+        this.sysdate = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_SYSDATE));
         this.districtCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DISTRICT_CODE));
         this.districtType = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_DISTRICT_TYPE));
         this.tehsilCode = cursor.getString(cursor.getColumnIndex(FormsTable.COLUMN_TEHSIL_CODE));
@@ -205,7 +205,7 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
         json.put(FormsTable.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
-        json.put(FormsTable.COLUMN_FORMDATE, this.formdate == null ? JSONObject.NULL : this.formdate);
+        json.put(FormsTable.COLUMN_SYSDATE, this.sysdate == null ? JSONObject.NULL : this.sysdate);
         json.put(FormsTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
         json.put(FormsTable.COLUMN_DISTRICT_TYPE, this.districtType == null ? JSONObject.NULL : this.districtType);
         json.put(FormsTable.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
@@ -267,7 +267,7 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
         json.put(FormsTable.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
-        json.put(FormsTable.COLUMN_FORMDATE, this.formdate == null ? JSONObject.NULL : this.formdate);
+        json.put(FormsTable.COLUMN_SYSDATE, this.sysdate == null ? JSONObject.NULL : this.sysdate);
         json.put(FormsTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
         json.put(FormsTable.COLUMN_DISTRICT_TYPE, this.districtType == null ? JSONObject.NULL : this.districtType);
         json.put(FormsTable.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
@@ -310,7 +310,7 @@ public class FormsContract {
         json.put(FormsTable.COLUMN_ID, this._ID == null ? JSONObject.NULL : this._ID);
         json.put(FormsTable.COLUMN_UID, this._UID == null ? JSONObject.NULL : this._UID);
         json.put(FormsTable.COLUMN_USERNAME, this.userName == null ? JSONObject.NULL : this.userName);
-        json.put(FormsTable.COLUMN_FORMDATE, this.formdate == null ? JSONObject.NULL : this.formdate);
+        json.put(FormsTable.COLUMN_SYSDATE, this.sysdate == null ? JSONObject.NULL : this.sysdate);
         json.put(FormsTable.COLUMN_DISTRICT_CODE, this.districtCode == null ? JSONObject.NULL : this.districtCode);
         json.put(FormsTable.COLUMN_DISTRICT_TYPE, this.districtType == null ? JSONObject.NULL : this.districtType);
         json.put(FormsTable.COLUMN_TEHSIL_CODE, this.tehsilCode == null ? JSONObject.NULL : this.tehsilCode);
@@ -365,12 +365,12 @@ public class FormsContract {
     }
 
 
-    public String getFormdate() {
-        return formdate;
+    public String getSysdate() {
+        return sysdate;
     }
 
-    public void setFormdate(String formdate) {
-        this.formdate = formdate;
+    public void setSysdate(String sysdate) {
+        this.sysdate = sysdate;
     }
 
 
@@ -739,7 +739,7 @@ public class FormsContract {
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_USERNAME = "userName";
-        public static final String COLUMN_FORMDATE = "formdate";
+        public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_DISTRICT_CODE = "districtCode";
         public static final String COLUMN_DISTRICT_TYPE = "districtType";
         public static final String COLUMN_TEHSIL_CODE = "tehsilCode";

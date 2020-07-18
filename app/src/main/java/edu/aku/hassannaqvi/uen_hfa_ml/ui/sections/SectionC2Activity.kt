@@ -54,7 +54,7 @@ class SectionC2Activity : AppCompatActivity() {
     private fun saveDraft() {
 
         tsc = StaffingContract()
-        tsc.formDate = MainApp.fc.formdate
+        tsc.formDate = MainApp.fc.sysdate
         tsc.userName = MainApp.fc.userName
         tsc.deviceID = MainApp.appInfo.deviceID
         tsc.devicetagID = MainApp.appInfo.tagName
