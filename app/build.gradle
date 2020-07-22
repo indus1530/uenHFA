@@ -8,8 +8,8 @@ android {
 
     def versionPropsFile = file('version.properties')
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
 
     if (versionPropsFile.canRead()) {
