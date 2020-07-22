@@ -123,7 +123,7 @@ public class SectionG1Activity extends AppCompatActivity {
                 : bi.g0101f.isChecked() ? "6"
                 : bi.g0101x.isChecked() ? "96"
                 : "-1");
-        json.put("g0101xx", bi.g0101xx.getText().toString().trim().length() > 0 ? bi.g0101xx.getText().toString() : "-1");
+        json.put("g0101xx", bi.g0101xx.getText().toString().trim().isEmpty() ? "-1" : bi.g0101xx.getText().toString());
 
 
         json.put("g0102", bi.g0102a.isChecked() ? "1"
@@ -134,7 +134,7 @@ public class SectionG1Activity extends AppCompatActivity {
                 : bi.g0103b.isChecked() ? "98"
                 : bi.g0103x.isChecked() ? "96"
                 : "-1");
-        json.put("g0103xx", bi.g0103xx.getText().toString().trim().length() > 0 ? bi.g0103xx.getText().toString() : "-1");
+        json.put("g0103xx", bi.g0103xx.getText().toString().trim().isEmpty() ? "-1" : bi.g0103xx.getText().toString());
 
         json.put("g0104", bi.g0104a.isChecked() ? "1"
                 : bi.g0104b.isChecked() ? "2"
@@ -154,14 +154,14 @@ public class SectionG1Activity extends AppCompatActivity {
                 : bi.g0106d.isChecked() ? "4"
                 : bi.g0106x.isChecked() ? "96"
                 : "-1");
-        json.put("g0106xx", bi.g0106xx.getText().toString().trim().length() > 0 ? bi.g0106xx.getText().toString() : "-1");
+        json.put("g0106xx", bi.g0106xx.getText().toString().trim().isEmpty() ? "-1" : bi.g0106xx.getText().toString());
 
         json.put("g0107", bi.g0107a.isChecked() ? "1"
                 : bi.g0107b.isChecked() ? "2"
                 : bi.g0107c.isChecked() ? "3"
                 : bi.g0107x.isChecked() ? "96"
                 : "-1");
-        json.put("g0107xx", bi.g0107xx.getText().toString().trim().length() > 0 ? bi.g0107xx.getText().toString() : "-1");
+        json.put("g0107xx", bi.g0107xx.getText().toString().trim().isEmpty() ? "-1" : bi.g0107xx.getText().toString());
 
 
         /*json.put("g0108a", bi.g0108aa.isChecked() ? "1"
@@ -194,7 +194,7 @@ public class SectionG1Activity extends AppCompatActivity {
                 : bi.g01112b.isChecked() ? "2"
                 : bi.g01112x.isChecked() ? "96"
                 : "-1");
-        json.put("g01112xx", bi.g01112xx.getText().toString().trim().length() > 0 ? bi.g01112xx.getText().toString() : "-1");
+        json.put("g01112xx", bi.g01112xx.getText().toString().trim().isEmpty() ? "-1" : bi.g01112xx.getText().toString());
 
         json.put("g01113", bi.g01113a.isChecked() ? "1"
                 : bi.g01113b.isChecked() ? "2"
