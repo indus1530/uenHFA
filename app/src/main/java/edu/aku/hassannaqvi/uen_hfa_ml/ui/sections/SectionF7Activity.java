@@ -132,45 +132,45 @@ public class SectionF7Activity extends AppCompatActivity {
         json.put("f0701aaa0a", bi.f0701aaa0ay.isChecked() ? "1"
                 : bi.f0701aaa0an.isChecked() ? "2"
                 : "-1");
-        json.put("f0701aaa0ayx", bi.f0701aaa0ayx.getText().toString().trim().length() > 0 ? bi.f0701aaa0ayx.getText().toString() : "-1");
+        json.put("f0701aaa0ayx", bi.f0701aaa0ayx.getText().toString().trim().isEmpty() ? "-1" : bi.f0701aaa0ayx.getText().toString());
 
         json.put("f0701aaa0f", bi.f0701aaa0fy.isChecked() ? "1"
                 : bi.f0701aaa0fn.isChecked() ? "2"
                 : "-1");
-        json.put("f0701aaa0fyx", bi.f0701aaa0fyx.getText().toString().trim().length() > 0 ? bi.f0701aaa0fyx.getText().toString() : "-1");
+        json.put("f0701aaa0fyx", bi.f0701aaa0fyx.getText().toString().trim().isEmpty() ? "-1" : bi.f0701aaa0fyx.getText().toString());
 
 
         json.put("f0701aab0a", bi.f0701aab0ay.isChecked() ? "1"
                 : bi.f0701aab0an.isChecked() ? "2"
                 : "-1");
-        json.put("f0701aab0ayx", bi.f0701aab0ayx.getText().toString().trim().length() > 0 ? bi.f0701aab0ayx.getText().toString() : "-1");
+        json.put("f0701aab0ayx", bi.f0701aab0ayx.getText().toString().trim().isEmpty() ? "-1" : bi.f0701aab0ayx.getText().toString());
 
         json.put("f0701aab0f", bi.f0701aab0fy.isChecked() ? "1"
                 : bi.f0701aab0fn.isChecked() ? "2"
                 : "-1");
-        json.put("f0701aab0fyx", bi.f0701aab0fyx.getText().toString().trim().length() > 0 ? bi.f0701aab0fyx.getText().toString() : "-1");
+        json.put("f0701aab0fyx", bi.f0701aab0fyx.getText().toString().trim().isEmpty() ? "-1" : bi.f0701aab0fyx.getText().toString());
 
 
         json.put("f0701aac0a", bi.f0701aac0ay.isChecked() ? "1"
                 : bi.f0701aac0an.isChecked() ? "2"
                 : "-1");
-        json.put("f0701aac0ayx", bi.f0701aac0ayx.getText().toString().trim().length() > 0 ? bi.f0701aac0ayx.getText().toString() : "-1");
+        json.put("f0701aac0ayx", bi.f0701aac0ayx.getText().toString().trim().isEmpty() ? "-1" : bi.f0701aac0ayx.getText().toString());
 
         json.put("f0701aac0f", bi.f0701aac0fy.isChecked() ? "1"
                 : bi.f0701aac0fn.isChecked() ? "2"
                 : "-1");
-        json.put("f0701aac0fyx", bi.f0701aac0fyx.getText().toString().trim().length() > 0 ? bi.f0701aac0fyx.getText().toString() : "-1");
+        json.put("f0701aac0fyx", bi.f0701aac0fyx.getText().toString().trim().isEmpty() ? "-1" : bi.f0701aac0fyx.getText().toString());
 
 
         json.put("f0701aad0a", bi.f0701aad0ay.isChecked() ? "1"
                 : bi.f0701aad0an.isChecked() ? "2"
                 : "-1");
-        json.put("f0701aad0ayx", bi.f0701aad0ayx.getText().toString().trim().length() > 0 ? bi.f0701aad0ayx.getText().toString() : "-1");
+        json.put("f0701aad0ayx", bi.f0701aad0ayx.getText().toString().trim().isEmpty() ? "-1" : bi.f0701aad0ayx.getText().toString());
 
         json.put("f0701aad0f", bi.f0701aad0fy.isChecked() ? "1"
                 : bi.f0701aad0fn.isChecked() ? "2"
                 : "-1");
-        json.put("f0701aad0fyx", bi.f0701aad0fyx.getText().toString().trim().length() > 0 ? bi.f0701aad0fyx.getText().toString() : "-1");
+        json.put("f0701aad0fyx", bi.f0701aad0fyx.getText().toString().trim().isEmpty() ? "-1" : bi.f0701aad0fyx.getText().toString());
 
 
         try {
