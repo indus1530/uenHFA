@@ -233,6 +233,7 @@ public class SectionE7Activity extends AppCompatActivity {
         json.put("e0704g", bi.e0704ga.isChecked() ? "1"
                 : bi.e0704gx.isChecked() ? "96"
                 : "-1");
+        json.put("e0704gxx", bi.e0704gxx.getText().toString());
 
 
         json.put("e0705a0a", bi.e0705a0ay.isChecked() ? "1"

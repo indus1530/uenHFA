@@ -196,6 +196,9 @@ public class SectionF1Activity extends AppCompatActivity {
                 : bi.f0100b.isChecked() ? "2"
                 : "-1");
 
+        json.put("f01001", bi.f01001a.isChecked() ? "1"
+                : bi.f01001b.isChecked() ? "2"
+                : "-1");
 
         json.put("f0101aa0a", bi.f0101aa0ay.isChecked() ? "1"
                 : bi.f0101aa0an.isChecked() ? "2"
