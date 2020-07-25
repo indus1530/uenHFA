@@ -191,30 +191,36 @@ public class GetAllData extends AsyncTask<String, String, String> {
             if (result.length() > 0) {
                 DatabaseHelper db = new DatabaseHelper(mContext);
                 try {
-                    JSONArray jsonArray = new JSONArray(result);
+                    JSONArray jsonArray = new JSONArray();
 
                     switch (syncClass) {
                         case "User":
+                            jsonArray = new JSONArray(result);
                             db.syncUser(jsonArray);
                             position = 0;
                             break;
                         case "VersionApp":
-                            db.syncVersionApp(new JSONObject(result));
+                            int insertCount = db.syncVersionApp(new JSONObject(result));
+                            if (insertCount == 1) jsonArray.put("1");
                             position = 1;
                             break;
                         case "Districts":
+                            jsonArray = new JSONArray(result);
                             position = 2;
                             db.syncDistricts(jsonArray);
                             break;
                         case "Tehsils":
+                            jsonArray = new JSONArray(result);
                             position = 3;
                             db.syncTehsils(jsonArray);
                             break;
                         case "UCs":
+                            jsonArray = new JSONArray(result);
                             position = 4;
                             db.syncUCs(jsonArray);
                             break;
                         case "HealthFacilities":
+                            jsonArray = new JSONArray(result);
                             db.syncHF(jsonArray);
                             position = 5;
                             break;
